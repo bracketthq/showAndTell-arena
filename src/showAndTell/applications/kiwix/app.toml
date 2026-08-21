@@ -1,0 +1,25 @@
+[app]
+name = "kiwix"
+label = "Kiwix / Wikipedia"
+familiar_label = "Wikipedia"
+
+[compose]
+driver = true
+service = "kiwix"
+
+[ports]
+app = { container = 80, host = 8888 }
+
+[health]
+http = "/"
+
+[credentials]
+username = ""
+password = ""
+
+[surface]
+entry = "/"
+
+[capabilities]
+snapshots = false
+capture = false

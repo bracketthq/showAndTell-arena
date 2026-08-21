@@ -1,0 +1,179 @@
+# Pinned from the official frappe/frappe_docker disposable deployment shape,
+# then extended by Dockerfile with the matching HRMS release. This one image
+# serves ERP and HR tasks on the same Frappe site.
+# Upstream reference: https://github.com/frappe/frappe_docker/blob/main/pwd.yml
+#
+# This is a dedicated benchmark site. It is intentionally isolated from any
+# production deployment because fixture reset replaces the entire site database.
+x-erpnext-image: &erpnext_image
+  image: showAndTell/erpnext-hrms:erpnext-v16.29.0-hrms-v16.7.1
+  restart: on-failure
+
+x-backend-defaults: &backend_defaults
+  <<: *erpnext_image
+  depends_on:
+    configurator:
+      condition: service_completed_successfully
+  volumes:
+    - sites:/home/frappe/frappe-bench/sites
+    - logs:/home/frappe/frappe-bench/logs
+  environment:
+    DB_HOST: db
+    DB_PORT: "3306"
+    MYSQL_ROOT_PASSWORD: "${SHOWANDTELL_ERPNEXT_DB_ROOT_PASSWORD:-showAndTell-db-local-only}"
+    MARIADB_ROOT_PASSWORD: "${SHOWANDTELL_ERPNEXT_DB_ROOT_PASSWORD:-showAndTell-db-local-only}"
+
+services:
+  backend:
+    <<: *backend_defaults
+    # Build the shared image exactly once. Putting this block in the common
+    # anchor makes BuildKit race every service to export the same image tag.
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        ERPNEXT_IMAGE: frappe/erpnext@sha256:a951e8c905161ec50246d5f6da8e324d89ffb8bb3b407b3508208890f6a9483c
+        HRMS_REF: v16.7.1
+        HRMS_COMMIT: fe9ad9d362406a1ec3f394e14f6b3d5684c79b83
+
+  configurator:
+    <<: *erpnext_image
+    restart: "no"
+    entrypoint: [bash, -c]
+    command:
+      - >-
+        ls -1 apps > sites/apps.txt;
+        bench set-config -g db_host "$${DB_HOST}";
+        bench set-config -gp db_port "$${DB_PORT}";
+        bench set-config -g redis_cache "redis://$${REDIS_CACHE}";
+        bench set-config -g redis_queue "redis://$${REDIS_QUEUE}";
+        bench set-config -g redis_socketio "redis://$${REDIS_QUEUE}";
+        bench set-config -gp socketio_port "$${SOCKETIO_PORT}";
+    environment:
+      DB_HOST: db
+      DB_PORT: "3306"
+      REDIS_CACHE: redis-cache:6379
+      REDIS_QUEUE: redis-queue:6379
+      SOCKETIO_PORT: "9000"
+    volumes:
+      - sites:/home/frappe/frappe-bench/sites
+      - logs:/home/frappe/frappe-bench/logs
+
+  create-site:
+    <<: *erpnext_image
+    restart: "no"
+    depends_on:
+      configurator:
+        condition: service_completed_successfully
+      db:
+        condition: service_healthy
+      redis-cache:
+        condition: service_started
+      redis-queue:
+        condition: service_started
+    entrypoint: [bash, -c]
+    command:
+      - >-
+        wait-for-it -t 120 db:3306;
+        wait-for-it -t 120 redis-cache:6379;
+        wait-for-it -t 120 redis-queue:6379;
+        if [ ! -d sites/frontend ]; then
+          bench new-site --mariadb-user-host-login-scope='%' --admin-password="$${ADMIN_PASSWORD}" --db-root-username=root --db-root-password="$${DB_ROOT_PASSWORD}" --install-app erpnext --install-app hrms --set-default frontend;
+        else
+          echo 'ERPNext + HRMS site already exists';
+          bench --site frontend list-apps | grep -Eq '^hrms([[:space:]]|$)' || { bench --site frontend migrate; bench --site frontend install-app hrms; };
+        fi;
+        bench --site frontend execute frappe.desk.page.setup_wizard.setup_wizard.run_post_setup_complete --kwargs '{"args":{}}'
+    environment:
+      ADMIN_PASSWORD: "${SHOWANDTELL_ERPNEXT_ADMIN_PASSWORD:-showAndTell-admin}"
+      DB_ROOT_PASSWORD: "${SHOWANDTELL_ERPNEXT_DB_ROOT_PASSWORD:-showAndTell-db-local-only}"
+    volumes:
+      - sites:/home/frappe/frappe-bench/sites
+      - logs:/home/frappe/frappe-bench/logs
+
+  db:
+    image: mariadb:10.6.22
+    restart: on-failure
+    healthcheck:
+      test: [CMD, healthcheck.sh, --connect, --innodb_initialized]
+      interval: 2s
+      timeout: 5s
+      retries: 60
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --skip-character-set-client-handshake
+      - --skip-innodb-read-only-compressed
+    environment:
+      MYSQL_ROOT_PASSWORD: "${SHOWANDTELL_ERPNEXT_DB_ROOT_PASSWORD:-showAndTell-db-local-only}"
+      MARIADB_ROOT_PASSWORD: "${SHOWANDTELL_ERPNEXT_DB_ROOT_PASSWORD:-showAndTell-db-local-only}"
+    volumes:
+      - db-data:/var/lib/mysql
+
+  erpnext:
+    <<: *erpnext_image
+    depends_on:
+      backend:
+        condition: service_started
+      create-site:
+        condition: service_completed_successfully
+      websocket:
+        condition: service_started
+    command: [nginx-entrypoint.sh]
+    environment:
+      BACKEND: backend:8000
+      FRAPPE_SITE_NAME_HEADER: frontend
+      SOCKETIO: websocket:9000
+      UPSTREAM_REAL_IP_ADDRESS: 127.0.0.1
+      UPSTREAM_REAL_IP_HEADER: X-Forwarded-For
+      UPSTREAM_REAL_IP_RECURSIVE: "off"
+      PROXY_READ_TIMEOUT: "120"
+      CLIENT_MAX_BODY_SIZE: 50m
+    volumes:
+      - sites:/home/frappe/frappe-bench/sites
+      - logs:/home/frappe/frappe-bench/logs
+    ports:
+      # Loopback-only by default. A remote fixture host sets
+      # SHOWANDTELL_ERPNEXT_BIND_HOST=0.0.0.0 and restricts access at the firewall.
+      - "${SHOWANDTELL_ERPNEXT_BIND_HOST:-127.0.0.1}:${SHOWANDTELL_ERPNEXT_PORT:-8080}:8080"
+
+  queue-long:
+    <<: *backend_defaults
+    command: [bench, worker, --queue, "long,default,short"]
+
+  queue-short:
+    <<: *backend_defaults
+    command: [bench, worker, --queue, "short,default"]
+
+  redis-cache:
+    image: redis:6.2.18-alpine
+    restart: on-failure
+
+  redis-queue:
+    image: redis:6.2.18-alpine
+    restart: on-failure
+    volumes:
+      - redis-queue-data:/data
+
+  scheduler:
+    <<: *backend_defaults
+    command: [bench, schedule]
+
+  websocket:
+    <<: *erpnext_image
+    depends_on:
+      configurator:
+        condition: service_completed_successfully
+    command: [node, /home/frappe/frappe-bench/apps/frappe/socketio.js]
+    environment:
+      FRAPPE_REDIS_CACHE: redis://redis-cache:6379
+      FRAPPE_REDIS_QUEUE: redis://redis-queue:6379
+    volumes:
+      - sites:/home/frappe/frappe-bench/sites
+      - logs:/home/frappe/frappe-bench/logs
+
+volumes:
+  db-data:
+  logs:
+  redis-queue-data:
+  sites:

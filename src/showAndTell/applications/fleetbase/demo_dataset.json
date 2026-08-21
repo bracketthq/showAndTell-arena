@@ -1,0 +1,186 @@
+{
+  "metadata": {
+    "dataset_id": "enterprise-operations",
+    "version": 1,
+    "as_of_date": "2026-08-05",
+    "description": "Reusable synthetic operational data for renewal, preventive-maintenance, expense-audit, and payroll-cutoff workflows."
+  },
+  "fleet": {
+    "vehicles": [
+      {
+        "asset_code": "BGF-4821",
+        "name": "Cargo Van 4821",
+        "make": "Ford",
+        "model": "Transit",
+        "year": "2023",
+        "vehicle_class": "cargo-van",
+        "odometer": 49500,
+        "status": "available",
+        "scenario_role": "500-mile-boundary"
+      },
+      {
+        "asset_code": "BGF-4822",
+        "name": "Cargo Van 4822",
+        "make": "Ford",
+        "model": "Transit",
+        "year": "2023",
+        "vehicle_class": "cargo-van",
+        "odometer": 49499,
+        "status": "available",
+        "scenario_role": "501-mile-near-boundary"
+      },
+      {
+        "asset_code": "BGF-4823",
+        "name": "Medium Truck 4823",
+        "make": "Isuzu",
+        "model": "NPR",
+        "year": "2022",
+        "vehicle_class": "medium-truck",
+        "odometer": 89750,
+        "status": "available",
+        "scenario_role": "7-day-boundary"
+      },
+      {
+        "asset_code": "BGF-4824",
+        "name": "Electric Van 4824",
+        "make": "Ford",
+        "model": "E-Transit",
+        "year": "2024",
+        "vehicle_class": "electric-van",
+        "odometer": 19800,
+        "status": "available",
+        "scenario_role": "8-day-near-boundary"
+      },
+      {
+        "asset_code": "BGF-4825",
+        "name": "Medium Truck 4825",
+        "make": "Hino",
+        "model": "195",
+        "year": "2021",
+        "vehicle_class": "medium-truck",
+        "odometer": 120300,
+        "status": "maintenance",
+        "scenario_role": "already-open-work-order"
+      },
+      {
+        "asset_code": "BGF-4826",
+        "name": "Cargo Van 4826",
+        "make": "Ram",
+        "model": "ProMaster",
+        "year": "2020",
+        "vehicle_class": "cargo-van",
+        "odometer": 76000,
+        "status": "inactive",
+        "scenario_role": "inactive-distractor"
+      }
+    ],
+    "maintenance_schedules": [
+      {
+        "schedule_code": "PM-26001",
+        "asset_code": "BGF-4821",
+        "name": "50,000 Mile Service",
+        "next_due_date": "2026-09-01",
+        "next_due_odometer": 50000,
+        "kit_item_code": "MNT-KIT-VAN-A",
+        "status": "active"
+      },
+      {
+        "schedule_code": "PM-26002",
+        "asset_code": "BGF-4822",
+        "name": "50,000 Mile Service",
+        "next_due_date": "2026-09-01",
+        "next_due_odometer": 50000,
+        "kit_item_code": "MNT-KIT-VAN-A",
+        "status": "active"
+      },
+      {
+        "schedule_code": "PM-26003",
+        "asset_code": "BGF-4823",
+        "name": "Quarterly Safety Inspection",
+        "next_due_date": "2026-08-12",
+        "next_due_odometer": 90500,
+        "kit_item_code": "MNT-KIT-TRK-B",
+        "status": "active"
+      },
+      {
+        "schedule_code": "PM-26004",
+        "asset_code": "BGF-4824",
+        "name": "EV Systems Inspection",
+        "next_due_date": "2026-08-13",
+        "next_due_odometer": 20500,
+        "kit_item_code": "MNT-KIT-EV-C",
+        "status": "active"
+      },
+      {
+        "schedule_code": "PM-26005",
+        "asset_code": "BGF-4825",
+        "name": "120,000 Mile Service",
+        "next_due_date": "2026-07-30",
+        "next_due_odometer": 120000,
+        "kit_item_code": "MNT-KIT-TRK-B",
+        "status": "active"
+      },
+      {
+        "schedule_code": "PM-26006",
+        "asset_code": "BGF-4826",
+        "name": "Annual Safety Inspection",
+        "next_due_date": "2026-07-29",
+        "next_due_odometer": 75500,
+        "kit_item_code": "MNT-KIT-VAN-A",
+        "status": "inactive"
+      }
+    ],
+    "work_orders": [
+      {
+        "work_order_code": "WO-26001",
+        "schedule_code": "PM-26005",
+        "asset_code": "BGF-4825",
+        "subject": "Complete 120,000 mile service",
+        "status": "open",
+        "priority": "high",
+        "due_at": "2026-08-06 16:00:00",
+        "scenario_role": "existing-open"
+      },
+      {
+        "work_order_code": "WO-26002",
+        "schedule_code": "PM-26006",
+        "asset_code": "BGF-4826",
+        "subject": "Prior annual safety inspection",
+        "status": "completed",
+        "priority": "normal",
+        "due_at": "2026-07-29 16:00:00",
+        "scenario_role": "historical"
+      }
+    ],
+    "dispatch_orders": [
+      {
+        "dispatch_code": "DSP-26001",
+        "asset_code": "BGF-4821",
+        "scheduled_at": "2026-08-06 08:00:00",
+        "status": "created",
+        "scenario_role": "next-dispatch"
+      },
+      {
+        "dispatch_code": "DSP-26002",
+        "asset_code": "BGF-4823",
+        "scheduled_at": "2026-08-07 06:30:00",
+        "status": "created",
+        "scenario_role": "next-dispatch"
+      },
+      {
+        "dispatch_code": "DSP-26003",
+        "asset_code": "BGF-4824",
+        "scheduled_at": "2026-08-15 09:00:00",
+        "status": "created",
+        "scenario_role": "outside-window"
+      },
+      {
+        "dispatch_code": "DSP-26004",
+        "asset_code": "BGF-4826",
+        "scheduled_at": "2026-08-06 10:00:00",
+        "status": "canceled",
+        "scenario_role": "inactive-distractor"
+      }
+    ]
+  }
+}

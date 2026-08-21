@@ -1,0 +1,26 @@
+[app]
+name = "magento"
+label = "Magento storefront"
+familiar_label = "Shopping"
+
+[compose]
+driver = true
+service = "magento"
+
+[ports]
+app = { container = 80, host = 7770 }
+
+[health]
+http = "/"
+
+[credentials]
+username = "emma.lopez@gmail.com"
+password = "Password.123"
+
+[surface]
+id = "magento_storefront"
+entry = "/"
+
+[capabilities]
+snapshots = false
+capture = false

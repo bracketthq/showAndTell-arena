@@ -1,0 +1,162 @@
+# Fleetbase v0.7.52 with its bundled official Fleet-Ops packages. The two
+# Fleetbase images are the release's multi-architecture manifests. Supporting
+# images are pinned as well; SocketCluster is the one upstream amd64-only
+# component and therefore declares its platform explicitly.
+
+x-api: &api
+  image: docker.io/fleetbase/fleetbase-api@sha256:5c60ad21a9157b9911cd140d5223c6a581d7ab5ea12cc38a5fa92da3ad863715
+  restart: unless-stopped
+  environment: &api-environment
+    APP_NAME: Fleetbase
+    APP_ENV: production
+    ENVIRONMENT: production
+    APP_DEBUG: "false"
+    APP_KEY: ${SHOWANDTELL_FLEETBASE_APP_KEY:-base64:c2hvd3RlbGwtZmxlZXRiYXNlLWxvY2FsLWtleS0wMDE=}
+    APP_URL: ${SHOWANDTELL_FLEETBASE_API_PUBLIC_URL:-http://127.0.0.1:8046}
+    CONSOLE_HOST: ${SHOWANDTELL_FLEETBASE_PUBLIC_URL:-http://127.0.0.1:8045}
+    FRONTEND_HOSTS: ${SHOWANDTELL_FLEETBASE_PUBLIC_URL:-http://127.0.0.1:8045}
+    SESSION_DOMAIN: ${SHOWANDTELL_FLEETBASE_SESSION_DOMAIN:-127.0.0.1}
+    DATABASE_URL: mysql://fleetbase:${SHOWANDTELL_FLEETBASE_DB_PASSWORD:-showAndTell-fleetbase-db-local-only}@database/fleetbase
+    QUEUE_CONNECTION: redis
+    CACHE_DRIVER: redis
+    SESSION_DRIVER: redis
+    CACHE_PATH: /fleetbase/api/storage/framework/cache
+    CACHE_URL: tcp://cache
+    REDIS_URL: tcp://cache
+    BROADCAST_DRIVER: socketcluster
+    SOCKETCLUSTER_HOST: socket
+    SOCKETCLUSTER_PORT: "8000"
+    SOCKETCLUSTER_SECURE: "false"
+    FILESYSTEM_DRIVER: public
+    MAIL_MAILER: log
+    MAIL_FROM_NAME: Fleetbase
+    MAIL_FROM_ADDRESS: fleetbase@localhost.invalid
+    REGISTRY_PREINSTALLED_EXTENSIONS: "true"
+    TELEMETRY_DISABLED: "true"
+    OSRM_HOST: http://127.0.0.1:9
+    LOG_CHANNEL: stdout
+  volumes:
+    - fleetbase_storage:/fleetbase/api/storage/app
+  networks:
+    - backend
+
+services:
+  cache:
+    image: docker.io/valkey/valkey@sha256:d827e7f7552cdee40cc7482dbae9da020f42bc47669af6f71182a4ef76a22773
+    restart: unless-stopped
+    volumes:
+      - cache_data:/data
+    healthcheck:
+      test: ["CMD", "valkey-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+    networks:
+      - backend
+
+  database:
+    image: docker.io/library/mysql@sha256:3e646bcda0d9448ffa3d2024eef04e1bca95528ec19b9e8b76749da9d97d4a10
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${SHOWANDTELL_FLEETBASE_DB_ROOT_PASSWORD:-showAndTell-fleetbase-root-local-only}
+      MYSQL_DATABASE: fleetbase
+      MYSQL_USER: fleetbase
+      MYSQL_PASSWORD: ${SHOWANDTELL_FLEETBASE_DB_PASSWORD:-showAndTell-fleetbase-db-local-only}
+      TZ: UTC
+    volumes:
+      - database_data:/var/lib/mysql
+      - ./database-init.sql:/docker-entrypoint-initdb.d/10-fleetbase-sandbox.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u root -p$${MYSQL_ROOT_PASSWORD} --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 60
+      start_period: 30s
+    networks:
+      - backend
+
+  socket:
+    image: docker.io/socketcluster/socketcluster@sha256:3cd5c2dde94eab1d4b4dde7d35a6eb8e5a109e7cb491c6f3964111144557b085
+    platform: linux/amd64
+    restart: unless-stopped
+    ports:
+      - "${SHOWANDTELL_FLEETBASE_BIND_HOST:-127.0.0.1}:${SHOWANDTELL_FLEETBASE_SOCKET_PORT:-38045}:8000"
+    environment:
+      SOCKETCLUSTER_WORKERS: "1"
+      SOCKETCLUSTER_BROKERS: "1"
+      SOCKETCLUSTER_OPTIONS: '${SHOWANDTELL_FLEETBASE_SOCKET_OPTIONS:-{}}'
+    networks:
+      - backend
+      - ingress
+
+  application:
+    <<: *api
+    depends_on:
+      cache:
+        condition: service_healthy
+      database:
+        condition: service_healthy
+      socket:
+        condition: service_started
+    ports:
+      - "${SHOWANDTELL_FLEETBASE_BIND_HOST:-127.0.0.1}:${SHOWANDTELL_FLEETBASE_API_PORT:-8046}:8000"
+    networks:
+      - backend
+      - ingress
+
+  queue:
+    <<: *api
+    command: ["php", "artisan", "queue:work", "--sleep=1", "--tries=3"]
+    # The API image probes port 8000, but this worker intentionally serves no
+    # HTTP listener. Disable that inherited probe instead of reporting a live
+    # queue worker as unhealthy.
+    healthcheck:
+      disable: true
+    depends_on:
+      cache:
+        condition: service_healthy
+      database:
+        condition: service_healthy
+
+  scheduler:
+    <<: *api
+    # The upstream go-crond binary is amd64-only even in its arm64 API image;
+    # Laravel's native scheduler keeps this service architecture-independent.
+    command: ["php", "artisan", "schedule:work"]
+    healthcheck:
+      disable: true
+    depends_on:
+      cache:
+        condition: service_healthy
+      database:
+        condition: service_healthy
+
+  console:
+    image: docker.io/fleetbase/fleetbase-console@sha256:9eb68fb89b94fe7c0bc9515ed559f58aecc21c4b7f535710f82299eb334c6f74
+    restart: unless-stopped
+    depends_on:
+      application:
+        condition: service_started
+    ports:
+      - "${SHOWANDTELL_FLEETBASE_BIND_HOST:-127.0.0.1}:${SHOWANDTELL_FLEETBASE_PORT:-8045}:4200"
+    environment:
+      NGINX_ENVSUBST_TEMPLATE_DIR: /etc/nginx/templates/showAndTell
+      NGINX_ENVSUBST_OUTPUT_DIR: /etc/nginx/conf.d
+      SHOWANDTELL_FLEETBASE_API_PUBLIC_URL: ${SHOWANDTELL_FLEETBASE_API_PUBLIC_URL:-http://127.0.0.1:8046}
+      SHOWANDTELL_FLEETBASE_SOCKET_HOST: ${SHOWANDTELL_FLEETBASE_SOCKET_HOST:-127.0.0.1}
+      SHOWANDTELL_FLEETBASE_SOCKET_PORT: ${SHOWANDTELL_FLEETBASE_SOCKET_PORT:-38045}
+      SHOWANDTELL_FLEETBASE_SOCKET_SECURE: ${SHOWANDTELL_FLEETBASE_SOCKET_SECURE:-false}
+    volumes:
+      - ./console.conf.template:/etc/nginx/templates/showAndTell/default.conf.template:ro
+    networks:
+      - ingress
+
+volumes:
+  cache_data:
+  database_data:
+  fleetbase_storage:
+
+networks:
+  backend:
+    internal: true
+  ingress:

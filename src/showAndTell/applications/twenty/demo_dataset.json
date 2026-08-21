@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "dataset_id": "enterprise-operations",
+    "version": 1,
+    "as_of_date": "2026-08-05",
+    "description": "Reusable synthetic operational data for renewal, preventive-maintenance, expense-audit, and payroll-cutoff workflows."
+  },
+  "crm": {
+    "companies": [
+      {
+        "account_code": "ACCT-4101",
+        "name": "Northstar Analytics",
+        "domain": "northstar-analytics.example",
+        "employees": 420
+      },
+      {
+        "account_code": "ACCT-4102",
+        "name": "Northstar Analytics Group",
+        "domain": "northstar-group.example",
+        "employees": 38
+      },
+      {
+        "account_code": "ACCT-4103",
+        "name": "Harbor Health Systems",
+        "domain": "harbor-health.example",
+        "employees": 1250
+      },
+      {
+        "account_code": "ACCT-4104",
+        "name": "Meridian Robotics",
+        "domain": "meridian-robotics.example",
+        "employees": 310
+      },
+      {
+        "account_code": "ACCT-4105",
+        "name": "Pinecrest Foods",
+        "domain": "pinecrest-foods.example",
+        "employees": 780
+      },
+      {
+        "account_code": "ACCT-4106",
+        "name": "Solace Energy",
+        "domain": "solace-energy.example",
+        "employees": 560
+      }
+    ],
+    "opportunities": [
+      {
+        "opportunity_code": "REN-26001",
+        "name": "Northstar Analytics 2026 Renewal",
+        "account_code": "ACCT-4101",
+        "amount_usd": 84000,
+        "stage": "MEETING",
+        "close_date": "2026-09-15",
+        "scenario_role": "case"
+      },
+      {
+        "opportunity_code": "REN-26002",
+        "name": "Northstar Analytics Group 2026 Renewal",
+        "account_code": "ACCT-4102",
+        "amount_usd": 12000,
+        "stage": "SCREENING",
+        "close_date": "2026-10-01",
+        "scenario_role": "wrong-name-twin"
+      },
+      {
+        "opportunity_code": "REN-26003",
+        "name": "Harbor Health 2026 Renewal",
+        "account_code": "ACCT-4103",
+        "amount_usd": 156000,
+        "stage": "PROPOSAL",
+        "close_date": "2026-08-31",
+        "scenario_role": "boundary"
+      },
+      {
+        "opportunity_code": "REN-26004",
+        "name": "Meridian Robotics 2026 Renewal",
+        "account_code": "ACCT-4104",
+        "amount_usd": 68000,
+        "stage": "MEETING",
+        "close_date": "2026-09-30",
+        "scenario_role": "case"
+      },
+      {
+        "opportunity_code": "REN-26005",
+        "name": "Pinecrest Foods 2026 Renewal",
+        "account_code": "ACCT-4105",
+        "amount_usd": 99000,
+        "stage": "NEW",
+        "close_date": "2026-10-15",
+        "scenario_role": "case"
+      },
+      {
+        "opportunity_code": "REN-26006",
+        "name": "Solace Energy 2026 Renewal",
+        "account_code": "ACCT-4106",
+        "amount_usd": 112000,
+        "stage": "CUSTOMER",
+        "close_date": "2026-07-31",
+        "scenario_role": "already-processed"
+      },
+      {
+        "opportunity_code": "EXP-26001",
+        "name": "Northstar Analytics Data Platform Expansion",
+        "account_code": "ACCT-4101",
+        "amount_usd": 36000,
+        "stage": "NEW",
+        "close_date": "2026-11-30",
+        "scenario_role": "expansion"
+      }
+    ]
+  }
+}

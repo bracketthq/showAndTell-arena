@@ -1,0 +1,280 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Starting data</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500&display=swap">
+<style>
+  /* Brackett design-system values (see viewer/src/styles/tokens.css for the
+     provenance and paste-to-update contract; this page keeps its own small
+     copy because it is served standalone). --accent-ink is accent TEXT on
+     page surfaces; filled amber controls take --accent-foreground. */
+  :root {
+    --paper: #ffffff; --card: #f7f5f0; --ink: #0d1824; --muted: #5c7389;
+    --line: #d8dde2; --accent: #f5b840; --accent-foreground: #7b510c;
+    --accent-ink: #7b510c; --good: #2e7d32; --bad: #a94646;
+    --sans: 'Satoshi', ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --paper:#0a131f; --card:#131e2c; --ink:#f7f5f0; --muted:#8499b0;
+            --line:#243550; --accent:#f5b840; --accent-foreground:#7b510c;
+            --accent-ink:#f5b840; --good:#66bb6a; --bad:#e57373; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink);
+         font: 14px/1.4 var(--sans); font-synthesis-weight: none; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 22px 18px 60px;
+          display: flex; flex-direction: column; gap: 16px; }
+  header h1 { margin: 0 0 3px; font: 600 19px var(--mono); letter-spacing: -.01em; }
+  header p { margin: 0; color: var(--muted); font-size: 12.5px; max-width: 62ch; }
+  .app { background: var(--card); border: 1px solid var(--line); border-radius: 8px; }
+  .app > h2 { margin: 0; padding: 13px 16px; border-bottom: 1px solid var(--line);
+              font: 600 14px var(--mono); display: flex; gap: 10px; align-items: baseline; }
+  .app > h2 small { color: var(--muted); font: 400 11.5px system-ui; }
+  .tabs { display: flex; gap: 4px; padding: 10px 16px 0; }
+  .tabs button { border: 1px solid var(--line); border-bottom: none;
+                 background: transparent; color: var(--muted); cursor: pointer;
+                 padding: 6px 13px; border-radius: 6px 6px 0 0; font: 500 12px system-ui; }
+  .tabs button[aria-selected="true"] { background: var(--paper); color: var(--ink); }
+  .pane { padding: 14px 16px 16px; border-top: 1px solid var(--line); margin-top: -1px; }
+  .pane[hidden] { display: none; }
+  .rows { display: flex; flex-direction: column; gap: 12px; }
+  .row { border: 1px solid var(--line); border-radius: 7px; padding: 12px 13px;
+         display: grid; gap: 9px; background: var(--paper); }
+  .row-head { display: flex; justify-content: space-between; align-items: center;
+              font: 600 11px var(--mono); color: var(--muted);
+              text-transform: uppercase; letter-spacing: .08em; }
+  .row-head button { border: 0; background: transparent; color: var(--muted);
+                     cursor: pointer; font-size: 15px; line-height: 1; padding: 2px 4px; }
+  .row-head button:hover { color: var(--bad); }
+  label { display: grid; gap: 3px; font-size: 12px; color: var(--muted); }
+  label > span b { color: var(--ink); font-weight: 600; }
+  label em { font-style: normal; font-size: 11px; }
+  input[type=text], input[type=datetime-local], textarea, select {
+    font: 13px/1.4 inherit; color: var(--ink); background: var(--card);
+    border: 1px solid var(--line); border-radius: 5px; padding: 7px 9px; width: 100%; }
+  textarea { min-height: 76px; resize: vertical; font-family: inherit; }
+  .check { display: flex; gap: 7px; align-items: center; font-size: 12.5px; color: var(--ink); }
+  .check input { margin: 0; }
+  textarea.json { min-height: 320px; font: 12px/1.5 var(--mono); }
+  .actions { display: flex; gap: 9px; align-items: center; margin-top: 13px; }
+  button.primary { background: var(--accent); color: var(--accent-foreground); border: 0; cursor: pointer;
+                   padding: 8px 15px; border-radius: 6px; font: 600 12.5px system-ui; }
+  button.ghost { background: transparent; color: var(--accent-ink); border: 1px solid var(--line);
+                 cursor: pointer; padding: 8px 13px; border-radius: 6px; font: 500 12.5px system-ui; }
+  button:disabled { opacity: .5; cursor: default; }
+  .status { font-size: 12.5px; min-height: 1.4em; }
+  .status.ok { color: var(--good); } .status.err { color: var(--bad); white-space: pre-wrap; }
+  .empty { color: var(--muted); font-size: 12.5px; padding: 18px 16px; }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Starting data</h1>
+    <p>Add anything the task needs that you cannot create in the application
+       itself — mail arriving from someone else, for instance. Applying it
+       delivers it for real, so switch to the application's tab and it is
+       there. It is captured with the rest of your setup.</p>
+  </header>
+  <div id="apps"></div>
+</div>
+
+<script>
+const SESSION = "__SESSION_ID__";
+// Same loopback write token the viewer's own page carries: applying seed data
+// mutates a running application, so it is gated exactly like editing questions.
+const EDIT_TOKEN = "__EDIT_TOKEN__";
+const API = `/api/captures/${SESSION}/seed`;
+const el = (tag, props = {}, kids = []) => {
+  const node = Object.assign(document.createElement(tag), props);
+  for (const kid of [].concat(kids)) if (kid) node.append(kid);
+  return node;
+};
+
+function fieldInput(field, value, onChange) {
+  if (field.kind === "checkbox") {
+    const box = el("input", {type: "checkbox", checked: !!value});
+    box.addEventListener("change", () => onChange(box.checked));
+    return el("label", {className: "check"}, [box, el("span", {textContent: field.label})]);
+  }
+  let input;
+  if (field.kind === "datetime") {
+    // datetime-local wants "YYYY-MM-DDTHH:MM"; the server hands back a full
+    // UTC instant, so trim it to what the control accepts.
+    const initial = (value || "").replace(/(:\d{2})?([+-]\d{2}:\d{2}|Z)$/, "")
+                                 .slice(0, 16);
+    input = el("input", {type: "datetime-local", value: initial});
+  } else if (field.kind === "textarea") {
+    input = el("textarea", {value: value ?? "", placeholder: field.placeholder || ""});
+  } else if (field.kind === "select") {
+    input = el("select");
+    for (const option of field.options) {
+      input.append(el("option", {value: option, textContent: option,
+                                 selected: option === value}));
+    }
+  } else {
+    input = el("input", {type: "text", value: value ?? "",
+                         placeholder: field.placeholder || ""});
+  }
+  input.addEventListener("input", () => onChange(input.value));
+  input.addEventListener("change", () => onChange(input.value));
+  const caption = el("span", {}, [el("b", {textContent: field.label})]);
+  if (field.help) caption.append(document.createTextNode(" "),
+                                 el("em", {textContent: field.help}));
+  return el("label", {}, [caption, input]);
+}
+
+class AppEditor {
+  constructor(spec) {
+    this.spec = spec;
+    this.rows = spec.rows.length ? spec.rows.map(r => ({...r}))
+                                 : [{...spec.form.blank_row}];
+    this.mode = "form";
+    this.node = el("section", {className: "app"});
+    this.render();
+  }
+
+  setStatus(text, kind) {
+    this.status.textContent = text;
+    this.status.className = `status ${kind || ""}`;
+  }
+
+  // The two modes are one model: the form edits rows, the JSON pane shows the
+  // same rows. Switching never loses what was typed.
+  syncFromJson() {
+    const parsed = JSON.parse(this.json.value);
+    if (!Array.isArray(parsed)) throw new Error("expected a list of rows");
+    this.rows = parsed;
+  }
+
+  render() {
+    const {form, label, name} = this.spec;
+    this.node.replaceChildren();
+    this.node.append(el("h2", {}, [
+      document.createTextNode(form.title),
+      el("small", {textContent: label || name}),
+    ]));
+
+    const tabs = el("div", {className: "tabs"});
+    const panes = {};
+    for (const [mode, text] of [["form", "Form"], ["json", "JSON"]]) {
+      const tab = el("button", {type: "button", textContent: text});
+      tab.setAttribute("aria-selected", String(this.mode === mode));
+      tab.addEventListener("click", () => {
+        if (this.mode === mode) return;
+        try {
+          if (this.mode === "json") this.syncFromJson();
+        } catch (err) {
+          this.setStatus(`That JSON does not parse: ${err.message}`, "err");
+          return;
+        }
+        this.mode = mode;
+        this.render();
+      });
+      tabs.append(tab);
+    }
+    this.node.append(tabs);
+
+    const pane = el("div", {className: "pane"});
+    if (this.mode === "form") {
+      if (form.help) pane.append(el("p", {className: "empty", textContent: form.help,
+                                          style: "padding:0 0 12px"}));
+      const rows = el("div", {className: "rows"});
+      this.rows.forEach((row, index) => {
+        const head = el("div", {className: "row-head"}, [
+          el("span", {textContent: `${form.row_noun} ${index + 1}`}),
+        ]);
+        const remove = el("button", {type: "button", textContent: "×",
+                                     title: `Remove this ${form.row_noun}`});
+        remove.addEventListener("click", () => {
+          this.rows.splice(index, 1);
+          if (!this.rows.length) this.rows.push({...form.blank_row});
+          this.render();
+        });
+        head.append(remove);
+        const card = el("div", {className: "row"}, [head]);
+        for (const field of form.fields) {
+          card.append(fieldInput(field, row[field.name],
+                                 value => { row[field.name] = value; }));
+        }
+        rows.append(card);
+      });
+      pane.append(rows);
+      const add = el("button", {className: "ghost", type: "button",
+                                textContent: `+ Add a ${form.row_noun}`});
+      add.addEventListener("click", () => {
+        this.rows.push({...form.blank_row});
+        this.render();
+      });
+      pane.append(el("div", {className: "actions"}, [add]));
+    } else {
+      this.json = el("textarea", {className: "json",
+                                  value: JSON.stringify(this.rows, null, 2),
+                                  spellcheck: false});
+      pane.append(el("label", {}, [
+        el("span", {}, [el("b", {textContent: `One object per ${form.row_noun}`})]),
+        this.json,
+      ]));
+    }
+
+    const apply = el("button", {className: "primary", type: "button",
+                                textContent: "Apply to the application"});
+    this.status = el("span", {className: "status"});
+    apply.addEventListener("click", () => this.apply(apply));
+    pane.append(el("div", {className: "actions"}, [apply, this.status]));
+    this.node.append(pane);
+  }
+
+  async apply(button) {
+    try {
+      if (this.mode === "json") this.syncFromJson();
+    } catch (err) {
+      this.setStatus(`That JSON does not parse: ${err.message}`, "err");
+      return;
+    }
+    button.disabled = true;
+    this.setStatus("Applying…", "");
+    try {
+      const response = await fetch(API, {
+        method: "POST",
+        headers: {"Content-Type": "application/json",
+                  "X-ShowAndTell-Edit-Token": EDIT_TOKEN},
+        body: JSON.stringify({application: this.spec.name, rows: this.rows}),
+      });
+      const body = await response.json();
+      if (!response.ok) throw new Error(body.error || `HTTP ${response.status}`);
+      const noun = this.spec.form.row_noun + (body.applied === 1 ? "" : "s");
+      this.setStatus(
+        `${body.applied} ${noun} delivered — open the ${this.spec.label} tab to see them.`,
+        "ok");
+    } catch (err) {
+      this.setStatus(err.message, "err");
+    } finally {
+      button.disabled = false;
+    }
+  }
+}
+
+(async function load() {
+  const host = document.getElementById("apps");
+  try {
+    const response = await fetch(API);
+    const body = await response.json();
+    if (!response.ok) throw new Error(body.error || `HTTP ${response.status}`);
+    if (!body.applications.length) {
+      host.append(el("div", {className: "app"}, [
+        el("p", {className: "empty", textContent:
+          "None of this capture's applications need data added here — set " +
+          "them up in their own tabs."}),
+      ]));
+      return;
+    }
+    for (const spec of body.applications) host.append(new AppEditor(spec).node);
+  } catch (err) {
+    host.append(el("div", {className: "app"}, [
+      el("p", {className: "empty", textContent: `Could not load: ${err.message}`}),
+    ]));
+  }
+})();
+</script>

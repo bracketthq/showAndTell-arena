@@ -1,0 +1,309 @@
+#!/usr/bin/env bash
+
+# One-command setup and launcher for ShowAndTell-Bench.
+
+set -euo pipefail
+
+repo_root="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+venv_dir="$repo_root/.venv"
+venv_python="$venv_dir/bin/python"
+venv_cli="$venv_dir/bin/showAndTell"
+
+usage() {
+  cat <<'EOF'
+Usage:
+  ./showAndTell setup       Create/update .venv and install all dependencies
+  ./showAndTell viewer [PORT]  Start the task viewer (default: port 8000)
+  ./showAndTell dataset-pull   Download the latest published task dataset
+  ./showAndTell <COMMAND> ...  Run an installed ShowAndTell CLI command
+  ./showAndTell help           Show this help
+
+Running ./showAndTell without a command also starts the viewer.
+EOF
+}
+
+python_is_supported() {
+  "$1" -c 'import sys; raise SystemExit(sys.version_info < (3, 12))' \
+    >/dev/null 2>&1
+}
+
+find_setup_python() {
+  local candidate minor
+
+  if command -v python3 >/dev/null 2>&1 && python_is_supported python3; then
+    command -v python3
+    return 0
+  fi
+
+  # A system python3 may be old even when a versioned modern Python exists.
+  for minor in {20..12}; do
+    candidate="python3.$minor"
+    if command -v "$candidate" >/dev/null 2>&1 \
+        && python_is_supported "$candidate"; then
+      command -v "$candidate"
+      return 0
+    fi
+  done
+
+  if command -v python >/dev/null 2>&1 && python_is_supported python; then
+    command -v python
+    return 0
+  fi
+
+  return 1
+}
+
+print_python_install_hint() {
+  printf 'Python 3.12 or newer is required but was not found.\n' >&2
+
+  case "$(uname -s)" in
+    Darwin)
+      if command -v brew >/dev/null 2>&1; then
+        printf '%s\n' \
+          'Install it with Homebrew:' \
+          '  brew install python@3.12' >&2
+      else
+        printf '%s\n' \
+          'Install Homebrew from https://brew.sh, then run:' \
+          '  brew install python@3.12' >&2
+      fi
+      ;;
+    Linux)
+      if command -v apt-get >/dev/null 2>&1; then
+        printf '%s\n' \
+          'Install it with apt:' \
+          '  sudo apt-get update' \
+          '  sudo apt-get install python3.12 python3.12-venv' >&2
+      elif command -v dnf >/dev/null 2>&1; then
+        printf '%s\n' \
+          'Install it with dnf:' \
+          '  sudo dnf install python3.12' >&2
+      elif command -v pacman >/dev/null 2>&1; then
+        printf '%s\n' \
+          'Install it with pacman:' \
+          '  sudo pacman -S python' >&2
+      else
+        printf 'Install it from https://www.python.org/downloads/\n' >&2
+      fi
+      ;;
+    *)
+      printf 'Install it from https://www.python.org/downloads/\n' >&2
+      ;;
+  esac
+
+  printf 'Then run: ./showAndTell setup\n' >&2
+}
+
+print_docker_install_hint() {
+  case "$(uname -s)" in
+    Darwin)
+      if command -v brew >/dev/null 2>&1; then
+        printf '%s\n' \
+          'Install Docker Desktop when you want to run tasks:' \
+          '  brew install --cask docker' \
+          '  open -a Docker' >&2
+      else
+        printf '%s\n' \
+          'Install and start Docker Desktop:' \
+          '  https://docs.docker.com/desktop/setup/install/mac-install/' >&2
+      fi
+      ;;
+    Linux)
+      printf '%s\n' \
+        'Install Docker Engine with the Compose plugin:' \
+        '  https://docs.docker.com/engine/install/' >&2
+      ;;
+    *)
+      printf '%s\n' \
+        'Install and start Docker Desktop:' \
+        '  https://docs.docker.com/desktop/' >&2
+      ;;
+  esac
+}
+
+check_docker() {
+  printf '\nChecking optional task-runner prerequisites...\n'
+  if ! command -v docker >/dev/null 2>&1; then
+    printf '%s\n' \
+      'WARNING: Docker was not found. The viewer will work, but Run and New task will not.' >&2
+    print_docker_install_hint
+    return 0
+  fi
+  if ! docker compose version >/dev/null 2>&1; then
+    printf '%s\n' \
+      'WARNING: Docker Compose v2 is unavailable. Run and New task require `docker compose`.' >&2
+    print_docker_install_hint
+    return 0
+  fi
+  if ! docker info >/dev/null 2>&1; then
+    printf '%s\n' \
+      'WARNING: Docker is installed but its daemon is not running.' \
+      'Start Docker Desktop (or Docker Engine) before using Run or New task.' >&2
+    return 0
+  fi
+  printf 'Docker and Docker Compose are ready.\n'
+}
+
+install_native_runtime_dependencies() {
+  case "$(uname -s)" in
+    Darwin)
+      if ! command -v brew >/dev/null 2>&1; then
+        printf '%s\n' \
+          'Homebrew is required for the macOS recording runtime.' \
+          'Install it from https://brew.sh, then run ./showAndTell setup again.' >&2
+        return 1
+      fi
+      printf '\nInstalling native recording requirements from Brewfile...\n'
+      # VB-CABLE is installed as a standard signed package. Homebrew may ask
+      # once for an administrator password; no Audio MIDI configuration is
+      # needed because ShowAndTell selects both sides of the cable itself.
+      brew bundle --file="$repo_root/Brewfile"
+      ;;
+    Linux)
+      local missing=()
+      command -v git-lfs >/dev/null 2>&1 || missing+=(git-lfs)
+      command -v ffmpeg >/dev/null 2>&1 || missing+=(ffmpeg)
+      command -v pactl >/dev/null 2>&1 || missing+=(pulseaudio-utils)
+      command -v espeak-ng >/dev/null 2>&1 || missing+=(espeak-ng)
+      if (( ${#missing[@]} )); then
+        printf '%s\n' \
+          "WARNING: native recording requirements are missing: ${missing[*]}" \
+          'On Debian/Ubuntu install them with:' \
+          "  sudo apt-get install ${missing[*]}" >&2
+      fi
+      ;;
+  esac
+}
+
+prepare_lfs_recordings() {
+  if ! command -v git-lfs >/dev/null 2>&1; then
+    printf '%s\n' \
+      'WARNING: Git LFS is unavailable; human recordings will remain pointers.' >&2
+    return 0
+  fi
+  printf '\nInitializing Git LFS and fetching canonical task recordings...\n'
+  git lfs install --local
+  git lfs pull --include='tasks/*/demo/recording.*'
+}
+
+check_audio_runtime() {
+  [[ "$(uname -s)" == Darwin ]] || return 0
+  local missing=()
+  command -v ffplay >/dev/null 2>&1 || missing+=(ffplay)
+  command -v SwitchAudioSource >/dev/null 2>&1 || missing+=(SwitchAudioSource)
+  if ! command -v SwitchAudioSource >/dev/null 2>&1 \
+      || ! SwitchAudioSource -a -t output 2>/dev/null \
+        | grep -Eiq '^VB(-Audio)?([ -]Virtual)?[ -]?CABLE$' \
+      || ! SwitchAudioSource -a -t input 2>/dev/null \
+        | grep -Eiq '^VB(-Audio)?([ -]Virtual)?[ -]?CABLE$'; then
+    missing+=("VB-CABLE")
+  fi
+  if (( ${#missing[@]} )); then
+    printf '%s\n' \
+      "WARNING: audio runtime is not active: ${missing[*]}" \
+      'If VB-CABLE was just installed, rerun ./showAndTell setup to verify it.' >&2
+    return 0
+  fi
+  printf 'Recorded-narration audio runtime is ready.\n'
+}
+
+ensure_managed_chrome_profile() {
+  local profile_root="${SHOWANDTELL_CHROME_PROFILE:-$HOME/.showAndTell/chrome-profile}"
+
+  if [[ ! -d "$profile_root/Default" ]]; then
+    mkdir -p "$profile_root/Default"
+    printf 'Created an empty managed Chrome profile at %s.\n' "$profile_root"
+    return 0
+  fi
+  printf 'Managed Chrome profile exists at %s.\n' "$profile_root"
+}
+
+require_environment() {
+  if [[ ! -x "$venv_python" ]]; then
+    printf 'ShowAndTell-Bench is not set up yet. Run: ./showAndTell setup\n' >&2
+    exit 1
+  fi
+  if ! python_is_supported "$venv_python"; then
+    printf '.venv uses an unsupported Python. Recreate it with Python 3.12+.\n' >&2
+    exit 1
+  fi
+  if ! "$venv_python" -c 'import showAndTell, httpx, playwright' >/dev/null 2>&1; then
+    printf 'The environment is incomplete. Run: ./showAndTell setup\n' >&2
+    exit 1
+  fi
+  if [[ ! -x "$venv_cli" ]]; then
+    printf 'The ShowAndTell CLI is missing. Run: ./showAndTell setup\n' >&2
+    exit 1
+  fi
+}
+
+setup() {
+  local setup_python
+
+  if [[ -x "$venv_python" ]]; then
+    if ! python_is_supported "$venv_python"; then
+      printf '%s\n' \
+        'Existing .venv uses Python older than 3.12.' \
+        'Move or remove .venv before running setup again.' >&2
+      print_python_install_hint
+      exit 1
+    fi
+  else
+    if ! setup_python="$(find_setup_python)"; then
+      print_python_install_hint
+      exit 1
+    fi
+    printf 'Creating %s with %s...\n' "$venv_dir" "$setup_python"
+    "$setup_python" -m venv "$venv_dir"
+  fi
+
+  cd "$repo_root"
+  install_native_runtime_dependencies
+  prepare_lfs_recordings
+  "$venv_python" -m pip install --upgrade pip
+  "$venv_python" -m pip install -r requirements.txt
+  "$venv_python" -m playwright install chromium
+
+  printf '\nFetching the published task dataset...\n'
+  "$venv_cli" dataset-pull || printf '%s\n' \
+    'WARNING: could not fetch the task dataset (offline?). Run ./showAndTell dataset-pull later.' >&2
+  check_audio_runtime
+  check_docker
+  ensure_managed_chrome_profile
+
+  printf '\nSetup complete. Start the viewer with: ./showAndTell viewer\n'
+}
+
+command_name="${1:-viewer}"
+if (( $# > 0 )); then
+  shift
+fi
+
+case "$command_name" in
+  setup)
+    if (( $# > 0 )); then
+      printf 'The setup command does not accept options.\n\n' >&2
+      usage >&2
+      exit 2
+    fi
+    setup
+    ;;
+  viewer)
+    if (( $# > 1 )); then
+      printf 'The viewer command accepts at most one port.\n\n' >&2
+      usage >&2
+      exit 2
+    fi
+    require_environment
+    cd "$repo_root"
+    exec "$venv_python" -m showAndTell.viewer.serve "$@"
+    ;;
+  help|-h|--help)
+    usage
+    ;;
+  *)
+    require_environment
+    cd "$repo_root"
+    exec "$venv_cli" "$command_name" "$@"
+    ;;
+esac
