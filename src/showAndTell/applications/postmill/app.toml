@@ -1,0 +1,25 @@
+[app]
+name = "postmill"
+label = "Postmill"
+familiar_label = "Reddit"
+
+[compose]
+driver = true
+service = "postmill"
+
+[ports]
+app = { container = 80, host = 9999 }
+
+[health]
+http = "/"
+
+[credentials]
+username = "MarvelsGrantMan136"
+password = "test1234"
+
+[surface]
+entry = "/"
+
+[capabilities]
+snapshots = false
+capture = false

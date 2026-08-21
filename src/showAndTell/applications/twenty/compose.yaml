@@ -1,0 +1,131 @@
+x-logging: &default-logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+x-twenty: &twenty
+  image: docker.io/twentycrm/twenty@sha256:c55e720afdd12400fdca6df5f16820d5980c538c35c980c17e42c571f2dc0eb5
+  restart: unless-stopped
+  logging: *default-logging
+  environment: &twenty-environment
+    NODE_PORT: "3000"
+    SERVER_URL: ${SHOWANDTELL_TWENTY_PUBLIC_URL:-http://127.0.0.1:8044}
+    PG_DATABASE_URL: postgres://postgres:${SHOWANDTELL_TWENTY_POSTGRES_PASSWORD:-showAndTell-twenty-postgres-local-only}@db:5432/default
+    REDIS_URL: redis://redis:6379
+    STORAGE_TYPE: local
+    APP_SECRET: ${SHOWANDTELL_TWENTY_APP_SECRET:-0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef}
+    ENCRYPTION_KEY: ${SHOWANDTELL_TWENTY_ENCRYPTION_KEY:-abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789}
+    AUTH_PASSWORD_ENABLED: "true"
+    IS_EMAIL_VERIFICATION_REQUIRED: "false"
+    IS_MULTIWORKSPACE_ENABLED: "false"
+    EMAIL_DRIVER: LOGGER
+    SUPPORT_DRIVER: NONE
+    ANALYTICS_ENABLED: "false"
+    TELEMETRY_ENABLED: "false"
+    APPLICATION_LOG_DRIVER: DISABLED
+    ALLOW_REQUESTS_TO_TWENTY_ICONS: "false"
+    MARKETPLACE_CATALOG_SYNC_CRON_ENABLED: "false"
+    MESSAGING_PROVIDER_GMAIL_ENABLED: "false"
+    CALENDAR_PROVIDER_GOOGLE_ENABLED: "false"
+    MESSAGING_PROVIDER_MICROSOFT_ENABLED: "false"
+    CALENDAR_PROVIDER_MICROSOFT_ENABLED: "false"
+    AUTH_GOOGLE_ENABLED: "false"
+    AUTH_MICROSOFT_ENABLED: "false"
+    IS_IMAP_SMTP_CALDAV_ENABLED: "false"
+  volumes:
+    - server_local_data:/app/packages/twenty-server/.local-storage
+  networks:
+    - backend
+
+services:
+  db:
+    image: docker.io/library/postgres@sha256:33f923b05f64ca54ac4401c01126a6b92afe839a0aa0a52bc5aeb5cc958e5f20
+    restart: unless-stopped
+    logging: *default-logging
+    environment:
+      POSTGRES_DB: default
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${SHOWANDTELL_TWENTY_POSTGRES_PASSWORD:-showAndTell-twenty-postgres-local-only}
+      TZ: UTC
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d default"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    networks:
+      - backend
+
+  redis:
+    # Keep the infrastructure service native on Apple Silicon. The amd64-only
+    # Redis 7.4 pin made redis-cli segfault under QEMU, so its healthcheck could
+    # never unblock Twenty even while redis-server itself was accepting data.
+    image: docker.io/library/redis:6.2.18-alpine@sha256:3211c33a618c457e5d241922c975dbc4f446d0bdb2dc75694f5573ef8e2d01fa
+    restart: unless-stopped
+    logging: *default-logging
+    command: ["redis-server", "--maxmemory-policy", "noeviction"]
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    networks:
+      - backend
+
+  server:
+    <<: *twenty
+    environment:
+      <<: *twenty-environment
+      DISABLE_DB_MIGRATIONS: "false"
+      DISABLE_CRON_JOBS_REGISTRATION: "true"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://127.0.0.1:3000/healthz"]
+      interval: 10s
+      timeout: 5s
+      retries: 90
+      start_period: 60s
+
+  twenty:
+    image: docker.io/library/nginx@sha256:1eff5a5f3fcf8431a0abb7eddf5471fec24e5e1905a2581aeacdb07a4479b92b
+    restart: unless-stopped
+    logging: *default-logging
+    depends_on:
+      server:
+        condition: service_healthy
+    ports:
+      - "${SHOWANDTELL_TWENTY_BIND_HOST:-127.0.0.1}:${SHOWANDTELL_TWENTY_PORT:-8044}:3000"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - backend
+      - ingress
+
+  worker:
+    <<: *twenty
+    command: ["yarn", "worker:prod"]
+    environment:
+      <<: *twenty-environment
+      DISABLE_DB_MIGRATIONS: "true"
+      DISABLE_CRON_JOBS_REGISTRATION: "true"
+    depends_on:
+      server:
+        condition: service_healthy
+
+volumes:
+  db_data:
+  redis_data:
+  server_local_data:
+
+networks:
+  backend:
+    internal: true
+  ingress:

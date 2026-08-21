@@ -1,0 +1,74 @@
+# Shared, pinned ONLYOFFICE Docs Community runtime. The Python connector runs
+# on the host; host.docker.internal is how this container downloads workbooks
+# and sends callbacks on Docker Desktop for macOS.
+services:
+  onlyoffice:
+    image: onlyoffice/documentserver:9.4.0.1
+    restart: on-failure
+    environment:
+      JWT_ENABLED: "true"
+      JWT_SECRET: "${SHOWANDTELL_ONLYOFFICE_JWT_SECRET:-showAndTell-onlyoffice-local-only}"
+      JWT_HEADER: Authorization
+      ALLOW_PRIVATE_IP_ADDRESS: "true"
+      ALLOW_META_IP_ADDRESS: "false"
+      EXAMPLE_ENABLED: "false"
+      # The editor loads sdkjs/common/AllFonts.js on first use.  Disabling the
+      # image's generator leaves that required asset absent and produces a
+      # permanently skeletonized editor, so keep the upstream initialization.
+      GENERATE_FONTS: "true"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      # Loopback-only by default. A remote fixture host sets
+      # SHOWANDTELL_ONLYOFFICE_BIND_HOST=0.0.0.0 and restricts access at the firewall.
+      - "${SHOWANDTELL_ONLYOFFICE_BIND_HOST:-127.0.0.1}:${SHOWANDTELL_ONLYOFFICE_PORT:-8081}:80"
+    volumes:
+      - onlyoffice-data:/var/www/onlyoffice/Data
+      - onlyoffice-cache:/var/lib/onlyoffice
+      # Same-origin editor host page: served by Document Server nginx at
+      # /web-apps/brackett-host/editor.html so the frameEditor iframe is
+      # same-origin with the top document and the page can mirror in-frame
+      # events to browser-extension recorders that only see the top frame.
+      # The connector probes this path and falls back to its inline host page
+      # when the mount is absent (remote/unmanaged Document Server).
+      - ./host-page:/var/www/onlyoffice/documentserver/web-apps/brackett-host:ro
+
+  # The application driver starts this profile together with Document Server.
+  connector:
+    profiles: [connector]
+    build:
+      # The driver points both values at the repository checkout.
+      context: ${SHOWANDTELL_CONNECTOR_BUILD_CONTEXT:-.}
+      dockerfile: ${SHOWANDTELL_CONNECTOR_BUILD_DOCKERFILE:-connector.Dockerfile}
+    restart: on-failure
+    depends_on:
+      - onlyoffice
+    environment:
+      # Document Server fetches documents and posts callbacks over the compose
+      # network, so it addresses the connector by service name, not the
+      # published port.
+      SHOWANDTELL_CONNECTOR_PUBLIC_URL: "http://connector:8000"
+      # Deliberately NOT `:?required` — Compose interpolates the whole file at
+      # parse time regardless of profiles, so a required variable here breaks
+      # every local `compose up` that never starts this service. The container
+      # validates these itself and exits with a clear message.
+      SHOWANDTELL_CONNECTOR_DOCUMENT_SERVER_URL: "${SHOWANDTELL_CONNECTOR_DOCUMENT_SERVER_URL:-}"
+      # Document Server answers callbacks with whichever origin it was reached
+      # on; accept its in-network name as well as the browser-facing URL.
+      SHOWANDTELL_CONNECTOR_EXTRA_DOCUMENT_SERVER_URLS: "http://onlyoffice,http://onlyoffice:80"
+      # CommandService is called by this container, not by the browser, so it
+      # addresses Document Server over the compose network. The browser-facing
+      # URL above is loopback from in here and force-save would never land.
+      SHOWANDTELL_CONNECTOR_COMMAND_URL: "http://onlyoffice"
+      SHOWANDTELL_ONLYOFFICE_JWT_SECRET: "${SHOWANDTELL_ONLYOFFICE_JWT_SECRET:-showAndTell-onlyoffice-local-only}"
+      SHOWANDTELL_CONNECTOR_ADMIN_TOKEN: "${SHOWANDTELL_CONNECTOR_ADMIN_TOKEN:-}"
+      SHOWANDTELL_CONNECTOR_STORAGE_DIR: /data
+    ports:
+      - "${SHOWANDTELL_CONNECTOR_BIND_HOST:-127.0.0.1}:${SHOWANDTELL_CONNECTOR_PORT:-8086}:8000"
+    volumes:
+      - connector-data:/data
+
+volumes:
+  onlyoffice-data:
+  onlyoffice-cache:
+  connector-data:

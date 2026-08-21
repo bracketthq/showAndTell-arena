@@ -1,0 +1,32 @@
+[app]
+name  = "onlyoffice"
+label = "ONLYOFFICE spreadsheet"
+familiar_label = "Spreadsheet"
+
+[storage]
+# Estimated peak for Document Server and the locally built connector image.
+fresh_install_bytes = 5368709120
+
+[compose]
+file    = "compose.yaml"
+service = "onlyoffice"
+
+[ports]
+app       = { container = 80,   host = 8081 }
+# The connector owns the authoritative workbooks; Document Server holds only
+# cached conversions. The browser is sent to the connector's editor page.
+connector = { container = 8000, host = 8086, service = "connector" }
+
+[health]
+http = "/healthcheck"
+
+[credentials]
+username = ""
+password = ""
+
+[surface]
+entry = "/"
+
+[capabilities]
+snapshots = false
+capture   = true

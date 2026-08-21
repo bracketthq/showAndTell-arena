@@ -1,0 +1,31 @@
+[app]
+name = "fleetbase"
+label = "Fleetbase + Fleet-Ops"
+familiar_label = "Fleet management"
+
+[storage]
+# Estimated peak for API, console, MySQL, Valkey, and SocketCluster images.
+fresh_install_bytes = 5368709120
+
+[compose]
+file = "compose.yaml"
+service = "console"
+
+[ports]
+app = { container = 4200, host = 8045, service = "console" }
+api = { container = 8000, host = 8046, service = "application" }
+socket = { container = 8000, host = 38045, service = "socket" }
+
+[health]
+http = "/auth"
+
+[credentials]
+username = "operator@bluegrassfreight.com"
+password = "ShowAndTell-Fleet1!K7"
+
+[surface]
+entry = "/auth"
+
+[capabilities]
+snapshots = true
+capture = false

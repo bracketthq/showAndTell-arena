@@ -1,0 +1,34 @@
+[app]
+name  = "roundcube"
+label = "Roundcube"
+familiar_label = "Email"
+
+[storage]
+# Estimated peak for Roundcube, Dovecot, and Mailpit images.
+fresh_install_bytes = 1610612736
+
+[compose]
+file    = "compose.yaml"
+service = "roundcube"
+
+[ports]
+app  = { container = 80,    host = 8082 }
+# Dovecot is the mail store behind the webmail: one application, two
+# containers, and a second published port the data plane seeds over.
+imap = { container = 31143, host = 1143, service = "dovecot" }
+
+[health]
+http = "/"
+tcp  = ["imap"]
+
+[credentials]
+username = "agent@showAndTell.test"
+password = "showAndTell-mail"
+
+[surface]
+entry = "/"
+
+[capabilities]
+# Mail travels as declared data, so there is no binary state to freeze.
+snapshots = false
+capture   = true

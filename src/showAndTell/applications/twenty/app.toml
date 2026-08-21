@@ -1,0 +1,29 @@
+[app]
+name = "twenty"
+label = "Twenty CRM"
+familiar_label = "CRM"
+
+[storage]
+# Estimated peak for Twenty, PostgreSQL, Redis, and nginx images.
+fresh_install_bytes = 5368709120
+
+[compose]
+file = "compose.yaml"
+service = "twenty"
+
+[ports]
+app = { container = 3000, host = 8044, service = "twenty" }
+
+[health]
+http = "/healthz"
+
+[credentials]
+username = "operator@showAndTell.test"
+password = "ShowAndTell-Twenty1!"
+
+[surface]
+entry = "/"
+
+[capabilities]
+snapshots = false
+capture = false

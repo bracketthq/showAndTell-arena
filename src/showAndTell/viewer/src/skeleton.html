@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en" data-theme="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShowAndTell Arena · Task Inspector</title>
+<!-- Satoshi — Brackett's brand typeface, hosted by Fontshare. Weights 400/500
+     only, matching Brackett's two-weight ramp; system fallbacks apply offline. -->
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500&display=swap">
+<!-- @styles -->
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <button class="iconbtn menu-toggle" id="menu-toggle" aria-label="Toggle task list">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg>
+    </button>
+    <div class="brand" aria-label="ShowAndTell Arena task inspector">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 138.473 126.966" fill="currentColor" role="presentation">
+          <path d="M137.731 23.2657H113.353C111.331 23.2657 109.681 21.6157 109.681 19.5945V0.784959C109.681 0.372468 109.351 0.0424805 108.939 0.0424805H83.4056C82.9931 0.0424805 82.6631 0.372468 82.6631 0.784959V26.3181C82.6631 26.7306 82.9931 27.0606 83.4056 27.0606H102.669C104.69 27.0606 106.34 28.7106 106.34 30.7318V96.2766C106.34 98.2978 104.69 99.9478 102.669 99.9478H83.4056C82.9931 99.9478 82.6631 100.278 82.6631 100.69V126.223C82.6631 126.636 82.9931 126.966 83.4056 126.966H108.939C109.351 126.966 109.681 126.636 109.681 126.223V107.579C109.681 105.558 111.331 103.908 113.353 103.908H137.731C138.143 103.908 138.473 103.578 138.473 103.165V24.0082C138.473 23.5957 138.143 23.2657 137.731 23.2657Z"/>
+          <path d="M0.742487 103.7H25.1208C27.142 103.7 28.792 105.35 28.792 107.371V126.181C28.792 126.593 29.122 126.923 29.5345 126.923H55.0677C55.4802 126.923 55.8102 126.593 55.8102 126.181V100.648C55.8102 100.235 55.4802 99.9053 55.0677 99.9053H35.8043C33.7831 99.9053 32.1331 98.2553 32.1331 96.2341V30.6893C32.1331 28.6681 33.7831 27.0181 35.8043 27.0181H55.0677C55.4802 27.0181 55.8102 26.6881 55.8102 26.2757V0.742478C55.8102 0.329988 55.4802 0 55.0677 0H29.5345C29.122 0 28.792 0.329988 28.792 0.742478V19.3871C28.792 21.4083 27.142 23.0582 25.1208 23.0582H0.742487C0.329995 23.0582 0 23.3882 0 23.8007V102.958C0 103.37 0.329995 103.7 0.742487 103.7Z"/>
+        </svg>
+      </span>
+      <span class="brand-copy"><span class="brand-name">showAndTell<span class="dot">·</span>arena</span><small>Task inspector</small></span>
+    </div>
+    <div class="search">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M11 11l3 3"/></svg>
+      <input id="filter" placeholder="Search tasks" autocomplete="off" spellcheck="false" aria-label="Filter tasks">
+      <kbd>/</kbd>
+    </div>
+    <button class="new-task-btn" id="new-task" type="button"><span aria-hidden="true">＋</span> New task</button>
+    <button class="iconbtn intro-help" id="intro-help" type="button"
+      aria-label="Open getting started guide" title="Getting started" hidden>
+      <svg width="17" height="17" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <circle cx="9" cy="9" r="6.75"/><path d="M7.2 7a1.9 1.9 0 0 1 3.66.7c0 1.7-1.86 1.8-1.86 3.05"/><path d="M9 13.35h.01"/>
+      </svg>
+    </button>
+    <button class="iconbtn" id="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle light/dark">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="3.2"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.4 1.4M11.6 11.6L13 13M13 3l-1.4 1.4M4.4 11.6L3 13"/></svg>
+    </button>
+  </header>
+  <div class="main">
+    <nav class="side" id="side" aria-label="Tasks"></nav>
+    <main class="content"><div class="wrap" id="view"></div></main>
+  </div>
+</div>
+<div class="intro-spotlight" id="intro-spotlight" aria-hidden="true" hidden></div>
+<section class="intro-popover" id="intro-popover" role="dialog" aria-modal="false"
+  aria-labelledby="intro-title" aria-describedby="intro-copy" hidden>
+  <div class="intro-progress" id="intro-progress">1 of 5</div>
+  <h2 id="intro-title"></h2>
+  <p id="intro-copy"></p>
+  <footer class="intro-tour-actions">
+    <button class="intro-skip" id="intro-skip" type="button">Skip tour</button>
+    <button class="intro-back" id="intro-back" type="button" hidden>Back</button>
+    <button class="intro-next" id="intro-next" type="button">Next</button>
+  </footer>
+</section>
+<div class="capture-overlay" id="task-capture" hidden>
+  <section class="capture-dialog" role="dialog" aria-modal="true" aria-labelledby="capture-title">
+    <header class="capture-head">
+      <div>
+        <h2 id="capture-title">Capture a new testcase</h2>
+        <p>Start clean apps, optionally seed them, then record the narrated demonstration.</p>
+      </div>
+      <button class="capture-close" id="capture-close" type="button" aria-label="Close">×</button>
+    </header>
+    <div class="capture-setup" id="capture-setup">
+      <div class="capture-fields">
+        <label><span>Testcase name</span><input id="capture-name" placeholder="e.g. approve-positive-reviews" autocomplete="off"></label>
+        <label><span>Short description</span><textarea id="capture-summary" rows="2" placeholder="What should the demonstrated workflow accomplish?"></textarea></label>
+      </div>
+      <fieldset class="capture-apps">
+        <legend>Applications to open</legend>
+        <p class="capture-app-note">Space required estimates the maximum free disk space needed for a fresh local install. It includes Docker images and, where applicable, archive download, import, and extraction. Actual use varies by platform and Docker cache.</p>
+        <div class="capture-app-grid" id="capture-app-grid"></div>
+      </fieldset>
+      <div class="capture-help">The selected apps start in a clean isolated state. The next stage lets you create any initial data before recording begins.</div>
+      <div class="capture-error" id="capture-error" hidden></div>
+      <footer class="capture-actions">
+        <button class="capture-secondary" id="capture-cancel" type="button">Cancel</button>
+        <button class="capture-primary" id="capture-start" type="button">Start clean apps</button>
+      </footer>
+    </div>
+    <div class="capture-assets" id="capture-assets" hidden>
+      <div class="capture-stage-label">Application assets · confirmation required</div>
+      <h3 id="capture-assets-title">Install required application data</h3>
+      <p id="capture-assets-summary"></p>
+      <div class="capture-asset-list" id="capture-asset-list"></div>
+      <div class="capture-asset-total" id="capture-asset-total" hidden>
+        <div><span id="capture-asset-message">Waiting to start…</span><b id="capture-asset-percent">0%</b></div>
+        <progress id="capture-asset-progress" max="1" value="0"></progress>
+        <small id="capture-asset-bytes"></small>
+      </div>
+      <div class="capture-help" id="capture-asset-help"></div>
+      <div class="capture-error" id="capture-asset-error" hidden></div>
+      <footer class="capture-actions">
+        <button class="capture-secondary" id="capture-assets-back" type="button">Back</button>
+        <button class="capture-primary" id="capture-assets-install" type="button">Download &amp; continue</button>
+      </footer>
+    </div>
+    <div class="capture-seed" id="capture-seed" hidden>
+      <div class="capture-stage-label">Setup stage · not recording</div>
+      <h3>Prepare the starting data</h3>
+      <p>Use managed Chrome to add or edit any data the task needs. When ready, the viewer freezes this exact state — exported to <code>demo/seed.json</code>, plus a full application snapshot for apps that cannot describe their own state — and then starts action, screen, microphone, and narration capture. Freezing takes about half a minute.</p>
+      <div class="capture-help" id="capture-seed-status">The apps are clean and ready. Setup actions are kept as a replay fallback for apps that cannot export structured state.</div>
+      <section class="capture-login-section" aria-labelledby="capture-login-heading">
+        <div class="capture-login-head">
+          <h4 id="capture-login-heading">Application access</h4>
+          <span>Local capture only</span>
+        </div>
+        <p>Signed-in apps are ready in managed Chrome. If an app still shows a login page, use the credentials below.</p>
+        <div class="capture-login-grid" id="capture-login-grid"></div>
+        <div class="capture-copy-status" id="capture-copy-status" role="status" aria-live="polite"></div>
+      </section>
+      <div class="capture-error" id="capture-seed-error" hidden></div>
+      <footer class="capture-actions">
+        <button class="capture-secondary" id="capture-seed-cancel" type="button">Cancel</button>
+        <button class="capture-primary" id="capture-record" type="button">● Start recording</button>
+      </footer>
+    </div>
+    <div class="capture-live" id="capture-live" hidden>
+      <div class="capture-live-top">
+        <span class="record-dot" aria-hidden="true"></span>
+        <strong>Recording</strong>
+        <span class="capture-timer mono" id="capture-timer">00:00</span>
+      </div>
+      <p id="capture-live-status">Actions, selectors, accessibility trees, screen, and microphone are being captured. Demonstrate the workflow and narrate each decision.</p>
+      <div class="capture-transcript" id="capture-transcript" aria-live="polite">
+        <span>Waiting for narration…</span>
+      </div>
+      <footer class="capture-actions">
+        <button class="capture-secondary" id="capture-discard" type="button">Discard recording</button>
+        <button class="capture-stop" id="capture-stop" type="button">■ Stop &amp; create testcase</button>
+      </footer>
+    </div>
+    <div class="capture-done" id="capture-done" hidden>
+      <div class="capture-success">✓ Testcase captured</div>
+      <p id="capture-done-summary"></p>
+      <code id="capture-done-path"></code>
+      <div class="capture-promotion">
+        <h3>Use this task</h3>
+        <p>Add it to the ordinary task list now.</p>
+        <div class="capture-trial-grid">
+          <button type="button" id="capture-promote"><b>Add to tasks</b><span>Available as a normal local test</span></button>
+          <button type="button" id="capture-questions"><b>Add quiz questions</b><span>Required for a graded result</span></button>
+        </div>
+        <p id="capture-promotion-status" role="status"></p>
+      </div>
+      <div class="capture-trials">
+        <h3>Run this task</h3>
+        <p>Open the captured task to run it with the same controls as every other task.</p>
+        <div class="capture-trial-grid">
+          <button type="button" id="capture-open-task"><b>Open captured task</b><span>Run, monitor, or cancel it from one panel</span></button>
+        </div>
+      </div>
+      <footer class="capture-actions">
+        <button class="capture-primary" id="capture-finish" type="button">Done</button>
+      </footer>
+    </div>
+  </section>
+</div>
+<div class="palette-overlay" id="palette" hidden>
+  <div class="palette-panel">
+    <input id="palette-input" placeholder="Jump to task…" autocomplete="off" spellcheck="false" aria-label="Jump to task">
+    <ul id="palette-list"></ul>
+  </div>
+</div>
+<!-- @data -->
+<!-- @scripts -->
+</body>
+</html>

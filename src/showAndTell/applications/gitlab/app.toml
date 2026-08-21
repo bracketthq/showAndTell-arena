@@ -1,0 +1,25 @@
+[app]
+name = "gitlab"
+label = "GitLab"
+familiar_label = "Code hosting"
+
+[compose]
+driver = true
+service = "gitlab"
+
+[ports]
+app = { container = 8023, host = 8023 }
+
+[health]
+http = "/explore"
+
+[credentials]
+username = "byteblaze"
+password = "hello1234"
+
+[surface]
+entry = "/explore"
+
+[capabilities]
+snapshots = false
+capture = false
