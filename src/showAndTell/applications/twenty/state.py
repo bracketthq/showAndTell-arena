@@ -12,6 +12,7 @@ from showAndTell.applications.twenty.demo_dataset import seed_demo_dataset
 APPLICATION = "twenty"
 MARKER = "[ST] "
 STAGES = frozenset({"NEW", "SCREENING", "MEETING", "PROPOSAL", "CUSTOMER"})
+TASK_STATUSES = frozenset({"TODO", "IN_PROGRESS", "DONE"})
 
 
 def _rows(value: object, path: str) -> list[Mapping[str, Any]]:
@@ -20,11 +21,26 @@ def _rows(value: object, path: str) -> list[Mapping[str, Any]]:
     return list(value)
 
 
-def validate_seed(spec: object) -> tuple[list[Mapping[str, Any]], list[Mapping[str, Any]]]:
-    if not isinstance(spec, Mapping) or set(spec) != {"companies", "opportunities"}:
-        raise ValueError("Twenty seed must contain exactly companies and opportunities")
+def validate_seed(
+    spec: object,
+) -> tuple[
+    list[Mapping[str, Any]],
+    list[Mapping[str, Any]],
+    list[Mapping[str, Any]],
+]:
+    required = {"companies", "opportunities"}
+    allowed = required | {"tasks"}
+    if (
+        not isinstance(spec, Mapping)
+        or not required.issubset(spec)
+        or set(spec) - allowed
+    ):
+        raise ValueError(
+            "Twenty seed must contain companies and opportunities, plus optional tasks"
+        )
     companies = _rows(spec["companies"], "companies")
     opportunities = _rows(spec["opportunities"], "opportunities")
+    tasks = _rows(spec.get("tasks", []), "tasks")
     company_ids: set[str] = set()
     for index, row in enumerate(companies):
         if set(row) != {"source_id", "name", "domain", "employees"}:
@@ -56,7 +72,23 @@ def validate_seed(spec: object) -> tuple[list[Mapping[str, Any]], list[Mapping[s
         close_date = validate.required_text(row["close_date"], f"opportunities[{index}].close_date")
         if len(close_date) != 10 or close_date[4] != "-" or close_date[7] != "-":
             raise ValueError(f"opportunities[{index}].close_date must be YYYY-MM-DD")
-    return companies, opportunities
+    for index, row in enumerate(tasks):
+        allowed = {"id", "title", "status", "due_at", "assignee_id", "body"}
+        if set(row) - allowed or not {"title", "status"}.issubset(row):
+            raise ValueError(f"tasks[{index}] has unsupported or missing keys")
+        if "id" in row:
+            validate.required_text(row["id"], f"tasks[{index}].id")
+        validate.required_text(row["title"], f"tasks[{index}].title")
+        if row["status"] not in TASK_STATUSES:
+            raise ValueError(f"tasks[{index}].status is unsupported")
+        for field in ("due_at", "assignee_id"):
+            value = row.get(field)
+            if value is not None:
+                validate.required_text(value, f"tasks[{index}].{field}")
+        body = row.get("body")
+        if body is not None and not isinstance(body, Mapping):
+            raise ValueError(f"tasks[{index}].body must be an object or null")
+    return companies, opportunities, tasks
 
 
 class State:
@@ -83,11 +115,9 @@ class State:
 
     def reset(self, context) -> None:
         with self._client(context) as client:
-            # Tasks are outcomes created through the UI, not authored seed rows,
-            # so they cannot carry the [ST] marker used by seeded companies and
-            # opportunities.  This fixture is workspace-isolated: clear every
-            # task between runs so interrupted replays cannot accumulate
-            # duplicate titles and make a later semantic click ambiguous.
+            # Tasks have no fixture marker. This workspace is isolated, so clear
+            # every task before applying the task seed; interrupted replays must
+            # not accumulate duplicate titles.
             for row in client.list_all("tasks"):
                 client.delete("tasks", row["id"])
             for row in self._owned(client.list_all("opportunities")):
@@ -96,7 +126,7 @@ class State:
                 client.delete("companies", row["id"])
 
     def seed(self, context, spec: dict[str, Any]) -> None:
-        companies, opportunities = validate_seed(spec)
+        companies, opportunities, tasks = validate_seed(spec)
         self.reset(context)
         owner_id = context.secrets.get("workspace_member_id")
         if not isinstance(owner_id, str) or not owner_id:
@@ -132,6 +162,20 @@ class State:
                         "ownerId": owner_id,
                     },
                 )
+            for row in tasks:
+                values: dict[str, Any] = {
+                    "title": row["title"],
+                    "status": row["status"],
+                }
+                field_map = {
+                    "due_at": "dueAt",
+                    "assignee_id": "assigneeId",
+                    "body": "bodyV2",
+                }
+                for source, target in field_map.items():
+                    if row.get(source) is not None:
+                        values[target] = row[source]
+                client.create("tasks", values)
 
     def export(self, context) -> dict[str, Any]:
         with self._client(context) as client:

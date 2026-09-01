@@ -251,7 +251,7 @@ def test_prepare_adds_reusable_base_and_task_reset_preserves_it() -> None:
     )
 
 
-def test_reset_clears_ui_created_tasks_and_export_reports_task_outcomes() -> None:
+def test_tasks_round_trip_through_export_seed_and_reset() -> None:
     memory = _MemoryClient()
     memory.rows["tasks"] = [
         {
@@ -269,7 +269,8 @@ def test_reset_clears_ui_created_tasks_and_export_reports_task_outcomes() -> Non
     )
     state = State(None, client_factory=lambda _url, _token: memory)
 
-    assert state.export(context)["tasks"] == [
+    exported_tasks = state.export(context)["tasks"]
+    assert exported_tasks == [
         {
             "id": "task-1",
             "title": "Follow up with Northstar",
@@ -280,8 +281,30 @@ def test_reset_clears_ui_created_tasks_and_export_reports_task_outcomes() -> Non
         }
     ]
 
+    state.seed(context, {**SEED, "tasks": exported_tasks})
+    assert [
+        {key: value for key, value in row.items() if key != "id"}
+        for row in memory.rows["tasks"]
+    ] == [
+        {
+            "title": "Follow up with Northstar",
+            "status": "TODO",
+            "dueAt": "2026-08-19T12:00:00.000Z",
+            "assigneeId": "member-1",
+            "bodyV2": {"markdown": "Call the buyer"},
+        }
+    ]
+
     state.reset(context)
     assert memory.rows["tasks"] == []
+
+
+def test_seed_accepts_an_empty_tasks_collection_from_a_capture() -> None:
+    companies, opportunities, tasks = validate_seed({**SEED, "tasks": []})
+
+    assert companies == SEED["companies"]
+    assert opportunities == SEED["opportunities"]
+    assert tasks == []
 
 
 def test_seed_validation_rejects_an_unknown_company_reference() -> None:
