@@ -1,4 +1,5 @@
 import csv
+import json
 import math
 
 import pytest
@@ -78,14 +79,21 @@ def test_no_shared_cases_is_unavailable_not_zero():
     assert all(a["shared_score"] is None for a in report["agents"].values())
 
 
-@pytest.mark.parametrize("theme", ["dark", "light"])
-def test_cli_renders_csv_without_shared_cases(tmp_path, theme):
+@pytest.mark.parametrize("theme,color_palette", [("dark", "distinct"), ("light", "amber")])
+def test_cli_renders_csv_without_shared_cases(tmp_path, theme, color_palette):
     pytest.importorskip("matplotlib")
     source = tmp_path / "input.csv"
     source.write_text("Usecase,Agent,Score\nA,Brackett,1\nB,Claude,NA\n")
     output = tmp_path / theme
-    assert main([str(source), "--output-dir", str(output), "--theme", theme]) == 0
+    assert main([str(source), "--output-dir", str(output), "--theme", theme, "--palette", color_palette]) == 0
     assert (output / "benchmark-overview.png").read_bytes().startswith(b"\x89PNG")
     assert "<svg" in (output / "benchmark-overview.svg").read_text()
     assert (output / "use-case-scores-1.png").is_file()
     assert (output / "summary.json").is_file()
+    summary = json.loads((output / "summary.json").read_text())
+    assert summary["palette"] == color_palette
+    if color_palette == "distinct":
+        assert summary["agent_colors"]["Brackett"] == "#f5b840"
+        assert summary["agent_colors"]["Claude"] != "#f5b840"
+        for color in summary["agent_colors"].values():
+            assert color in (output / "use-case-scores-1.svg").read_text()

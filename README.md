@@ -92,6 +92,9 @@ The generator saves an overview and paginated use-case charts as PNG and SVG,
 plus `summary.json` with the values, sample counts, shared cases and methodology.
 Use `--theme light` for the light theme, `--sheet "Detailed Analysis"` to select
 a different Excel sheet, or `--cases-per-page 8` to change pagination.
+Use `--palette distinct` to keep Brackett in brand yellow while showing Claude
+in muted lavender and Codex in muted teal. Agent colors stay consistent across
+all charts. The default `--palette amber` retains the original amber ramp.
 
 Supported inputs:
 

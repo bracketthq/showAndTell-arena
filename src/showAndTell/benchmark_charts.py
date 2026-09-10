@@ -15,6 +15,8 @@ import textwrap
 
 # Brackett apps/ui/base-ui/src/tokens/tokens.css (2026-09-10).
 AMBER = ["#f5b840", "#d69a2e", "#a87421", "#6b4915"]
+# Muted companion hues keep the brand accent exclusive to Brackett.
+COMPANION_COLORS = ["#a89acd", "#65aeb5", "#cc8e7c", "#839dc5", "#91ad88"]
 THEMES = {
     "dark": dict(background="#0a131f", foreground="#f7f5f0", muted="#8499b0",
                  card="#131e2c", border="#243550"),
@@ -172,7 +174,7 @@ def summarize(data: Dataset) -> dict:
 
 def render(data: Dataset, output: Path, source: str, theme: str = "dark",
            font: Path | None = None, cases_per_page: int = 10,
-           title: str = "ShowTell benchmark") -> list[Path]:
+           title: str = "ShowTell benchmark", color_palette: str = "amber") -> list[Path]:
     import matplotlib
 
     matplotlib.use("Agg")
@@ -193,6 +195,11 @@ def render(data: Dataset, output: Path, source: str, theme: str = "dark",
     output.mkdir(parents=True, exist_ok=True)
     files = []
     colors = [AMBER[i % len(AMBER)] for i in range(len(data.agents))]
+    if color_palette == "distinct":
+        fixed = {"brackett": AMBER[0], "claude": COMPANION_COLORS[0], "codex": COMPANION_COLORS[1]}
+        others = sorted(a.casefold() for a in data.agents if a.casefold() not in fixed)
+        fixed.update({a: COMPANION_COLORS[(i + 2) % len(COMPANION_COLORS)] for i, a in enumerate(others)})
+        colors = [fixed[a.casefold()] for a in data.agents]
 
     def save(fig, name):
         for extension in ("png", "svg"):
@@ -275,7 +282,8 @@ def render(data: Dataset, output: Path, source: str, theme: str = "dark",
         fig.text(.06, .075, "Average run score per use case. NA runs count as zero; blank runs are excluded. Higher is better.", fontsize=12, color=palette["muted"])
         fig.text(.06, .04, f"Source: {source}", fontsize=10, color=palette["muted"])
         save(fig, f"use-case-scores-{page+1}")
-    summary.update(source=source, theme=theme, font=family,
+    summary.update(source=source, theme=theme, font=family, palette=color_palette,
+                   agent_colors=dict(zip(data.agents, colors)),
                    methodology="NA=zero/incomplete; blank=untested; equal-weight use-case means; numeric scores=completed")
     (output / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
     return files
@@ -287,6 +295,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--sheet", default="Overview", help="Excel worksheet (default: Overview)")
     parser.add_argument("--output-dir", type=Path, default=Path("runs/benchmark-charts"))
     parser.add_argument("--theme", choices=THEMES, default="dark")
+    parser.add_argument("--palette", choices=("amber", "distinct"), default="amber",
+                        help="amber: Brackett's chart ramp; distinct: Brackett yellow with muted companion hues")
     parser.add_argument("--font", type=Path, help="Optional Satoshi .ttf/.otf file; otherwise use installed Satoshi or DejaVu Sans")
     parser.add_argument("--cases-per-page", type=int, default=10)
     parser.add_argument("--title", default="ShowTell benchmark")
@@ -296,7 +306,7 @@ def main(argv: list[str] | None = None) -> int:
     try:
         data = load_dataset(args.input, args.sheet)
         source = args.input.name + (f" · {args.sheet}" if args.input.suffix.lower() == ".xlsx" else "")
-        files = render(data, args.output_dir, source, args.theme, args.font, args.cases_per_page, args.title)
+        files = render(data, args.output_dir, source, args.theme, args.font, args.cases_per_page, args.title, args.palette)
     except (ValueError, OSError, ImportError) as exc:
         parser.exit(2, f"Error: {exc}\nInstall chart dependencies with: pip install -e '.[charts]'\n")
     print(f"Created {len(files)} charts in {args.output_dir.resolve()} (PNG + SVG), plus summary.json")
