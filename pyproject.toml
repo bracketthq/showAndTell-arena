@@ -19,6 +19,10 @@ dependencies = [
 
 [project.scripts]
 showAndTell = "showAndTell.cli:main"
+showAndTell-charts = "showAndTell.benchmark_charts:main"
+
+[project.optional-dependencies]
+charts = ["matplotlib>=3.8,<4", "openpyxl>=3.1,<4"]
 
 [build-system]
 requires = ["hatchling"]

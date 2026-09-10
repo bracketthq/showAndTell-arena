@@ -77,6 +77,55 @@ from the configured judge.
 
 ## Run a benchmark
 
+### Create benchmark charts from Excel or CSV
+
+Install the optional chart dependencies, then run the standalone Python generator:
+
+```bash
+pip install -e '.[charts]'
+python -m showAndTell.benchmark_charts "Brackett ShowTell Benchmark Results.xlsx" \
+  --output-dir runs/benchmark-charts
+# Equivalent installed command: showAndTell-charts INPUT.xlsx
+```
+
+The generator saves an overview and paginated use-case charts as PNG and SVG,
+plus `summary.json` with the values, sample counts, shared cases and methodology.
+Use `--theme light` for the light theme, `--sheet "Detailed Analysis"` to select
+a different Excel sheet, or `--cases-per-page 8` to change pagination.
+
+Supported inputs:
+
+- **Overview layout** (`.xlsx` or `.csv`): `Usecase`, then an `Avg. <agent> Score`
+  header followed by `Run 1`, `Run 2`, etc. for each agent. Calculations use run
+  columns, not cached averages or the trailing `Final Score` section.
+- **One row per run** (`.xlsx` or `.csv`): `Usecase`, `Agent`, `Score`, and optional
+  `Run Number`. Additional columns are ignored. Repeated rows represent separate
+  attempts; duplicate case/agent/run-number combinations are rejected.
+
+```csv
+Usecase,Agent,Score,Run Number
+Credit Release Queue,Brackett,1,1
+Credit Release Queue,Claude,N/A,1
+Credit Release Queue,Claude,86.67%,2
+Credit Release Queue,Codex,0.36,1
+```
+
+Scores must be 0–1 numbers or explicit percentages. `NA` / `N/A` means an
+incomplete attempt and counts as **zero**; blank means **untested** and is
+excluded. Numeric scores, including numeric zero, count as completed attempts.
+Average score weights each tested use case equally after averaging its runs.
+Completion rate counts completed runs divided by attempted runs. The shared
+comparison includes only cases attempted by every agent, including NA attempts;
+if there are none, it displays “No data.” Untested cases do not produce detail bars.
+
+Colors follow Brackett's `apps/ui/base-ui/src/tokens/tokens.css`: amber chart
+ramp, navy dark surfaces, and white/warm-neutral light surfaces. The palette
+is bundled so the script does not need the Brackett repo. Typography uses
+installed Satoshi when available; pass `--font /path/to/Satoshi-Regular.ttf`
+to load it explicitly. Otherwise the portable fallback is DejaVu Sans.
+
+### Requirements for live runs
+
 Benchmark runs drive real products against live application fixtures, so they
 need more than the viewer does:
 
