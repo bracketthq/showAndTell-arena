@@ -20,6 +20,8 @@ dependencies = [
 [project.scripts]
 showAndTell = "showAndTell.cli:main"
 showAndTell-charts = "showAndTell.benchmark_charts:main"
+showAndTell-analysis = "showAndTell.benchmark_analysis:main"
+showAndTell-tci-charts = "showAndTell.tci_charts:main"
 
 [project.optional-dependencies]
 charts = ["matplotlib>=3.8,<4", "openpyxl>=3.1,<4"]

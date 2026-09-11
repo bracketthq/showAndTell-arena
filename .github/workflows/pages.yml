@@ -1,0 +1,41 @@
+name: AEI research site
+
+on:
+  push:
+    branches: [main, aei-research-site]
+    paths:
+      - 'site/**'
+      - 'scripts/check_site.py'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Check content, links, and result integrity
+        run: python3 scripts/check_site.py
+      - uses: actions/upload-pages-artifact@v5.0.0
+        with:
+          path: site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy the research site
+        id: deployment
+        uses: actions/deploy-pages@v5.0.1

@@ -77,6 +77,8 @@ from the configured judge.
 
 ## Run a benchmark
 
+For the AEI research page, see the [figure refresh guide for Claude and contributors](docs/RESEARCH_FIGURES.md). The coordinated utility regenerates charts, frozen data, and page values together.
+
 ### Create benchmark charts from Excel or CSV
 
 Install the optional chart dependencies, then run the standalone Python generator:

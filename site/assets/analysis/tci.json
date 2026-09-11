@@ -1,0 +1,1779 @@
+{
+  "source_revision": "6e48f4d70b870d2a05c9f1ff15d07db7a678d2ee",
+  "label": "Reference suite · 26 July 2026",
+  "scorer_sha256": "509ece30872e1e2db0fd2cbb8304b64cba54329460fbb3e883c3e347781e9728",
+  "scope": "Task-definition snapshot, including named variants. Not joined to benchmark result rows.",
+  "tasks": [
+    {
+      "id": "carrier-rate-variance",
+      "summary": "Reconcile each carrier's freight invoice against contract: pull the contracted base rate (CWT) and FSC% from the ERP into the invoice sheet, compute the expected total and variance %, and set a status band (Approved / Approved with Caution / Escalate to Manager). Family A-v1 (narrated Zoho + Sheets); a FreightPulse-skin v2 and a no-narration v3 are separate variants.",
+      "params": {
+        "branches": 3,
+        "outcomes": 10,
+        "arithmetic": true,
+        "steps": 10,
+        "words": 270,
+        "hops": 2,
+        "systems": 2,
+        "plan": 2,
+        "chained": true,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": true,
+        "binding": 2
+      },
+      "dims": {
+        "rule": 6.5,
+        "evidence": 2.5,
+        "plan": 2.5,
+        "precision": 1,
+        "inference": 1,
+        "signal": 7.2
+      },
+      "tci": 20.7,
+      "tier": 5,
+      "input_sha256": {
+        "task.toml": "3a3a9afce8c964710d4d7f924df5d775038581149b9803be787aec8ce1a1c3f2",
+        "task_logic.py": "4ed922c2832804236510441962c96b53d4054bd49c06a5c55ef515ec190d6826",
+        "demonstrate.py": "e9309c3926c47a79630be3838980a4284184d471f23cd3795c26537eefcbf6dc",
+        "demo/narration_script.jsonl": "953456f36838210335fa35f5595bc6c389f26f31576dc09b3f868ef734ce2373"
+      }
+    },
+    {
+      "id": "carrier-rate-variance-nonarr",
+      "summary": "Reconcile each carrier's freight invoice against contract on the same freightfix world as carrier-rate-variance, but learning from ACTIONS AND AMBIENT SHEET STATE ALONE — the narration-free (v3) variant. The demonstration copies a carrier name from the ERP record, uses the sheet's Find box to locate that carrier's row (the cross-system join key), and fills the Contracted Rate / Contracted FSC% cells; no rule, threshold, band name, or formula is ever spoken. Family A: A-v1 (narrated Zoho) and a FreightPulse-skin A-v2 are the sibling variants.",
+      "params": {
+        "branches": 3,
+        "outcomes": 10,
+        "arithmetic": true,
+        "steps": 16,
+        "words": 71,
+        "hops": 2,
+        "systems": 2,
+        "plan": 2,
+        "chained": true,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": true,
+        "binding": 2
+      },
+      "dims": {
+        "rule": 6.5,
+        "evidence": 2.5,
+        "plan": 2.5,
+        "precision": 1,
+        "inference": 1,
+        "signal": 6.71
+      },
+      "tci": 20.21,
+      "tier": 5,
+      "input_sha256": {
+        "task.toml": "a0a1d06ddc8d7339f843b03cf1d79fb599f0fc572072f4a71c0ccf9651536ac0",
+        "task_logic.py": "4ed922c2832804236510441962c96b53d4054bd49c06a5c55ef515ec190d6826",
+        "demonstrate.py": "6e572e5530dda7405bda1b7c5df44cedf5a34dfeaaf8592b802048ab34e5ca32",
+        "demo/narration_script.jsonl": "89a5fea28b52390b770a67b299a0369d4818d74ec311fd600ef09487a597479f"
+      }
+    },
+    {
+      "id": "carrier-rate-variance-v2",
+      "summary": "Reconcile each carrier's freight invoice against contract: pull the contracted base rate (CWT) and FSC% into the invoice sheet, compute the expected total and variance %, and set a status band (Approved / Approved with Caution / Escalate to Manager). Family A-v2: the same workflow, rule, and planted gaps as carrier-rate-variance (A-v1), run on the FreightPulse-surface fixture (freightfix_v2) whose flat rates table is copied whole-row instead of per-carrier records. A narrated Zoho v1 and a no-narration v3 are separate variants.",
+      "params": {
+        "branches": 3,
+        "outcomes": 10,
+        "arithmetic": true,
+        "steps": 10,
+        "words": 276,
+        "hops": 2,
+        "systems": 2,
+        "plan": 2,
+        "chained": true,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": true,
+        "binding": 2
+      },
+      "dims": {
+        "rule": 6.5,
+        "evidence": 2.5,
+        "plan": 2.5,
+        "precision": 1,
+        "inference": 1,
+        "signal": 7.26
+      },
+      "tci": 20.76,
+      "tier": 5,
+      "input_sha256": {
+        "task.toml": "2a618aa3435f30fb52cc4490ceaf9d0e742281023ef4ea5288b23aeb87858a34",
+        "task_logic.py": "4ed922c2832804236510441962c96b53d4054bd49c06a5c55ef515ec190d6826",
+        "demonstrate.py": "3ec253993da7eb1bce4197f66ebaa61bd76157a295775c8eaf3d9d3d2ba850e5",
+        "demo/narration_script.jsonl": "0ddb9e8ba7792be3cea9af666a83e07236a501b9b7a215e54fb6f1dbf2ce7962"
+      }
+    },
+    {
+      "id": "demand-planning",
+      "summary": "Every planning cycle, filter the Acme Inventory ERP to Low Stock and copy each low-stock product's NAME into the Products column (column A) of the DemandPlan sheet. 'Low' is the ERP's own per-product status, never a numeric threshold you apply; only the name transfers, nothing else. The narrated v1; a no-narration variant (demand-planning-nonarr) learns the same world from actions and ambient sheet state alone — the two are separate variants over one seeded acmefix world.",
+      "params": {
+        "branches": 1,
+        "outcomes": 5,
+        "arithmetic": false,
+        "steps": 10,
+        "words": 240,
+        "hops": 1,
+        "systems": 2,
+        "plan": 2,
+        "chained": true,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": true,
+        "binding": 2
+      },
+      "dims": {
+        "rule": 3.0,
+        "evidence": 1.0,
+        "plan": 2.5,
+        "precision": 0,
+        "inference": 1,
+        "signal": 6.9
+      },
+      "tci": 14.4,
+      "tier": 4,
+      "input_sha256": {
+        "task.toml": "46876a66c045a6233e2f20254638ec62356ad8348766205fe91c9a87f07539a4",
+        "task_logic.py": "b625430a22703cd292647fef6f3fdaea9293aa2770dedb89f79f95e5fde973ca",
+        "demonstrate.py": "98f3f25c6989ee2fe20daeaaf8846fc3faf6d1bd56a65fcaa322f0582749f5a3",
+        "demo/narration_script.jsonl": "f4326cfe63e62cdf214053a6734d999cc19e148233fa0a217a1b0f59994178c8"
+      }
+    },
+    {
+      "id": "demand-planning-nonarr",
+      "summary": "Filter the Acme Inventory ERP to Low Stock and copy each low-stock product's NAME into the Products column of the DemandPlan sheet, learning from ACTIONS AND AMBIENT SHEET STATE ALONE — the narration-free (v3) variant of demand-planning, on the same seeded acmefix world. The demonstration applies the stock-status filter, copies two product names, range-clears the Products column once, and pastes; no rule, count, threshold, or purpose is ever spoken. The narrated demand-planning is the sibling variant.",
+      "params": {
+        "branches": 1,
+        "outcomes": 5,
+        "arithmetic": false,
+        "steps": 12,
+        "words": 51,
+        "hops": 1,
+        "systems": 2,
+        "plan": 2,
+        "chained": true,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": true,
+        "binding": 2
+      },
+      "dims": {
+        "rule": 3.0,
+        "evidence": 1.0,
+        "plan": 2.5,
+        "precision": 0,
+        "inference": 1,
+        "signal": 5.51
+      },
+      "tci": 13.01,
+      "tier": 4,
+      "input_sha256": {
+        "task.toml": "8f62e62145213a4916ed041ea5bc3841d760810dc1fb7f2539b522a0516e29f9",
+        "task_logic.py": "b625430a22703cd292647fef6f3fdaea9293aa2770dedb89f79f95e5fde973ca",
+        "demonstrate.py": "3193b2462c230130b0fe20b8466b75511fccfb4fccc903850fba1927fb986925",
+        "demo/narration_script.jsonl": "0844b9712db0eda507603d68ad6f9db3fcad2cb506da00930263c9f0678f2096"
+      }
+    },
+    {
+      "id": "email-to-order",
+      "summary": "Turn a Gmail requirement email (10 connecting pipes, a $90/piece cap, 'arrange a discount') into a priced SAP VA01 sales order: identify the requesting account (sender -> sold-to 11), look up its margin floor in a tier-policy sheet (account 11 -> Tier 1 -> 12%), read the material's list price (PPR0 100) and cost (PCIP 62) and the Profit Margin (38) on the Conditions tab, then decide — apply a 10% discount (net 90.00, the cap) since the 31.11% margin still clears the 12% floor and 10% is under the 29.5% that would hold it -> approve and Save (order 559); below the floor counter/escalate, below cost always escalate. Family SAP-v1: shares the sapfix SAP WebGUI + sold-to 11 world with the VA01 sibling (sap-sales-order-create), extended with the Gmail inbox and the tier-policy Google Sheet.",
+      "params": {
+        "branches": 3,
+        "outcomes": 7,
+        "arithmetic": true,
+        "steps": 14,
+        "words": 392,
+        "hops": 2,
+        "systems": 3,
+        "plan": 2,
+        "chained": true,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": true,
+        "binding": 2
+      },
+      "dims": {
+        "rule": 5.0,
+        "evidence": 3.5,
+        "plan": 2.5,
+        "precision": 1,
+        "inference": 1,
+        "signal": 9.42
+      },
+      "tci": 22.42,
+      "tier": 5,
+      "input_sha256": {
+        "task.toml": "52313b536a9fa370e2858d3f74ecc13a31aa0a58fc4de7c824b8a71ec60f98a4",
+        "task_logic.py": "6c2a54cea4d01a19815ade3a1e8d311e88887df92e812df33520fd2cdae30102",
+        "demonstrate.py": "154f36bab7cb937b9d4cf14d08c9fdf19ce5b064cccd43b9ed9a65f265111ffe",
+        "demo/narration_script.jsonl": "a8e338fdf89709d396b77ef87eed9ee741e154b750564cd5a4349f88720a8e7d"
+      }
+    },
+    {
+      "id": "fleet-fault-triage",
+      "summary": "A daily morning fault-code triage over a fleet's fault board (fleetfix): walk the codes top-down and, per code, apply a three-step rule — if the truck is In Shop the fault is expected so ignore it; otherwise look up the SPN/FMI code meaning and stop an at-risk truck from dispatching (a breakdown-risk code) or let it run and schedule maintenance (a benign/drivable code). The check-engine light is corroborating evidence, not a branch, and the AI-severity column is a decoy that is never consulted. Family FL-v1: a narrated v1 over a seeded fleetfix world — a Truckora fault board, a Fleetkeep vehicle roster + service history, and a neutral code-lookup search stub. Verdicts are narrated; there is no stop/email surface (the output side is a planted gap).",
+      "params": {
+        "branches": 2,
+        "outcomes": 4,
+        "arithmetic": false,
+        "steps": 14,
+        "words": 539,
+        "hops": 2,
+        "systems": 3,
+        "plan": 1,
+        "chained": true,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": true,
+        "binding": 2
+      },
+      "dims": {
+        "rule": 3.08,
+        "evidence": 3.5,
+        "plan": 1.0,
+        "precision": 0,
+        "inference": 1,
+        "signal": 10.89
+      },
+      "tci": 19.47,
+      "tier": 5,
+      "input_sha256": {
+        "task.toml": "8f2c8e74f86358604aa98b9c8f45a473316504c37b9ae5fddcd2353a816d28bc",
+        "task_logic.py": "239467684975ff491d960dc78cc96d4db08fdb5420ef6a7ec8ce39a3fdd9d778",
+        "demonstrate.py": "11f86e101480a4bd2cba245903136c89477b23250da460a3a8efb403c24b93c6",
+        "demo/narration_script.jsonl": "0371324a7de0184550ce8aa8df46e189efbe956c23028ad2faf4af44d40d79e8"
+      }
+    },
+    {
+      "id": "gitlab-assign-issue",
+      "summary": "Triage a GitLab project's open issues: assign each unassigned open issue to yourself (byteblaze), leaving already-assigned and closed issues untouched.",
+      "params": {
+        "branches": 3,
+        "outcomes": 4,
+        "arithmetic": false,
+        "steps": 7,
+        "words": 97,
+        "hops": 1,
+        "systems": 1,
+        "plan": 1,
+        "chained": false,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": false,
+        "binding": 1
+      },
+      "dims": {
+        "rule": 3.5,
+        "evidence": 0.0,
+        "plan": 0.0,
+        "precision": 0,
+        "inference": 0,
+        "signal": 3.72
+      },
+      "tci": 7.22,
+      "tier": 1,
+      "input_sha256": {
+        "task.toml": "4f22fbb81dac26498832a3d5b03ccb6303198f1ae619399c436062ae5e807b85",
+        "task_logic.py": "4abb97b945808c6e01e03b734b71c7a6f26177ddc4a7cadc2397d9b356bb5511",
+        "demonstrate.py": "cd0f909baba0bcd907fcd274406d0706fb4de1df4654c77c3026b76fc5cd4a67",
+        "demo/narration_script.jsonl": "99c8dcd1a2a1804db0fca82ff3cc0022b2ab151ce097262f418991b3535803eb"
+      }
+    },
+    {
+      "id": "gitlab-close-dups",
+      "summary": "Clear duplicate issues from a GitLab project: for each open issue whose title is tagged [dup], post a closing comment and then close it; leave untagged issues open and never close a duplicate someone is already assigned to.",
+      "params": {
+        "branches": 4,
+        "outcomes": 4,
+        "arithmetic": false,
+        "steps": 6,
+        "words": 100,
+        "hops": 1,
+        "systems": 1,
+        "plan": 2,
+        "chained": false,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": true,
+        "binding": 1
+      },
+      "dims": {
+        "rule": 3.82,
+        "evidence": 0.0,
+        "plan": 1.5,
+        "precision": 0,
+        "inference": 1,
+        "signal": 3.5
+      },
+      "tci": 9.82,
+      "tier": 2,
+      "input_sha256": {
+        "task.toml": "5c36a704dd250050692755d2408d8cc616c525e5e5d2c6a2e71d3d73f81a0bc5",
+        "task_logic.py": "00795b5d686f9aad61f771cc8b51f2f7d2da986a77547f9130c540a94fb39380",
+        "demonstrate.py": "78abf5cecd112dc0169dd6730aa0d4d107dff1250db1da37e836621310b43480",
+        "demo/narration_script.jsonl": "abd8310b7989ee719d593cb719d77a9444dd753d98ccd8c2ebb9ce23dc9c8aef"
+      }
+    },
+    {
+      "id": "gitlab-comment-triage",
+      "summary": "Triage a GitLab project's open issues by posting a standard reproduction-request comment on each open issue you haven't already commented on.",
+      "params": {
+        "branches": 2,
+        "outcomes": 3,
+        "arithmetic": false,
+        "steps": 7,
+        "words": 92,
+        "hops": 1,
+        "systems": 1,
+        "plan": 1,
+        "chained": false,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": false,
+        "binding": 1
+      },
+      "dims": {
+        "rule": 2.58,
+        "evidence": 0.0,
+        "plan": 0.0,
+        "precision": 0,
+        "inference": 0,
+        "signal": 3.67
+      },
+      "tci": 6.25,
+      "tier": 1,
+      "input_sha256": {
+        "task.toml": "3aab84d220a0fb68dbe4c10767d10453aea02a1f68067037190019098307135a",
+        "task_logic.py": "0af0bf93515d296c464d132c68be35a61011d6851c1dba1be66627abf4d899cb",
+        "demonstrate.py": "f48b7337921a017cb0f0dd1f0ff7f1e2a1c39b3e01e634a84355db2f3a4b558c",
+        "demo/narration_script.jsonl": "548795c36313862f1526b8448a1ff450dfa61cc3d5525cc230bd236a47791bac"
+      }
+    },
+    {
+      "id": "gitlab-label-by-title",
+      "summary": "Label a GitLab project's open issues by title: a title mentioning a bug gets 'bug', one mentioning docs gets 'documentation', anything else gets 'needs-triage'; leave already-labeled issues alone.",
+      "params": {
+        "branches": 5,
+        "outcomes": 5,
+        "arithmetic": false,
+        "steps": 6,
+        "words": 80,
+        "hops": 1,
+        "systems": 1,
+        "plan": 1,
+        "chained": false,
+        "state": false,
+        "precedence": 1,
+        "optimize": false,
+        "never_rules": false,
+        "binding": 1
+      },
+      "dims": {
+        "rule": 5.58,
+        "evidence": 0.0,
+        "plan": 0.0,
+        "precision": 0,
+        "inference": 0,
+        "signal": 3.3
+      },
+      "tci": 8.88,
+      "tier": 2,
+      "input_sha256": {
+        "task.toml": "71c040bda63c01cdd0aaa9133f0d96d46096c273ef19ad4d479a40a3bb85e0d5",
+        "task_logic.py": "b2f6bbde85449ee9cb67f6a1afa53c9206bd3a641a28594b5d0ca4b35f4c19e2",
+        "demonstrate.py": "74c775cc1efaadb6b3306a2d42ad5ecb4512d8ed018c3b0493738c3ed1e5aee2",
+        "demo/narration_script.jsonl": "9733e2a66023b99f0d58fb242b24466f85848655c406eaaafb1b0f66f662edec"
+      }
+    },
+    {
+      "id": "gitlab-milestone-and-priority",
+      "summary": "Sprint-plan a GitLab project's open issues: put each into the Sprint 1 milestone, add a priority label from the title ([p1]=high, [p2]=medium, else low), and assign it to yourself; leave issues that already have a milestone or that are assigned to someone else.",
+      "params": {
+        "branches": 7,
+        "outcomes": 6,
+        "arithmetic": false,
+        "steps": 6,
+        "words": 93,
+        "hops": 1,
+        "systems": 1,
+        "plan": 3,
+        "chained": false,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": false,
+        "binding": 1
+      },
+      "dims": {
+        "rule": 5.5,
+        "evidence": 0.0,
+        "plan": 3.0,
+        "precision": 0,
+        "inference": 0,
+        "signal": 3.43
+      },
+      "tci": 11.93,
+      "tier": 3,
+      "input_sha256": {
+        "task.toml": "df26b82445d25c8d22a6a0bdcfa85f765204166acf9cae723047b7a3a432a9d9",
+        "task_logic.py": "ae584cfd9bfff4d0af09776b93f461f58d0b228c2a2e6128155d80b7cf539d6d",
+        "demonstrate.py": "dc096fa5c533559419bb01ad9a49f2c557fc956a3f488e659959ae21b418ca92",
+        "demo/narration_script.jsonl": "27c05d46248ea1103ce9513cb887daa7dc5f193e42acfb630b9c6c7fca318ea2"
+      }
+    },
+    {
+      "id": "gmail-triage",
+      "summary": "A daily 9am triage of the WORK inbox in Roundcube: sweep unread mail from the last 24 hours, keep the two-tier rule — mail from a real person is important; an important mail that also carries an explicit ask needs immediate attention — and for that one mail post a Zulip message naming its sender and subject to the email-alerts stream, while everything automated/bulk (newsletters, CI runs, calendar updates, tool notices) is left untouched. Only the work inbox is triaged; the Zulip message is the terminal action.",
+      "params": {
+        "branches": 4,
+        "outcomes": 6,
+        "arithmetic": true,
+        "steps": 12,
+        "words": 366,
+        "hops": 1,
+        "systems": 2,
+        "plan": 2,
+        "chained": true,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": true,
+        "binding": 2
+      },
+      "dims": {
+        "rule": 4.82,
+        "evidence": 1.0,
+        "plan": 2.5,
+        "precision": 1,
+        "inference": 1,
+        "signal": 8.66
+      },
+      "tci": 18.98,
+      "tier": 5,
+      "input_sha256": {
+        "task.toml": "b0e2642718f2c7ad837aecc2295b086acf93a5068634be11eb2d9bd0c94138a2",
+        "task_logic.py": "bb96ea9068a6f5c1b60a4d8d930cc061c9a4fbb45b809f230a1bd1b4176b300d",
+        "demonstrate.py": "7b61179b11248cd36e6bba2a2580fe0fe4b5a67a4c69eb38493d53f15dbee639",
+        "demo/narration_script.jsonl": "0f1faeb473307ab10c088fa228c7f94e3c796d611e499f872131aa3100052a74"
+      }
+    },
+    {
+      "id": "invoice-3way-match",
+      "summary": "Reconcile pending supplier invoices against POs and goods receipts, then approve or hold each with a reason code.",
+      "params": {
+        "branches": 10,
+        "outcomes": 5,
+        "arithmetic": true,
+        "steps": 8,
+        "words": 84,
+        "hops": 3,
+        "systems": 1,
+        "plan": 1,
+        "chained": true,
+        "state": false,
+        "precedence": 1,
+        "optimize": false,
+        "never_rules": false,
+        "binding": 2
+      },
+      "dims": {
+        "rule": 6.46,
+        "evidence": 3.0,
+        "plan": 1.0,
+        "precision": 1,
+        "inference": 0,
+        "signal": 4.84
+      },
+      "tci": 16.3,
+      "tier": 5,
+      "input_sha256": {
+        "task.toml": "2db9624cd14d0f25808f74c80ff8af6264480d413e6679fb700751d25977514f",
+        "task_logic.py": "14872809c694ed59c25f20fff6fa7b14e9697ad79c2d457a235dec140b839fa2",
+        "demonstrate.py": "ad8333fda7a887c12785f0db7440a20a8e37e3d314a075d9c80108c6e00c3390",
+        "demo/narration_script.jsonl": "0a623a152fd3268478f903591a4fe7b792efb26a65ef7f7aced50e34060e1fd4"
+      }
+    },
+    {
+      "id": "invoice-3way-match-sap",
+      "summary": "Work the invoice-reconciliation sheet: for every not-yet-reconciled row (PO/GR/variance/Status columns blank), drill into SAP via ME23N (Display Purchase Order) to read the PO's Order Quantity and Net Order Price, open Item Details -> Purchase Order History to read the goods-receipt material document and its received quantity, write PO Qty / PO Per Unit Amount / PO Total / GR Document / GR Qty back, then compute a quantity variance ((PO qty - GR qty)/PO qty, the three-way qty leg) and an invoice variance ((invoice amount - PO total)/PO total, the two-way amount leg) and set Status Auto-Approved or Escalate. This is the SAP-surface variant of tasks/invoice-3way-match: SAME three-way-match domain, but a DIFFERENT surface (SAP WebGUI + a Google Sheet, not the opsfix ops console) AND a DIFFERENT decision shape — it writes two numeric variance percentages plus a two-value Status, where the ancestor emits a categorical (status, reason) from a precedence-ordered boolean cascade with a 2% price tolerance. Family SAP-v1: shares the sapfix SAP world with the ME51N sap-pr-create and VA01 sap-sales-order-create siblings; the four are separate tasks over one seeded SAP instance.",
+      "params": {
+        "branches": 4,
+        "outcomes": 7,
+        "arithmetic": true,
+        "steps": 12,
+        "words": 309,
+        "hops": 3,
+        "systems": 2,
+        "plan": 2,
+        "chained": true,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": false,
+        "binding": 2
+      },
+      "dims": {
+        "rule": 5.32,
+        "evidence": 4.0,
+        "plan": 2.5,
+        "precision": 1,
+        "inference": 0,
+        "signal": 8.09
+      },
+      "tci": 20.91,
+      "tier": 5,
+      "input_sha256": {
+        "task.toml": "32973a3538f7a763b82bc54ce15153dec359f4ce174f058baa0270801b467369",
+        "task_logic.py": "c9f9d7cfe5c704d89087c426553a21733120cdb11e3265a42c83e0b71b6b630a",
+        "demonstrate.py": "25a0057b35b4ad2704067e16c870fdbafa72c6176bd9484164c0438802e859f0",
+        "demo/narration_script.jsonl": "a9f78971357b85f97f1ae13f487c723f2f1e92d1a5da83f1658b1453017da8b0"
+      }
+    },
+    {
+      "id": "job-req-report",
+      "summary": "A daily recruiting lookup in Frappe HR: the operator is handed a requisition CODE and must open exactly that requisition, then copy its complete job description into a report. The core rule is MATCH BY ID, never by title — the roster carries a twin-row hazard (two rows both titled 'Data Scientist 1', Req Id 3376 and 3377) plus a differently-titled decoy (3380), so a title match is ambiguous by construction and only the Req Id disambiguates. The requisition is reached by sorting the ID column and scanning. The email leg is spoken only and never shown (no compose surface — the output side is a planted gap).",
+      "params": {
+        "branches": 3,
+        "outcomes": 3,
+        "arithmetic": false,
+        "steps": 11,
+        "words": 376,
+        "hops": 2,
+        "systems": 1,
+        "plan": 1,
+        "chained": true,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": true,
+        "binding": 2
+      },
+      "dims": {
+        "rule": 3.0,
+        "evidence": 1.5,
+        "plan": 1.0,
+        "precision": 0,
+        "inference": 1,
+        "signal": 8.51
+      },
+      "tci": 15.01,
+      "tier": 5,
+      "input_sha256": {
+        "task.toml": "ef14c5d27aae078979dbc169356b8be9d32897a9e3a7dec72bc65b8033326eb6",
+        "task_logic.py": "022b8028fe5723fc2ec9b2c4b2baecbc01335a05b34ef3d794fd82a6e5b639fe",
+        "demonstrate.py": "38fde1a7279e5e68e8399fde8c4422f2fd1d5a1a33340f717e29c5366ff6c1ed",
+        "demo/narration_script.jsonl": "2bba94d4edb47bb7f47cd5747de5365c4d3393b8187414c165ee4a84cd72c52d"
+      }
+    },
+    {
+      "id": "map-directions-distance",
+      "summary": "Report the driving distance between two places from CAR directions, in km rounded half-away-from-zero to one decimal; if the router finds no route report 'unroutable' — never switch travel mode to get a number.",
+      "params": {
+        "branches": 1,
+        "outcomes": 2,
+        "arithmetic": false,
+        "steps": 5,
+        "words": 60,
+        "hops": 1,
+        "systems": 1,
+        "plan": 1,
+        "chained": false,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": true,
+        "binding": 1
+      },
+      "dims": {
+        "rule": 1.5,
+        "evidence": 0.0,
+        "plan": 0.0,
+        "precision": 0,
+        "inference": 1,
+        "signal": 2.85
+      },
+      "tci": 5.35,
+      "tier": 1,
+      "input_sha256": {
+        "task.toml": "f405227b06f4c67f68e67d2d450ec52523c6bdd1cda93d83059781f1cfba01c1",
+        "task_logic.py": "5d6299329ef888ee29922e919dc3205f5f04f1411d392506ee1557a608dd4deb",
+        "demonstrate.py": "3020d757069c41ef43d1fc531fe058ac1c4d468c264501063d5dd1126c8f5ecd",
+        "demo/narration_script.jsonl": "e3f7ad54a1d650fa1ec94c32771b48e56747b5d49a09ea42f1438e524a5d8d0c"
+      }
+    },
+    {
+      "id": "map-nearest-amenity",
+      "summary": "Find the nearest amenity around a reference point: pick the smallest-distance result within 1.0 km (inclusive), break distance ties by alphabetically-first name, and report none when nothing is in range — beyond 1.0 km even the nearest hit is out of range.",
+      "params": {
+        "branches": 2,
+        "outcomes": 2,
+        "arithmetic": true,
+        "steps": 6,
+        "words": 71,
+        "hops": 1,
+        "systems": 1,
+        "plan": 1,
+        "chained": false,
+        "state": false,
+        "precedence": 0,
+        "optimize": true,
+        "never_rules": false,
+        "binding": 1
+      },
+      "dims": {
+        "rule": 2.08,
+        "evidence": 0.0,
+        "plan": 0.0,
+        "precision": 2,
+        "inference": 0,
+        "signal": 3.21
+      },
+      "tci": 7.29,
+      "tier": 1,
+      "input_sha256": {
+        "task.toml": "6b7a6fab1206502caeea944e5c26cede772b4cf4d3ff345417396803641392be",
+        "task_logic.py": "ba0dcb73bc068307fd23f0e30e255924ff970f04f14d574bf131a7985e723e43",
+        "demonstrate.py": "41d3a9782fb7dba65f8c7e55c5f4eec855d859b6e6ff136e7779ee8a589804ee",
+        "demo/narration_script.jsonl": "30fb3fd17a5cc69c4f92076c62ee1065f6d8a560d1c67cd99cb79352fdf159c1"
+      }
+    },
+    {
+      "id": "map-pick-city-result",
+      "summary": "Pick a settlement from OpenStreetMap search results by kind: a City wins, a Town qualifies only when no City appears, counties/rivers/stations never do, and with no City or Town you report not-found rather than taking the top hit.",
+      "params": {
+        "branches": 4,
+        "outcomes": 2,
+        "arithmetic": false,
+        "steps": 5,
+        "words": 88,
+        "hops": 1,
+        "systems": 1,
+        "plan": 1,
+        "chained": false,
+        "state": false,
+        "precedence": 1,
+        "optimize": false,
+        "never_rules": true,
+        "binding": 1
+      },
+      "dims": {
+        "rule": 3.82,
+        "evidence": 0.0,
+        "plan": 0.0,
+        "precision": 0,
+        "inference": 1,
+        "signal": 3.13
+      },
+      "tci": 7.95,
+      "tier": 1,
+      "input_sha256": {
+        "task.toml": "d2258f1708619f8bb4239865ef43916fa9dec3490d5ed9fc161e1245a9e58fce",
+        "task_logic.py": "6d59f0065fdb8f6a8acc58da743611de61ce23e3d07a9d38bf442b83ac54d994",
+        "demonstrate.py": "d179fd7236560ede9255a786b39e18ad7d9fcddb46422b3b25cfc34f148188e0",
+        "demo/narration_script.jsonl": "6f02e0655dcf1805e13489f92ce78ba26ae3c48607f9c234fdee376fa259e2ef"
+      }
+    },
+    {
+      "id": "map-route-audit",
+      "summary": "Audit commutes: choose each pair's mode by distance (up to 2.0 km foot, up to 10.0 km bike, else car; boundaries inclusive), fetch that mode's directions, and flag the route acceptable if its time is within the mode's budget (foot 30 / bike 40 / car 60 min, inclusive), too-slow otherwise, unroutable when no route — never switch modes to pass.",
+      "params": {
+        "branches": 4,
+        "outcomes": 6,
+        "arithmetic": true,
+        "steps": 4,
+        "words": 68,
+        "hops": 2,
+        "systems": 1,
+        "plan": 2,
+        "chained": true,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": true,
+        "binding": 2
+      },
+      "dims": {
+        "rule": 4.82,
+        "evidence": 1.5,
+        "plan": 2.5,
+        "precision": 1,
+        "inference": 1,
+        "signal": 3.68
+      },
+      "tci": 14.5,
+      "tier": 4,
+      "input_sha256": {
+        "task.toml": "ea7ee2beb916b1afc4e6e01bb94fb9cbc678a02286d5dc247e8aee1a0a6a6871",
+        "task_logic.py": "fe4348b986bbd5fe5dd5cac8d79524ee52d281413ebc6b03aafd8e5b0f29afe8",
+        "demonstrate.py": "0d1a8b9301fc27a0d78baba0a59d3708994c1ef4c2b300f99af8c72bd80102ed",
+        "demo/narration_script.jsonl": "34d837877d1bc6a3be58a3a91e193b7b04da606eb1d29cab5a91cdd7e06af6c4"
+      }
+    },
+    {
+      "id": "map-travel-mode-rule",
+      "summary": "Choose the directions mode by trip length: up to and including 2.0 km go on foot, over 2.0 up to and including 10.0 km go by bicycle, over 10.0 km go by car.",
+      "params": {
+        "branches": 2,
+        "outcomes": 3,
+        "arithmetic": true,
+        "steps": 4,
+        "words": 69,
+        "hops": 1,
+        "systems": 1,
+        "plan": 1,
+        "chained": false,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": false,
+        "binding": 1
+      },
+      "dims": {
+        "rule": 2.58,
+        "evidence": 0.0,
+        "plan": 0.0,
+        "precision": 1,
+        "inference": 0,
+        "signal": 2.69
+      },
+      "tci": 6.27,
+      "tier": 1,
+      "input_sha256": {
+        "task.toml": "c36d5d25860620edc80883d77496fbb75179709476209e0b56e1d1b0758c9658",
+        "task_logic.py": "6fa8359b42eb71ecc1adbfb94611069d2a62ff83d3a8415ce6def7caefdecaf8",
+        "demonstrate.py": "c920a9aa9f32ff7a0a2c350ffe302027b788c23ea0fcf9425bb2bffb9f9df099",
+        "demo/narration_script.jsonl": "a6f00972b0876e93d6813b8cd1032d79f0c1372aa27ab8ac61955a117c286f95"
+      }
+    },
+    {
+      "id": "pcn-triage",
+      "summary": "Triage an incoming PCN by mapping the decommissioned supplier part through a Google Sheet to an internal material, then confirming in SAP that the material's Mfr Part Number matches before actioning it.",
+      "params": {
+        "branches": 3,
+        "outcomes": 3,
+        "arithmetic": false,
+        "steps": 15,
+        "words": 252,
+        "hops": 3,
+        "systems": 3,
+        "plan": 2,
+        "chained": true,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": true,
+        "binding": 2
+      },
+      "dims": {
+        "rule": 3.0,
+        "evidence": 5.0,
+        "plan": 2.5,
+        "precision": 0,
+        "inference": 1,
+        "signal": 8.27
+      },
+      "tci": 19.77,
+      "tier": 5,
+      "input_sha256": {
+        "task.toml": "0063abf37300f827596724b7e1a5102e7f80e347b53f9bc9b1c635f4d4812003",
+        "task_logic.py": "3b688d398e2e3af60fb8d93d3a6011a03d1746e9d2edfcd5d0c8c70b9c727ead",
+        "demonstrate.py": "5a0455de83d8291295fee4a264a5800085d8fa5e52ccf6ef95874575ae6e7662",
+        "demo/narration_script.jsonl": "bef0f48b68bb4afe630e5937afe2fbed4c71bcb07f94e7dda732e7627c1445d4"
+      }
+    },
+    {
+      "id": "pcn-triage-v2",
+      "summary": "Triage an incoming PCN by mapping the decommissioned supplier part through a Google Sheet to an internal material, then confirming in SAP that the material's Mfr Part Number matches before actioning it. This variant runs on the semantic-fidelity fixture (pcnfix_v2), whose interaction shape mirrors the original human recording — SAP organizational-levels dialog and sheet cell focusing.",
+      "params": {
+        "branches": 3,
+        "outcomes": 3,
+        "arithmetic": false,
+        "steps": 16,
+        "words": 293,
+        "hops": 3,
+        "systems": 3,
+        "plan": 2,
+        "chained": true,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": true,
+        "binding": 2
+      },
+      "dims": {
+        "rule": 3.0,
+        "evidence": 5.0,
+        "plan": 2.5,
+        "precision": 0,
+        "inference": 1,
+        "signal": 8.93
+      },
+      "tci": 20.43,
+      "tier": 5,
+      "input_sha256": {
+        "task.toml": "b0484d7ef05c8390d617634df703ab10a4d74de6ad34868c735d1fd2f7ccbcbd",
+        "task_logic.py": "3b688d398e2e3af60fb8d93d3a6011a03d1746e9d2edfcd5d0c8c70b9c727ead",
+        "demonstrate.py": "fae6040ad52b1c58014699532ca9871f2b5d353ac16431b4266d186198fd9750",
+        "demo/narration_script.jsonl": "505014c2536f232f2e467994639aba320e280bd298a5c8253e02194687cf19bf"
+      }
+    },
+    {
+      "id": "policy-diff-monitor",
+      "summary": "A daily morning watch on a published WordPress privacy-policy page: take a section-level snapshot, compare it against the last snapshot, and if anything changed send a Zulip message naming which sections moved. The demo browses the page — title, the 14-entry table of contents, section 2 and the privacy-rights section — and speaks the snapshot/compare/notify rule; the whole diff side is narrated, never performed. Day one is an honest baseline: with no prior snapshot, this run becomes the baseline and no message is sent.",
+      "params": {
+        "branches": 7,
+        "outcomes": 7,
+        "arithmetic": true,
+        "steps": 9,
+        "words": 258,
+        "hops": 1,
+        "systems": 2,
+        "plan": 2,
+        "chained": true,
+        "state": true,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": true,
+        "binding": 2
+      },
+      "dims": {
+        "rule": 6.0,
+        "evidence": 1.0,
+        "plan": 3.5,
+        "precision": 1,
+        "inference": 1,
+        "signal": 6.83
+      },
+      "tci": 19.33,
+      "tier": 5,
+      "input_sha256": {
+        "task.toml": "16a5cec2c064b6725923c97c21ac152c33fce3e970698e1c263563c413161c1f",
+        "task_logic.py": "5c74876c75804e3e373bcba83934b6ce8652bb5d4e6a9d11ab64528b7501990f",
+        "demonstrate.py": "175ec4f7111d2ff0ac7af0e994e7b3b0673caa2dad71d1841e2f626c912126c1",
+        "demo/narration_script.jsonl": "1d29e728582de0654e01b4a9dc55e749d462f4d39753c0a3d401907fbcad5cd6"
+      }
+    },
+    {
+      "id": "price-watch",
+      "summary": "A daily morning price-watch on one Magento product: open the Wavecrest Hush ANC headphones, read the current deal price, and when it is strictly below the ₹5,000 threshold take both actions: add the product to the cart and post a drop alert naming the product, with its link, to the agents-bar Zulip stream. A price at or above the threshold is no drop — do nothing and check again the next morning.",
+      "params": {
+        "branches": 1,
+        "outcomes": 3,
+        "arithmetic": true,
+        "steps": 10,
+        "words": 316,
+        "hops": 1,
+        "systems": 2,
+        "plan": 2,
+        "chained": true,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": false,
+        "binding": 2
+      },
+      "dims": {
+        "rule": 2.0,
+        "evidence": 1.0,
+        "plan": 2.5,
+        "precision": 1,
+        "inference": 0,
+        "signal": 7.66
+      },
+      "tci": 14.16,
+      "tier": 4,
+      "input_sha256": {
+        "task.toml": "1899edd141edf3946a6dd845a8e5a91c347ebf55179fb310c5527c143cc34b8b",
+        "task_logic.py": "a7477e7c2232dafea9ea5934295b1a66dcd1e4e7099e5efb859fecb8d18f59c9",
+        "demonstrate.py": "cf1ac636a4110aa0077858a2b91ec700b5da6a4f5ec7f6bb528d1194edeb05ab",
+        "demo/narration_script.jsonl": "3dd6f828e7805cc7212815db55e00abde563cb5c59190403c73d7a91967c4f9d"
+      }
+    },
+    {
+      "id": "reddit-subscribe-by-theme",
+      "summary": "Search the forum directory for the theme and subscribe to each forum whose name OR description mentions it, skipping forums already subscribed and search hits that match neither field.",
+      "params": {
+        "branches": 6,
+        "outcomes": 4,
+        "arithmetic": false,
+        "steps": 6,
+        "words": 82,
+        "hops": 1,
+        "systems": 1,
+        "plan": 1,
+        "chained": false,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": false,
+        "binding": 1
+      },
+      "dims": {
+        "rule": 4.31,
+        "evidence": 0.0,
+        "plan": 0.0,
+        "precision": 0,
+        "inference": 0,
+        "signal": 3.32
+      },
+      "tci": 7.63,
+      "tier": 1,
+      "input_sha256": {
+        "task.toml": "8851caa2ba25bbfcc17700ece4ffd0cbe70bc4fe22f8886a7a9d9320e9505893",
+        "task_logic.py": "f362fe8ab0dfb41d110b0763ea707f876357c5d5dcf4c9e7f1ec35e15d772852",
+        "demonstrate.py": "9a833c2b794cc5df6eb38a73e3ea8c49dc6bd842defd45328a542094417f3915",
+        "demo/narration_script.jsonl": "90973573ca7584ee81f45c5a98cae758d2a4b874f9127e70593176f50e6e05a4"
+      }
+    },
+    {
+      "id": "reddit-thread-triage",
+      "summary": "Triage the forum's newest posts: downvote spam and leave the moderation notice, FAQ-comment unanswered questions, upvote helpful guides, skip the rest — spam beats question beats helpful, and a rerun never duplicates a vote or a comment.",
+      "params": {
+        "branches": 15,
+        "outcomes": 9,
+        "arithmetic": false,
+        "steps": 6,
+        "words": 107,
+        "hops": 1,
+        "systems": 1,
+        "plan": 2,
+        "chained": false,
+        "state": false,
+        "precedence": 2,
+        "optimize": false,
+        "never_rules": false,
+        "binding": 1
+      },
+      "dims": {
+        "rule": 10.0,
+        "evidence": 0.0,
+        "plan": 1.5,
+        "precision": 0,
+        "inference": 0,
+        "signal": 3.57
+      },
+      "tci": 15.07,
+      "tier": 5,
+      "input_sha256": {
+        "task.toml": "a519ca99301314ca0ea18b4a625958ccc9378db3723f23ddd4ec5b2871db1cb0",
+        "task_logic.py": "4e5fa86d734e8d299c80e8b853495bef21ceaedb96574430e02f15d392731a63",
+        "demonstrate.py": "88c63937005c8069fc87477bb547f2c72f12053a4167cd1ba9ec8be79f39d4fe",
+        "demo/narration_script.jsonl": "34d9300ece8a269687e0d60edeeefa39a1772279592ebdd3aa1178e771d796ca"
+      }
+    },
+    {
+      "id": "reddit-upvote-topic",
+      "summary": "Upvote every post in the forum's newest listing whose title mentions the topic keyword (case-insensitive), skip the rest, and never vote on a post that already carries my vote.",
+      "params": {
+        "branches": 3,
+        "outcomes": 3,
+        "arithmetic": false,
+        "steps": 6,
+        "words": 82,
+        "hops": 1,
+        "systems": 1,
+        "plan": 1,
+        "chained": false,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": false,
+        "binding": 1
+      },
+      "dims": {
+        "rule": 3.0,
+        "evidence": 0.0,
+        "plan": 0.0,
+        "precision": 0,
+        "inference": 0,
+        "signal": 3.32
+      },
+      "tci": 6.32,
+      "tier": 1,
+      "input_sha256": {
+        "task.toml": "3069ae5d63145e635b122bb57caf211775594e0076f4a3963e9272618cb68ec2",
+        "task_logic.py": "b2eae1451767b7037184e0a5053d6c61675302efdb52fc37cc2f2a7a30373029",
+        "demonstrate.py": "29cba433a7c4302348d146d345e99692d9bf4912299db791c12cd82e6f1f7aff",
+        "demo/narration_script.jsonl": "6147299f7c426f70e12ffdbf8e54c534ef82507ada5a30ac4d26ceedd235b11b"
+      }
+    },
+    {
+      "id": "reddit-vote-triage",
+      "summary": "In the forum's newest posts, downvote spam (all-caps title or 'buy now'), upvote helpful posts ('[guide]' or a title starting 'how to'), and skip the rest; spam beats helpful when both match, and any existing vote of mine means skip.",
+      "params": {
+        "branches": 7,
+        "outcomes": 6,
+        "arithmetic": false,
+        "steps": 7,
+        "words": 99,
+        "hops": 1,
+        "systems": 1,
+        "plan": 1,
+        "chained": false,
+        "state": false,
+        "precedence": 1,
+        "optimize": false,
+        "never_rules": false,
+        "binding": 1
+      },
+      "dims": {
+        "rule": 6.5,
+        "evidence": 0.0,
+        "plan": 0.0,
+        "precision": 0,
+        "inference": 0,
+        "signal": 3.74
+      },
+      "tci": 10.24,
+      "tier": 2,
+      "input_sha256": {
+        "task.toml": "5b57e831cf3439fd3bc0cc04b10dbb66ade3e15692a88cbeef86f19d41328469",
+        "task_logic.py": "f4c427fe200245f77bb1366a4bf5936e47744a8da42b5e37a99b091b26140ffd",
+        "demonstrate.py": "339d74f899d0df104ea949b106b17e79e2e12187247ad7e00e1194ce98e3e441",
+        "demo/narration_script.jsonl": "45d9b0fb7453ae8765f3810398cfa4323cb3b39f8d11a3624975dec3d2f5fa19"
+      }
+    },
+    {
+      "id": "reddit-welcome-unanswered",
+      "summary": "Reply with the standard welcome pointer to newest posts that have zero comments; any existing comment — even one — means answered, and my own earlier comment blocks a rerun from posting twice.",
+      "params": {
+        "branches": 3,
+        "outcomes": 3,
+        "arithmetic": true,
+        "steps": 6,
+        "words": 77,
+        "hops": 1,
+        "systems": 1,
+        "plan": 1,
+        "chained": false,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": false,
+        "binding": 1
+      },
+      "dims": {
+        "rule": 3.0,
+        "evidence": 0.0,
+        "plan": 0.0,
+        "precision": 1,
+        "inference": 0,
+        "signal": 3.27
+      },
+      "tci": 7.27,
+      "tier": 1,
+      "input_sha256": {
+        "task.toml": "2980359b226538ba5686b0d432cb8081fba7155b751f65bed41a98bf021c4565",
+        "task_logic.py": "24258e0d6c238abea077011c4179a24f18f08d06e4f4ed4e22db63a50529b00e",
+        "demonstrate.py": "517b379a0a203ba840ac9a84c1cae6e087a2e4ca27a4752ea10eb8404dbf3895",
+        "demo/narration_script.jsonl": "a91442a52027d7bbae2d5a796265cf4f2aa96a82ccee5cc60d5bd55099711d9e"
+      }
+    },
+    {
+      "id": "sap-pr-create",
+      "summary": "Each morning, work the shortage-tracker sheet: for every row with a blank PR column, create a Purchase Requisition in SAP transaction ME51N from the row's plant, storage location, material, quantity, and delivery date (SAP auto-fills Short Text from the material master), then write the returned PR number and Status 'PR Created' back into the row. Family SAP-v1: shares the sapfix SAP WebGUI surface with a VA01 sales-order-create sibling task; the two are separate tasks over one seeded SAP world.",
+      "params": {
+        "branches": 2,
+        "outcomes": 8,
+        "arithmetic": true,
+        "steps": 12,
+        "words": 338,
+        "hops": 2,
+        "systems": 2,
+        "plan": 2,
+        "chained": true,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": true,
+        "binding": 2
+      },
+      "dims": {
+        "rule": 5.08,
+        "evidence": 2.5,
+        "plan": 2.5,
+        "precision": 1,
+        "inference": 1,
+        "signal": 8.38
+      },
+      "tci": 20.46,
+      "tier": 5,
+      "input_sha256": {
+        "task.toml": "432f1faf5a6600ee6f4e2fa26050c78c9390404bc1db5e4852a4898608cf374b",
+        "task_logic.py": "6e35c72a00bb0e0fc1bd3400a5830ebc752235e50e3679cf4d6201b8e596b540",
+        "demonstrate.py": "7ec5b03d3e6c0148ce5396491bc6d8e89d863737efd00712b137142f4880c0f4",
+        "demo/narration_script.jsonl": "b10d49a1a326c1b35150c0e0e27487cf6ae5c0f4f4af0026537df33b0e39d9e2"
+      }
+    },
+    {
+      "id": "sap-sales-order-create",
+      "summary": "Create a standard sales order in SAP transaction VA01: set the org header (order type OR, sales area 1710 / 10 / 00), enter the sold-to party, resolve one line item through the F4 value-help 'contains pattern' fallback, set the quantity, apply the account's discount on the Conditions tab (100.00 down to 90.00 at 10%), Save, and read back the order number. Family SAP-v1: shares the sapfix SAP WebGUI surface with the ME51N purchase-requisition sibling task (sap-pr-create); the two are separate tasks — different transaction and workflow — over one seeded SAP world.",
+      "params": {
+        "branches": 4,
+        "outcomes": 7,
+        "arithmetic": true,
+        "steps": 13,
+        "words": 389,
+        "hops": 2,
+        "systems": 1,
+        "plan": 2,
+        "chained": true,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": true,
+        "binding": 2
+      },
+      "dims": {
+        "rule": 5.32,
+        "evidence": 1.5,
+        "plan": 2.5,
+        "precision": 1,
+        "inference": 1,
+        "signal": 9.14
+      },
+      "tci": 20.46,
+      "tier": 5,
+      "input_sha256": {
+        "task.toml": "d2c5c42948662df7eb0c0e1f60936b6e99addb17cf26982493e4a09c3883d3f3",
+        "task_logic.py": "15b1bdd7a4ef0c7673952e745219bf4d67162cd596137d9718935e028830f5c2",
+        "demonstrate.py": "1f5b5d2992ce857d1bec5e4559f2a7ea0ce40a05df61503fba6c8f480d7097f8",
+        "demo/narration_script.jsonl": "fe2101889d1db17805ac354f076bdaea2ca451894a81e92b44c2544fd0eb0a3b"
+      }
+    },
+    {
+      "id": "shopping-admin-approve-reviews",
+      "summary": "Work the Magento admin's Pending reviews queue: approve any review rated 3 stars or more, leave lower-rated reviews Pending for a human, and never touch already-moderated reviews.",
+      "params": {
+        "branches": 3,
+        "outcomes": 3,
+        "arithmetic": true,
+        "steps": 6,
+        "words": 96,
+        "hops": 1,
+        "systems": 1,
+        "plan": 1,
+        "chained": false,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": false,
+        "binding": 1
+      },
+      "dims": {
+        "rule": 3.0,
+        "evidence": 0.0,
+        "plan": 0.0,
+        "precision": 1,
+        "inference": 0,
+        "signal": 3.46
+      },
+      "tci": 7.46,
+      "tier": 1,
+      "input_sha256": {
+        "task.toml": "2904ae71b2a2ae135d0e81787ee8464e3c0773a265fb3aedf3d6a73ce59fb2d9",
+        "task_logic.py": "ae88804d85bf342e8c2f26f8beb86c5fc9ad193eb3596364f9b4934e2bd89916",
+        "demonstrate.py": "b8ae3849926cc67bd18bfc2e8afa8d9f8bf42730913d19a237d659218e50deb4",
+        "demo/narration_script.jsonl": "1e162425deeb7ca2b05fa783461630a32d14ef712215c7971f2bd1ff19201c3a"
+      }
+    },
+    {
+      "id": "shopping-admin-cancel-stale-pending",
+      "summary": "Cancel Pending Magento orders that are strictly older than 7 days; younger Pending orders are left to complete payment, and Processing/Complete/Canceled orders are never touched.",
+      "params": {
+        "branches": 3,
+        "outcomes": 3,
+        "arithmetic": true,
+        "steps": 6,
+        "words": 91,
+        "hops": 1,
+        "systems": 1,
+        "plan": 1,
+        "chained": false,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": false,
+        "binding": 1
+      },
+      "dims": {
+        "rule": 3.0,
+        "evidence": 0.0,
+        "plan": 0.0,
+        "precision": 1,
+        "inference": 0,
+        "signal": 3.41
+      },
+      "tci": 7.41,
+      "tier": 1,
+      "input_sha256": {
+        "task.toml": "84d017adc8c56302ac44a4e092079fd4ec9dfc4b60860779e24f6d6a265ac3a9",
+        "task_logic.py": "1127e2ac9061befb8473fb58f0cee99bff2d3f833585031a916420f461b56171",
+        "demonstrate.py": "477ca5861593a8822de27fbf8a6fc05e2543d14cae6ced8771aa79531205a5b0",
+        "demo/narration_script.jsonl": "e32aa56eb515d2078ed5329e77a6f9bb2f5e10dfcca42312403c8f99d1a95b45"
+      }
+    },
+    {
+      "id": "shopping-admin-order-triage",
+      "summary": "Triage the Magento orders grid: hold any Pending order with grand total strictly over $500 for fraud review (this beats every other rule), cancel remaining Pending orders strictly older than 7 days, comment 'payment reminder sent' on the rest of Pending, and skip non-Pending orders.",
+      "params": {
+        "branches": 5,
+        "outcomes": 4,
+        "arithmetic": true,
+        "steps": 8,
+        "words": 118,
+        "hops": 1,
+        "systems": 1,
+        "plan": 1,
+        "chained": false,
+        "state": false,
+        "precedence": 2,
+        "optimize": false,
+        "never_rules": false,
+        "binding": 1
+      },
+      "dims": {
+        "rule": 6.08,
+        "evidence": 0.0,
+        "plan": 0.0,
+        "precision": 1,
+        "inference": 0,
+        "signal": 4.18
+      },
+      "tci": 11.26,
+      "tier": 3,
+      "input_sha256": {
+        "task.toml": "681dbb8f3c2a233b3c0973dff1ffdd2cebc7ebd64e984a334f08c0a37f25f03d",
+        "task_logic.py": "0c785bf67d7bbebd95a2cafaff616d03556a853cb4b13d441007059b1a797654",
+        "demonstrate.py": "dc010325658017c468c1c532440b3333ba9fe955eb1521ade21bf62bbb75d9fd",
+        "demo/narration_script.jsonl": "dcd2a58e5780c1e9848b6facec698bf321e955436ddab5dbf68956ffbb586378"
+      }
+    },
+    {
+      "id": "shopping-admin-out-of-stock-sweep",
+      "summary": "Sweep the Magento product grid: an enabled product with quantity at or below zero that still shows In Stock gets its stock status set to Out of Stock; disabled products and products already Out of Stock are skipped, so a rerun is a no-op.",
+      "params": {
+        "branches": 4,
+        "outcomes": 4,
+        "arithmetic": true,
+        "steps": 6,
+        "words": 99,
+        "hops": 1,
+        "systems": 1,
+        "plan": 1,
+        "chained": false,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": false,
+        "binding": 1
+      },
+      "dims": {
+        "rule": 3.82,
+        "evidence": 0.0,
+        "plan": 0.0,
+        "precision": 1,
+        "inference": 0,
+        "signal": 3.49
+      },
+      "tci": 8.31,
+      "tier": 1,
+      "input_sha256": {
+        "task.toml": "4c9f2d9f9e41d70b420d7d4768a50f50b1d278e7309cf2ad5ad6c0d9f7b9ee26",
+        "task_logic.py": "5acadfee4d60e3a27625ca518f77e11214814facad6f3eaf88b280f74c2b867d",
+        "demonstrate.py": "742d9cb29e1a6a01ca135e548538d19eed3f2f5754d205e818e8a5feb9e98232",
+        "demo/narration_script.jsonl": "53af917770aa0aaa948118d6fce900af92be8c16dc08f27985d3444766ebca3d"
+      }
+    },
+    {
+      "id": "shopping-admin-price-sanity",
+      "summary": "Sanity-check Magento sale prices: remove a special price that is at or above the regular price (misconfigured beats every other check), flag discounts strictly deeper than 20% for review without touching the prices, and leave sane sales alone.",
+      "params": {
+        "branches": 4,
+        "outcomes": 4,
+        "arithmetic": true,
+        "steps": 7,
+        "words": 120,
+        "hops": 1,
+        "systems": 1,
+        "plan": 1,
+        "chained": false,
+        "state": false,
+        "precedence": 1,
+        "optimize": false,
+        "never_rules": false,
+        "binding": 1
+      },
+      "dims": {
+        "rule": 4.82,
+        "evidence": 0.0,
+        "plan": 0.0,
+        "precision": 1,
+        "inference": 0,
+        "signal": 3.95
+      },
+      "tci": 9.77,
+      "tier": 2,
+      "input_sha256": {
+        "task.toml": "b66882f683363c7791ec20f4d1d24f86d733c6f22aeb2785d3d39d55480cc583",
+        "task_logic.py": "292b346bf620a80879c4d45ac293111619b0732f4f8871edd3ac44eeb7d0a1bf",
+        "demonstrate.py": "309e262c61fa2c9b085a46096cbd57d57774e68a184f18323f42eec6d389433c",
+        "demo/narration_script.jsonl": "9eb2afe1bca6a251324da1a35a5eee1658ef078aa95391ee8b79d6cb4e0921ad"
+      }
+    },
+    {
+      "id": "shopping-budget-cart",
+      "summary": "Work an ordered shopping list against a $100.00 budget: per term add the cheapest in-stock result (ties to higher rating) to the cart if it fits the remaining budget, wishlist it if it doesn't, and keep going either way.",
+      "params": {
+        "branches": 6,
+        "outcomes": 3,
+        "arithmetic": true,
+        "steps": 7,
+        "words": 112,
+        "hops": 1,
+        "systems": 1,
+        "plan": 2,
+        "chained": true,
+        "state": true,
+        "precedence": 0,
+        "optimize": true,
+        "never_rules": false,
+        "binding": 1
+      },
+      "dims": {
+        "rule": 3.81,
+        "evidence": 0.0,
+        "plan": 3.5,
+        "precision": 2,
+        "inference": 0,
+        "signal": 3.87
+      },
+      "tci": 13.18,
+      "tier": 4,
+      "input_sha256": {
+        "task.toml": "a67ce3a7d7f648c36f86c97c8cd8fc7f200c577ce8f431f9443391679dd207b9",
+        "task_logic.py": "64865653f52dba9c0318600054798206d0081cb7f34fb9dfde6ae6bfb330dfe5",
+        "demonstrate.py": "6e0bbd72096ced003f8b047ba211028f670c410b6956b5271e2012b235568486",
+        "demo/narration_script.jsonl": "8f0365ca1e97247442ff3555403bbf8925263057efbc69de2acd3764be106df3"
+      }
+    },
+    {
+      "id": "shopping-cart-stock-check",
+      "summary": "Fill the cart from a shopping list: add one of each in-stock item to the cart, reroute out-of-stock items to the wishlist to buy later, and skip items already in the cart without bumping the quantity.",
+      "params": {
+        "branches": 2,
+        "outcomes": 3,
+        "arithmetic": false,
+        "steps": 8,
+        "words": 93,
+        "hops": 1,
+        "systems": 1,
+        "plan": 1,
+        "chained": false,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": false,
+        "binding": 1
+      },
+      "dims": {
+        "rule": 2.58,
+        "evidence": 0.0,
+        "plan": 0.0,
+        "precision": 0,
+        "inference": 0,
+        "signal": 3.93
+      },
+      "tci": 6.51,
+      "tier": 1,
+      "input_sha256": {
+        "task.toml": "f05befd1e29e68bb3b3a3c9ed0c3b4090918d13900b327f502bfdf6a6cb448ad",
+        "task_logic.py": "aab89ff616a4fd5e10c13bfc0d455a376a557ab6a6413c3cdc60052d0922c2e5",
+        "demonstrate.py": "38e544eb0954844a719cfb1e9e79c65cbfd664b6d45179dc5b035b67e370f9fe",
+        "demo/narration_script.jsonl": "1f89ef68af76b6f47b2a6efdcbe181f6a9bccee8f5de1a8451ebc88181d2544a"
+      }
+    },
+    {
+      "id": "shopping-cheapest-result",
+      "summary": "For each search term, add only the cheapest in-stock result to the cart, breaking price ties by higher rating, and skip a term entirely when every result is out of stock.",
+      "params": {
+        "branches": 4,
+        "outcomes": 3,
+        "arithmetic": false,
+        "steps": 6,
+        "words": 79,
+        "hops": 1,
+        "systems": 1,
+        "plan": 1,
+        "chained": false,
+        "state": false,
+        "precedence": 0,
+        "optimize": true,
+        "never_rules": true,
+        "binding": 1
+      },
+      "dims": {
+        "rule": 3.32,
+        "evidence": 0.0,
+        "plan": 0.0,
+        "precision": 1,
+        "inference": 1,
+        "signal": 3.29
+      },
+      "tci": 8.61,
+      "tier": 2,
+      "input_sha256": {
+        "task.toml": "a1119320a0fc52c13aa14449acbaa4ba62722581cbdb90cf639f9f315d3e48c3",
+        "task_logic.py": "0f2f19a9d3e7dc4f61382bab722f7fc3a3bd2f30e4464955694c9379c65526c5",
+        "demonstrate.py": "0f13c315dc4b972878cc63dc7047c9bdfecd46a63bfffd1d06633607d6d8b52e",
+        "demo/narration_script.jsonl": "9a8d3aba37a0289631c37db062bd22c720b3abe047be6aac2ee352e75fbf566c"
+      }
+    },
+    {
+      "id": "shopping-reorder-window",
+      "summary": "Reorder refills from order history: click Reorder on every Complete order placed on or before the cutoff date, and skip newer, in-flight (Pending/Processing), and Canceled orders.",
+      "params": {
+        "branches": 4,
+        "outcomes": 4,
+        "arithmetic": true,
+        "steps": 6,
+        "words": 86,
+        "hops": 1,
+        "systems": 1,
+        "plan": 1,
+        "chained": false,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": false,
+        "binding": 1
+      },
+      "dims": {
+        "rule": 3.82,
+        "evidence": 0.0,
+        "plan": 0.0,
+        "precision": 1,
+        "inference": 0,
+        "signal": 3.36
+      },
+      "tci": 8.18,
+      "tier": 1,
+      "input_sha256": {
+        "task.toml": "a585a0162158f40f06871bd919a484330f61eb09dcde9c93082a53756927f44f",
+        "task_logic.py": "e54c22f0850248d40c9935399d2d042751ad06616bfb5a15052c91e56224ea62",
+        "demonstrate.py": "32b056dd796924fbb0f8ad555fceddead451273f9751eb686f99dea7483fcf8b",
+        "demo/narration_script.jsonl": "e592d95ab48c2880ee5786b9b0304fb809e916b189f07ec889d43451a6ba5422"
+      }
+    },
+    {
+      "id": "shopping-wishlist-under-cap",
+      "summary": "Wishlist a search's affordable results: add each product priced at or under $25.00 to the wishlist, skip pricier ones, and leave anything already wishlisted alone.",
+      "params": {
+        "branches": 3,
+        "outcomes": 4,
+        "arithmetic": true,
+        "steps": 6,
+        "words": 79,
+        "hops": 1,
+        "systems": 1,
+        "plan": 1,
+        "chained": false,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": false,
+        "binding": 1
+      },
+      "dims": {
+        "rule": 3.5,
+        "evidence": 0.0,
+        "plan": 0.0,
+        "precision": 1,
+        "inference": 0,
+        "signal": 3.29
+      },
+      "tci": 7.79,
+      "tier": 1,
+      "input_sha256": {
+        "task.toml": "4f4f6d480a32cad5960aae6557d58f757afc43384128da1f3a851893479484c2",
+        "task_logic.py": "b4514fc640c180da3d36a3f251dd0eaa0bea2f858b393c1ca910f8bb4e81912b",
+        "demonstrate.py": "8d9e9603961aa72e06faaa7d8f10f24a4dc567b20336c491d3771c3c0eec11db",
+        "demo/narration_script.jsonl": "b45f9d86e463d22b1b6e7cd3a23089a956919104aa8012bdf93b8d21f1926965"
+      }
+    },
+    {
+      "id": "stock-check-substitute",
+      "summary": "Decide how to fill an incoming order when stock is short: read the request in Gmail (200 Connecting Pipes, D2O_1800481527, account 11), check SAP MMBE net-available stock (Unrestricted use 400 minus Sales orders 217 = 183, short of 200), consult the account's substitution rules and a base->substitute map on the SUBS sheet (543 is the primary valid substitute; PIP01 is a name-match trap marked valid No), read the original PCR unit price (62) in VA03, and price three value-equivalent proposals on sales price (A full-substitution 155 units = 12400; B 183 originals + 13 subs = 12386; C 183 originals only = 11346) to email for confirmation. Family SAP-v1: shares the seeded SAP world (account 11, the two CONNECTING PIPE materials, the 100.00/62 conditions) with the VA01 sales-order sibling (sap-sales-order-create) -- this task is the substitution branch that sibling planted in its value help but never walked.",
+      "params": {
+        "branches": 4,
+        "outcomes": 13,
+        "arithmetic": true,
+        "steps": 15,
+        "words": 506,
+        "hops": 3,
+        "systems": 3,
+        "plan": 2,
+        "chained": true,
+        "state": false,
+        "precedence": 0,
+        "optimize": true,
+        "never_rules": true,
+        "binding": 2
+      },
+      "dims": {
+        "rule": 8.32,
+        "evidence": 5.0,
+        "plan": 2.5,
+        "precision": 2,
+        "inference": 1,
+        "signal": 10.81
+      },
+      "tci": 29.63,
+      "tier": 5,
+      "input_sha256": {
+        "task.toml": "f66be6435955cb051689abab49fbd5efe1990d5045831cac167e3a71c703277b",
+        "task_logic.py": "f0269659de901c993c113be32e9523b2554bb1e05f7e1f17cb789778c8f5cee4",
+        "demonstrate.py": "caf5b10181f1b93a61e3bd403b5cc22e7098d3243709e667bb7a19146e20bf27",
+        "demo/narration_script.jsonl": "e3820ef40043976eda0fb8e0604fbafcaf8d085a6d86d2476303966551dbf8ca"
+      }
+    },
+    {
+      "id": "stripe-books-reconcile",
+      "summary": "Reconcile a card-processor payment into the accounting app by recording it as a bank deposit, learning from ACTIONS ALONE — a no-narration (v3) task. On the finfix world (Payvana, a card-processor surface, and Ledgerbooks, an accounting surface) the operator opens the US$200.00 payment, copies its intent id and its amount, and records a manual Other-Deposits entry into the Payvana Clearing account: pastes the id as the Reference#, picks Bank Remittance, pastes the gross amount, and saves. Two systems bridged by the clipboard; the empty Select-Transactions match table forces the manual fall-back. No rule, rationale, or reason is ever spoken — why the gross and not the net, why that mode, the completed-match day, the Refunded row, and editing the exchange rate are all planted gaps. This is the family's THIRD no-narration task (after demand-planning-nonarr and carrier-rate-variance-nonarr) and its FIRST multi-system one.",
+      "params": {
+        "branches": 1,
+        "outcomes": 4,
+        "arithmetic": false,
+        "steps": 15,
+        "words": 54,
+        "hops": 2,
+        "systems": 2,
+        "plan": 2,
+        "chained": true,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": true,
+        "binding": 2
+      },
+      "dims": {
+        "rule": 2.5,
+        "evidence": 2.5,
+        "plan": 2.5,
+        "precision": 0,
+        "inference": 1,
+        "signal": 6.29
+      },
+      "tci": 14.79,
+      "tier": 4,
+      "input_sha256": {
+        "task.toml": "67c720a9c3db8b132ae3506234f5c639e273be0cfdea67bec37a695312712751",
+        "task_logic.py": "e9bc8b9f61b8ac49a2a527b719ffeb06349d26d30b7f95ca54d27562498ba1d2",
+        "demonstrate.py": "90fcc85d88cddc2b42a648713fc0ea522f7b06dccf0b317d909a2a157f2ad9b4",
+        "demo/narration_script.jsonl": "8035256cc4d3df404bf1868bb0b68434421c657d72a05047cd4f8a1cf2e2e456"
+      }
+    },
+    {
+      "id": "wikipedia-capital-lookup",
+      "summary": "Report a country's capital from the infobox Capital row only — the first listed when there are several, 'unknown' when the row is missing — never from the lead prose.",
+      "params": {
+        "branches": 4,
+        "outcomes": 4,
+        "arithmetic": true,
+        "steps": 5,
+        "words": 82,
+        "hops": 1,
+        "systems": 1,
+        "plan": 1,
+        "chained": false,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": true,
+        "binding": 1
+      },
+      "dims": {
+        "rule": 3.82,
+        "evidence": 0.0,
+        "plan": 0.0,
+        "precision": 1,
+        "inference": 1,
+        "signal": 3.07
+      },
+      "tci": 8.89,
+      "tier": 2,
+      "input_sha256": {
+        "task.toml": "973cb1541831a2d98fa41d9b6dbccfba59bbf273285d9c934dfb20f92b586245",
+        "task_logic.py": "748e3fd6135a91243e28dfe94c833351bf5d18940eb841654dbe655b65c7281f",
+        "demonstrate.py": "3c953e0eaea33bdd8fc9b8ab371ba8a839069d05e0af53a6e585fe3f15bf599f",
+        "demo/narration_script.jsonl": "a09689335b5657bb6f7c04c773b0bb2a399f4d605e007bdea6d85a1a8ded7c45"
+      }
+    },
+    {
+      "id": "wikipedia-disambiguation-route",
+      "summary": "Search a term and use a normal landing article as-is; on a disambiguation page open the first entry whose descriptor matches the wanted domain, and report not-found when no entry matches rather than picking the top one.",
+      "params": {
+        "branches": 5,
+        "outcomes": 3,
+        "arithmetic": true,
+        "steps": 6,
+        "words": 95,
+        "hops": 1,
+        "systems": 1,
+        "plan": 1,
+        "chained": false,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": true,
+        "binding": 1
+      },
+      "dims": {
+        "rule": 3.58,
+        "evidence": 0.0,
+        "plan": 0.0,
+        "precision": 1,
+        "inference": 1,
+        "signal": 3.45
+      },
+      "tci": 9.03,
+      "tier": 2,
+      "input_sha256": {
+        "task.toml": "3bb5a2574126ab785c54bf587195e00488be7efd79bbfe6db1bad588b6e7d94f",
+        "task_logic.py": "de9c42dc91c1eb7ccc1611e408e4c5699fc433b2d4d6923cd83cf00b0294ab56",
+        "demonstrate.py": "c5502e1f715a2c56ed46d2403c83c5ee2d1bb0b0e168def43ed94cced5f0acc2",
+        "demo/narration_script.jsonl": "1522173cd4d958095fcc54c802c44847c80e721706058c4d35e27a35b2205823"
+      }
+    },
+    {
+      "id": "wikipedia-freshest-figure",
+      "summary": "When an article offers several values for the same statistic, report the most recently dated one; an undated figure always loses to any dated figure, a same-date tie goes to the infobox over prose, and if all figures are undated report the infobox one.",
+      "params": {
+        "branches": 5,
+        "outcomes": 6,
+        "arithmetic": true,
+        "steps": 5,
+        "words": 84,
+        "hops": 1,
+        "systems": 1,
+        "plan": 1,
+        "chained": false,
+        "state": false,
+        "precedence": 0,
+        "optimize": true,
+        "never_rules": false,
+        "binding": 1
+      },
+      "dims": {
+        "rule": 5.08,
+        "evidence": 0.0,
+        "plan": 0.0,
+        "precision": 2,
+        "inference": 0,
+        "signal": 3.09
+      },
+      "tci": 10.17,
+      "tier": 2,
+      "input_sha256": {
+        "task.toml": "0d45b349b71e96447242e205d73323dba107004fd8e0e203622deb691922ef75",
+        "task_logic.py": "9994c1a6829a274cdfcc14ecbe5f79735f88c7aa2d44a9185c4e515e3c2de148",
+        "demonstrate.py": "3568a200ca9125931ee2d80d6407b6d1638b31ccacda71f17dfc21d58c34564f",
+        "demo/narration_script.jsonl": "4d879c70e94f52a2fc05d5335851af5a3bc3e13fac1adabf2fa2340dca572c5c"
+      }
+    },
+    {
+      "id": "wikipedia-multi-hop-capital",
+      "summary": "Answer 'what is the capital of the country where <landmark> is?' in two verified hops: read the country from the landmark's infobox Country row (last component of the Location row when it is missing), open the country article routing any disambiguation with the 'country' domain rule, then report the first capital in its infobox Capital row — any missing link means 'unknown' with the failing hop, never a guess.",
+      "params": {
+        "branches": 9,
+        "outcomes": 4,
+        "arithmetic": false,
+        "steps": 5,
+        "words": 98,
+        "hops": 2,
+        "systems": 1,
+        "plan": 2,
+        "chained": true,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": true,
+        "binding": 2
+      },
+      "dims": {
+        "rule": 4.82,
+        "evidence": 1.5,
+        "plan": 2.5,
+        "precision": 0,
+        "inference": 1,
+        "signal": 4.23
+      },
+      "tci": 14.05,
+      "tier": 4,
+      "input_sha256": {
+        "task.toml": "bf35522a6b419c04a09b25ef423a1b1acf14275e39ae29c6b26e2cf355ba1464",
+        "task_logic.py": "e8ab62fa1bedd58887a7e172af39a97bc7db3e932b7f9d995838ee0ac457d28c",
+        "demonstrate.py": "4e1ebafc257ca64644639458beb6d4e4ec450a1d47181ff2f67d20c95584e98c",
+        "demo/narration_script.jsonl": "c96ee82e5045af8893850c801ca1ca9577ed186bf6435ab3ac1ef711f988f1ac"
+      }
+    },
+    {
+      "id": "wikipedia-population-compare",
+      "summary": "Decide which of two cities is larger by comparing infobox city-proper Population figures only; metro-area figures never substitute, and a missing city-proper figure on either side makes the pair incomparable.",
+      "params": {
+        "branches": 3,
+        "outcomes": 2,
+        "arithmetic": true,
+        "steps": 5,
+        "words": 81,
+        "hops": 2,
+        "systems": 1,
+        "plan": 1,
+        "chained": false,
+        "state": false,
+        "precedence": 0,
+        "optimize": false,
+        "never_rules": true,
+        "binding": 2
+      },
+      "dims": {
+        "rule": 2.5,
+        "evidence": 1.5,
+        "plan": 0.0,
+        "precision": 1,
+        "inference": 1,
+        "signal": 4.06
+      },
+      "tci": 10.06,
+      "tier": 2,
+      "input_sha256": {
+        "task.toml": "042dc2e61abbedc868155c109ac4051d5bdcd1af9105d0296f44c96ca1bb7f07",
+        "task_logic.py": "67f52f20eb60983c23f8a279971da0fa41f3872458ce350177858fe0581f3155",
+        "demonstrate.py": "f37ebc6fd674d91290d0be761ada9d8332d3e533b3156358b5a06e6860c22ce4",
+        "demo/narration_script.jsonl": "1662b83920e22e4a3017d477f3ac6780e374e309c9dcfdf36dc6e87de5ca88d6"
+      }
+    }
+  ],
+  "tier_counts": {
+    "5": 16,
+    "4": 7,
+    "1": 15,
+    "2": 9,
+    "3": 2
+  }
+}

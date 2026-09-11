@@ -1,0 +1,145 @@
+Usecase,Agent,Run,Score
+Candidate–Role Rematching,Codex,1,0.5
+Candidate–Role Rematching,Brackett,1,1.0
+Candidate–Role Rematching,Brackett,2,1.0
+Candidate–Role Rematching,Claude,1,NA
+Candidate–Role Rematching,Claude,2,NA
+Credit Release Queue,Codex,1,0.36
+Credit Release Queue,Brackett,1,1.0
+Credit Release Queue,Brackett,2,1.0
+Credit Release Queue,Claude,1,NA
+Credit Release Queue,Claude,2,0.8667
+Customer Returns Inbox Triage,Codex,1,0.6364
+Customer Returns Inbox Triage,Brackett,1,0.7348
+Customer Returns Inbox Triage,Brackett,2,0.8255
+Customer Returns Inbox Triage,Claude,1,NA
+Customer Returns Inbox Triage,Claude,2,NA
+Discount Request Review,Codex,1,0.755
+Discount Request Review,Brackett,1,0.8037
+Discount Request Review,Brackett,2,0.805
+Discount Request Review,Claude,1,NA
+Discount Request Review,Claude,2,NA
+Job Offer Follow-Up,Codex,1,0.45299999999999996
+Job Offer Follow-Up,Brackett,1,0.94
+Job Offer Follow-Up,Brackett,2,0.41
+Job Offer Follow-Up,Claude,1,0.6054
+Job Offer Follow-Up,Claude,2,NA
+Job Requisition Broadcast,Codex,1,0.625
+Job Requisition Broadcast,Brackett,1,0.98
+Job Requisition Broadcast,Brackett,2,0.94
+Job Requisition Broadcast,Claude,1,NA
+Job Requisition Broadcast,Claude,2,NA
+Job Requisition Triage,Codex,1,0.365
+Job Requisition Triage,Brackett,1,0.84
+Job Requisition Triage,Brackett,2,0.46
+Job Requisition Triage,Claude,1,0.6629
+Job Requisition Triage,Claude,2,0.682
+Limited-Stock Order Allocation,Codex,1,0.257
+Limited-Stock Order Allocation,Brackett,1,0.925
+Limited-Stock Order Allocation,Brackett,2,0.92
+Limited-Stock Order Allocation,Claude,1,NA
+Limited-Stock Order Allocation,Claude,2,NA
+Low-Stock Replenishment Sweep,Codex,1,0.855
+Low-Stock Replenishment Sweep,Brackett,1,1.0
+Low-Stock Replenishment Sweep,Brackett,2,1.0
+Low-Stock Replenishment Sweep,Claude,1,NA
+Low-Stock Replenishment Sweep,Claude,2,NA
+Order Request Replenishment,Codex,1,0.915
+Order Request Replenishment,Brackett,1,0.81
+Order Request Replenishment,Brackett,2,0.82
+Order Request Replenishment,Claude,1,NA
+Order Request Replenishment,Claude,2,NA
+Recruiter Performance Scorecard,Codex,1,0.25
+Recruiter Performance Scorecard,Brackett,1,0.855
+Recruiter Performance Scorecard,Brackett,2,0.97
+Recruiter Performance Scorecard,Claude,1,NA
+Recruiter Performance Scorecard,Claude,2,NA
+Accounts Receivable Collections Follow-Up 1,Codex,1,0.853
+Accounts Receivable Collections Follow-Up 1,Brackett,1,0.805
+Accounts Receivable Collections Follow-Up 1,Brackett,2,0.8
+Accounts Receivable Collections Follow-Up 1,Claude,1,NA
+Accounts Receivable Collections Follow-Up 1,Claude,2,NA
+Candidate–Role Rematching 1,Codex,1,0.33
+Candidate–Role Rematching 1,Brackett,1,0.885
+Candidate–Role Rematching 1,Brackett,2,0.875
+Candidate–Role Rematching 1,Claude,1,0.885
+Candidate–Role Rematching 1,Claude,2,0.91
+Credit Release Queue 1,Codex,1,0.737
+Credit Release Queue 1,Brackett,1,0.945
+Credit Release Queue 1,Brackett,2,0.97
+Credit Release Queue 1,Claude,1,0.73
+Credit Release Queue 1,Claude,2,0.728
+Customer Support Issue Triage 1,Codex,1,0.645
+Customer Support Issue Triage 1,Brackett,1,0.7602
+Customer Support Issue Triage 1,Brackett,2,0.8265
+Customer Support Issue Triage 1,Claude,1,NA
+Customer Support Issue Triage 1,Claude,2,NA
+Discount Request Review 1,Codex,1,0.488
+Discount Request Review 1,Brackett,1,0.97
+Discount Request Review 1,Brackett,2,0.97
+Discount Request Review 1,Claude,1,NA
+Discount Request Review 1,Claude,2,NA
+Email Purchase Invoice Posting 1,Brackett,1,0.825
+Email Purchase Invoice Posting 1,Brackett,2,0.785
+Email Purchase Invoice Posting 1,Claude,1,NA
+Email Purchase Invoice Posting 1,Claude,2,NA
+Freight Consolidation Planning 1,Codex,1,0.345
+Freight Consolidation Planning 1,Brackett,1,0.39
+Freight Consolidation Planning 1,Brackett,2,0.94
+Freight Consolidation Planning 1,Claude,1,NA
+Freight Consolidation Planning 1,Claude,2,NA
+Goods Receipt Shortfall Follow-Up 1,Codex,1,0.695
+Goods Receipt Shortfall Follow-Up 1,Brackett,1,0.89
+Goods Receipt Shortfall Follow-Up 1,Brackett,2,0.88
+Goods Receipt Shortfall Follow-Up 1,Claude,1,NA
+Goods Receipt Shortfall Follow-Up 1,Claude,2,NA
+Inbound Sales Enquiry Routing 1,Brackett,1,0.94
+Inbound Sales Enquiry Routing 1,Brackett,2,0.92
+Inbound Sales Enquiry Routing 1,Claude,1,NA
+Inbound Sales Enquiry Routing 1,Claude,2,NA
+Job Requisition Broadcast 1,Brackett,1,0.95
+Job Requisition Broadcast 1,Brackett,2,0.96
+Job Requisition Broadcast 1,Claude,1,NA
+Job Requisition Broadcast 1,Claude,2,NA
+Job Requisition Triage 1,Brackett,1,0.95
+Job Requisition Triage 1,Brackett,2,0.83
+Job Requisition Triage 1,Claude,1,NA
+Job Requisition Triage 1,Claude,2,0.9
+Leave Request Eligibility Review 1,Codex,1,0.9
+Leave Request Eligibility Review 1,Brackett,1,0.785
+Leave Request Eligibility Review 1,Brackett,2,0.78
+Leave Request Eligibility Review 1,Claude,1,NA
+Leave Request Eligibility Review 1,Claude,2,NA
+Limited-Stock Order Allocation 1,Brackett,1,0.84
+Limited-Stock Order Allocation 1,Brackett,2,0.84
+Limited-Stock Order Allocation 1,Claude,1,NA
+Limited-Stock Order Allocation 1,Claude,2,NA
+Low-Stock Replenishment Sweep 1,Codex,1,0.29
+Low-Stock Replenishment Sweep 1,Brackett,1,0.665
+Low-Stock Replenishment Sweep 1,Brackett,2,0.745
+Low-Stock Replenishment Sweep 1,Claude,1,0.6483
+Low-Stock Replenishment Sweep 1,Claude,2,NA
+New-Hire Onboarding Coordination 1,Codex,1,0.435
+New-Hire Onboarding Coordination 1,Brackett,1,0.955
+New-Hire Onboarding Coordination 1,Brackett,2,0.91
+New-Hire Onboarding Coordination 1,Claude,1,NA
+New-Hire Onboarding Coordination 1,Claude,2,NA
+Order Request Replenishment 1,Brackett,1,1.0
+Order Request Replenishment 1,Brackett,2,1.0
+Order Request Replenishment 1,Claude,1,NA
+Order Request Replenishment 1,Claude,2,0.92
+Purchase Invoice Reconciliation 1,Codex,1,0.895
+Purchase Invoice Reconciliation 1,Brackett,1,1.0
+Purchase Invoice Reconciliation 1,Brackett,2,1.0
+Purchase Invoice Reconciliation 1,Claude,1,NA
+Purchase Invoice Reconciliation 1,Claude,2,NA
+Recruiter Performance Scorecard 1,Codex,1,0.565
+Recruiter Performance Scorecard 1,Brackett,1,0.925
+Recruiter Performance Scorecard 1,Brackett,2,0.925
+Recruiter Performance Scorecard 1,Claude,1,0.84
+Recruiter Performance Scorecard 1,Claude,2,NA
+Vehicle Maintenance Service Booking 1,Codex,1,0.8
+Vehicle Maintenance Service Booking 1,Brackett,1,0.6
+Vehicle Maintenance Service Booking 1,Brackett,2,0.73
+Vehicle Maintenance Service Booking 1,Claude,1,NA
+Vehicle Maintenance Service Booking 1,Claude,2,NA

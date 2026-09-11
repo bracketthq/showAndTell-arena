@@ -1,10 +1,17 @@
 # Task Complexity Index (TCI)
 
-Every task carries a complexity score so product results can be read against
-task difficulty (does a product only pass easy tasks?). The score is the sum
-of six dimensions; it shows up in the task viewer as a tier-banded pill (a
-sortable column on the overview, a pill + per-dimension strip on each task
-page). Scoring lives in `src/showAndTell/quiz/complexity.py`.
+TCI is a useful heuristic for bucketing tasks when building the benchmark
+arena. It helps us spread the suite across expected difficulty levels and
+look for tasks we expect to be harder. The six dimensions describe different
+demands a task places on the learner; their weights and tier boundaries are
+design choices, not a validated difficulty scale. Observed performance can
+challenge those expectations.
+
+The score appears in the task viewer as a sortable tier and a per-dimension
+breakdown. Scoring lives in `src/showAndTell/quiz/complexity.py`. To regenerate
+research-page figures from a versioned task set, follow
+[RESEARCH_FIGURES.md](RESEARCH_FIGURES.md). Relating these buckets to results
+requires matching the exact task versions and evaluated cases.
 
 ## The six questions
 
