@@ -1,0 +1,111 @@
+{
+  "dataset": "brackettai/showtellarena",
+  "revision": "f4aa4251d0bbefb80d10ea9074a073c2b036c2af",
+  "task_id": "customer-returns-inbox-triage",
+  "source_url": "https://huggingface.co/datasets/brackettai/showtellarena/resolve/f4aa4251d0bbefb80d10ea9074a073c2b036c2af/tasks/customer-returns-inbox-triage/quiz/questions.json",
+  "source_sha256": "e42d3185bfdf1545adc16687de8fc0ef531ddc828768b47d8876396855ad0b36",
+  "audit_status": "The question set was revised after reviewing Brackett replays: the cadence, morning-batch, and exact finance-destination questions were clarified, the damage rule was aligned with the captured behavior, and the overloaded workflow-reconstruction question was removed. The current 11-question file passes schema and screenshot-evidence validation; fresh positive controls for the changed wording and the blind cold-read guessability audit remain pending.",
+  "questions": [
+    {
+      "id": "q_exact_boundary_cases",
+      "type": "closed",
+      "scope": "workflow_specific",
+      "question": "On 9 April, Sam requested £41 for an item delivered on 10 March, while Nadia requested £50 for an item delivered on 4 April. How should the handler process both requests?",
+      "answer_aliases": [
+        "Approve both requests and reply directly to Sam and Nadia",
+        "Both should receive a direct refund-approval reply",
+        "Reply to both customers with refund approval"
+      ],
+      "evidence": [
+        {
+          "type": "voice_recording",
+          "path": "tasks/customer-returns-inbox-triage/demo/recording.mp4",
+          "sha256": "3e6e4f8c667a79ecffa110f0e3b95088b2e510e73af561a62f2f694e28b517a3",
+          "start_ms": 22910,
+          "end_ms": 58190,
+          "description": "The spoken setup establishes 9 April as the working date and the inclusive normal gates: within 30 days of delivery and no more than £50."
+        },
+        {
+          "type": "source_file",
+          "path": "tasks/customer-returns-inbox-triage/demo/roundcube/0007.eml",
+          "sha256": "9e84ee1c76fcd410fd7f3277b63354f147752abd9b19a0cc4b5820ce10fde0d8",
+          "description": "Sam's email states delivery on 10 March, a non-damage reason, and £41.00, placing it exactly 30 days old on 9 April and below the direct limit."
+        },
+        {
+          "type": "source_file",
+          "path": "tasks/customer-returns-inbox-triage/demo/roundcube/0008.eml",
+          "sha256": "30e81746a6887e11dc8805417a0211b572fa0f846572ada3cc284d2d4719d752",
+          "description": "Nadia's email states delivery on 4 April and exactly £50.00, exercising the inclusive amount boundary inside the window."
+        }
+      ]
+    },
+    {
+      "id": "q_damage_override_transfer",
+      "type": "llm_judge",
+      "scope": "workflow_specific",
+      "question": "Elena's £74 jug was delivered on 5 February and arrived cracked. On 9 April, what should the handler do?",
+      "rubric": "Full credit requires: (1) identify that the cracked jug qualifies for the demonstrated damage exception; (2) state that the exception overrides both normal gates, so the request remains refundable despite being outside 30 days and above £50; and (3) approve the refund directly rather than declining it as too old or forwarding it solely because of the amount. Equivalent concise wording is accepted.",
+      "evidence": [
+        {
+          "type": "voice_recording",
+          "path": "tasks/customer-returns-inbox-triage/demo/recording.mp4",
+          "sha256": "3e6e4f8c667a79ecffa110f0e3b95088b2e510e73af561a62f2f694e28b517a3",
+          "start_ms": 36270,
+          "end_ms": 74430,
+          "description": "The spoken policy gives the normal time and amount gates, then establishes that an item arriving damaged is refunded regardless of its age or amount."
+        },
+        {
+          "type": "source_file",
+          "path": "tasks/customer-returns-inbox-triage/demo/roundcube/0006.eml",
+          "sha256": "acf62a18ccfe67581a5f80c079e4acb616db0507f30dfc51d7decb670207e551",
+          "description": "Elena's email says the £74 jug was delivered on 5 February and came out of the box cracked, making it the intended damage-precedence transfer case."
+        }
+      ]
+    },
+    {
+      "id": "q_safe_automation_error_diagnosis",
+      "type": "llm_judge",
+      "scope": "workflow_specific",
+      "question": "A proposed automation replies to every inbox message, measures eligibility from the email date, forwards requests without adding context, sends exactly £50 requests to finance, and rejects a £74 cracked jug delivered on 5 February as too old. Does it reproduce the demonstrated workflow? Explain any changes required.",
+      "rubric": "Full credit requires: (1) filter for actual customer return/refund requests and leave analytics or automated maintenance messages untouched; (2) calculate from item delivery date, not email date; (3) address finance forwards to finance@showAndTell.test and put amount, days since delivery, and reason/fault status above the original thread; (4) route exactly £50 to direct approval because only amounts above £50 normally require finance; and (5) approve Elena's £74 cracked-jug refund rather than declining or forwarding it, because the demonstrated damage exception overrides both the 30-day window and the normal amount limit.",
+      "evidence": [
+        {
+          "type": "voice_recording",
+          "path": "tasks/customer-returns-inbox-triage/demo/recording.mp4",
+          "sha256": "3e6e4f8c667a79ecffa110f0e3b95088b2e510e73af561a62f2f694e28b517a3",
+          "start_ms": 3120,
+          "end_ms": 101050,
+          "description": "The opening narration scopes the work and establishes the delivery-based window, inclusive amount limit, damage exception that overrides both normal gates, and automated-message exclusions."
+        },
+        {
+          "type": "screenshot",
+          "step": "inspect_weekly_digest",
+          "line": 4,
+          "path": "tasks/customer-returns-inbox-triage/capture_bundle/screenshot_line4.png",
+          "sha256": "89be6501b522d063d8be6f8563b05ea69ad93b2e5a4cc4d4133dc9a56bf1fdec",
+          "description": "The demonstration leaves the non-customer digest without a reply or forward."
+        },
+        {
+          "type": "screenshot",
+          "step": "inspect_completed_finance_forward",
+          "line": 90,
+          "path": "tasks/customer-returns-inbox-triage/capture_bundle/screenshot_line90.png",
+          "sha256": "d6f2709bb53c6ede530ff00bd57ad30c161a80aba511029639d7d56bd35a9f1d",
+          "description": "The finance forward demonstrates the exact recipient and three-field summary above the thread."
+        },
+        {
+          "type": "source_file",
+          "path": "tasks/customer-returns-inbox-triage/demo/roundcube/0006.eml",
+          "sha256": "acf62a18ccfe67581a5f80c079e4acb616db0507f30dfc51d7decb670207e551",
+          "description": "Elena's case is older than 30 days and above £50 but explicitly arrived cracked."
+        },
+        {
+          "type": "source_file",
+          "path": "tasks/customer-returns-inbox-triage/demo/roundcube/0008.eml",
+          "sha256": "30e81746a6887e11dc8805417a0211b572fa0f846572ada3cc284d2d4719d752",
+          "description": "Nadia's case is exactly £50, exercising the inclusive boundary."
+        }
+      ]
+    }
+  ]
+}

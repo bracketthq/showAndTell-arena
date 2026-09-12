@@ -1,0 +1,1291 @@
+{
+  "agents": {
+    "Brackett": {
+      "average_score": 0.8634283333333334,
+      "completed_runs": 60,
+      "attempted_runs": 60,
+      "completion_rate": 1.0,
+      "tested_use_cases": 30,
+      "shared_score": 0.8534520833333333
+    },
+    "Claude": {
+      "average_score": 0.156305,
+      "completed_runs": 12,
+      "attempted_runs": 60,
+      "completion_rate": 0.2,
+      "tested_use_cases": 30,
+      "shared_score": 0.15746458333333332
+    },
+    "Codex": {
+      "average_score": 0.581225,
+      "completed_runs": 24,
+      "attempted_runs": 24,
+      "completion_rate": 1.0,
+      "tested_use_cases": 24,
+      "shared_score": 0.581225
+    }
+  },
+  "case_scores": {
+    "Brackett": {
+      "Candidate–Role Rematching": 1.0,
+      "Credit Release Queue": 1.0,
+      "Customer Returns Inbox Triage": 0.78015,
+      "Discount Request Review": 0.80435,
+      "Job Offer Follow-Up": 0.6749999999999999,
+      "Job Requisition Broadcast": 0.96,
+      "Job Requisition Triage": 0.65,
+      "Limited-Stock Order Allocation": 0.9225000000000001,
+      "Low-Stock Replenishment Sweep": 1.0,
+      "Order Request Replenishment": 0.815,
+      "Recruiter Performance Scorecard": 0.9125,
+      "Accounts Receivable Collections Follow-Up 1": 0.8025,
+      "Candidate–Role Rematching 1": 0.88,
+      "Credit Release Queue 1": 0.9575,
+      "Customer Support Issue Triage 1": 0.79335,
+      "Discount Request Review 1": 0.97,
+      "Email Purchase Invoice Posting 1": 0.8049999999999999,
+      "Freight Consolidation Planning 1": 0.665,
+      "Goods Receipt Shortfall Follow-Up 1": 0.885,
+      "Inbound Sales Enquiry Routing 1": 0.9299999999999999,
+      "Job Requisition Broadcast 1": 0.955,
+      "Job Requisition Triage 1": 0.8899999999999999,
+      "Leave Request Eligibility Review 1": 0.7825,
+      "Limited-Stock Order Allocation 1": 0.84,
+      "Low-Stock Replenishment Sweep 1": 0.7050000000000001,
+      "New-Hire Onboarding Coordination 1": 0.9325,
+      "Order Request Replenishment 1": 1.0,
+      "Purchase Invoice Reconciliation 1": 1.0,
+      "Recruiter Performance Scorecard 1": 0.925,
+      "Vehicle Maintenance Service Booking 1": 0.665
+    },
+    "Claude": {
+      "Candidate–Role Rematching": 0.0,
+      "Credit Release Queue": 0.43335,
+      "Customer Returns Inbox Triage": 0.0,
+      "Discount Request Review": 0.0,
+      "Job Offer Follow-Up": 0.3027,
+      "Job Requisition Broadcast": 0.0,
+      "Job Requisition Triage": 0.67245,
+      "Limited-Stock Order Allocation": 0.0,
+      "Low-Stock Replenishment Sweep": 0.0,
+      "Order Request Replenishment": 0.0,
+      "Recruiter Performance Scorecard": 0.0,
+      "Accounts Receivable Collections Follow-Up 1": 0.0,
+      "Candidate–Role Rematching 1": 0.8975,
+      "Credit Release Queue 1": 0.729,
+      "Customer Support Issue Triage 1": 0.0,
+      "Discount Request Review 1": 0.0,
+      "Email Purchase Invoice Posting 1": 0.0,
+      "Freight Consolidation Planning 1": 0.0,
+      "Goods Receipt Shortfall Follow-Up 1": 0.0,
+      "Inbound Sales Enquiry Routing 1": 0.0,
+      "Job Requisition Broadcast 1": 0.0,
+      "Job Requisition Triage 1": 0.45,
+      "Leave Request Eligibility Review 1": 0.0,
+      "Limited-Stock Order Allocation 1": 0.0,
+      "Low-Stock Replenishment Sweep 1": 0.32415,
+      "New-Hire Onboarding Coordination 1": 0.0,
+      "Order Request Replenishment 1": 0.46,
+      "Purchase Invoice Reconciliation 1": 0.0,
+      "Recruiter Performance Scorecard 1": 0.42,
+      "Vehicle Maintenance Service Booking 1": 0.0
+    },
+    "Codex": {
+      "Candidate–Role Rematching": 0.5,
+      "Credit Release Queue": 0.36,
+      "Customer Returns Inbox Triage": 0.6364,
+      "Discount Request Review": 0.755,
+      "Job Offer Follow-Up": 0.45299999999999996,
+      "Job Requisition Broadcast": 0.625,
+      "Job Requisition Triage": 0.365,
+      "Limited-Stock Order Allocation": 0.257,
+      "Low-Stock Replenishment Sweep": 0.855,
+      "Order Request Replenishment": 0.915,
+      "Recruiter Performance Scorecard": 0.25,
+      "Accounts Receivable Collections Follow-Up 1": 0.853,
+      "Candidate–Role Rematching 1": 0.33,
+      "Credit Release Queue 1": 0.737,
+      "Customer Support Issue Triage 1": 0.645,
+      "Discount Request Review 1": 0.488,
+      "Freight Consolidation Planning 1": 0.345,
+      "Goods Receipt Shortfall Follow-Up 1": 0.695,
+      "Leave Request Eligibility Review 1": 0.9,
+      "Low-Stock Replenishment Sweep 1": 0.29,
+      "New-Hire Onboarding Coordination 1": 0.435,
+      "Purchase Invoice Reconciliation 1": 0.895,
+      "Recruiter Performance Scorecard 1": 0.565,
+      "Vehicle Maintenance Service Booking 1": 0.8
+    }
+  },
+  "shared_cases": [
+    "Candidate–Role Rematching",
+    "Credit Release Queue",
+    "Customer Returns Inbox Triage",
+    "Discount Request Review",
+    "Job Offer Follow-Up",
+    "Job Requisition Broadcast",
+    "Job Requisition Triage",
+    "Limited-Stock Order Allocation",
+    "Low-Stock Replenishment Sweep",
+    "Order Request Replenishment",
+    "Recruiter Performance Scorecard",
+    "Accounts Receivable Collections Follow-Up 1",
+    "Candidate–Role Rematching 1",
+    "Credit Release Queue 1",
+    "Customer Support Issue Triage 1",
+    "Discount Request Review 1",
+    "Freight Consolidation Planning 1",
+    "Goods Receipt Shortfall Follow-Up 1",
+    "Leave Request Eligibility Review 1",
+    "Low-Stock Replenishment Sweep 1",
+    "New-Hire Onboarding Coordination 1",
+    "Purchase Invoice Reconciliation 1",
+    "Recruiter Performance Scorecard 1",
+    "Vehicle Maintenance Service Booking 1"
+  ],
+  "tested_cases": [
+    "Candidate–Role Rematching",
+    "Credit Release Queue",
+    "Customer Returns Inbox Triage",
+    "Discount Request Review",
+    "Job Offer Follow-Up",
+    "Job Requisition Broadcast",
+    "Job Requisition Triage",
+    "Limited-Stock Order Allocation",
+    "Low-Stock Replenishment Sweep",
+    "Order Request Replenishment",
+    "Recruiter Performance Scorecard",
+    "Accounts Receivable Collections Follow-Up 1",
+    "Candidate–Role Rematching 1",
+    "Credit Release Queue 1",
+    "Customer Support Issue Triage 1",
+    "Discount Request Review 1",
+    "Email Purchase Invoice Posting 1",
+    "Freight Consolidation Planning 1",
+    "Goods Receipt Shortfall Follow-Up 1",
+    "Inbound Sales Enquiry Routing 1",
+    "Job Requisition Broadcast 1",
+    "Job Requisition Triage 1",
+    "Leave Request Eligibility Review 1",
+    "Limited-Stock Order Allocation 1",
+    "Low-Stock Replenishment Sweep 1",
+    "New-Hire Onboarding Coordination 1",
+    "Order Request Replenishment 1",
+    "Purchase Invoice Reconciliation 1",
+    "Recruiter Performance Scorecard 1",
+    "Vehicle Maintenance Service Booking 1"
+  ],
+  "untested_cases": [
+    "Purchase Invoice Reconciliation",
+    "Return Eligibility and RMA",
+    "RFQ Quote Award",
+    "Shortage Substitution Queue",
+    "Return Eligibility and RMA 1",
+    "Returns Inbox Sweep",
+    "RFQ Quote Award 1",
+    "Shortage Substitution Queue 1",
+    "Supplier Price Increase Review 1",
+    "Vehicle Maintenance Service Booking",
+    "Warranty Claim Intake 1",
+    "Weather-Aware Departure Review 1"
+  ],
+  "outcomes": {
+    "Brackett": {
+      "Scored": 60
+    },
+    "Claude": {
+      "Refusal": 7,
+      "Empty shortcut": 41,
+      "Scored": 12
+    },
+    "Codex": {
+      "Scored": 24
+    }
+  },
+  "repeat_gaps": [
+    {
+      "agent": "Brackett",
+      "case": "Candidate–Role Rematching",
+      "gap": 0.0,
+      "scores": [
+        1.0,
+        1.0
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Candidate–Role Rematching",
+      "gap": 0.0,
+      "scores": [
+        0.0,
+        0.0
+      ],
+      "completed": [
+        false,
+        false
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Credit Release Queue",
+      "gap": 0.0,
+      "scores": [
+        1.0,
+        1.0
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Credit Release Queue",
+      "gap": 0.8667,
+      "scores": [
+        0.0,
+        0.8667
+      ],
+      "completed": [
+        false,
+        true
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Customer Returns Inbox Triage",
+      "gap": 0.0907,
+      "scores": [
+        0.7348,
+        0.8255
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Customer Returns Inbox Triage",
+      "gap": 0.0,
+      "scores": [
+        0.0,
+        0.0
+      ],
+      "completed": [
+        false,
+        false
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Discount Request Review",
+      "gap": 0.0013000000000000789,
+      "scores": [
+        0.8037,
+        0.805
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Discount Request Review",
+      "gap": 0.0,
+      "scores": [
+        0.0,
+        0.0
+      ],
+      "completed": [
+        false,
+        false
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Job Offer Follow-Up",
+      "gap": 0.53,
+      "scores": [
+        0.94,
+        0.41
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Job Offer Follow-Up",
+      "gap": 0.6054,
+      "scores": [
+        0.6054,
+        0.0
+      ],
+      "completed": [
+        true,
+        false
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Job Requisition Broadcast",
+      "gap": 0.040000000000000036,
+      "scores": [
+        0.98,
+        0.94
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Job Requisition Broadcast",
+      "gap": 0.0,
+      "scores": [
+        0.0,
+        0.0
+      ],
+      "completed": [
+        false,
+        false
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Job Requisition Triage",
+      "gap": 0.37999999999999995,
+      "scores": [
+        0.84,
+        0.46
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Job Requisition Triage",
+      "gap": 0.019100000000000006,
+      "scores": [
+        0.6629,
+        0.682
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Limited-Stock Order Allocation",
+      "gap": 0.0050000000000000044,
+      "scores": [
+        0.925,
+        0.92
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Limited-Stock Order Allocation",
+      "gap": 0.0,
+      "scores": [
+        0.0,
+        0.0
+      ],
+      "completed": [
+        false,
+        false
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Low-Stock Replenishment Sweep",
+      "gap": 0.0,
+      "scores": [
+        1.0,
+        1.0
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Low-Stock Replenishment Sweep",
+      "gap": 0.0,
+      "scores": [
+        0.0,
+        0.0
+      ],
+      "completed": [
+        false,
+        false
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Order Request Replenishment",
+      "gap": 0.009999999999999898,
+      "scores": [
+        0.81,
+        0.82
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Order Request Replenishment",
+      "gap": 0.0,
+      "scores": [
+        0.0,
+        0.0
+      ],
+      "completed": [
+        false,
+        false
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Recruiter Performance Scorecard",
+      "gap": 0.11499999999999999,
+      "scores": [
+        0.855,
+        0.97
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Recruiter Performance Scorecard",
+      "gap": 0.0,
+      "scores": [
+        0.0,
+        0.0
+      ],
+      "completed": [
+        false,
+        false
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Accounts Receivable Collections Follow-Up 1",
+      "gap": 0.0050000000000000044,
+      "scores": [
+        0.805,
+        0.8
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Accounts Receivable Collections Follow-Up 1",
+      "gap": 0.0,
+      "scores": [
+        0.0,
+        0.0
+      ],
+      "completed": [
+        false,
+        false
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Candidate–Role Rematching 1",
+      "gap": 0.010000000000000009,
+      "scores": [
+        0.885,
+        0.875
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Candidate–Role Rematching 1",
+      "gap": 0.025000000000000022,
+      "scores": [
+        0.885,
+        0.91
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Credit Release Queue 1",
+      "gap": 0.025000000000000022,
+      "scores": [
+        0.945,
+        0.97
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Credit Release Queue 1",
+      "gap": 0.0020000000000000018,
+      "scores": [
+        0.73,
+        0.728
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Customer Support Issue Triage 1",
+      "gap": 0.06630000000000003,
+      "scores": [
+        0.7602,
+        0.8265
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Customer Support Issue Triage 1",
+      "gap": 0.0,
+      "scores": [
+        0.0,
+        0.0
+      ],
+      "completed": [
+        false,
+        false
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Discount Request Review 1",
+      "gap": 0.0,
+      "scores": [
+        0.97,
+        0.97
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Discount Request Review 1",
+      "gap": 0.0,
+      "scores": [
+        0.0,
+        0.0
+      ],
+      "completed": [
+        false,
+        false
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Email Purchase Invoice Posting 1",
+      "gap": 0.039999999999999925,
+      "scores": [
+        0.825,
+        0.785
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Email Purchase Invoice Posting 1",
+      "gap": 0.0,
+      "scores": [
+        0.0,
+        0.0
+      ],
+      "completed": [
+        false,
+        false
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Freight Consolidation Planning 1",
+      "gap": 0.5499999999999999,
+      "scores": [
+        0.39,
+        0.94
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Freight Consolidation Planning 1",
+      "gap": 0.0,
+      "scores": [
+        0.0,
+        0.0
+      ],
+      "completed": [
+        false,
+        false
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Goods Receipt Shortfall Follow-Up 1",
+      "gap": 0.010000000000000009,
+      "scores": [
+        0.89,
+        0.88
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Goods Receipt Shortfall Follow-Up 1",
+      "gap": 0.0,
+      "scores": [
+        0.0,
+        0.0
+      ],
+      "completed": [
+        false,
+        false
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Inbound Sales Enquiry Routing 1",
+      "gap": 0.019999999999999907,
+      "scores": [
+        0.94,
+        0.92
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Inbound Sales Enquiry Routing 1",
+      "gap": 0.0,
+      "scores": [
+        0.0,
+        0.0
+      ],
+      "completed": [
+        false,
+        false
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Job Requisition Broadcast 1",
+      "gap": 0.010000000000000009,
+      "scores": [
+        0.95,
+        0.96
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Job Requisition Broadcast 1",
+      "gap": 0.0,
+      "scores": [
+        0.0,
+        0.0
+      ],
+      "completed": [
+        false,
+        false
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Job Requisition Triage 1",
+      "gap": 0.12,
+      "scores": [
+        0.95,
+        0.83
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Job Requisition Triage 1",
+      "gap": 0.9,
+      "scores": [
+        0.0,
+        0.9
+      ],
+      "completed": [
+        false,
+        true
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Leave Request Eligibility Review 1",
+      "gap": 0.0050000000000000044,
+      "scores": [
+        0.785,
+        0.78
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Leave Request Eligibility Review 1",
+      "gap": 0.0,
+      "scores": [
+        0.0,
+        0.0
+      ],
+      "completed": [
+        false,
+        false
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Limited-Stock Order Allocation 1",
+      "gap": 0.0,
+      "scores": [
+        0.84,
+        0.84
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Limited-Stock Order Allocation 1",
+      "gap": 0.0,
+      "scores": [
+        0.0,
+        0.0
+      ],
+      "completed": [
+        false,
+        false
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Low-Stock Replenishment Sweep 1",
+      "gap": 0.07999999999999996,
+      "scores": [
+        0.665,
+        0.745
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Low-Stock Replenishment Sweep 1",
+      "gap": 0.6483,
+      "scores": [
+        0.6483,
+        0.0
+      ],
+      "completed": [
+        true,
+        false
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "New-Hire Onboarding Coordination 1",
+      "gap": 0.04499999999999993,
+      "scores": [
+        0.955,
+        0.91
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "New-Hire Onboarding Coordination 1",
+      "gap": 0.0,
+      "scores": [
+        0.0,
+        0.0
+      ],
+      "completed": [
+        false,
+        false
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Order Request Replenishment 1",
+      "gap": 0.0,
+      "scores": [
+        1.0,
+        1.0
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Order Request Replenishment 1",
+      "gap": 0.92,
+      "scores": [
+        0.0,
+        0.92
+      ],
+      "completed": [
+        false,
+        true
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Purchase Invoice Reconciliation 1",
+      "gap": 0.0,
+      "scores": [
+        1.0,
+        1.0
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Purchase Invoice Reconciliation 1",
+      "gap": 0.0,
+      "scores": [
+        0.0,
+        0.0
+      ],
+      "completed": [
+        false,
+        false
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Recruiter Performance Scorecard 1",
+      "gap": 0.0,
+      "scores": [
+        0.925,
+        0.925
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Recruiter Performance Scorecard 1",
+      "gap": 0.84,
+      "scores": [
+        0.84,
+        0.0
+      ],
+      "completed": [
+        true,
+        false
+      ]
+    },
+    {
+      "agent": "Brackett",
+      "case": "Vehicle Maintenance Service Booking 1",
+      "gap": 0.13,
+      "scores": [
+        0.6,
+        0.73
+      ],
+      "completed": [
+        true,
+        true
+      ]
+    },
+    {
+      "agent": "Claude",
+      "case": "Vehicle Maintenance Service Booking 1",
+      "gap": 0.0,
+      "scores": [
+        0.0,
+        0.0
+      ],
+      "completed": [
+        false,
+        false
+      ]
+    }
+  ],
+  "shared_case_leaders": {
+    "Brackett": 18,
+    "Claude": 2,
+    "Codex": 4
+  },
+  "task_inventory": [
+    {
+      "case": "Candidate–Role Rematching",
+      "area": "Hiring & people",
+      "tested": true
+    },
+    {
+      "case": "Credit Release Queue",
+      "area": "Finance & procurement",
+      "tested": true
+    },
+    {
+      "case": "Customer Returns Inbox Triage",
+      "area": "Customer & sales",
+      "tested": true
+    },
+    {
+      "case": "Discount Request Review",
+      "area": "Customer & sales",
+      "tested": true
+    },
+    {
+      "case": "Job Offer Follow-Up",
+      "area": "Hiring & people",
+      "tested": true
+    },
+    {
+      "case": "Job Requisition Broadcast",
+      "area": "Hiring & people",
+      "tested": true
+    },
+    {
+      "case": "Job Requisition Triage",
+      "area": "Hiring & people",
+      "tested": true
+    },
+    {
+      "case": "Limited-Stock Order Allocation",
+      "area": "Inventory & orders",
+      "tested": true
+    },
+    {
+      "case": "Low-Stock Replenishment Sweep",
+      "area": "Inventory & orders",
+      "tested": true
+    },
+    {
+      "case": "Order Request Replenishment",
+      "area": "Inventory & orders",
+      "tested": true
+    },
+    {
+      "case": "Recruiter Performance Scorecard",
+      "area": "Hiring & people",
+      "tested": true
+    },
+    {
+      "case": "Accounts Receivable Collections Follow-Up 1",
+      "area": "Finance & procurement",
+      "tested": true
+    },
+    {
+      "case": "Candidate–Role Rematching 1",
+      "area": "Hiring & people",
+      "tested": true
+    },
+    {
+      "case": "Credit Release Queue 1",
+      "area": "Finance & procurement",
+      "tested": true
+    },
+    {
+      "case": "Customer Support Issue Triage 1",
+      "area": "Customer & sales",
+      "tested": true
+    },
+    {
+      "case": "Discount Request Review 1",
+      "area": "Customer & sales",
+      "tested": true
+    },
+    {
+      "case": "Email Purchase Invoice Posting 1",
+      "area": "Finance & procurement",
+      "tested": true
+    },
+    {
+      "case": "Freight Consolidation Planning 1",
+      "area": "Logistics & fleet",
+      "tested": true
+    },
+    {
+      "case": "Goods Receipt Shortfall Follow-Up 1",
+      "area": "Finance & procurement",
+      "tested": true
+    },
+    {
+      "case": "Inbound Sales Enquiry Routing 1",
+      "area": "Customer & sales",
+      "tested": true
+    },
+    {
+      "case": "Job Requisition Broadcast 1",
+      "area": "Hiring & people",
+      "tested": true
+    },
+    {
+      "case": "Job Requisition Triage 1",
+      "area": "Hiring & people",
+      "tested": true
+    },
+    {
+      "case": "Leave Request Eligibility Review 1",
+      "area": "Hiring & people",
+      "tested": true
+    },
+    {
+      "case": "Limited-Stock Order Allocation 1",
+      "area": "Inventory & orders",
+      "tested": true
+    },
+    {
+      "case": "Low-Stock Replenishment Sweep 1",
+      "area": "Inventory & orders",
+      "tested": true
+    },
+    {
+      "case": "New-Hire Onboarding Coordination 1",
+      "area": "Hiring & people",
+      "tested": true
+    },
+    {
+      "case": "Order Request Replenishment 1",
+      "area": "Inventory & orders",
+      "tested": true
+    },
+    {
+      "case": "Purchase Invoice Reconciliation 1",
+      "area": "Finance & procurement",
+      "tested": true
+    },
+    {
+      "case": "Recruiter Performance Scorecard 1",
+      "area": "Hiring & people",
+      "tested": true
+    },
+    {
+      "case": "Vehicle Maintenance Service Booking 1",
+      "area": "Logistics & fleet",
+      "tested": true
+    },
+    {
+      "case": "Purchase Invoice Reconciliation",
+      "area": "Finance & procurement",
+      "tested": false
+    },
+    {
+      "case": "Return Eligibility and RMA",
+      "area": "Customer & sales",
+      "tested": false
+    },
+    {
+      "case": "RFQ Quote Award",
+      "area": "Finance & procurement",
+      "tested": false
+    },
+    {
+      "case": "Shortage Substitution Queue",
+      "area": "Inventory & orders",
+      "tested": false
+    },
+    {
+      "case": "Return Eligibility and RMA 1",
+      "area": "Customer & sales",
+      "tested": false
+    },
+    {
+      "case": "Returns Inbox Sweep",
+      "area": "Customer & sales",
+      "tested": false
+    },
+    {
+      "case": "RFQ Quote Award 1",
+      "area": "Finance & procurement",
+      "tested": false
+    },
+    {
+      "case": "Shortage Substitution Queue 1",
+      "area": "Inventory & orders",
+      "tested": false
+    },
+    {
+      "case": "Supplier Price Increase Review 1",
+      "area": "Finance & procurement",
+      "tested": false
+    },
+    {
+      "case": "Vehicle Maintenance Service Booking",
+      "area": "Logistics & fleet",
+      "tested": false
+    },
+    {
+      "case": "Warranty Claim Intake 1",
+      "area": "Customer & sales",
+      "tested": false
+    },
+    {
+      "case": "Weather-Aware Departure Review 1",
+      "area": "Logistics & fleet",
+      "tested": false
+    }
+  ],
+  "source": {
+    "file": "Brackett ShowTell Benchmark Results.xlsx",
+    "sha256": "7ff25a30af3fd433e179183d6dae82abb5f7da0780fc41100ef131fd92936f75",
+    "status": "Selected attempts; manual, non-canonical grading; no uncertainty interval claimed."
+  },
+  "question_evidence": {
+    "source_sha256": "e42d3185bfdf1545adc16687de8fc0ef531ddc828768b47d8876396855ad0b36",
+    "types": [
+      "voice_recording",
+      "screenshot",
+      "source_file"
+    ],
+    "ids": [
+      "q_returns_inbox_cadence",
+      "q_morning_pass_scope",
+      "q_refund_delivery_window",
+      "q_direct_refund_amount_limit",
+      "q_direct_refund_reply_terms",
+      "q_over_limit_routing",
+      "q_finance_summary_fields",
+      "q_exact_boundary_cases",
+      "q_non_customer_inbox_items",
+      "q_damage_override_transfer",
+      "q_safe_automation_error_diagnosis"
+    ],
+    "matrix": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        1,
+        1
+      ]
+    ],
+    "question_types": {
+      "closed": 8,
+      "llm_judge": 3
+    }
+  }
+}
