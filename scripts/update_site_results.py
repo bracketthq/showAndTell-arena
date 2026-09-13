@@ -41,7 +41,7 @@ def main(argv=None):
         "source": args.source.name,
         "source_sha256": sha256(args.source.read_bytes()).hexdigest(),
         "sheet": "Overview" if args.source.suffix.lower() == ".xlsx" else None,
-        "status": "Preliminary; selected attempts; manual, non-canonical grading.",
+        "status": "Preliminary; selected attempts; non-canonical grading (manual grades and imported model-assisted grades, as recorded in the workbook notes).",
         "methodology": "NA = attempted and incomplete, scored zero. Blank = untested, excluded. Average attempts within each use case, then weight use cases equally. Shared cases require an attempt from every system.",
         "completion_definition": "An attempt has a numeric benchmark score; not a measure of operational task success.",
         "system_configuration": "Workbook labels identify products, not fully pinned model and adapter configurations. This snapshot is not a verified canonical leaderboard.",

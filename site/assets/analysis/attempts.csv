@@ -1,157 +1,195 @@
 Usecase,Agent,Run,Score,Outcome,Comment
-Candidate–Role Rematching,Codex,1,0.5,Scored,
+Candidate–Role Rematching,Codex,1,0.5,Scored,Replay clean; end state verified.
 Candidate–Role Rematching,Brackett,1,1.0,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Candidate–Role Rematching,Brackett,2,1.0,Scored,Accepted selected run. Manual grade; not canonical/verified.
+Candidate–Role Rematching,Brackett,3,0.997,Scored,Third set: overview selection. brackett-continuous-third-set-c; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 05c06ae7e57148a2a4d216a27bb7a5b0
 Candidate–Role Rematching,Claude,1,NA,Refusal,refusal after browser exploration
 Candidate–Role Rematching,Claude,2,NA,Refusal,refusal after browser exploration
-Credit Release Queue,Codex,1,0.36,Scored,
+Credit Release Queue,Codex,1,0.36,Scored,"11 of 12 sheet cells; one burst lost to a transient pid lookup, fixed after this run."
 Credit Release Queue,Brackett,1,1.0,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Credit Release Queue,Brackett,2,1.0,Scored,Accepted selected run. Manual grade; not canonical/verified.
+Credit Release Queue,Brackett,3,1.0,Scored,Third set: overview selection. brackett-continuous-third-set-e; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run bcf7b438888a4f619ab4793afc827c4b
 Credit Release Queue,Claude,1,NA,Empty shortcut,empty shortcut no quiz
 Credit Release Queue,Claude,2,0.8667,Scored,substantive answer after browser exploration
-Customer Returns Inbox Triage,Codex,1,0.6364,Scored,
+Customer Returns Inbox Triage,Codex,1,0.6364,Scored,Untainted rerun; earlier 93.64% discarded because Codex read quiz/questions.json. 0 skips; 3 emails verified.
 Customer Returns Inbox Triage,Brackett,1,0.7348,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Customer Returns Inbox Triage,Brackett,2,0.8255,Scored,Accepted selected run. Manual grade; not canonical/verified.
+Customer Returns Inbox Triage,Brackett,3,0.9045,Scored,Third set: overview selection. brackett-continuous-third-set-d; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 4e21a681a83444de89800d2dec5b406c
 Customer Returns Inbox Triage,Claude,1,NA,Empty shortcut,empty shortcut no quiz
 Customer Returns Inbox Triage,Claude,2,NA,Empty shortcut,empty shortcut no quiz
-Discount Request Review,Codex,1,0.755,Scored,
+Discount Request Review,Codex,1,0.755,Scored,Regrade of the quiz re-asked in the same chat; the run's own first answer was 0.50%. Workbook verified.
 Discount Request Review,Brackett,1,0.8037,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Discount Request Review,Brackett,2,0.805,Scored,Accepted selected run. Manual grade; not canonical/verified.
+Discount Request Review,Brackett,3,0.897,Scored,Third set: overview selection. brackett-continuous-third-set-d; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 2062d56ea6434278a140ecdc6c7492cb
 Discount Request Review,Claude,1,NA,Empty shortcut,empty shortcut no quiz
 Discount Request Review,Claude,2,NA,Empty shortcut,empty shortcut no quiz
-Job Offer Follow-Up,Codex,1,0.45299999999999996,Scored,
+Job Offer Follow-Up,Codex,1,0.45299999999999996,Scored,Email and comment verified. Recipient graded wrong: fixture candidate domain differs from the recording.
 Job Offer Follow-Up,Brackett,1,0.94,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Job Offer Follow-Up,Brackett,2,0.41,Scored,Accepted selected run. Manual grade; not canonical/verified.
+Job Offer Follow-Up,Brackett,3,0.545,Scored,Third set: overview selection. brackett-continuous-third-set-d; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 84c820ee22124fc39306a8a211f61148
 Job Offer Follow-Up,Claude,1,0.6054,Scored,substantive answer after live browsing
 Job Offer Follow-Up,Claude,2,NA,Refusal,refusal
-Job Requisition Broadcast,Codex,1,0.625,Scored,
+Job Requisition Broadcast,Codex,1,0.625,Scored,Email matches the recording exactly. One exact miss is a timezone rendering difference.
 Job Requisition Broadcast,Brackett,1,0.98,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Job Requisition Broadcast,Brackett,2,0.94,Scored,Accepted selected run. Manual grade; not canonical/verified.
+Job Requisition Broadcast,Brackett,3,0.555,Scored,Third set: overview selection. brackett-continuous-third-set-c; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 393e5925db0a4a108444f6ef4cfcc2b6
 Job Requisition Broadcast,Claude,1,NA,Empty shortcut,empty shortcut no quiz
 Job Requisition Broadcast,Claude,2,NA,Empty shortcut,empty shortcut no quiz
-Job Requisition Triage,Codex,1,0.365,Scored,
+Job Requisition Triage,Codex,1,0.365,Scored,"Attempt 4, after the letter-chord fix. All 9 cells verified including the demonstrator's typo."
 Job Requisition Triage,Brackett,1,0.84,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Job Requisition Triage,Brackett,2,0.46,Scored,Accepted selected run. Manual grade; not canonical/verified.
+Job Requisition Triage,Brackett,3,0.64,Scored,Third set: overview selection. brackett-continuous-third-set-f; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run f9e222ba60cd4414b03cea8739a74ee6
 Job Requisition Triage,Claude,1,0.6629,Scored,substantive answer after browser exploration
 Job Requisition Triage,Claude,2,0.682,Scored,substantive answer
-Limited-Stock Order Allocation,Codex,1,0.257,Scored,
+Limited-Stock Order Allocation,Codex,1,0.257,Scored,"Attempt 2, after the caret fix. Workbook and submitted Material Request verified. Low score mostly the driver's date shift."
 Limited-Stock Order Allocation,Brackett,1,0.925,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Limited-Stock Order Allocation,Brackett,2,0.92,Scored,Accepted selected run. Manual grade; not canonical/verified.
+Limited-Stock Order Allocation,Brackett,3,0.717,Scored,Third set: overview selection. brackett-continuous-third-set-c; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 3d89bc1a5940408293f4019e7f299e99
 Limited-Stock Order Allocation,Claude,1,NA,Empty shortcut,empty shortcut no quiz
 Limited-Stock Order Allocation,Claude,2,NA,Empty shortcut,empty shortcut no quiz
-Low-Stock Replenishment Sweep,Codex,1,0.855,Scored,
+Low-Stock Replenishment Sweep,Codex,1,0.855,Scored,Attempt 2 (attempt 1 lost keystrokes to terminal focus). All 14 cells verified.
 Low-Stock Replenishment Sweep,Brackett,1,1.0,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Low-Stock Replenishment Sweep,Brackett,2,1.0,Scored,Accepted selected run. Manual grade; not canonical/verified.
+Low-Stock Replenishment Sweep,Brackett,3,0.97,Scored,Third set: overview selection. brackett-continuous-third-set-c; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 08993887a4ca45c2968a014ea3962362
 Low-Stock Replenishment Sweep,Claude,1,NA,Empty shortcut,empty shortcut no quiz
 Low-Stock Replenishment Sweep,Claude,2,NA,Empty shortcut,empty shortcut no quiz
-Order Request Replenishment,Codex,1,0.915,Scored,
+Order Request Replenishment,Codex,1,0.915,Scored,Attempt 2. Sheet and submitted Material Request verified. 3/3 exact.
 Order Request Replenishment,Brackett,1,0.81,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Order Request Replenishment,Brackett,2,0.82,Scored,Accepted selected run. Manual grade; not canonical/verified.
+Order Request Replenishment,Brackett,3,0.83,Scored,Third set: overview selection. brackett-continuous-third-set-d; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 98fc4330b2e14a18bc89b30dcc3b7274
 Order Request Replenishment,Claude,1,NA,Empty shortcut,empty shortcut no quiz
 Order Request Replenishment,Claude,2,NA,Empty shortcut,empty shortcut no quiz
-Recruiter Performance Scorecard,Codex,1,0.25,Scored,
+Recruiter Performance Scorecard,Codex,1,0.25,Scored,"Their verdict FAIL: a filter never opened, so the view was never on screen; 5 answers came back Unknown. Video is in the Codex root aggregate archive."
 Recruiter Performance Scorecard,Brackett,1,0.855,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Recruiter Performance Scorecard,Brackett,2,0.97,Scored,Accepted selected run. Manual grade; not canonical/verified.
+Recruiter Performance Scorecard,Brackett,3,0.755,Scored,Third set: overview selection. brackett-continuous-third-set-c; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 84ae74ab078f4bf9950555be0d678699
 Recruiter Performance Scorecard,Claude,1,NA,Empty shortcut,empty shortcut no quiz
 Recruiter Performance Scorecard,Claude,2,NA,Empty shortcut,empty shortcut no quiz
-Accounts Receivable Collections Follow-Up 1,Codex,1,0.853,Scored,
+Accounts Receivable Collections Follow-Up 1,Codex,1,0.853,Scored,No refusal answers. End state not independently verified here.
 Accounts Receivable Collections Follow-Up 1,Brackett,1,0.805,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Accounts Receivable Collections Follow-Up 1,Brackett,2,0.8,Scored,Accepted selected run. Manual grade; not canonical/verified.
+Accounts Receivable Collections Follow-Up 1,Brackett,3,0.77,Scored,Third set: overview selection. brackett-continuous-third-set-c; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 06405a03069545428695fe49d2c3ceb7
 Accounts Receivable Collections Follow-Up 1,Claude,1,NA,Empty shortcut,empty shortcut no quiz
 Accounts Receivable Collections Follow-Up 1,Claude,2,NA,Refusal,refusal
-Candidate–Role Rematching 1,Codex,1,0.33,Scored,
+Candidate–Role Rematching 1,Codex,1,0.33,Scored,No refusal answers. End state not independently verified here.
 Candidate–Role Rematching 1,Brackett,1,0.885,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Candidate–Role Rematching 1,Brackett,2,0.875,Scored,Accepted selected run. Manual grade; not canonical/verified.
+Candidate–Role Rematching 1,Brackett,3,0.812,Scored,Third set: overview selection. brackett-continuous-third-set-c; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run fceec6709d854dfaa0a00c16344a3a31
 Candidate–Role Rematching 1,Claude,1,0.885,Scored,substantive answer after browser exploration
 Candidate–Role Rematching 1,Claude,2,0.91,Scored,substantive answer after live browsing
-Credit Release Queue 1,Codex,1,0.737,Scored,
+Credit Release Queue 1,Codex,1,0.737,Scored,No refusal answers. End state not independently verified here.
 Credit Release Queue 1,Brackett,1,0.945,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Credit Release Queue 1,Brackett,2,0.97,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Credit Release Queue 1,Claude,1,0.73,Scored,substantive answer after live browsing
 Credit Release Queue 1,Claude,2,0.728,Scored,substantive answer after browser exploration
-Customer Support Issue Triage 1,Codex,1,0.645,Scored,
+Customer Support Issue Triage 1,Codex,1,0.645,Scored,No refusal answers. End state not independently verified here.
 Customer Support Issue Triage 1,Brackett,1,0.7602,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Customer Support Issue Triage 1,Brackett,2,0.8265,Scored,Accepted selected run. Manual grade; not canonical/verified.
+Customer Support Issue Triage 1,Brackett,3,0.777,Scored,Third set: overview selection. brackett-continuous-third-set-c; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 83cafa6e61684d5f86f54a30e2e30e80
 Customer Support Issue Triage 1,Claude,1,NA,Empty shortcut,empty shortcut no quiz
 Customer Support Issue Triage 1,Claude,2,NA,Empty shortcut,empty shortcut no quiz
-Discount Request Review 1,Codex,1,0.488,Scored,
+Discount Request Review 1,Codex,1,0.488,Scored,All 9 cells verified including the long counter reason.
 Discount Request Review 1,Brackett,1,0.97,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Discount Request Review 1,Brackett,2,0.97,Scored,Accepted selected run. Manual grade; not canonical/verified.
+Discount Request Review 1,Brackett,3,0.93,Scored,Third set: overview selection. brackett-continuous-third-set-c; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run b573c8d8d66842a8b746e5d8420e5437
 Discount Request Review 1,Claude,1,NA,Empty shortcut,empty shortcut no quiz
 Discount Request Review 1,Claude,2,NA,Empty shortcut,empty shortcut no quiz
 Email Purchase Invoice Posting 1,Brackett,1,0.825,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Email Purchase Invoice Posting 1,Brackett,2,0.785,Scored,Accepted selected run. Manual grade; not canonical/verified.
+Email Purchase Invoice Posting 1,Brackett,3,0.67,Scored,Third set: overview selection. brackett-continuous-third-set-c; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 7b0f93b58c8e43d0b637d4e76bc7b3f5
 Email Purchase Invoice Posting 1,Claude,1,NA,Empty shortcut,empty shortcut no quiz
 Email Purchase Invoice Posting 1,Claude,2,NA,Empty shortcut,empty shortcut no quiz
-Freight Consolidation Planning 1,Codex,1,0.345,Scored,
+Freight Consolidation Planning 1,Codex,1,0.345,Scored,No refusal answers. End state not independently verified here.
 Freight Consolidation Planning 1,Brackett,1,0.39,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Freight Consolidation Planning 1,Brackett,2,0.94,Scored,Accepted selected run. Manual grade; not canonical/verified.
+Freight Consolidation Planning 1,Brackett,3,0.697,Scored,Third set: overview selection. brackett-continuous-third-set-d; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 702d87705ad545fa946d7cf98bccdc39
 Freight Consolidation Planning 1,Claude,1,NA,Empty shortcut,empty shortcut no quiz
 Freight Consolidation Planning 1,Claude,2,NA,Empty shortcut,empty shortcut no quiz
-Goods Receipt Shortfall Follow-Up 1,Codex,1,0.695,Scored,
+Goods Receipt Shortfall Follow-Up 1,Codex,1,0.695,Scored,Rerun after two driver repairs. All 16 worklist cells and the supplier email verified.
 Goods Receipt Shortfall Follow-Up 1,Brackett,1,0.89,Scored,"Accepted; native lookups, full recording/audio, observation and final worksheet/email passed. Manual grade."
 Goods Receipt Shortfall Follow-Up 1,Brackett,2,0.88,Scored,"Accepted; native lookups, full recording/audio, normal Stop, observation and final worksheet/email passed. Manual grade."
+Goods Receipt Shortfall Follow-Up 1,Brackett,3,0.835,Scored,Third set: overview selection. brackett-continuous-third-set-c; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run ba261e7f156a434cbf1b0fe8d325d30a
 Goods Receipt Shortfall Follow-Up 1,Claude,1,NA,Empty shortcut,empty shortcut no quiz
 Goods Receipt Shortfall Follow-Up 1,Claude,2,NA,Empty shortcut,empty shortcut no quiz
 Inbound Sales Enquiry Routing 1,Brackett,1,0.94,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Inbound Sales Enquiry Routing 1,Brackett,2,0.92,Scored,Accepted selected run. Manual grade; not canonical/verified.
+Inbound Sales Enquiry Routing 1,Brackett,3,0.778,Scored,Third set: overview selection. brackett-continuous-third-set-c; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 704d3584427e445692d1fbad01b6852c
 Inbound Sales Enquiry Routing 1,Claude,1,NA,Empty shortcut,empty shortcut no quiz
 Inbound Sales Enquiry Routing 1,Claude,2,NA,Empty shortcut,empty shortcut no quiz
 Job Requisition Broadcast 1,Brackett,1,0.95,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Job Requisition Broadcast 1,Brackett,2,0.96,Scored,Accepted selected run. Manual grade; not canonical/verified.
+Job Requisition Broadcast 1,Brackett,3,0.95,Scored,Third set: overview selection. brackett-continuous-third-set-f; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run df8195df91634e05916fd18c00fa5212
 Job Requisition Broadcast 1,Claude,1,NA,Empty shortcut,empty shortcut no quiz
 Job Requisition Broadcast 1,Claude,2,NA,Empty shortcut,empty shortcut no quiz
 Job Requisition Triage 1,Brackett,1,0.95,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Job Requisition Triage 1,Brackett,2,0.83,Scored,Accepted selected run. Manual grade; not canonical/verified.
+Job Requisition Triage 1,Brackett,3,0.725,Scored,Third set: overview selection. brackett-continuous-third-set-g; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 2b453202d21d4f9bb74ecb14c8979f50
 Job Requisition Triage 1,Claude,1,NA,Refusal,Refusal: Claude treated the quiz as prompt injection and declined all ten questions
 Job Requisition Triage 1,Claude,2,0.9,Scored,Substantive answers after 12 browser steps. Deductions for incomplete writeback rules and an incorrect opening-completion claim
-Leave Request Eligibility Review 1,Codex,1,0.9,Scored,
+Leave Request Eligibility Review 1,Codex,1,0.9,Scored,"Exact 6/6, 10/10 answers parsed, integrity clean. Run archive and video are still pending."
 Leave Request Eligibility Review 1,Brackett,1,0.785,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Leave Request Eligibility Review 1,Brackett,2,0.78,Scored,Accepted selected run. Manual grade; not canonical/verified.
+Leave Request Eligibility Review 1,Brackett,3,0.76,Scored,Third set: overview selection. brackett-continuous-third-set-c; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run cc4225e4cedf4c84a88a248819ed4896
 Leave Request Eligibility Review 1,Claude,1,NA,Empty shortcut,empty shortcut no quiz
 Leave Request Eligibility Review 1,Claude,2,NA,Empty shortcut,empty shortcut no quiz
 Limited-Stock Order Allocation 1,Brackett,1,0.84,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Limited-Stock Order Allocation 1,Brackett,2,0.84,Scored,Accepted selected run. Manual grade; not canonical/verified.
+Limited-Stock Order Allocation 1,Brackett,3,0.585,Scored,Third set: overview selection. brackett-continuous-third-set-d; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 968257a2fe0f4de180441739570a11f4
 Limited-Stock Order Allocation 1,Claude,1,NA,Empty shortcut,empty shortcut no quiz
 Limited-Stock Order Allocation 1,Claude,2,NA,Empty shortcut,empty shortcut no quiz
-Low-Stock Replenishment Sweep 1,Codex,1,0.29,Scored,
+Low-Stock Replenishment Sweep 1,Codex,1,0.29,Scored,A stray macOS dialog covered columns E–H. Run archive and video are still pending.
 Low-Stock Replenishment Sweep 1,Brackett,1,0.665,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Low-Stock Replenishment Sweep 1,Brackett,2,0.745,Scored,Accepted selected run. Manual grade; not canonical/verified.
+Low-Stock Replenishment Sweep 1,Brackett,3,0.83,Scored,Third set: overview selection. brackett-continuous-third-set-c; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 1bd3c27873c142c285290787774042e3
 Low-Stock Replenishment Sweep 1,Claude,1,0.6483,Scored,substantive answer after live browsing
 Low-Stock Replenishment Sweep 1,Claude,2,NA,Empty shortcut,empty shortcut no quiz
-New-Hire Onboarding Coordination 1,Codex,1,0.435,Scored,
+New-Hire Onboarding Coordination 1,Codex,1,0.435,Scored,This run predates the fix for its dropped Send. Run archive and video are still pending.
 New-Hire Onboarding Coordination 1,Brackett,1,0.955,Scored,Accepted selected run. Manual grade; not canonical/verified.
 New-Hire Onboarding Coordination 1,Brackett,2,0.91,Scored,Accepted selected run. Manual grade; not canonical/verified.
+New-Hire Onboarding Coordination 1,Brackett,3,0.775,Scored,Third set: overview selection. brackett-continuous-third-set-d; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run ea5c6764a6ea40eb8a884a832f174e63
 New-Hire Onboarding Coordination 1,Claude,1,NA,Empty shortcut,empty shortcut no quiz
 New-Hire Onboarding Coordination 1,Claude,2,NA,Empty shortcut,empty shortcut no quiz
 Order Request Replenishment 1,Brackett,1,1.0,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Order Request Replenishment 1,Brackett,2,1.0,Scored,Accepted selected run. Manual grade; not canonical/verified.
+Order Request Replenishment 1,Brackett,3,0.91,Scored,Third set: overview selection. brackett-continuous-third-set-g; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 7046b576c2824b78b1f8ebace430029c
 Order Request Replenishment 1,Claude,1,NA,Refusal,refusal
 Order Request Replenishment 1,Claude,2,0.92,Scored,substantive answer
-Purchase Invoice Reconciliation 1,Codex,1,0.895,Scored,
+Purchase Invoice Reconciliation 1,Codex,1,0.895,Scored,"Their verdict FAIL despite the score: workbook corrupted ('Aprove', 'ApprAppr', a rate in the PO Qty column). Codex reported intended values, not what landed. Video is in the Codex root aggregate archive."
 Purchase Invoice Reconciliation 1,Brackett,1,1.0,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Purchase Invoice Reconciliation 1,Brackett,2,1.0,Scored,Accepted selected run. Manual grade; not canonical/verified.
+Purchase Invoice Reconciliation 1,Brackett,3,0.9,Scored,Third set: overview selection. brackett-continuous-third-set-c; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 720cf11e8d4349eea896cf152c2ceec5
 Purchase Invoice Reconciliation 1,Claude,1,NA,Empty shortcut,empty shortcut no quiz
 Purchase Invoice Reconciliation 1,Claude,2,NA,Empty shortcut,empty shortcut no quiz
-Recruiter Performance Scorecard 1,Codex,1,0.565,Scored,
+Recruiter Performance Scorecard 1,Codex,1,0.565,Scored,Post-fix rerun; the pre-fix run scored 59.50%. Their verdict FAIL. Video is in the Codex root aggregate archive.
 Recruiter Performance Scorecard 1,Brackett,1,0.925,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Recruiter Performance Scorecard 1,Brackett,2,0.925,Scored,Accepted selected run. Manual grade; not canonical/verified.
+Recruiter Performance Scorecard 1,Brackett,3,0.8,Scored,Third set: overview selection. brackett-continuous-third-set-d; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 4c8957c4f8174d9eb0a22ed2071f2ad5
 Recruiter Performance Scorecard 1,Claude,1,0.84,Scored,substantive answer after live browsing
 Recruiter Performance Scorecard 1,Claude,2,NA,Empty shortcut,empty shortcut no quiz
-Vehicle Maintenance Service Booking 1,Codex,1,0.8,Scored,
+Vehicle Maintenance Service Booking 1,Codex,1,0.8,Scored,"Their only PASS: 5/5 exact, 1 skip, end state correct. Video is in the Codex root aggregate archive."
 Vehicle Maintenance Service Booking 1,Brackett,1,0.6,Scored,Accepted selected run. Manual grade; not canonical/verified.
 Vehicle Maintenance Service Booking 1,Brackett,2,0.73,Scored,Accepted selected run. Manual grade; not canonical/verified.
+Vehicle Maintenance Service Booking 1,Brackett,3,0.834,Scored,Third set: overview selection. brackett-continuous-third-set-c; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 3667811ad2da4b73aad06b5826b32bff
 Vehicle Maintenance Service Booking 1,Claude,1,NA,Empty shortcut,empty shortcut no quiz
 Vehicle Maintenance Service Booking 1,Claude,2,NA,Refusal,refusal
+Return Eligibility and RMA,Brackett,1,0.355,Scored,Third set: overview selection. brackett-continuous-third-set-h; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run ac8f79343eda4869b29f27518327ac4b
+Return Eligibility and RMA,Brackett,2,0.528,Scored,Third set: overview selection. brackett-continuous-third-set-n; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 6b49a197df5940bab899da29618e47e4
+RFQ Quote Award,Brackett,1,0.7,Scored,Third set: overview selection. brackett-continuous-third-set-h; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 543557427edc411a8a45e4745584b980
+RFQ Quote Award,Brackett,2,0.885,Scored,Third set: overview selection. brackett-continuous-third-set-m; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run c5635a43df8749218a1b70ed6fac7e72
+Shortage Substitution Queue,Brackett,1,0.687,Scored,Third set: overview selection. brackett-continuous-third-set-h; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 81224f5d000142edb26494df5a984157
+Shortage Substitution Queue,Brackett,2,0.605,Scored,Third set: overview selection. brackett-continuous-third-set-m; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 74d93125f55c4fed9085b51d4cae0858
+Return Eligibility and RMA 1,Brackett,1,0.48,Scored,Third set: overview selection. brackett-continuous-third-set-l; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run b14b56005e9c4d99bac033818df40244
+Return Eligibility and RMA 1,Brackett,2,0.64,Scored,Third set: overview selection. brackett-continuous-third-set-m; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 020de811b6c8470bbd91c4143ccf6ab6
+RFQ Quote Award 1,Brackett,1,0.73,Scored,Third set: overview selection. brackett-continuous-third-set-j; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 1a6eaa3d905a4063ab4325f71247790c
+RFQ Quote Award 1,Brackett,2,0.8,Scored,Third set: overview selection. brackett-continuous-third-set-m; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 2866ccda78274b28a768afb0ebcb8c02
+Shortage Substitution Queue 1,Brackett,1,0.44,Scored,Third set: overview selection. brackett-continuous-third-set-i; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 9163a71ada7f47e780d600def5647955
+Shortage Substitution Queue 1,Brackett,2,0.455,Scored,Third set: overview selection. brackett-continuous-third-set-m; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 37afb64a99c346edb7530ec56267b10b
+Supplier Price Increase Review 1,Brackett,1,0.462,Scored,Third set: overview selection. brackett-continuous-third-set-k; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 509e113ef4244ec69edfdf7e2f1422df
+Supplier Price Increase Review 1,Brackett,2,0.39,Scored,Third set: overview selection. brackett-continuous-third-set-n; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 55ac24dc79a74a8282168cf13b802a12
+Warranty Claim Intake 1,Brackett,1,0.73,Scored,Third set: overview selection. brackett-continuous-third-set-h; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 7dd066d5db0e4c76a970583177210f83
+Warranty Claim Intake 1,Brackett,2,0.685,Scored,Third set: overview selection. brackett-continuous-third-set-m; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 8807f68bf2ca4f6b8a42f8836e0c1152
+Weather-Aware Departure Review 1,Brackett,1,0.47,Scored,Third set: overview selection. brackett-continuous-third-set-h; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 4f7866f1b1424e46a0fa95a929e78182
+Weather-Aware Departure Review 1,Brackett,2,0.48,Scored,Third set: overview selection. brackett-continuous-third-set-o; graded by Claude Sonnet 4.6 (noncanonical); imported grade. Run 19012799f82b4527ab57e3e3d2dfdab6
 Purchase Invoice Reconciliation,Brackett,1,,Untested,
-Return Eligibility and RMA,Brackett,1,,Untested,
-RFQ Quote Award,Brackett,1,,Untested,
-Shortage Substitution Queue,Brackett,1,,Untested,
-Return Eligibility and RMA 1,Brackett,1,,Untested,
 Returns Inbox Sweep,Brackett,1,,Untested,
-RFQ Quote Award 1,Brackett,1,,Untested,
-Shortage Substitution Queue 1,Brackett,1,,Untested,
-Supplier Price Increase Review 1,Brackett,1,,Untested,
 Vehicle Maintenance Service Booking,Brackett,1,,Untested,
-Warranty Claim Intake 1,Brackett,1,,Untested,
-Weather-Aware Departure Review 1,Brackett,1,,Untested,

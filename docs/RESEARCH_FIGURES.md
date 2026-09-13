@@ -40,7 +40,7 @@ It refreshes:
 | `assets/analysis/task-inventory.{svg,png}` | Cases grouped by business process |
 | `assets/analysis/case-heatmap.{svg,png}` | Case means by system, using one common color scale |
 | `assets/analysis/attempt-outcomes.{svg,png}` | Scored answers and incomplete attempts, with reasons from source notes |
-| `assets/analysis/repeat-spread.{svg,png}` | Largest observed two-attempt differences |
+| `assets/analysis/repeat-spread.{svg,png}` | Largest observed ranges between selected attempts of one case |
 | `assets/analysis/task-evidence.{svg,png}` | Evidence cited by the committed sample quiz |
 | `assets/analysis/tci-*.{svg,png}` and `tci.json` | Optional task buckets and component examples |
 | `assets/analysis/analysis.json` and `attempts.csv` | Analysis values, classifications, provenance, and reusable attempt export |
@@ -50,7 +50,7 @@ Asset paths in the table are relative to `site/`. The utility preserves the orig
 
 ## Results input contract
 
-Prefer the original XLSX with `Overview` and `Detailed Analysis`. Run scores, rather than cached average cells, are authoritative. Detailed Analysis notes are joined by exact system, case, and run; mismatched scores are rejected.
+Prefer the original XLSX with `Overview` and `Detailed Analysis`. Run scores, rather than cached average cells, are authoritative. Detailed Analysis notes are joined by exact system, case, and integer run number; mismatched scores are rejected (a difference within floating-point noise is tolerated). Detailed rows whose run label is `Earlier N` must say “excluded from overview” in their note; they are exported to `analysis.json` under `excluded_attempts` for provenance and never enter a score. Any other non-integer run label stops the refresh.
 
 The supported long-form CSV export has these columns:
 
@@ -67,7 +67,8 @@ Use `Run` numbers beginning at 1 in occurrence order for each case/system. `Comm
 - Numeric zero is a scored answer. NA is an incomplete attempt worth zero. Blank means untested and remains absent from the mean.
 - Average attempts within each case, then weight cases equally. Shared means use only cases attempted by every system, including incomplete attempts.
 - Preserve selected-attempt and manual-grading qualifications until a new source supports changing them. Comprehension results are not operational success or a full AEI score.
-- Repetitions are not before/after learning tests. Largest gaps are intentionally selected diagnostics, not confidence intervals or representative variability estimates.
+- Repetitions are not before/after learning tests. Largest ranges (max − min across a case's selected attempts) are intentionally selected diagnostics, not confidence intervals or representative variability estimates. Attempts per case may differ by system and case; `analysis.json` records the distribution under `attempts_per_case`.
+- Grading provenance comes from the workbook notes. The current snapshot mixes manual grades with imported model-assisted grades (Claude Sonnet 4.6) for the third Brackett attempt set and the Brackett-only cases; the page states this outside the generated blocks, so review that paragraph when the grading mix changes.
 - The page currently supports Brackett, Claude, and Codex and requires a nonempty shared cohort. A different system set requires updating `site/app.js`, table headings, palette, saved-bar generation, and checks. The wrapper stops rather than silently omitting a new system.
 
 ## New tasks and business-process groups
@@ -121,7 +122,7 @@ A push to `aei-research-site` touching `site/**` deploys the private Pages previ
 
 ## Paper and top-line links
 
-The header links to Brackett, GitHub, Hugging Face, and the current manuscript draft. `site/downloads/ShowTellArena_Paper_Draft.pdf` is copied unchanged from `~/repos/showtellarena/main.pdf`; it is an older draft, not evidence for the current result snapshot. No arXiv identifier was found in the paper repository. When the paper is published, replace the draft link with its verified `https://arxiv.org/abs/...` URL and change the label to “Paper on arXiv”. Do not invent an ID or link to arXiv's homepage as if it were the paper.
+The header links to Brackett, GitHub, Hugging Face, and the current manuscript draft. `site/downloads/ShowTellArena_Paper_Draft.pdf` is copied unchanged from `~/repos/showtellarena/main.pdf` (currently paper commit `102653b`, built from the same workbook snapshot). Refreshing figures does not rebuild it; copy a newly built PDF deliberately and note the paper commit here. No arXiv identifier was found in the paper repository. When the paper is published, replace the draft link with its verified `https://arxiv.org/abs/...` URL and change the label to “Paper on arXiv”. Do not invent an ID or link to arXiv's homepage as if it were the paper.
 
 ## Smaller utilities
 

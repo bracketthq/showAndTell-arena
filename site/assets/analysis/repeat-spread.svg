@@ -78,13 +78,13 @@ L 293.009748 172.734545
 " clip-path="url(#pcac8680e24)" style="fill: none; stroke: #f5b840; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_8">
-    <path d="M 293.009748 237.272727 
-L 151.91395 237.272727 
+    <path d="M 151.91395 237.272727 
+L 293.009748 237.272727 
 " clip-path="url(#pcac8680e24)" style="fill: none; stroke: #f5b840; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_9">
-    <path d="M 266.387899 301.810909 
-L 165.224874 301.810909 
+    <path d="M 190.51563 301.810909 
+L 303.658487 301.810909 
 " clip-path="url(#pcac8680e24)" style="fill: none; stroke: #f5b840; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="PathCollection_1">
@@ -125,41 +125,56 @@ z
    </g>
    <g id="PathCollection_3">
     <g clip-path="url(#pcac8680e24)">
-     <use xlink:href="#m9dba823fd3" x="293.009748" y="237.272727" style="fill: #f5b840; stroke: #f5b840; stroke-width: 2"/>
+     <use xlink:href="#m4044afb629" x="228.318655" y="172.734545" style="fill: #ffffff; stroke: #f5b840; stroke-width: 2"/>
     </g>
    </g>
    <g id="PathCollection_4">
     <g clip-path="url(#pcac8680e24)">
-     <use xlink:href="#m4044afb629" x="151.91395" y="237.272727" style="fill: #ffffff; stroke: #f5b840; stroke-width: 2"/>
+     <use xlink:href="#m9dba823fd3" x="293.009748" y="237.272727" style="fill: #f5b840; stroke: #f5b840; stroke-width: 2"/>
     </g>
    </g>
    <g id="PathCollection_5">
     <g clip-path="url(#pcac8680e24)">
-     <use xlink:href="#m9dba823fd3" x="266.387899" y="301.810909" style="fill: #f5b840; stroke: #f5b840; stroke-width: 2"/>
+     <use xlink:href="#m4044afb629" x="151.91395" y="237.272727" style="fill: #ffffff; stroke: #f5b840; stroke-width: 2"/>
     </g>
    </g>
    <g id="PathCollection_6">
     <g clip-path="url(#pcac8680e24)">
-     <use xlink:href="#m4044afb629" x="165.224874" y="301.810909" style="fill: #ffffff; stroke: #f5b840; stroke-width: 2"/>
+     <use xlink:href="#m4044afb629" x="187.853445" y="237.272727" style="fill: #ffffff; stroke: #f5b840; stroke-width: 2"/>
+    </g>
+   </g>
+   <g id="PathCollection_7">
+    <g clip-path="url(#pcac8680e24)">
+     <use xlink:href="#m9dba823fd3" x="303.658487" y="301.810909" style="fill: #f5b840; stroke: #f5b840; stroke-width: 2"/>
+    </g>
+   </g>
+   <g id="PathCollection_8">
+    <g clip-path="url(#pcac8680e24)">
+     <use xlink:href="#m4044afb629" x="293.009748" y="301.810909" style="fill: #ffffff; stroke: #f5b840; stroke-width: 2"/>
+    </g>
+   </g>
+   <g id="PathCollection_9">
+    <g clip-path="url(#pcac8680e24)">
+     <use xlink:href="#m4044afb629" x="190.51563" y="301.810909" style="fill: #ffffff; stroke: #f5b840; stroke-width: 2"/>
     </g>
    </g>
    <g id="text_4">
-    <text style="font-size: 10px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #0d1824" x="42.76437" y="155.309236" transform="rotate(-0 42.76437 155.309236)">Freight Consolidation Planning 1</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #0d1824" x="42.76437" y="155.309236" transform="rotate(-0 42.76437 155.309236)">Freight Consolidation Planning 1  ·  3 attempts</text>
    </g>
    <g id="text_5">
     <text style="font-size: 11px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #0d1824" x="316.969412" y="175.591967" transform="rotate(-0 316.969412 175.591967)">  55.0 pp</text>
    </g>
    <g id="text_6">
-    <text style="font-size: 10px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #0d1824" x="42.76437" y="219.847418" transform="rotate(-0 42.76437 219.847418)">Job Offer Follow-Up</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #0d1824" x="42.76437" y="219.847418" transform="rotate(-0 42.76437 219.847418)">Job Offer Follow-Up  ·  3 attempts</text>
    </g>
    <g id="text_7">
     <text style="font-size: 11px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #0d1824" x="316.969412" y="240.130149" transform="rotate(-0 316.969412 240.130149)">  53.0 pp</text>
    </g>
    <g id="text_8">
-    <text style="font-size: 10px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #0d1824" x="42.76437" y="284.3856" transform="rotate(-0 42.76437 284.3856)">Job Requisition Triage</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #0d1824" x="42.76437" y="284.3856" transform="rotate(-0 42.76437 284.3856)">Job Requisition Broadcast  ·  3 attempts</text>
    </g>
    <g id="text_9">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #0d1824" x="316.969412" y="304.668331" transform="rotate(-0 316.969412 304.668331)">  38.0 pp</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #0d1824" x="316.969412" y="304.668331" transform="rotate(-0 316.969412 304.668331)">  42.5 pp</text>
    </g>
    <g id="text_10">
     <text style="font-size: 16px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #0d1824" x="37.44" y="109.104" transform="rotate(-0 37.44 109.104)">Brackett</text>
@@ -225,7 +240,7 @@ L 789.241008 237.272727
 L 780.375933 301.810909 
 " clip-path="url(#p8b3ef3ab45)" style="fill: none; stroke: #a89acd; stroke-width: 3; stroke-linecap: square"/>
    </g>
-   <g id="PathCollection_7">
+   <g id="PathCollection_10">
     <defs>
      <path id="m774abb80b1" d="M -4.743416 4.743416 
 L 4.743416 -4.743416 
@@ -237,7 +252,7 @@ L 4.743416 4.743416
      <use xlink:href="#m774abb80b1" x="549.64437" y="172.734545" style="fill: #a89acd; stroke: #a89acd; stroke-width: 2"/>
     </g>
    </g>
-   <g id="PathCollection_8">
+   <g id="PathCollection_11">
     <defs>
      <path id="madfb5f3b46" d="M 0 4.743416 
 C 1.257969 4.743416 2.464584 4.24362 3.354102 3.354102 
@@ -255,40 +270,40 @@ z
      <use xlink:href="#madfb5f3b46" x="794.565378" y="172.734545" style="fill: #ffffff; stroke: #a89acd; stroke-width: 2"/>
     </g>
    </g>
-   <g id="PathCollection_9">
+   <g id="PathCollection_12">
     <g clip-path="url(#p8b3ef3ab45)">
      <use xlink:href="#m774abb80b1" x="549.64437" y="237.272727" style="fill: #a89acd; stroke: #a89acd; stroke-width: 2"/>
     </g>
    </g>
-   <g id="PathCollection_10">
+   <g id="PathCollection_13">
     <g clip-path="url(#p8b3ef3ab45)">
      <use xlink:href="#madfb5f3b46" x="789.241008" y="237.272727" style="fill: #ffffff; stroke: #a89acd; stroke-width: 2"/>
     </g>
    </g>
-   <g id="PathCollection_11">
+   <g id="PathCollection_14">
     <g clip-path="url(#p8b3ef3ab45)">
      <use xlink:href="#m774abb80b1" x="549.64437" y="301.810909" style="fill: #a89acd; stroke: #a89acd; stroke-width: 2"/>
     </g>
    </g>
-   <g id="PathCollection_12">
+   <g id="PathCollection_15">
     <g clip-path="url(#p8b3ef3ab45)">
      <use xlink:href="#madfb5f3b46" x="780.375933" y="301.810909" style="fill: #ffffff; stroke: #a89acd; stroke-width: 2"/>
     </g>
    </g>
    <g id="text_14">
-    <text style="font-size: 10px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #0d1824" x="549.64437" y="155.309236" transform="rotate(-0 549.64437 155.309236)">Order Request Replenishment 1</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #0d1824" x="549.64437" y="155.309236" transform="rotate(-0 549.64437 155.309236)">Order Request Replenishment 1  ·  2 attempts</text>
    </g>
    <g id="text_15">
     <text style="font-size: 11px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #0d1824" x="823.849412" y="175.591967" transform="rotate(-0 823.849412 175.591967)">  92.0 pp</text>
    </g>
    <g id="text_16">
-    <text style="font-size: 10px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #0d1824" x="549.64437" y="219.847418" transform="rotate(-0 549.64437 219.847418)">Job Requisition Triage 1</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #0d1824" x="549.64437" y="219.847418" transform="rotate(-0 549.64437 219.847418)">Job Requisition Triage 1  ·  2 attempts</text>
    </g>
    <g id="text_17">
     <text style="font-size: 11px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #0d1824" x="823.849412" y="240.130149" transform="rotate(-0 823.849412 240.130149)">  90.0 pp</text>
    </g>
    <g id="text_18">
-    <text style="font-size: 10px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #0d1824" x="549.64437" y="284.3856" transform="rotate(-0 549.64437 284.3856)">Credit Release Queue</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #0d1824" x="549.64437" y="284.3856" transform="rotate(-0 549.64437 284.3856)">Credit Release Queue  ·  2 attempts</text>
    </g>
    <g id="text_19">
     <text style="font-size: 11px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #0d1824" x="823.849412" y="304.668331" transform="rotate(-0 823.849412 304.668331)">  86.7 pp</text>
@@ -301,13 +316,13 @@ z
    <text style="font-weight: 500; font-size: 21px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #0d1824" x="37.44" y="32.660719" transform="rotate(-0 37.44 32.660719)">The average can hide a large spread</text>
   </g>
   <g id="text_22">
-   <text style="font-size: 12px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #5c7389" x="37.44" y="44.614125" transform="rotate(-0 37.44 44.614125)">Three largest two-attempt gaps per system · incomplete attempts included as zero</text>
+   <text style="font-size: 12px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #5c7389" x="37.44" y="44.614125" transform="rotate(-0 37.44 44.614125)">Three largest ranges between selected attempts of one case, per system · incomplete attempts included as zero</text>
   </g>
   <g id="text_23">
-   <text style="font-size: 12px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #5c7389" x="37.44" y="384.192" transform="rotate(-0 37.44 384.192)">● First selected attempt   ○ Second selected attempt   × Incomplete attempt</text>
+   <text style="font-size: 12px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #5c7389" x="37.44" y="384.192" transform="rotate(-0 37.44 384.192)">● First selected attempt   ○ Later selected attempts   × Incomplete attempt</text>
   </g>
   <g id="text_24">
-   <text style="font-size: 11px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #5c7389" x="37.44" y="405.072" transform="rotate(-0 37.44 405.072)">Repeated attempts, not before/after learning tests. No repeat estimate: Codex.</text>
+   <text style="font-size: 11px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #5c7389" x="37.44" y="405.072" transform="rotate(-0 37.44 405.072)">Repeated attempts, not before/after learning tests. No repeat estimate: Codex. 2 or 3 selected attempts per plotted case; the range is max − min.</text>
   </g>
  </g>
  <defs>

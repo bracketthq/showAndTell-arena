@@ -25,9 +25,19 @@ def task_area(case):
     return next((group for group, names in groups.items() if name in names), 'Unclassified')
 
 
+EXCLUDED_RUN = re.compile(r'earlier\s+\d+', re.I)
+
+
 def load_attempts(path: Path):
+    """Return (dataset, attempt records, excluded detail rows).
+
+    Detailed Analysis rows are joined to Overview runs by exact system, case and
+    integer run number. Rows labelled "Earlier N" are attempts the workbook
+    explicitly excludes from the overview; they are returned separately for
+    provenance and never enter the scores.
+    """
     data = load_dataset(path)
-    details = {}
+    details, excluded = {}, []
     if path.suffix.lower() == '.xlsx':
         from openpyxl import load_workbook
         book = load_workbook(path, read_only=True, data_only=True)
@@ -37,9 +47,23 @@ def load_attempts(path: Path):
             for row in rows[1:]:
                 item = dict(zip(headers, row))
                 if not item.get('Agent'): continue
-                key = (item['Agent'], item['Usecase'], int(item['Run Number']))
+                label = str(item['Run Number']).strip()
+                note = str(item.get('Comments') or '')
+                if EXCLUDED_RUN.fullmatch(label):
+                    if 'excluded from overview' not in note.lower():
+                        raise ValueError(f'Run {label!r} for {item["Agent"]}/{item["Usecase"]} is not an overview run; the note must say it is excluded from overview')
+                    score = score_value(item['Score'])
+                    excluded.append(dict(agent=item['Agent'], case=item['Usecase'], label=label,
+                                         score=None if score is None else score[0], completed=bool(score and score[1]),
+                                         comment=re.split(r'\. Run ', note)[0]))
+                    continue
+                try:
+                    number = int(float(label))
+                except ValueError as exc:
+                    raise ValueError(f'Unrecognised run label {label!r} for {item["Agent"]}/{item["Usecase"]}') from exc
+                key = (item['Agent'], item['Usecase'], number)
                 if key in details: raise ValueError(f'Duplicate detail: {key}')
-                details[key] = (score_value(item['Score']), str(item.get('Comments') or ''))
+                details[key] = (score_value(item['Score']), note)
         book.close()
     elif path.suffix.lower() == '.csv':
         with path.open(newline='') as stream:
@@ -55,7 +79,8 @@ def load_attempts(path: Path):
         note = ''
         if key in details:
             score, note = details[key]
-            if score != (run.score, run.completed):
+            # Excel may store 0.453 as 0.45299999999999996; tolerate representation noise only.
+            if score is None or score[1] != run.completed or abs(score[0] - run.score) > 1e-9:
                 raise ValueError(f'Overview and detail disagree: {key}')
             note = re.split(r'\. Run ID:', note, flags=re.I)[0]
         if run.completed: outcome = 'Scored'
@@ -64,27 +89,31 @@ def load_attempts(path: Path):
         else: outcome = 'Other incomplete'
         records.append(dict(agent=run.agent, case=run.case, run=number, score=run.score,
                             completed=run.completed, outcome=outcome, comment=note))
-    return data, records
+    return data, records, excluded
 
 
-def analyze(data, records, task_groups=None):
+def analyze(data, records, task_groups=None, excluded=()):
     result = summarize(data)
     result['outcomes'] = {a: dict(Counter(r['outcome'] for r in records if r['agent'] == a)) for a in data.agents}
     pairs = defaultdict(list)
     for r in records: pairs[r['agent'], r['case']].append(r)
+    # Attempts per case differ by system and case; record the distribution rather than assuming a schedule.
+    result['attempts_per_case'] = {a: {str(n): k for n, k in sorted(Counter(len(runs) for (agent, _), runs in pairs.items() if agent == a).items())} for a in data.agents}
     result['repeat_gaps'] = []
     for (agent, case), runs in pairs.items():
-        if len(runs) != 2: continue
-        result['repeat_gaps'].append(dict(agent=agent, case=case,
-            gap=abs(runs[0]['score']-runs[1]['score']), scores=[r['score'] for r in runs],
-            completed=[r['completed'] for r in runs]))
+        if len(runs) < 2: continue
+        scores = [r['score'] for r in runs]
+        result['repeat_gaps'].append(dict(agent=agent, case=case, attempts=len(runs),
+            gap=max(scores)-min(scores), scores=scores, completed=[r['completed'] for r in runs]))
+    result['excluded_attempts'] = list(excluded)
     wins = Counter()
     for case in result['shared_cases']:
         best = max(result['case_scores'][a][case] for a in data.agents)
         leaders = [a for a in data.agents if abs(result['case_scores'][a][case]-best) < 1e-12]
         wins[leaders[0] if len(leaders) == 1 else 'Tie'] += 1
     result['shared_case_leaders'] = dict(wins)
-    result['task_inventory'] = [dict(case=c,area=(task_groups or {}).get(c, task_area(c)),tested=c in result['tested_cases']) for c in data.cases]
+    # Sorted so a workbook and its exported attempt CSV yield the same inventory order.
+    result['task_inventory'] = [dict(case=c,area=(task_groups or {}).get(c, task_area(c)),tested=c in result['tested_cases']) for c in sorted(data.cases)]
     return result
 
 
@@ -179,20 +208,22 @@ def render(data, records, result, output: Path, theme='light', task_quiz=None):
         rows=sorted((r for r in result['repeat_gaps'] if r['agent']==agent),key=lambda r:(-r['gap'],r['case']))[:3]
         ax.set_xlim(-.02,1.17);ax.set_ylim(len(rows)-.5,-.8)
         for y,r in enumerate(rows):
-            ax.plot(r['scores'],[y,y],color=colors.get(agent,AMBER[0]),linewidth=3,zorder=1)
+            ax.plot([min(r['scores']),max(r['scores'])],[y,y],color=colors.get(agent,AMBER[0]),linewidth=3,zorder=1)
             for i,(v,complete) in enumerate(zip(r['scores'],r['completed'])):
                 if complete:
                     ax.scatter(v,y,s=90,marker='o',facecolors=colors.get(agent,AMBER[0]) if i==0 else 'white',edgecolors=colors.get(agent,AMBER[0]),linewidths=2,zorder=2)
                 else:
                     ax.scatter(v,y,s=90,marker='x',color=colors.get(agent,AMBER[0]),linewidths=2,zorder=2)
-            ax.text(0,y-.27,r['case'],fontsize=10,color=p['foreground'])
+            ax.text(0,y-.27,f"{r['case']}  ·  {r['attempts']} attempts",fontsize=10,color=p['foreground'])
             ax.text(1.03,y,f'  {r["gap"]*100:.1f} pp',fontsize=11,va='center')
         ax.set_yticks([]);ax.set_xticks([0,.5,1]);ax.xaxis.set_major_formatter(PercentFormatter(1));ax.grid(axis='x',color=p['border'])
         ax.set_title(agent,loc='left',fontsize=16,pad=12)
-    title(fig,'The average can hide a large spread','Three largest two-attempt gaps per system · incomplete attempts included as zero')
-    fig.text(.04,.08,'● First selected attempt   ○ Second selected attempt   × Incomplete attempt',fontsize=12,color=p['muted'])
+    title(fig,'The average can hide a large spread','Three largest ranges between selected attempts of one case, per system · incomplete attempts included as zero')
+    fig.text(.04,.08,'● First selected attempt   ○ Later selected attempts   × Incomplete attempt',fontsize=12,color=p['muted'])
     unrepeated=[a for a in agents if a not in repeat_agents]
-    note='No repeat estimate: '+', '.join(unrepeated)+'.' if unrepeated else 'Two selected attempts per plotted case.'
+    plotted=sorted({r['attempts'] for r in result['repeat_gaps']})
+    counts_text=' or '.join(str(n) for n in plotted)+' selected attempts per plotted case; the range is max − min.'
+    note='No repeat estimate: '+', '.join(unrepeated)+'. '+counts_text if unrepeated else counts_text
     fig.text(.04,.03,'Repeated attempts, not before/after learning tests. '+note,fontsize=11,color=p['muted'])
     save(fig,'repeat-spread')
 
@@ -244,10 +275,10 @@ def main(argv=None):
     parser.add_argument('--task-quiz',type=Path,help='Optional questions.json to graph task evidence coverage')
     parser.add_argument('--task-groups',type=Path,help='JSON object mapping exact case names to business-process groups')
     args=parser.parse_args(argv)
-    data,records=load_attempts(args.input)
-    result=analyze(data,records,json.loads(args.task_groups.read_text()) if args.task_groups else None)
+    data,records,excluded=load_attempts(args.input)
+    result=analyze(data,records,json.loads(args.task_groups.read_text()) if args.task_groups else None,excluded)
     result['source']={'file':args.input.name,'sha256':sha256(args.input.read_bytes()).hexdigest(),
-                      'status':'Selected attempts; manual, non-canonical grading; no uncertainty interval claimed.'}
+                      'status':'Selected attempts; non-canonical grading (manual grades and imported model-assisted grades, as recorded in the workbook notes); no uncertainty interval claimed.'}
     render(data,records,result,args.output_dir,args.theme,args.task_quiz)
     (args.output_dir/'analysis.json').write_text(json.dumps(result,indent=2,ensure_ascii=False)+'\n')
     with (args.output_dir/'attempts.csv').open('w',newline='') as stream:

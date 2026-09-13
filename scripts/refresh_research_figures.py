@@ -87,8 +87,8 @@ def main(argv=None):
     groups = json.loads(groups_path.read_text())
     if not isinstance(groups, dict) or not all(isinstance(k,str) and isinstance(v,str) and v.strip() for k,v in groups.items()):
         raise ValueError('Task groups must map case names to nonempty group names')
-    dataset, records = benchmark_analysis.load_attempts(source)
-    analysis = benchmark_analysis.analyze(dataset, records, groups)
+    dataset, records, excluded = benchmark_analysis.load_attempts(source)
+    analysis = benchmark_analysis.analyze(dataset, records, groups, excluded)
     unknown = [t['case'] for t in analysis['task_inventory'] if t['area']=='Unclassified']
     if unknown: raise ValueError(f'Assign a business-process group before publishing new cases: {unknown}')
     if set(dataset.agents) != {'Brackett','Claude','Codex'} or not analysis['shared_cases']:
@@ -108,7 +108,10 @@ def main(argv=None):
         if not args.results:
             report_path = stage/'assets/analysis/analysis.json'
             report = json.loads(report_path.read_text())
-            report['source'] = json.loads((site/'assets/analysis/analysis.json').read_text())['source']
+            previous = json.loads((site/'assets/analysis/analysis.json').read_text())
+            # The attempt CSV carries neither the workbook identity nor the rows the workbook excluded.
+            report['source'] = previous['source']
+            report['excluded_attempts'] = previous.get('excluded_attempts', [])
             report_path.write_text(json.dumps(report,indent=2,ensure_ascii=False)+'\n')
         tci_args = ['--output-dir',str(stage/'assets/analysis')]
         if args.tasks_root:
