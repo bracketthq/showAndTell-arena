@@ -1,0 +1,51 @@
+# Real mail surface for gmail-triage. Dovecot's testing image accepts any
+# mailbox with the configured password; the seed declares the exact mailboxes.
+services:
+  # Roundcube needs a real SMTP peer for Send. Dovecot's submission service is
+  # only a proxy and returns 451 unless an upstream relay is configured; using
+  # it directly made every otherwise-correct replay end in an error dialog.
+  # Mailpit is deliberately internal-only here. It accepts test mail and lets
+  # Roundcube save the sender's copy to the Dovecot Sent mailbox.
+  mailpit:
+    image: axllent/mailpit:v1.30.0
+    restart: on-failure
+
+  dovecot:
+    image: dovecot/dovecot:2.4.3
+    restart: on-failure
+    environment:
+      USER_PASSWORD: "${SHOWANDTELL_MAIL_PASSWORD:-demo-pass}"
+    ports:
+      # Loopback-only by default. A remote fixture host sets
+      # SHOWANDTELL_MAIL_BIND_HOST=0.0.0.0 and restricts access at the firewall.
+      - "${SHOWANDTELL_MAIL_BIND_HOST:-127.0.0.1}:${SHOWANDTELL_IMAP_PORT:-1143}:31143"
+    volumes:
+      - mail-data:/srv/vmail
+
+  roundcube:
+    image: roundcube/roundcubemail:1.6.17-apache
+    restart: on-failure
+    depends_on:
+      - dovecot
+      - mailpit
+    environment:
+      ROUNDCUBEMAIL_DB_TYPE: sqlite
+      ROUNDCUBEMAIL_DEFAULT_HOST: tls://dovecot
+      ROUNDCUBEMAIL_DEFAULT_PORT: "31143"
+      ROUNDCUBEMAIL_SMTP_SERVER: mailpit
+      ROUNDCUBEMAIL_SMTP_PORT: "1025"
+    ports:
+      # Loopback-only by default. A remote fixture host sets
+      # SHOWANDTELL_ROUNDCUBE_BIND_HOST=0.0.0.0 and restricts access at the firewall.
+      - "${SHOWANDTELL_ROUNDCUBE_BIND_HOST:-127.0.0.1}:${SHOWANDTELL_ROUNDCUBE_PORT:-8082}:80"
+    volumes:
+      - roundcube-data:/var/roundcube/db
+      # An application's compose file is always used on its own now, so this
+      # resolves against this folder. A path that misses does not fail: Docker
+      # creates a directory of that name, the config is silently never loaded,
+      # and login dies with "Connection to storage server failed".
+      - ./config/showAndTell-tls.inc.php:/var/roundcube/config/showAndTell-tls.inc.php:ro
+
+volumes:
+  mail-data:
+  roundcube-data:

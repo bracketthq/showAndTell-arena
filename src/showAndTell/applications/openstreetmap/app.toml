@@ -1,0 +1,25 @@
+[app]
+name = "openstreetmap"
+label = "OpenStreetMap"
+familiar_label = "Maps"
+
+[compose]
+external = true
+service = "openstreetmap"
+
+[ports]
+app = { container = 3000, host = 3000 }
+
+[health]
+http = "/"
+
+[credentials]
+username = ""
+password = ""
+
+[surface]
+entry = "/"
+
+[capabilities]
+snapshots = false
+capture = false

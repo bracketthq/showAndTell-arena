@@ -1,0 +1,263 @@
+<!doctype html>
+<!--
+  Same-origin ONLYOFFICE editor host page.
+
+  Served by Document Server nginx (compose mounts this directory at
+  /web-apps/brackett-host/), so the frameEditor iframe DocsAPI creates is
+  same-origin with this page. That lets the bridge below reach into the frame
+  and mirror user interactions onto the top document, where browser-extension
+  recorders (the Brackett event tracker) attach their listeners. Without this,
+  every click and keystroke happens inside an iframe the top frame cannot see.
+
+  The connector redirects here with the signed editor config in the URL
+  fragment (#cfg=base64url(JSON)): the fragment never reaches any server, and
+  it is stripped from the URL below before a recorder can observe it.
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<title>ONLYOFFICE</title>
+<style>html,body,#editor{height:100%;margin:0}</style>
+</head>
+<body>
+<div id="editor"></div>
+<script>
+(function () {
+  'use strict';
+
+  function decodeConfig() {
+    var match = /[#&]cfg=([^&]*)/.exec(location.hash || '');
+    if (!match) return null;
+    try {
+      var b64 = match[1].replace(/-/g, '+').replace(/_/g, '/');
+      var bin = atob(b64);
+      var bytes = new Uint8Array(bin.length);
+      for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      return JSON.parse(new TextDecoder('utf-8').decode(bytes));
+    } catch (error) {
+      return null;
+    }
+  }
+
+  var config = decodeConfig();
+  // Strip the signed config from the URL before anything can record it.
+  history.replaceState(null, '', location.pathname + location.search);
+  if (!config) {
+    document.body.textContent = 'missing or invalid editor configuration';
+    return;
+  }
+  if (config.document && config.document.title) {
+    document.title = config.document.title;
+  }
+
+  /* ------------------------------------------------------------------ *
+   * Event bridge                                                        *
+   *                                                                     *
+   * Capture-phase listeners inside the (same-origin) frameEditor         *
+   * document re-dispatch each user interaction on a hidden mirror        *
+   * element in THIS document, stamped with the real target's identity    *
+   * (label, role, value, and the active cell from the sdkjs name box),   *
+   * so a top-frame-only recorder captures meaningful actions. The        *
+   * spreadsheet grid is a canvas, so the A1 ref from #ce-cell-name is    *
+   * the only cell identity available anywhere.                           *
+   * ------------------------------------------------------------------ */
+
+  var A1_REF = /^[A-Z]{1,3}[0-9]{1,7}$/;
+
+  // sdkjs updates the formula bar in a task of its own, so the value read while
+  // handling a keystroke is one keystroke stale — and the Enter that commits a
+  // cell fires no further input event, so the last character would never be
+  // published. Deferring the read does not fix it reliably: this bridge listens
+  // in the capture phase, so its timer is registered before the editor's own.
+  // Converge instead of racing (below): publish whenever the bar changes,
+  // whatever caused it, and remember what was published so nothing is emitted
+  // twice. That also carries edits the buffer never sees at all, such as
+  // deleting past a clear boundary.
+  var lastPublished = null;
+  var FORWARDED_EVENTS = ['click', 'dblclick', 'contextmenu', 'keydown', 'input', 'change', 'paste', 'cut'];
+  var mirrors = Object.create(null);
+
+  function mirrorFor(tagName) {
+    var tag = /^[a-zA-Z][a-zA-Z0-9]*$/.test(tagName || '') ? tagName.toLowerCase() : 'div';
+    var mirror = mirrors[tag];
+    if (!mirror) {
+      mirror = document.createElement(tag);
+      // Offscreen, not display:none — recorders may skip hidden elements.
+      mirror.style.cssText =
+        'position:fixed;left:-10000px;top:0;width:1px;height:1px;overflow:hidden';
+      document.body.appendChild(mirror);
+      mirrors[tag] = mirror;
+    }
+    return mirror;
+  }
+
+  function readCellRef(frameDoc) {
+    var box = frameDoc && frameDoc.getElementById('ce-cell-name');
+    var ref = box && typeof box.value === 'string' ? box.value.trim().toUpperCase() : '';
+    return A1_REF.test(ref) ? ref : null;
+  }
+
+  // The grid's keystroke buffer (#area_id) is DRAINED as you type: sdkjs clears it
+  // whenever the last character is a space, period or comma (common/text_input2.js
+  // clearAreaValue), so its value is whatever fragment arrived since the last
+  // clear — never the cell's content. Typing "Esc a b" walks it through
+  // "E","Es","Esc","","a","","b", and a recorder that keeps the newest snapshot
+  // records "b".
+  //
+  // The formula bar holds the whole value and tracks it live on every keystroke
+  // ("E","Es","Esc","Esc ","Esc a","Esc a ","Esc a b"), including edits the buffer
+  // never saw — deleting past a clear boundary updates the bar while the buffer
+  // stays empty. Mirroring the bar hands the recorder a cumulative stream, which
+  // is what it already knows how to read. Verified against ONLYOFFICE 9.4.
+  function stampIdentity(mirror, target, cellRef) {
+    var attr = function (name) {
+      return target.getAttribute ? target.getAttribute(name) : null;
+    };
+    var text = (target.textContent || '').trim().slice(0, 80);
+    var label = attr('aria-label') || attr('title') || attr('placeholder');
+    if (!label && cellRef && mirror.tagName === 'CANVAS') label = 'Cell ' + cellRef;
+    if (!label && text) label = text;
+
+    var set = function (name, value) {
+      if (value) mirror.setAttribute(name, value);
+      else mirror.removeAttribute(name);
+    };
+    set('aria-label', label);
+    set('role', attr('role'));
+    // The active cell rides along on every grid interaction.
+    set('aria-description', cellRef ? 'cell ' + cellRef : null);
+
+    if (mirror.tagName === 'INPUT' || mirror.tagName === 'TEXTAREA') {
+      mirror.value = 'value' in target ? String(target.value) : '';
+    } else {
+      mirror.textContent = text;
+    }
+  }
+
+  function cloneEvent(event, frameRect) {
+    // `event` belongs to the iframe's realm: dispatch a fresh top-realm event
+    // (instanceof checks in recorders would fail on the original).
+    var base = { bubbles: true, cancelable: false, composed: true };
+    switch (event.type) {
+      case 'click':
+      case 'dblclick':
+      case 'contextmenu':
+        base.clientX = (event.clientX || 0) + frameRect.left;
+        base.clientY = (event.clientY || 0) + frameRect.top;
+        base.button = event.button || 0;
+        base.detail = event.detail || 1;
+        return new MouseEvent(event.type, base);
+      case 'keydown':
+        base.key = event.key;
+        base.code = event.code;
+        base.altKey = !!event.altKey;
+        base.ctrlKey = !!event.ctrlKey;
+        base.metaKey = !!event.metaKey;
+        base.shiftKey = !!event.shiftKey;
+        return new KeyboardEvent('keydown', base);
+      case 'paste':
+      case 'cut':
+        try {
+          var transfer = new DataTransfer();
+          var text = event.clipboardData ? event.clipboardData.getData('text/plain') : '';
+          if (text) transfer.setData('text/plain', text);
+          base.clipboardData = transfer;
+        } catch (error) { /* dispatch without clipboard payload */ }
+        return new ClipboardEvent(event.type, base);
+      default:
+        return new Event(event.type, base);
+    }
+  }
+
+  function forwardEvent(frame, event) {
+    try {
+      var frameDoc = frame.contentDocument;
+      var target = event.target && event.target.nodeType === 1
+        ? event.target
+        : frameDoc && frameDoc.body;
+      if (!target) return;
+      // The buffer's input events only ever carry a fragment (the editor drains
+      // it as you type), and publishCellValue below is the single publisher of a
+      // cell's value. Mirroring these too would emit a stale duplicate ahead of
+      // every poll. Its keydowns still forward — Enter and Backspace are real
+      // actions a reader needs.
+      if (event.type === 'input' && target.id === 'area_id') return;
+      var cellRef = readCellRef(frameDoc);
+      var mirror = mirrorFor(target.tagName);
+      stampIdentity(mirror, target, cellRef);
+      mirror.dispatchEvent(cloneEvent(event, frame.getBoundingClientRect()));
+    } catch (error) {
+      /* the bridge must never break the editor */
+    }
+  }
+
+  function attachBridge(frame) {
+    var frameDoc;
+    try {
+      frameDoc = frame.contentDocument;
+    } catch (error) {
+      return; // cross-origin (misconfigured redirect) — bridge stays inert
+    }
+    if (!frameDoc || frameDoc.__brackettBridge) return;
+    frameDoc.__brackettBridge = true;
+    FORWARDED_EVENTS.forEach(function (type) {
+      frameDoc.addEventListener(type, function (event) {
+        forwardEvent(frame, event);
+      }, true);
+    });
+  }
+
+  // Publish a bar value the keystroke path missed: the trailing character, or an
+  // edit made entirely inside the editor's model. One property read per tick,
+  // and it only dispatches when the value actually changed.
+  function publishCellValue(frameDoc) {
+    try {
+      var bar = frameDoc.getElementById('ce-cell-content');
+      if (!bar || !('value' in bar)) return;
+      var value = String(bar.value);
+      if (value === lastPublished) return;
+      lastPublished = value;
+      var mirror = mirrorFor('textarea');
+      var cellRef = readCellRef(frameDoc);
+      if (cellRef) mirror.setAttribute('aria-description', 'cell ' + cellRef);
+      mirror.value = value;
+      mirror.dispatchEvent(new Event('input', { bubbles: true, cancelable: false, composed: true }));
+    } catch (error) {
+      /* the bridge must never break the editor */
+    }
+  }
+
+  function startBridge() {
+    // The iframe appears asynchronously and each committed document needs its
+    // own listeners (the initial about:blank document is replaced when the
+    // editor loads). Reconcile on an interval: attachBridge self-guards, so a
+    // tick on an already-bridged document is a no-op.
+    setInterval(function () {
+      var frame = document.querySelector('iframe[name="frameEditor"]');
+      if (frame) attachBridge(frame);
+    }, 300);
+
+    setInterval(function () {
+      var frame = document.querySelector('iframe[name="frameEditor"]');
+      if (!frame) return;
+      try {
+        var frameDoc = frame.contentDocument;
+        if (frameDoc) publishCellValue(frameDoc);
+      } catch (error) { /* cross-origin or not yet ready */ }
+    }, 150);
+  }
+
+  var script = document.createElement('script');
+  script.src = '/web-apps/apps/api/documents/api.js';
+  script.onload = function () {
+    new DocsAPI.DocEditor('editor', config);
+    startBridge();
+  };
+  script.onerror = function () {
+    document.body.textContent = 'failed to load ONLYOFFICE api.js';
+  };
+  document.head.appendChild(script);
+})();
+</script>
+</body>
+</html>

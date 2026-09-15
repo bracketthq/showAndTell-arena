@@ -1,0 +1,7 @@
+# Install the project and its runtime dependencies from pyproject.toml.
+-e .
+
+# Development and test dependencies (mirrors [dependency-groups].dev).
+pytest>=8
+httpx2>=0.1
+pillow>=11

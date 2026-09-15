@@ -1,0 +1,13 @@
+[judge]
+protocol = "showAndTell-judge-v1"
+backend = "automatic"
+model = "claude-sonnet-4-6"
+temperature = 0.0
+max_tokens = 300
+timeout_seconds = 300
+max_attempts = 2
+failure_policy = "ungraded"
+canonical = true
+input_price_per_million_tokens_usd = 3.0
+output_price_per_million_tokens_usd = 15.0
+pricing_as_of = "2026-08-13"

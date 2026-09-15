@@ -1,0 +1,195 @@
+Usecase,Agent,Run,Score,Outcome,Comment,Model
+Candidate–Role Rematching,Codex,1,0.5,Scored,Replay clean; end state verified.,Not recorded
+Candidate–Role Rematching,Brackett,1,1.0,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Candidate–Role Rematching,Brackett,2,1.0,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Candidate–Role Rematching,Brackett,3,0.997,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Candidate–Role Rematching,Claude,1,NA,Refusal,refusal after browser exploration,Sonnet 5
+Candidate–Role Rematching,Claude,2,NA,Refusal,refusal after browser exploration,Sonnet 5
+Credit Release Queue,Codex,1,0.36,Scored,"11 of 12 sheet cells; one burst lost to a transient pid lookup, fixed after this run.",Not recorded
+Credit Release Queue,Brackett,1,1.0,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Credit Release Queue,Brackett,2,1.0,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Credit Release Queue,Brackett,3,1.0,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Credit Release Queue,Claude,1,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Credit Release Queue,Claude,2,0.8667,Scored,substantive answer after browser exploration,Sonnet 5
+Customer Returns Inbox Triage,Codex,1,0.6364,Scored,Untainted rerun; earlier 93.64% discarded because Codex read quiz/questions.json. 0 skips; 3 emails verified.,Not recorded
+Customer Returns Inbox Triage,Brackett,1,0.7348,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Customer Returns Inbox Triage,Brackett,2,0.8255,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Customer Returns Inbox Triage,Brackett,3,0.9045,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Customer Returns Inbox Triage,Claude,1,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Customer Returns Inbox Triage,Claude,2,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Discount Request Review,Codex,1,0.755,Scored,Regrade of the quiz re-asked in the same chat; the run's own first answer was 0.50%. Workbook verified.,Not recorded
+Discount Request Review,Brackett,1,0.8037,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Discount Request Review,Brackett,2,0.805,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Discount Request Review,Brackett,3,0.897,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Discount Request Review,Claude,1,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Discount Request Review,Claude,2,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Job Offer Follow-Up,Codex,1,0.45299999999999996,Scored,Email and comment verified. Recipient graded wrong: fixture candidate domain differs from the recording.,Not recorded
+Job Offer Follow-Up,Brackett,1,0.94,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Job Offer Follow-Up,Brackett,2,0.41,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Job Offer Follow-Up,Brackett,3,0.545,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Job Offer Follow-Up,Claude,1,0.6054,Scored,substantive answer after live browsing,Sonnet 5
+Job Offer Follow-Up,Claude,2,NA,Refusal,refusal,Sonnet 5
+Job Requisition Broadcast,Codex,1,0.625,Scored,Email matches the recording exactly. One exact miss is a timezone rendering difference.,Not recorded
+Job Requisition Broadcast,Brackett,1,0.98,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Job Requisition Broadcast,Brackett,2,0.94,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Job Requisition Broadcast,Brackett,3,0.555,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Job Requisition Broadcast,Claude,1,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Job Requisition Broadcast,Claude,2,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Job Requisition Triage,Codex,1,0.365,Scored,"Attempt 4, after the letter-chord fix. All 9 cells verified including the demonstrator's typo.",Not recorded
+Job Requisition Triage,Brackett,1,0.84,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Job Requisition Triage,Brackett,2,0.46,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Job Requisition Triage,Brackett,3,0.64,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Job Requisition Triage,Claude,1,0.6629,Scored,substantive answer after browser exploration,Sonnet 5
+Job Requisition Triage,Claude,2,0.682,Scored,substantive answer,Sonnet 5
+Limited-Stock Order Allocation,Codex,1,0.257,Scored,"Attempt 2, after the caret fix. Workbook and submitted Material Request verified. Low score mostly the driver's date shift.",Not recorded
+Limited-Stock Order Allocation,Brackett,1,0.925,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Limited-Stock Order Allocation,Brackett,2,0.92,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Limited-Stock Order Allocation,Brackett,3,0.717,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Limited-Stock Order Allocation,Claude,1,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Limited-Stock Order Allocation,Claude,2,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Low-Stock Replenishment Sweep,Codex,1,0.855,Scored,Attempt 2 (attempt 1 lost keystrokes to terminal focus). All 14 cells verified.,Not recorded
+Low-Stock Replenishment Sweep,Brackett,1,1.0,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Low-Stock Replenishment Sweep,Brackett,2,1.0,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Low-Stock Replenishment Sweep,Brackett,3,0.97,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Low-Stock Replenishment Sweep,Claude,1,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Low-Stock Replenishment Sweep,Claude,2,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Order Request Replenishment,Codex,1,0.915,Scored,Attempt 2. Sheet and submitted Material Request verified. 3/3 exact.,Not recorded
+Order Request Replenishment,Brackett,1,0.81,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Order Request Replenishment,Brackett,2,0.82,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Order Request Replenishment,Brackett,3,0.83,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Order Request Replenishment,Claude,1,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Order Request Replenishment,Claude,2,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Recruiter Performance Scorecard,Codex,1,0.25,Scored,"Their verdict FAIL: a filter never opened, so the view was never on screen; 5 answers came back Unknown. Video is retained separately.",Not recorded
+Recruiter Performance Scorecard,Brackett,1,0.855,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Recruiter Performance Scorecard,Brackett,2,0.97,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Recruiter Performance Scorecard,Brackett,3,0.755,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Recruiter Performance Scorecard,Claude,1,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Recruiter Performance Scorecard,Claude,2,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Accounts Receivable Collections Follow-Up 1,Codex,1,0.853,Scored,No refusal answers. End state not independently verified here.,Not recorded
+Accounts Receivable Collections Follow-Up 1,Brackett,1,0.805,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Accounts Receivable Collections Follow-Up 1,Brackett,2,0.8,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Accounts Receivable Collections Follow-Up 1,Brackett,3,0.77,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Accounts Receivable Collections Follow-Up 1,Claude,1,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Accounts Receivable Collections Follow-Up 1,Claude,2,NA,Refusal,refusal,Sonnet 5
+Candidate–Role Rematching 1,Codex,1,0.33,Scored,No refusal answers. End state not independently verified here.,Not recorded
+Candidate–Role Rematching 1,Brackett,1,0.885,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Candidate–Role Rematching 1,Brackett,2,0.875,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Candidate–Role Rematching 1,Brackett,3,0.812,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Candidate–Role Rematching 1,Claude,1,0.885,Scored,substantive answer after browser exploration,Sonnet 5
+Candidate–Role Rematching 1,Claude,2,0.91,Scored,substantive answer after live browsing,Sonnet 5
+Credit Release Queue 1,Codex,1,0.737,Scored,No refusal answers. End state not independently verified here.,Not recorded
+Credit Release Queue 1,Brackett,1,0.945,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Credit Release Queue 1,Brackett,2,0.97,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Credit Release Queue 1,Claude,1,0.73,Scored,substantive answer after live browsing,Sonnet 5
+Credit Release Queue 1,Claude,2,0.728,Scored,substantive answer after browser exploration,Sonnet 5
+Customer Support Issue Triage 1,Codex,1,0.645,Scored,No refusal answers. End state not independently verified here.,Not recorded
+Customer Support Issue Triage 1,Brackett,1,0.7602,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Customer Support Issue Triage 1,Brackett,2,0.8265,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Customer Support Issue Triage 1,Brackett,3,0.777,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Customer Support Issue Triage 1,Claude,1,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Customer Support Issue Triage 1,Claude,2,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Discount Request Review 1,Codex,1,0.488,Scored,All 9 cells verified including the long counter reason.,Not recorded
+Discount Request Review 1,Brackett,1,0.97,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Discount Request Review 1,Brackett,2,0.97,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Discount Request Review 1,Brackett,3,0.93,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Discount Request Review 1,Claude,1,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Discount Request Review 1,Claude,2,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Email Purchase Invoice Posting 1,Brackett,1,0.825,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Email Purchase Invoice Posting 1,Brackett,2,0.785,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Email Purchase Invoice Posting 1,Brackett,3,0.67,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Email Purchase Invoice Posting 1,Claude,1,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Email Purchase Invoice Posting 1,Claude,2,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Freight Consolidation Planning 1,Codex,1,0.345,Scored,No refusal answers. End state not independently verified here.,Not recorded
+Freight Consolidation Planning 1,Brackett,1,0.39,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Freight Consolidation Planning 1,Brackett,2,0.94,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Freight Consolidation Planning 1,Brackett,3,0.697,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Freight Consolidation Planning 1,Claude,1,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Freight Consolidation Planning 1,Claude,2,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Goods Receipt Shortfall Follow-Up 1,Codex,1,0.695,Scored,Rerun after two driver repairs. All 16 worklist cells and the supplier email verified.,Not recorded
+Goods Receipt Shortfall Follow-Up 1,Brackett,1,0.89,Scored,"Accepted; native lookups, full recording/audio, observation and final worksheet/email passed. Manual grade.",Fused/multiple models
+Goods Receipt Shortfall Follow-Up 1,Brackett,2,0.88,Scored,"Accepted; native lookups, full recording/audio, normal Stop, observation and final worksheet/email passed. Manual grade.",Fused/multiple models
+Goods Receipt Shortfall Follow-Up 1,Brackett,3,0.835,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Goods Receipt Shortfall Follow-Up 1,Claude,1,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Goods Receipt Shortfall Follow-Up 1,Claude,2,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Inbound Sales Enquiry Routing 1,Brackett,1,0.94,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Inbound Sales Enquiry Routing 1,Brackett,2,0.92,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Inbound Sales Enquiry Routing 1,Brackett,3,0.778,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Inbound Sales Enquiry Routing 1,Claude,1,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Inbound Sales Enquiry Routing 1,Claude,2,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Job Requisition Broadcast 1,Brackett,1,0.95,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Job Requisition Broadcast 1,Brackett,2,0.96,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Job Requisition Broadcast 1,Brackett,3,0.95,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Job Requisition Broadcast 1,Claude,1,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Job Requisition Broadcast 1,Claude,2,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Job Requisition Triage 1,Brackett,1,0.95,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Job Requisition Triage 1,Brackett,2,0.83,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Job Requisition Triage 1,Brackett,3,0.725,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Job Requisition Triage 1,Claude,1,NA,Refusal,Refusal: Claude treated the quiz as prompt injection and declined all ten questions,Sonnet 5
+Job Requisition Triage 1,Claude,2,0.9,Scored,Substantive answers after 12 browser steps. Deductions for incomplete writeback rules and an incorrect opening-completion claim,Sonnet 5
+Leave Request Eligibility Review 1,Codex,1,0.9,Scored,"Exact 6/6, 10/10 answers parsed, integrity clean. Run archive and video are still pending.",Not recorded
+Leave Request Eligibility Review 1,Brackett,1,0.785,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Leave Request Eligibility Review 1,Brackett,2,0.78,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Leave Request Eligibility Review 1,Brackett,3,0.76,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Leave Request Eligibility Review 1,Claude,1,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Leave Request Eligibility Review 1,Claude,2,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Limited-Stock Order Allocation 1,Brackett,1,0.84,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Limited-Stock Order Allocation 1,Brackett,2,0.84,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Limited-Stock Order Allocation 1,Brackett,3,0.585,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Limited-Stock Order Allocation 1,Claude,1,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Limited-Stock Order Allocation 1,Claude,2,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Low-Stock Replenishment Sweep 1,Codex,1,0.29,Scored,A stray macOS dialog covered columns E–H. Run archive and video are still pending.,Not recorded
+Low-Stock Replenishment Sweep 1,Brackett,1,0.665,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Low-Stock Replenishment Sweep 1,Brackett,2,0.745,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Low-Stock Replenishment Sweep 1,Brackett,3,0.83,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Low-Stock Replenishment Sweep 1,Claude,1,0.6483,Scored,substantive answer after live browsing,Sonnet 5
+Low-Stock Replenishment Sweep 1,Claude,2,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+New-Hire Onboarding Coordination 1,Codex,1,0.435,Scored,This run predates the fix for its dropped Send. Run archive and video are still pending.,Not recorded
+New-Hire Onboarding Coordination 1,Brackett,1,0.955,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+New-Hire Onboarding Coordination 1,Brackett,2,0.91,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+New-Hire Onboarding Coordination 1,Brackett,3,0.775,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+New-Hire Onboarding Coordination 1,Claude,1,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+New-Hire Onboarding Coordination 1,Claude,2,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Order Request Replenishment 1,Brackett,1,1.0,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Order Request Replenishment 1,Brackett,2,1.0,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Order Request Replenishment 1,Brackett,3,0.91,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Order Request Replenishment 1,Claude,1,NA,Refusal,refusal,Sonnet 5
+Order Request Replenishment 1,Claude,2,0.92,Scored,substantive answer,Sonnet 5
+Purchase Invoice Reconciliation 1,Codex,1,0.895,Scored,"Their verdict FAIL despite the score: workbook corrupted ('Aprove', 'ApprAppr', a rate in the PO Qty column). Codex reported intended values, not what landed. Video is retained separately.",Not recorded
+Purchase Invoice Reconciliation 1,Brackett,1,1.0,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Purchase Invoice Reconciliation 1,Brackett,2,1.0,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Purchase Invoice Reconciliation 1,Brackett,3,0.9,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Purchase Invoice Reconciliation 1,Claude,1,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Purchase Invoice Reconciliation 1,Claude,2,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Recruiter Performance Scorecard 1,Codex,1,0.565,Scored,Post-fix rerun; the pre-fix run scored 59.50%. Their verdict FAIL. Video is retained separately.,Not recorded
+Recruiter Performance Scorecard 1,Brackett,1,0.925,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Recruiter Performance Scorecard 1,Brackett,2,0.925,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Recruiter Performance Scorecard 1,Brackett,3,0.8,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Recruiter Performance Scorecard 1,Claude,1,0.84,Scored,substantive answer after live browsing,Sonnet 5
+Recruiter Performance Scorecard 1,Claude,2,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Vehicle Maintenance Service Booking 1,Codex,1,0.8,Scored,"Their only PASS: 5/5 exact, 1 skip, end state correct. Video is retained separately.",Not recorded
+Vehicle Maintenance Service Booking 1,Brackett,1,0.6,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Vehicle Maintenance Service Booking 1,Brackett,2,0.73,Scored,Accepted selected run. Manual grade; not canonical/verified.,Fused/multiple models
+Vehicle Maintenance Service Booking 1,Brackett,3,0.834,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Vehicle Maintenance Service Booking 1,Claude,1,NA,Empty shortcut,empty shortcut no quiz,Sonnet 5
+Vehicle Maintenance Service Booking 1,Claude,2,NA,Refusal,refusal,Sonnet 5
+Return Eligibility and RMA,Brackett,1,0.355,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Return Eligibility and RMA,Brackett,2,0.528,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+RFQ Quote Award,Brackett,1,0.7,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+RFQ Quote Award,Brackett,2,0.885,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Shortage Substitution Queue,Brackett,1,0.687,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Shortage Substitution Queue,Brackett,2,0.605,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Return Eligibility and RMA 1,Brackett,1,0.48,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Return Eligibility and RMA 1,Brackett,2,0.64,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+RFQ Quote Award 1,Brackett,1,0.73,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+RFQ Quote Award 1,Brackett,2,0.8,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Shortage Substitution Queue 1,Brackett,1,0.44,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Shortage Substitution Queue 1,Brackett,2,0.455,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Supplier Price Increase Review 1,Brackett,1,0.462,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Supplier Price Increase Review 1,Brackett,2,0.39,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Warranty Claim Intake 1,Brackett,1,0.73,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Warranty Claim Intake 1,Brackett,2,0.685,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Weather-Aware Departure Review 1,Brackett,1,0.47,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Weather-Aware Departure Review 1,Brackett,2,0.48,Scored,Third set: overview selection. graded by Claude Sonnet 4.6 (noncanonical); imported grade.,Fused/multiple models
+Purchase Invoice Reconciliation,Brackett,1,,Untested,,
+Returns Inbox Sweep,Brackett,1,,Untested,,
+Vehicle Maintenance Service Booking,Brackett,1,,Untested,,

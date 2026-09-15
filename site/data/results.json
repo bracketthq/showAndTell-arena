@@ -1,0 +1,1786 @@
+{
+  "agents": {
+    "Brackett": {
+      "average_score": 0.7837153846153846,
+      "completed_runs": 107,
+      "attempted_runs": 107,
+      "completion_rate": 1.0,
+      "tested_use_cases": 39,
+      "shared_score": 0.8396347222222222
+    },
+    "Claude": {
+      "average_score": 0.156305,
+      "completed_runs": 12,
+      "attempted_runs": 60,
+      "completion_rate": 0.2,
+      "tested_use_cases": 30,
+      "shared_score": 0.15746458333333332
+    },
+    "Codex": {
+      "average_score": 0.581225,
+      "completed_runs": 24,
+      "attempted_runs": 24,
+      "completion_rate": 1.0,
+      "tested_use_cases": 24,
+      "shared_score": 0.581225
+    }
+  },
+  "case_scores": {
+    "Brackett": {
+      "Candidate–Role Rematching": 0.999,
+      "Credit Release Queue": 1.0,
+      "Customer Returns Inbox Triage": 0.8216,
+      "Discount Request Review": 0.8352333333333334,
+      "Job Offer Follow-Up": 0.6316666666666666,
+      "Job Requisition Broadcast": 0.825,
+      "Job Requisition Triage": 0.6466666666666667,
+      "Limited-Stock Order Allocation": 0.854,
+      "Low-Stock Replenishment Sweep": 0.99,
+      "Order Request Replenishment": 0.82,
+      "Recruiter Performance Scorecard": 0.86,
+      "Accounts Receivable Collections Follow-Up 1": 0.7916666666666667,
+      "Candidate–Role Rematching 1": 0.8573333333333334,
+      "Credit Release Queue 1": 0.9575,
+      "Customer Support Issue Triage 1": 0.7879,
+      "Discount Request Review 1": 0.9566666666666667,
+      "Email Purchase Invoice Posting 1": 0.76,
+      "Freight Consolidation Planning 1": 0.6756666666666666,
+      "Goods Receipt Shortfall Follow-Up 1": 0.8683333333333333,
+      "Inbound Sales Enquiry Routing 1": 0.8793333333333333,
+      "Job Requisition Broadcast 1": 0.9533333333333333,
+      "Job Requisition Triage 1": 0.835,
+      "Leave Request Eligibility Review 1": 0.775,
+      "Limited-Stock Order Allocation 1": 0.755,
+      "Low-Stock Replenishment Sweep 1": 0.7466666666666667,
+      "New-Hire Onboarding Coordination 1": 0.88,
+      "Order Request Replenishment 1": 0.97,
+      "Purchase Invoice Reconciliation 1": 0.9666666666666667,
+      "Recruiter Performance Scorecard 1": 0.8833333333333334,
+      "Vehicle Maintenance Service Booking 1": 0.7213333333333333,
+      "Return Eligibility and RMA": 0.4415,
+      "RFQ Quote Award": 0.7925,
+      "Shortage Substitution Queue": 0.646,
+      "Return Eligibility and RMA 1": 0.56,
+      "RFQ Quote Award 1": 0.765,
+      "Shortage Substitution Queue 1": 0.4475,
+      "Supplier Price Increase Review 1": 0.42600000000000005,
+      "Warranty Claim Intake 1": 0.7075,
+      "Weather-Aware Departure Review 1": 0.475
+    },
+    "Claude": {
+      "Candidate–Role Rematching": 0.0,
+      "Credit Release Queue": 0.43335,
+      "Customer Returns Inbox Triage": 0.0,
+      "Discount Request Review": 0.0,
+      "Job Offer Follow-Up": 0.3027,
+      "Job Requisition Broadcast": 0.0,
+      "Job Requisition Triage": 0.67245,
+      "Limited-Stock Order Allocation": 0.0,
+      "Low-Stock Replenishment Sweep": 0.0,
+      "Order Request Replenishment": 0.0,
+      "Recruiter Performance Scorecard": 0.0,
+      "Accounts Receivable Collections Follow-Up 1": 0.0,
+      "Candidate–Role Rematching 1": 0.8975,
+      "Credit Release Queue 1": 0.729,
+      "Customer Support Issue Triage 1": 0.0,
+      "Discount Request Review 1": 0.0,
+      "Email Purchase Invoice Posting 1": 0.0,
+      "Freight Consolidation Planning 1": 0.0,
+      "Goods Receipt Shortfall Follow-Up 1": 0.0,
+      "Inbound Sales Enquiry Routing 1": 0.0,
+      "Job Requisition Broadcast 1": 0.0,
+      "Job Requisition Triage 1": 0.45,
+      "Leave Request Eligibility Review 1": 0.0,
+      "Limited-Stock Order Allocation 1": 0.0,
+      "Low-Stock Replenishment Sweep 1": 0.32415,
+      "New-Hire Onboarding Coordination 1": 0.0,
+      "Order Request Replenishment 1": 0.46,
+      "Purchase Invoice Reconciliation 1": 0.0,
+      "Recruiter Performance Scorecard 1": 0.42,
+      "Vehicle Maintenance Service Booking 1": 0.0
+    },
+    "Codex": {
+      "Candidate–Role Rematching": 0.5,
+      "Credit Release Queue": 0.36,
+      "Customer Returns Inbox Triage": 0.6364,
+      "Discount Request Review": 0.755,
+      "Job Offer Follow-Up": 0.45299999999999996,
+      "Job Requisition Broadcast": 0.625,
+      "Job Requisition Triage": 0.365,
+      "Limited-Stock Order Allocation": 0.257,
+      "Low-Stock Replenishment Sweep": 0.855,
+      "Order Request Replenishment": 0.915,
+      "Recruiter Performance Scorecard": 0.25,
+      "Accounts Receivable Collections Follow-Up 1": 0.853,
+      "Candidate–Role Rematching 1": 0.33,
+      "Credit Release Queue 1": 0.737,
+      "Customer Support Issue Triage 1": 0.645,
+      "Discount Request Review 1": 0.488,
+      "Freight Consolidation Planning 1": 0.345,
+      "Goods Receipt Shortfall Follow-Up 1": 0.695,
+      "Leave Request Eligibility Review 1": 0.9,
+      "Low-Stock Replenishment Sweep 1": 0.29,
+      "New-Hire Onboarding Coordination 1": 0.435,
+      "Purchase Invoice Reconciliation 1": 0.895,
+      "Recruiter Performance Scorecard 1": 0.565,
+      "Vehicle Maintenance Service Booking 1": 0.8
+    }
+  },
+  "shared_cases": [
+    "Candidate–Role Rematching",
+    "Credit Release Queue",
+    "Customer Returns Inbox Triage",
+    "Discount Request Review",
+    "Job Offer Follow-Up",
+    "Job Requisition Broadcast",
+    "Job Requisition Triage",
+    "Limited-Stock Order Allocation",
+    "Low-Stock Replenishment Sweep",
+    "Order Request Replenishment",
+    "Recruiter Performance Scorecard",
+    "Accounts Receivable Collections Follow-Up 1",
+    "Candidate–Role Rematching 1",
+    "Credit Release Queue 1",
+    "Customer Support Issue Triage 1",
+    "Discount Request Review 1",
+    "Freight Consolidation Planning 1",
+    "Goods Receipt Shortfall Follow-Up 1",
+    "Leave Request Eligibility Review 1",
+    "Low-Stock Replenishment Sweep 1",
+    "New-Hire Onboarding Coordination 1",
+    "Purchase Invoice Reconciliation 1",
+    "Recruiter Performance Scorecard 1",
+    "Vehicle Maintenance Service Booking 1"
+  ],
+  "tested_cases": [
+    "Candidate–Role Rematching",
+    "Credit Release Queue",
+    "Customer Returns Inbox Triage",
+    "Discount Request Review",
+    "Job Offer Follow-Up",
+    "Job Requisition Broadcast",
+    "Job Requisition Triage",
+    "Limited-Stock Order Allocation",
+    "Low-Stock Replenishment Sweep",
+    "Order Request Replenishment",
+    "Recruiter Performance Scorecard",
+    "Accounts Receivable Collections Follow-Up 1",
+    "Candidate–Role Rematching 1",
+    "Credit Release Queue 1",
+    "Customer Support Issue Triage 1",
+    "Discount Request Review 1",
+    "Email Purchase Invoice Posting 1",
+    "Freight Consolidation Planning 1",
+    "Goods Receipt Shortfall Follow-Up 1",
+    "Inbound Sales Enquiry Routing 1",
+    "Job Requisition Broadcast 1",
+    "Job Requisition Triage 1",
+    "Leave Request Eligibility Review 1",
+    "Limited-Stock Order Allocation 1",
+    "Low-Stock Replenishment Sweep 1",
+    "New-Hire Onboarding Coordination 1",
+    "Order Request Replenishment 1",
+    "Purchase Invoice Reconciliation 1",
+    "Recruiter Performance Scorecard 1",
+    "Vehicle Maintenance Service Booking 1",
+    "Return Eligibility and RMA",
+    "RFQ Quote Award",
+    "Shortage Substitution Queue",
+    "Return Eligibility and RMA 1",
+    "RFQ Quote Award 1",
+    "Shortage Substitution Queue 1",
+    "Supplier Price Increase Review 1",
+    "Warranty Claim Intake 1",
+    "Weather-Aware Departure Review 1"
+  ],
+  "untested_cases": [
+    "Purchase Invoice Reconciliation",
+    "Returns Inbox Sweep",
+    "Vehicle Maintenance Service Booking"
+  ],
+  "shared_agents": {
+    "Brackett": {
+      "average_score": 0.8396347222222222,
+      "completed_runs": 71,
+      "attempted_runs": 71,
+      "completion_rate": 1.0,
+      "tested_use_cases": 24,
+      "shared_score": 0.8396347222222222
+    },
+    "Claude": {
+      "average_score": 0.15746458333333332,
+      "completed_runs": 10,
+      "attempted_runs": 48,
+      "completion_rate": 0.20833333333333334,
+      "tested_use_cases": 24,
+      "shared_score": 0.15746458333333332
+    },
+    "Codex": {
+      "average_score": 0.581225,
+      "completed_runs": 24,
+      "attempted_runs": 24,
+      "completion_rate": 1.0,
+      "tested_use_cases": 24,
+      "shared_score": 0.581225
+    }
+  },
+  "runs": [
+    {
+      "case": "Candidate–Role Rematching",
+      "agent": "Codex",
+      "run": 1,
+      "score": 0.5,
+      "completed": true,
+      "model": "Not recorded"
+    },
+    {
+      "case": "Candidate–Role Rematching",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 1.0,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Candidate–Role Rematching",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 1.0,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Candidate–Role Rematching",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.997,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Candidate–Role Rematching",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Candidate–Role Rematching",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Credit Release Queue",
+      "agent": "Codex",
+      "run": 1,
+      "score": 0.36,
+      "completed": true,
+      "model": "Not recorded"
+    },
+    {
+      "case": "Credit Release Queue",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 1.0,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Credit Release Queue",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 1.0,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Credit Release Queue",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 1.0,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Credit Release Queue",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Credit Release Queue",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.8667,
+      "completed": true,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Customer Returns Inbox Triage",
+      "agent": "Codex",
+      "run": 1,
+      "score": 0.6364,
+      "completed": true,
+      "model": "Not recorded"
+    },
+    {
+      "case": "Customer Returns Inbox Triage",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.7348,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Customer Returns Inbox Triage",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.8255,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Customer Returns Inbox Triage",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.9045,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Customer Returns Inbox Triage",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Customer Returns Inbox Triage",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Discount Request Review",
+      "agent": "Codex",
+      "run": 1,
+      "score": 0.755,
+      "completed": true,
+      "model": "Not recorded"
+    },
+    {
+      "case": "Discount Request Review",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.8037,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Discount Request Review",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.805,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Discount Request Review",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.897,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Discount Request Review",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Discount Request Review",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Job Offer Follow-Up",
+      "agent": "Codex",
+      "run": 1,
+      "score": 0.45299999999999996,
+      "completed": true,
+      "model": "Not recorded"
+    },
+    {
+      "case": "Job Offer Follow-Up",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.94,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Job Offer Follow-Up",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.41,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Job Offer Follow-Up",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.545,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Job Offer Follow-Up",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.6054,
+      "completed": true,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Job Offer Follow-Up",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Job Requisition Broadcast",
+      "agent": "Codex",
+      "run": 1,
+      "score": 0.625,
+      "completed": true,
+      "model": "Not recorded"
+    },
+    {
+      "case": "Job Requisition Broadcast",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.98,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Job Requisition Broadcast",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.94,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Job Requisition Broadcast",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.555,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Job Requisition Broadcast",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Job Requisition Broadcast",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Job Requisition Triage",
+      "agent": "Codex",
+      "run": 1,
+      "score": 0.365,
+      "completed": true,
+      "model": "Not recorded"
+    },
+    {
+      "case": "Job Requisition Triage",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.84,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Job Requisition Triage",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.46,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Job Requisition Triage",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.64,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Job Requisition Triage",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.6629,
+      "completed": true,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Job Requisition Triage",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.682,
+      "completed": true,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Limited-Stock Order Allocation",
+      "agent": "Codex",
+      "run": 1,
+      "score": 0.257,
+      "completed": true,
+      "model": "Not recorded"
+    },
+    {
+      "case": "Limited-Stock Order Allocation",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.925,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Limited-Stock Order Allocation",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.92,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Limited-Stock Order Allocation",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.717,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Limited-Stock Order Allocation",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Limited-Stock Order Allocation",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Low-Stock Replenishment Sweep",
+      "agent": "Codex",
+      "run": 1,
+      "score": 0.855,
+      "completed": true,
+      "model": "Not recorded"
+    },
+    {
+      "case": "Low-Stock Replenishment Sweep",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 1.0,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Low-Stock Replenishment Sweep",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 1.0,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Low-Stock Replenishment Sweep",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.97,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Low-Stock Replenishment Sweep",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Low-Stock Replenishment Sweep",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Order Request Replenishment",
+      "agent": "Codex",
+      "run": 1,
+      "score": 0.915,
+      "completed": true,
+      "model": "Not recorded"
+    },
+    {
+      "case": "Order Request Replenishment",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.81,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Order Request Replenishment",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.82,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Order Request Replenishment",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.83,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Order Request Replenishment",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Order Request Replenishment",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Recruiter Performance Scorecard",
+      "agent": "Codex",
+      "run": 1,
+      "score": 0.25,
+      "completed": true,
+      "model": "Not recorded"
+    },
+    {
+      "case": "Recruiter Performance Scorecard",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.855,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Recruiter Performance Scorecard",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.97,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Recruiter Performance Scorecard",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.755,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Recruiter Performance Scorecard",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Recruiter Performance Scorecard",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Accounts Receivable Collections Follow-Up 1",
+      "agent": "Codex",
+      "run": 1,
+      "score": 0.853,
+      "completed": true,
+      "model": "Not recorded"
+    },
+    {
+      "case": "Accounts Receivable Collections Follow-Up 1",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.805,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Accounts Receivable Collections Follow-Up 1",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.8,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Accounts Receivable Collections Follow-Up 1",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.77,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Accounts Receivable Collections Follow-Up 1",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Accounts Receivable Collections Follow-Up 1",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Candidate–Role Rematching 1",
+      "agent": "Codex",
+      "run": 1,
+      "score": 0.33,
+      "completed": true,
+      "model": "Not recorded"
+    },
+    {
+      "case": "Candidate–Role Rematching 1",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.885,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Candidate–Role Rematching 1",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.875,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Candidate–Role Rematching 1",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.812,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Candidate–Role Rematching 1",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.885,
+      "completed": true,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Candidate–Role Rematching 1",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.91,
+      "completed": true,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Credit Release Queue 1",
+      "agent": "Codex",
+      "run": 1,
+      "score": 0.737,
+      "completed": true,
+      "model": "Not recorded"
+    },
+    {
+      "case": "Credit Release Queue 1",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.945,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Credit Release Queue 1",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.97,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Credit Release Queue 1",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.73,
+      "completed": true,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Credit Release Queue 1",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.728,
+      "completed": true,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Customer Support Issue Triage 1",
+      "agent": "Codex",
+      "run": 1,
+      "score": 0.645,
+      "completed": true,
+      "model": "Not recorded"
+    },
+    {
+      "case": "Customer Support Issue Triage 1",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.7602,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Customer Support Issue Triage 1",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.8265,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Customer Support Issue Triage 1",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.777,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Customer Support Issue Triage 1",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Customer Support Issue Triage 1",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Discount Request Review 1",
+      "agent": "Codex",
+      "run": 1,
+      "score": 0.488,
+      "completed": true,
+      "model": "Not recorded"
+    },
+    {
+      "case": "Discount Request Review 1",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.97,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Discount Request Review 1",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.97,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Discount Request Review 1",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.93,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Discount Request Review 1",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Discount Request Review 1",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Email Purchase Invoice Posting 1",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.825,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Email Purchase Invoice Posting 1",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.785,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Email Purchase Invoice Posting 1",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.67,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Email Purchase Invoice Posting 1",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Email Purchase Invoice Posting 1",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Freight Consolidation Planning 1",
+      "agent": "Codex",
+      "run": 1,
+      "score": 0.345,
+      "completed": true,
+      "model": "Not recorded"
+    },
+    {
+      "case": "Freight Consolidation Planning 1",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.39,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Freight Consolidation Planning 1",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.94,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Freight Consolidation Planning 1",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.697,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Freight Consolidation Planning 1",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Freight Consolidation Planning 1",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Goods Receipt Shortfall Follow-Up 1",
+      "agent": "Codex",
+      "run": 1,
+      "score": 0.695,
+      "completed": true,
+      "model": "Not recorded"
+    },
+    {
+      "case": "Goods Receipt Shortfall Follow-Up 1",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.89,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Goods Receipt Shortfall Follow-Up 1",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.88,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Goods Receipt Shortfall Follow-Up 1",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.835,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Goods Receipt Shortfall Follow-Up 1",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Goods Receipt Shortfall Follow-Up 1",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Inbound Sales Enquiry Routing 1",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.94,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Inbound Sales Enquiry Routing 1",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.92,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Inbound Sales Enquiry Routing 1",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.778,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Inbound Sales Enquiry Routing 1",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Inbound Sales Enquiry Routing 1",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Job Requisition Broadcast 1",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.95,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Job Requisition Broadcast 1",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.96,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Job Requisition Broadcast 1",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.95,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Job Requisition Broadcast 1",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Job Requisition Broadcast 1",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Job Requisition Triage 1",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.95,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Job Requisition Triage 1",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.83,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Job Requisition Triage 1",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.725,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Job Requisition Triage 1",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Job Requisition Triage 1",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.9,
+      "completed": true,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Leave Request Eligibility Review 1",
+      "agent": "Codex",
+      "run": 1,
+      "score": 0.9,
+      "completed": true,
+      "model": "Not recorded"
+    },
+    {
+      "case": "Leave Request Eligibility Review 1",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.785,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Leave Request Eligibility Review 1",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.78,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Leave Request Eligibility Review 1",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.76,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Leave Request Eligibility Review 1",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Leave Request Eligibility Review 1",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Limited-Stock Order Allocation 1",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.84,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Limited-Stock Order Allocation 1",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.84,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Limited-Stock Order Allocation 1",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.585,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Limited-Stock Order Allocation 1",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Limited-Stock Order Allocation 1",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Low-Stock Replenishment Sweep 1",
+      "agent": "Codex",
+      "run": 1,
+      "score": 0.29,
+      "completed": true,
+      "model": "Not recorded"
+    },
+    {
+      "case": "Low-Stock Replenishment Sweep 1",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.665,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Low-Stock Replenishment Sweep 1",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.745,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Low-Stock Replenishment Sweep 1",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.83,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Low-Stock Replenishment Sweep 1",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.6483,
+      "completed": true,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Low-Stock Replenishment Sweep 1",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "New-Hire Onboarding Coordination 1",
+      "agent": "Codex",
+      "run": 1,
+      "score": 0.435,
+      "completed": true,
+      "model": "Not recorded"
+    },
+    {
+      "case": "New-Hire Onboarding Coordination 1",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.955,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "New-Hire Onboarding Coordination 1",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.91,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "New-Hire Onboarding Coordination 1",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.775,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "New-Hire Onboarding Coordination 1",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "New-Hire Onboarding Coordination 1",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Order Request Replenishment 1",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 1.0,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Order Request Replenishment 1",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 1.0,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Order Request Replenishment 1",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.91,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Order Request Replenishment 1",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Order Request Replenishment 1",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.92,
+      "completed": true,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Purchase Invoice Reconciliation 1",
+      "agent": "Codex",
+      "run": 1,
+      "score": 0.895,
+      "completed": true,
+      "model": "Not recorded"
+    },
+    {
+      "case": "Purchase Invoice Reconciliation 1",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 1.0,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Purchase Invoice Reconciliation 1",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 1.0,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Purchase Invoice Reconciliation 1",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.9,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Purchase Invoice Reconciliation 1",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Purchase Invoice Reconciliation 1",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Recruiter Performance Scorecard 1",
+      "agent": "Codex",
+      "run": 1,
+      "score": 0.565,
+      "completed": true,
+      "model": "Not recorded"
+    },
+    {
+      "case": "Recruiter Performance Scorecard 1",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.925,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Recruiter Performance Scorecard 1",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.925,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Recruiter Performance Scorecard 1",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.8,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Recruiter Performance Scorecard 1",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.84,
+      "completed": true,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Recruiter Performance Scorecard 1",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Vehicle Maintenance Service Booking 1",
+      "agent": "Codex",
+      "run": 1,
+      "score": 0.8,
+      "completed": true,
+      "model": "Not recorded"
+    },
+    {
+      "case": "Vehicle Maintenance Service Booking 1",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.6,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Vehicle Maintenance Service Booking 1",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.73,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Vehicle Maintenance Service Booking 1",
+      "agent": "Brackett",
+      "run": 3,
+      "score": 0.834,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Vehicle Maintenance Service Booking 1",
+      "agent": "Claude",
+      "run": 1,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Vehicle Maintenance Service Booking 1",
+      "agent": "Claude",
+      "run": 2,
+      "score": 0.0,
+      "completed": false,
+      "model": "Sonnet 5"
+    },
+    {
+      "case": "Return Eligibility and RMA",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.355,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Return Eligibility and RMA",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.528,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "RFQ Quote Award",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.7,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "RFQ Quote Award",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.885,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Shortage Substitution Queue",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.687,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Shortage Substitution Queue",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.605,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Return Eligibility and RMA 1",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.48,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Return Eligibility and RMA 1",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.64,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "RFQ Quote Award 1",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.73,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "RFQ Quote Award 1",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.8,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Shortage Substitution Queue 1",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.44,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Shortage Substitution Queue 1",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.455,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Supplier Price Increase Review 1",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.462,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Supplier Price Increase Review 1",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.39,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Warranty Claim Intake 1",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.73,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Warranty Claim Intake 1",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.685,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Weather-Aware Departure Review 1",
+      "agent": "Brackett",
+      "run": 1,
+      "score": 0.47,
+      "completed": true,
+      "model": "Fused/multiple models"
+    },
+    {
+      "case": "Weather-Aware Departure Review 1",
+      "agent": "Brackett",
+      "run": 2,
+      "score": 0.48,
+      "completed": true,
+      "model": "Fused/multiple models"
+    }
+  ],
+  "model_labels": {
+    "Brackett": {
+      "Fused/multiple models": 107
+    },
+    "Claude": {
+      "Sonnet 5": 60
+    },
+    "Codex": {
+      "Not recorded": 24
+    }
+  },
+  "metadata": {
+    "snapshot_date": "2026-09-12",
+    "source": "Brackett ShowTell Benchmark Results.xlsx",
+    "source_sha256": "7034b3049c4f1090b512b82996dca9840c197cbe0b8daf9db850d400e42f1d18",
+    "sheet": "Overview",
+    "score_source": "Overview run cells, cross-checked against matching Detailed Analysis rows; workbook average formulas are not used.",
+    "status": "Preliminary; selected attempts; non-canonical grading (manual grades and imported model-assisted grades, as recorded in the workbook notes).",
+    "methodology": "NA = attempted and incomplete, scored zero. Blank = untested, excluded. Average attempts within each use case, then weight use cases equally. Shared cases require an attempt from every system.",
+    "completion_definition": "An attempt has a numeric benchmark score; not a measure of operational task success.",
+    "system_configuration": "System/model labels: Brackett: Fused/multiple models (107 selected attempts). Claude: Sonnet 5 (60 selected attempts). Codex: Not recorded (24 selected attempts). Brackett uses the author-specified fused/multiple-model description. Other model labels are workbook-reported, not verified model IDs; model and adapter versions are not fully pinned. Grader names in comments do not identify the evaluated model.",
+    "model_source": "Brackett: author-specified Fused/multiple models system description; component model labels are not published. Other systems: Detailed Analysis, Model column; missing labels remain Not recorded.",
+    "uncertainty": "No confidence interval is reported for this selected-attempt snapshot.",
+    "colors": {
+      "Brackett": "#f5b840",
+      "Claude": "#a89acd",
+      "Codex": "#65aeb5"
+    }
+  }
+}

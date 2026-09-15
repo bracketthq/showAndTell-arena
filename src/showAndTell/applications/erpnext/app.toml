@@ -1,0 +1,31 @@
+[app]
+name  = "erpnext"
+label = "ERPNext + Frappe HR"
+familiar_label = "ERP & HR"
+
+[storage]
+# Estimated peak for the built ERPNext/HRMS image plus MariaDB and Redis.
+fresh_install_bytes = 4294967296
+
+[compose]
+file    = "compose.yaml"
+service = "erpnext"
+
+[ports]
+app = { container = 8080, host = 8080 }
+
+[health]
+http = "/login"
+
+[credentials]
+username = "Administrator"
+password = "showAndTell-admin"
+
+[surface]
+entry = "/login"
+
+[capabilities]
+# An ERPNext site is a database. Its export can only round-trip a seed it
+# created itself, so hand-made state travels as a snapshot instead.
+snapshots = true
+capture   = false

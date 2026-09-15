@@ -1,0 +1,194 @@
+/* tokens.css — every color, size, and type decision lives here.
+
+   The viewer uses the bundled Brackett publication palette. The light and
+   dark blocks define colors, status, and elevation. Viewer-specific tokens
+   derive from those blocks and follow the [data-theme] setting.
+*/
+
+:root {
+  color-scheme: light;
+
+  /* ── Brackett LIGHT BLOCK (verbatim paste target) ────────────────── */
+  /* Brand */
+  --accent: #f5b840;
+  --accent-foreground: #7b510c;
+  --accent-strong: #efa926;
+  /* Page */
+  --background: #ffffff;
+  --foreground: #0d1824;
+  --muted-foreground: #5c7389;
+  /* Surfaces */
+  --card: #f7f5f0;
+  --popover: #eceae5;
+  --highlighted: #eceae5;
+  /* Active */
+  --active: #ded9ce;
+  --active-foreground: #091420;
+  /* Borders & focus */
+  --border-primary: #d8dde2;
+  --ring: #f5b840;
+  /* Elevation */
+  --shadow-primary: 0 0 16px 0 hsl(0 0% 0% / 0.04);
+  --shadow-card: 0 4px 12px -4px hsl(220 13% 18% / 0.1);
+  --shadow-card-hover: 0 8px 20px -4px hsl(220 13% 18% / 0.16);
+  --shadow-focus: 0 0 8px 2px color-mix(in srgb, var(--ring) 18%, transparent);
+  /* Status */
+  --destructive: #c75252;
+  --destructive-foreground: #ffffff;
+  --destructive-soft: #fbeaea;
+  --success: #2e7d32;
+  --success-soft: #e8f4e9;
+  --warning: #b45309;
+  --warning-soft: #fdf2e2;
+  /* Data viz — amber ramp */
+  --chart-1: #f5b840;
+  --chart-2: #d69a2e;
+  --chart-3: #a87421;
+  --chart-4: #6b4915;
+  /* Layout & typography (globals.css) */
+  --font-sans:
+    'Satoshi', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+  --radius: 0.625rem;
+}
+
+/* ── Viewer adapter — every viewer token derives from the blocks above ── */
+:root {
+  /* Text */
+  --ink: var(--foreground);
+  --ink-2: color-mix(in srgb, var(--foreground) 62%, var(--muted-foreground));
+  --muted: var(--muted-foreground);
+  /* Surfaces: Brackett's white page carrying warm paper cards */
+  --page: var(--background);
+  --surface: var(--card);
+  --surface-solid: var(--card);
+  --raise: var(--popover);
+  /* Lines */
+  --line: var(--border-primary);
+  --line-strong: color-mix(in srgb, var(--border-primary) 78%, var(--foreground));
+  /* Accent. --accent-ink is accent-colored TEXT on page surfaces: the deep
+     amber in light (the amber itself is 1.6:1 on white), the amber itself in
+     dark. Filled amber controls take --accent-foreground directly. */
+  --accent-hover: var(--accent-strong);
+  --accent-soft: color-mix(in srgb, var(--accent) 14%, transparent);
+  --accent-ink: var(--accent-foreground);
+  /* Score bands on Brackett's status hues */
+  --pass: var(--success);       --pass-text: var(--success);     --pass-soft: var(--success-soft);
+  --partial: var(--warning);    --partial-text: var(--warning);  --partial-soft: var(--warning-soft);
+  --fail: var(--destructive);   --fail-soft: var(--destructive-soft);
+  /* --destructive alone is 4.0:1 on white; deepened to hold the text contract */
+  --fail-text: color-mix(in srgb, var(--destructive) 78%, black);
+  /* TCI tiers 1–5: heat ramp pass → partial → fail; 2 and 4 interpolate
+     between the status hues (oklch keeps the midpoints chromatic) */
+  --tier2-text: color-mix(in oklch, var(--pass-text) 55%, var(--partial-text));
+  --tier2-soft: color-mix(in srgb, var(--pass-soft) 55%, var(--partial-soft));
+  --tier4-text: color-mix(in oklch, var(--partial-text) 55%, var(--fail-text));
+  --tier4-soft: color-mix(in srgb, var(--partial-soft) 55%, var(--fail-soft));
+  /* Elevation */
+  --shadow-xs: var(--shadow-primary);
+  --shadow: var(--shadow-card);
+  --shadow-lg: var(--shadow-card-hover);
+  /* Type + radius */
+  --sans: var(--font-sans);
+  --display: var(--font-sans);
+  --mono: var(--font-mono);
+  --r-s: calc(var(--radius) - 0.125rem); /* 8px */
+  --r-m: var(--radius);                  /* 10px */
+  --r-l: calc(var(--radius) + 0.25rem);  /* 14px */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+
+    /* ── Brackett DARK BLOCK (verbatim paste target) ─────────────────── */
+    /* Brand */
+    --accent: #f5b840;
+    --accent-foreground: #7b510c;
+    --accent-strong: #efa926;
+    /* Page */
+    --background: #0a131f;
+    --foreground: #f7f5f0;
+    --muted-foreground: #8499b0;
+    /* Surfaces */
+    --card: #131e2c;
+    --popover: #1b2a3e;
+    --highlighted: #1b2a3e;
+    /* Active */
+    --active: #243550;
+    --active-foreground: #f7f5f0;
+    /* Borders & focus */
+    --border-primary: #243550;
+    --ring: #f5b840;
+    /* Elevation */
+    --shadow-primary: 0 0 16px 0 hsl(0 0% 0% / 0.12);
+    --shadow-card: 0 4px 12px -4px hsl(0 0% 0% / 0.45);
+    --shadow-card-hover: 0 8px 20px -4px hsl(0 0% 0% / 0.55);
+    /* Status */
+    --destructive: #e57373;
+    --destructive-foreground: #ffffff;
+    --destructive-soft: #3a1f1f;
+    --success: #66bb6a;
+    --success-soft: #1f2e22;
+    --warning: #fbbf24;
+    --warning-soft: #2e2517;
+    /* Data viz — amber ramp */
+    --chart-1: #f5b840;
+    --chart-2: #d69a2e;
+    --chart-3: #a87421;
+    --chart-4: #6b4915;
+
+    /* ── Viewer adapter, dark ── */
+    --accent-ink: var(--accent);
+    --fail-text: var(--destructive);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* ── Brackett DARK BLOCK (verbatim paste target) ─────────────────── */
+  /* Brand */
+  --accent: #f5b840;
+  --accent-foreground: #7b510c;
+  --accent-strong: #efa926;
+  /* Page */
+  --background: #0a131f;
+  --foreground: #f7f5f0;
+  --muted-foreground: #8499b0;
+  /* Surfaces */
+  --card: #131e2c;
+  --popover: #1b2a3e;
+  --highlighted: #1b2a3e;
+  /* Active */
+  --active: #243550;
+  --active-foreground: #f7f5f0;
+  /* Borders & focus */
+  --border-primary: #243550;
+  --ring: #f5b840;
+  /* Elevation */
+  --shadow-primary: 0 0 16px 0 hsl(0 0% 0% / 0.12);
+  --shadow-card: 0 4px 12px -4px hsl(0 0% 0% / 0.45);
+  --shadow-card-hover: 0 8px 20px -4px hsl(0 0% 0% / 0.55);
+  /* Status */
+  --destructive: #e57373;
+  --destructive-foreground: #ffffff;
+  --destructive-soft: #3a1f1f;
+  --success: #66bb6a;
+  --success-soft: #1f2e22;
+  --warning: #fbbf24;
+  --warning-soft: #2e2517;
+  /* Data viz — amber ramp */
+  --chart-1: #f5b840;
+  --chart-2: #d69a2e;
+  --chart-3: #a87421;
+  --chart-4: #6b4915;
+
+  /* ── Viewer adapter, dark ── */
+  --accent-ink: var(--accent);
+  --fail-text: var(--destructive);
+}

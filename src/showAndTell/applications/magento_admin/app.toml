@@ -1,0 +1,25 @@
+[app]
+name = "magento_admin"
+label = "Magento Admin"
+familiar_label = "Shopping admin"
+
+[compose]
+driver = true
+service = "magento_admin"
+
+[ports]
+app = { container = 80, host = 7780 }
+
+[health]
+http = "/admin"
+
+[credentials]
+username = "admin"
+password = "admin1234"
+
+[surface]
+entry = "/admin"
+
+[capabilities]
+snapshots = false
+capture = false

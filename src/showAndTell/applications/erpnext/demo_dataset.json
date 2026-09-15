@@ -1,0 +1,5363 @@
+{
+ "_source": "Northwind sample dataset (Microsoft sql-server-samples), anglicized names + English-speaking locations, remapped to ERPNext masters for ShowAndTell capture worlds",
+ "item_groups": [
+  {
+   "name": "Beverages",
+   "description": "Soft drinks coffees teas beers and ales"
+  },
+  {
+   "name": "Condiments",
+   "description": "Sweet and savory sauces relishes spreads and seasonings"
+  },
+  {
+   "name": "Confections",
+   "description": "Desserts candies and sweet breads"
+  },
+  {
+   "name": "Dairy Products",
+   "description": "Cheeses"
+  },
+  {
+   "name": "Grains/Cereals",
+   "description": "Breads crackers pasta and cereal"
+  },
+  {
+   "name": "Meat/Poultry",
+   "description": "Prepared meats"
+  },
+  {
+   "name": "Produce",
+   "description": "Dried fruit and bean curd"
+  },
+  {
+   "name": "Seafood",
+   "description": "Seaweed and fish"
+  }
+ ],
+ "suppliers": [
+  {
+   "name": "Exotic Liquids",
+   "city": "Portland",
+   "country": "United States"
+  },
+  {
+   "name": "New Orleans Cajun Delights",
+   "city": "Sydney",
+   "country": "Australia"
+  },
+  {
+   "name": "Grandma Kelly's Homestead",
+   "city": "Denver",
+   "country": "United States"
+  },
+  {
+   "name": "Tokyo Traders",
+   "city": "Bristol",
+   "country": "United Kingdom"
+  },
+  {
+   "name": "Las Cabras Cheese Cooperative",
+   "city": "Vancouver",
+   "country": "Canada"
+  },
+  {
+   "name": "Mayumi's",
+   "city": "Seattle",
+   "country": "United States"
+  },
+  {
+   "name": "Pavlova Ltd.",
+   "city": "Leeds",
+   "country": "United Kingdom"
+  },
+  {
+   "name": "Specialty Biscuits Ltd.",
+   "city": "Boston",
+   "country": "United States"
+  },
+  {
+   "name": "PB Crispbread Co.",
+   "city": "Melbourne",
+   "country": "Australia"
+  },
+  {
+   "name": "Americana Beverages Ltd.",
+   "city": "Nashville",
+   "country": "United States"
+  },
+  {
+   "name": "Heli Confectionery Co.",
+   "city": "Edinburgh",
+   "country": "United Kingdom"
+  },
+  {
+   "name": "Plutzer Wholesale Foods",
+   "city": "Cork",
+   "country": "Ireland"
+  },
+  {
+   "name": "North-East Fish Trading Co.",
+   "city": "San Diego",
+   "country": "United States"
+  },
+  {
+   "name": "Fortini Cheese Works",
+   "city": "Calgary",
+   "country": "Canada"
+  },
+  {
+   "name": "Norse Dairies",
+   "city": "Atlanta",
+   "country": "United States"
+  },
+  {
+   "name": "Bigfoot Breweries",
+   "city": "Birmingham",
+   "country": "United Kingdom"
+  },
+  {
+   "name": "Swedish Seafood Co.",
+   "city": "Brisbane",
+   "country": "Australia"
+  },
+  {
+   "name": "The Merry Monks Winery",
+   "city": "Minneapolis",
+   "country": "United States"
+  },
+  {
+   "name": "New England Seafood Cannery",
+   "city": "Columbus",
+   "country": "United States"
+  },
+  {
+   "name": "Leka Trading",
+   "city": "New York",
+   "country": "United States"
+  },
+  {
+   "name": "Lyngby Herring Co.",
+   "city": "London",
+   "country": "United Kingdom"
+  },
+  {
+   "name": "Zaanse Candy Factory",
+   "city": "Chicago",
+   "country": "United States"
+  },
+  {
+   "name": "Karkki Candy Co.",
+   "city": "Toronto",
+   "country": "Canada"
+  },
+  {
+   "name": "G'day Mate",
+   "city": "Austin",
+   "country": "United States"
+  },
+  {
+   "name": "Ma Maison",
+   "city": "Manchester",
+   "country": "United Kingdom"
+  },
+  {
+   "name": "Buttini Pasta Co.",
+   "city": "Dublin",
+   "country": "Ireland"
+  },
+  {
+   "name": "New Escargot Farms",
+   "city": "Portland",
+   "country": "United States"
+  },
+  {
+   "name": "Green Pasture Dairy",
+   "city": "Sydney",
+   "country": "Australia"
+  },
+  {
+   "name": "Maple Forest Farms",
+   "city": "Denver",
+   "country": "United States"
+  }
+ ],
+ "customers": [
+  {
+   "code": "ALFKI",
+   "number": "20001",
+   "business_partner": "30001",
+   "name": "Alfred's Provisions",
+   "address_line1": "100 Market Street",
+   "city": "New York",
+   "postal_code": "10013",
+   "country": "United States"
+  },
+  {
+   "code": "ANATR",
+   "number": "20002",
+   "business_partner": "30002",
+   "name": "Ana's Sandwiches & Ice Cream",
+   "address_line1": "107 Harbor Road",
+   "city": "London",
+   "postal_code": "EC1V 4EX",
+   "country": "United Kingdom"
+  },
+  {
+   "code": "ANTON",
+   "number": "20003",
+   "business_partner": "30003",
+   "name": "Moreno's Taco House",
+   "address_line1": "114 King Street",
+   "city": "Chicago",
+   "postal_code": "60614",
+   "country": "United States"
+  },
+  {
+   "code": "AROUT",
+   "number": "20004",
+   "business_partner": "30004",
+   "name": "Around the Horn",
+   "address_line1": "121 Mill Lane",
+   "city": "Toronto",
+   "postal_code": "M5V 2H1",
+   "country": "Canada"
+  },
+  {
+   "code": "BERGS",
+   "number": "20005",
+   "business_partner": "30005",
+   "name": "Berglund's Quick Mart",
+   "address_line1": "128 Station Road",
+   "city": "Austin",
+   "postal_code": "78701",
+   "country": "United States"
+  },
+  {
+   "code": "BLAUS",
+   "number": "20006",
+   "business_partner": "30006",
+   "name": "Blue Lake Delicatessen",
+   "address_line1": "135 Elm Avenue",
+   "city": "Manchester",
+   "postal_code": "M1 4BT",
+   "country": "United Kingdom"
+  },
+  {
+   "code": "BLONP",
+   "number": "20007",
+   "business_partner": "30007",
+   "name": "Blondel & Sons",
+   "address_line1": "142 High Street",
+   "city": "Dublin",
+   "postal_code": "D02 XE80",
+   "country": "Ireland"
+  },
+  {
+   "code": "BOLID",
+   "number": "20008",
+   "business_partner": "30008",
+   "name": "Bolido Prepared Foods",
+   "address_line1": "149 Baker Street",
+   "city": "Portland",
+   "postal_code": "97209",
+   "country": "United States"
+  },
+  {
+   "code": "BONAP",
+   "number": "20009",
+   "business_partner": "30009",
+   "name": "Good Appetite Bistro",
+   "address_line1": "156 Lake Drive",
+   "city": "Sydney",
+   "postal_code": "2000",
+   "country": "Australia"
+  },
+  {
+   "code": "BOTTM",
+   "number": "20010",
+   "business_partner": "30010",
+   "name": "Bottom-Dollar Markets",
+   "address_line1": "163 Church Road",
+   "city": "Denver",
+   "postal_code": "80202",
+   "country": "United States"
+  },
+  {
+   "code": "BSBEV",
+   "number": "20011",
+   "business_partner": "30011",
+   "name": "B's Beverages",
+   "address_line1": "170 Main Street",
+   "city": "Bristol",
+   "postal_code": "BS1 4DJ",
+   "country": "United Kingdom"
+  },
+  {
+   "code": "CACTU",
+   "number": "20012",
+   "business_partner": "30012",
+   "name": "Cactus Takeaway Foods",
+   "address_line1": "177 Park Avenue",
+   "city": "Vancouver",
+   "postal_code": "V6B 1A1",
+   "country": "Canada"
+  },
+  {
+   "code": "CENTC",
+   "number": "20013",
+   "business_partner": "30013",
+   "name": "Montezuma Trade Center",
+   "address_line1": "184 Bridge Street",
+   "city": "Seattle",
+   "postal_code": "98101",
+   "country": "United States"
+  },
+  {
+   "code": "CHOPS",
+   "number": "20014",
+   "business_partner": "30014",
+   "name": "Chop-suey Chinese",
+   "address_line1": "191 Queen Street",
+   "city": "Leeds",
+   "postal_code": "LS1 4AP",
+   "country": "United Kingdom"
+  },
+  {
+   "code": "COMMI",
+   "number": "20015",
+   "business_partner": "30015",
+   "name": "Miner's Trading Co.",
+   "address_line1": "198 Orchard Lane",
+   "city": "Boston",
+   "postal_code": "02110",
+   "country": "United States"
+  },
+  {
+   "code": "CONSH",
+   "number": "20016",
+   "business_partner": "30016",
+   "name": "Consolidated Holdings",
+   "address_line1": "205 Castle Road",
+   "city": "Melbourne",
+   "postal_code": "3000",
+   "country": "Australia"
+  },
+  {
+   "code": "DRACD",
+   "number": "20017",
+   "business_partner": "30017",
+   "name": "Drake's Delicatessen",
+   "address_line1": "212 River Walk",
+   "city": "Nashville",
+   "postal_code": "37203",
+   "country": "United States"
+  },
+  {
+   "code": "DUMON",
+   "number": "20018",
+   "business_partner": "30018",
+   "name": "World Wide Foods",
+   "address_line1": "219 Union Square",
+   "city": "Edinburgh",
+   "postal_code": "EH1 1YZ",
+   "country": "United Kingdom"
+  },
+  {
+   "code": "EASTC",
+   "number": "20019",
+   "business_partner": "30019",
+   "name": "Eastern Connection",
+   "address_line1": "226 Garden Terrace",
+   "city": "Cork",
+   "postal_code": "T12 X70A",
+   "country": "Ireland"
+  },
+  {
+   "code": "ERNSH",
+   "number": "20020",
+   "business_partner": "30020",
+   "name": "Ernst Trading Co.",
+   "address_line1": "233 Windsor Road",
+   "city": "San Diego",
+   "postal_code": "92101",
+   "country": "United States"
+  },
+  {
+   "code": "FAMIA",
+   "number": "20021",
+   "business_partner": "30021",
+   "name": "Archibald Family Grocers",
+   "address_line1": "240 Market Street",
+   "city": "Calgary",
+   "postal_code": "T2P 1J9",
+   "country": "Canada"
+  },
+  {
+   "code": "FISSA",
+   "number": "20022",
+   "business_partner": "30022",
+   "name": "FISSA International Sausage Works",
+   "address_line1": "247 Harbor Road",
+   "city": "Atlanta",
+   "postal_code": "30303",
+   "country": "United States"
+  },
+  {
+   "code": "FOLIG",
+   "number": "20023",
+   "business_partner": "30023",
+   "name": "Gourmet Follies",
+   "address_line1": "254 King Street",
+   "city": "Birmingham",
+   "postal_code": "B2 4QA",
+   "country": "United Kingdom"
+  },
+  {
+   "code": "FOLKO",
+   "number": "20024",
+   "business_partner": "30024",
+   "name": "Folk & Fare Trading",
+   "address_line1": "261 Mill Lane",
+   "city": "Brisbane",
+   "postal_code": "4000",
+   "country": "Australia"
+  },
+  {
+   "code": "FRANK",
+   "number": "20025",
+   "business_partner": "30025",
+   "name": "Franken Mail-Order Foods",
+   "address_line1": "268 Station Road",
+   "city": "Minneapolis",
+   "postal_code": "55401",
+   "country": "United States"
+  },
+  {
+   "code": "FRANR",
+   "number": "20026",
+   "business_partner": "30026",
+   "name": "Franklin Restaurant Supply",
+   "address_line1": "275 Elm Avenue",
+   "city": "Columbus",
+   "postal_code": "43215",
+   "country": "United States"
+  },
+  {
+   "code": "FRANS",
+   "number": "20027",
+   "business_partner": "30027",
+   "name": "Franchi & Co.",
+   "address_line1": "282 High Street",
+   "city": "New York",
+   "postal_code": "10013",
+   "country": "United States"
+  },
+  {
+   "code": "FURIB",
+   "number": "20028",
+   "business_partner": "30028",
+   "name": "Furia Seafood & Cod",
+   "address_line1": "289 Baker Street",
+   "city": "London",
+   "postal_code": "EC1V 4EX",
+   "country": "United Kingdom"
+  },
+  {
+   "code": "GALED",
+   "number": "20029",
+   "business_partner": "30029",
+   "name": "The Gastronome Gallery",
+   "address_line1": "296 Lake Drive",
+   "city": "Chicago",
+   "postal_code": "60614",
+   "country": "United States"
+  },
+  {
+   "code": "GODOS",
+   "number": "20030",
+   "business_partner": "30030",
+   "name": "Godos Traditional Kitchen",
+   "address_line1": "303 Church Road",
+   "city": "Toronto",
+   "postal_code": "M5V 2H1",
+   "country": "Canada"
+  },
+  {
+   "code": "GOURL",
+   "number": "20031",
+   "business_partner": "30031",
+   "name": "Gourmet Lunch Counters",
+   "address_line1": "310 Main Street",
+   "city": "Austin",
+   "postal_code": "78701",
+   "country": "United States"
+  },
+  {
+   "code": "GREAL",
+   "number": "20032",
+   "business_partner": "30032",
+   "name": "Great Lakes Food Market",
+   "address_line1": "317 Park Avenue",
+   "city": "Manchester",
+   "postal_code": "M1 4BT",
+   "country": "United Kingdom"
+  },
+  {
+   "code": "GROSR",
+   "number": "20033",
+   "business_partner": "30033",
+   "name": "Grosella Restaurant",
+   "address_line1": "324 Bridge Street",
+   "city": "Dublin",
+   "postal_code": "D02 XE80",
+   "country": "Ireland"
+  },
+  {
+   "code": "HANAR",
+   "number": "20034",
+   "business_partner": "30034",
+   "name": "Hanari Meats",
+   "address_line1": "331 Queen Street",
+   "city": "Portland",
+   "postal_code": "97209",
+   "country": "United States"
+  },
+  {
+   "code": "HILAA",
+   "number": "20035",
+   "business_partner": "30035",
+   "name": "Hilarion Food Supply",
+   "address_line1": "338 Orchard Lane",
+   "city": "Sydney",
+   "postal_code": "2000",
+   "country": "Australia"
+  },
+  {
+   "code": "HUNGC",
+   "number": "20036",
+   "business_partner": "30036",
+   "name": "Hungry Coyote Import Store",
+   "address_line1": "345 Castle Road",
+   "city": "Denver",
+   "postal_code": "80202",
+   "country": "United States"
+  },
+  {
+   "code": "HUNGO",
+   "number": "20037",
+   "business_partner": "30037",
+   "name": "Hungry Owl All-Night Grocers",
+   "address_line1": "352 River Walk",
+   "city": "Bristol",
+   "postal_code": "BS1 4DJ",
+   "country": "United Kingdom"
+  },
+  {
+   "code": "ISLAT",
+   "number": "20038",
+   "business_partner": "30038",
+   "name": "Island Trading",
+   "address_line1": "359 Union Square",
+   "city": "Vancouver",
+   "postal_code": "V6B 1A1",
+   "country": "Canada"
+  },
+  {
+   "code": "KOENE",
+   "number": "20039",
+   "business_partner": "30039",
+   "name": "Kingly Foods",
+   "address_line1": "366 Garden Terrace",
+   "city": "Seattle",
+   "postal_code": "98101",
+   "country": "United States"
+  },
+  {
+   "code": "LACOR",
+   "number": "20040",
+   "business_partner": "30040",
+   "name": "The Horn of Plenty",
+   "address_line1": "373 Windsor Road",
+   "city": "Leeds",
+   "postal_code": "LS1 4AP",
+   "country": "United Kingdom"
+  },
+  {
+   "code": "LAMAI",
+   "number": "20041",
+   "business_partner": "30041",
+   "name": "The Asia House",
+   "address_line1": "380 Market Street",
+   "city": "Boston",
+   "postal_code": "02110",
+   "country": "United States"
+  },
+  {
+   "code": "LAUGB",
+   "number": "20042",
+   "business_partner": "30042",
+   "name": "Laughing Bacchus Wine Cellars",
+   "address_line1": "387 Harbor Road",
+   "city": "Melbourne",
+   "postal_code": "3000",
+   "country": "Australia"
+  },
+  {
+   "code": "LAZYK",
+   "number": "20043",
+   "business_partner": "30043",
+   "name": "Lazy K Kountry Store",
+   "address_line1": "394 King Street",
+   "city": "Nashville",
+   "postal_code": "37203",
+   "country": "United States"
+  },
+  {
+   "code": "LEHMS",
+   "number": "20044",
+   "business_partner": "30044",
+   "name": "Lehmann's Market Stand",
+   "address_line1": "401 Mill Lane",
+   "city": "Edinburgh",
+   "postal_code": "EH1 1YZ",
+   "country": "United Kingdom"
+  },
+  {
+   "code": "LETSS",
+   "number": "20045",
+   "business_partner": "30045",
+   "name": "Let's Stop N Shop",
+   "address_line1": "408 Station Road",
+   "city": "Cork",
+   "postal_code": "T12 X70A",
+   "country": "Ireland"
+  },
+  {
+   "code": "LILAS",
+   "number": "20046",
+   "business_partner": "30046",
+   "name": "Lila Supermarket",
+   "address_line1": "415 Elm Avenue",
+   "city": "San Diego",
+   "postal_code": "92101",
+   "country": "United States"
+  },
+  {
+   "code": "LINOD",
+   "number": "20047",
+   "business_partner": "30047",
+   "name": "Lino Delicatessen",
+   "address_line1": "422 High Street",
+   "city": "Calgary",
+   "postal_code": "T2P 1J9",
+   "country": "Canada"
+  },
+  {
+   "code": "LONEP",
+   "number": "20048",
+   "business_partner": "30048",
+   "name": "Lonesome Pine Restaurant",
+   "address_line1": "429 Baker Street",
+   "city": "Atlanta",
+   "postal_code": "30303",
+   "country": "United States"
+  },
+  {
+   "code": "MAGAA",
+   "number": "20049",
+   "business_partner": "30049",
+   "name": "United Food Warehouses",
+   "address_line1": "436 Lake Drive",
+   "city": "Birmingham",
+   "postal_code": "B2 4QA",
+   "country": "United Kingdom"
+  },
+  {
+   "code": "MAISD",
+   "number": "20050",
+   "business_partner": "30050",
+   "name": "Dewey House Foods",
+   "address_line1": "443 Church Road",
+   "city": "Brisbane",
+   "postal_code": "4000",
+   "country": "Australia"
+  },
+  {
+   "code": "MEREP",
+   "number": "20051",
+   "business_partner": "30051",
+   "name": "Mama Paillarde's Kitchen",
+   "address_line1": "450 Main Street",
+   "city": "Minneapolis",
+   "postal_code": "55401",
+   "country": "United States"
+  },
+  {
+   "code": "MORGK",
+   "number": "20052",
+   "business_partner": "30052",
+   "name": "Morningstar Health Foods",
+   "address_line1": "457 Park Avenue",
+   "city": "Columbus",
+   "postal_code": "43215",
+   "country": "United States"
+  },
+  {
+   "code": "NORTS",
+   "number": "20053",
+   "business_partner": "30053",
+   "name": "North & South Trading",
+   "address_line1": "464 Bridge Street",
+   "city": "New York",
+   "postal_code": "10013",
+   "country": "United States"
+  },
+  {
+   "code": "OCEAN",
+   "number": "20054",
+   "business_partner": "30054",
+   "name": "Atlantic Ocean Trading Ltd.",
+   "address_line1": "471 Queen Street",
+   "city": "London",
+   "postal_code": "EC1V 4EX",
+   "country": "United Kingdom"
+  },
+  {
+   "code": "OLDWO",
+   "number": "20055",
+   "business_partner": "30055",
+   "name": "Old World Delicatessen",
+   "address_line1": "478 Orchard Lane",
+   "city": "Chicago",
+   "postal_code": "60614",
+   "country": "United States"
+  },
+  {
+   "code": "OTTIK",
+   "number": "20056",
+   "business_partner": "30056",
+   "name": "Ottilie's Cheese Shop",
+   "address_line1": "485 Castle Road",
+   "city": "Toronto",
+   "postal_code": "M5V 2H1",
+   "country": "Canada"
+  },
+  {
+   "code": "PARIS",
+   "number": "20057",
+   "business_partner": "30057",
+   "name": "Parisian Specialties",
+   "address_line1": "492 River Walk",
+   "city": "Austin",
+   "postal_code": "78701",
+   "country": "United States"
+  },
+  {
+   "code": "PERIC",
+   "number": "20058",
+   "business_partner": "30058",
+   "name": "Pericles Classic Foods",
+   "address_line1": "499 Union Square",
+   "city": "Manchester",
+   "postal_code": "M1 4BT",
+   "country": "United Kingdom"
+  },
+  {
+   "code": "PICCO",
+   "number": "20059",
+   "business_partner": "30059",
+   "name": "Piccolo & More",
+   "address_line1": "506 Garden Terrace",
+   "city": "Dublin",
+   "postal_code": "D02 XE80",
+   "country": "Ireland"
+  },
+  {
+   "code": "PRINI",
+   "number": "20060",
+   "business_partner": "30060",
+   "name": "Princess Isabel Wines",
+   "address_line1": "513 Windsor Road",
+   "city": "Portland",
+   "postal_code": "97209",
+   "country": "United States"
+  },
+  {
+   "code": "QUEDE",
+   "number": "20061",
+   "business_partner": "30061",
+   "name": "Pure Delight Foods",
+   "address_line1": "520 Market Street",
+   "city": "Sydney",
+   "postal_code": "2000",
+   "country": "Australia"
+  },
+  {
+   "code": "QUEEN",
+   "number": "20062",
+   "business_partner": "30062",
+   "name": "Queen's Kitchen",
+   "address_line1": "527 Harbor Road",
+   "city": "Denver",
+   "postal_code": "80202",
+   "country": "United States"
+  },
+  {
+   "code": "QUICK",
+   "number": "20063",
+   "business_partner": "30063",
+   "name": "QUICK-Stop",
+   "address_line1": "534 King Street",
+   "city": "Bristol",
+   "postal_code": "BS1 4DJ",
+   "country": "United Kingdom"
+  },
+  {
+   "code": "RANCH",
+   "number": "20064",
+   "business_partner": "30064",
+   "name": "Grand Ranch Foods",
+   "address_line1": "541 Mill Lane",
+   "city": "Vancouver",
+   "postal_code": "V6B 1A1",
+   "country": "Canada"
+  },
+  {
+   "code": "RATTC",
+   "number": "20065",
+   "business_partner": "30065",
+   "name": "Rattlesnake Canyon Grocery",
+   "address_line1": "548 Station Road",
+   "city": "Seattle",
+   "postal_code": "98101",
+   "country": "United States"
+  },
+  {
+   "code": "REGGC",
+   "number": "20066",
+   "business_partner": "30066",
+   "name": "Reggiani Cheese Works",
+   "address_line1": "555 Elm Avenue",
+   "city": "Leeds",
+   "postal_code": "LS1 4AP",
+   "country": "United Kingdom"
+  },
+  {
+   "code": "RICAR",
+   "number": "20067",
+   "business_partner": "30067",
+   "name": "Ricardo's Sweets",
+   "address_line1": "562 High Street",
+   "city": "Boston",
+   "postal_code": "02110",
+   "country": "United States"
+  },
+  {
+   "code": "RICSU",
+   "number": "20068",
+   "business_partner": "30068",
+   "name": "Richter Supermarket",
+   "address_line1": "569 Baker Street",
+   "city": "Melbourne",
+   "postal_code": "3000",
+   "country": "Australia"
+  },
+  {
+   "code": "ROMEY",
+   "number": "20069",
+   "business_partner": "30069",
+   "name": "Rosemary & Thyme",
+   "address_line1": "576 Lake Drive",
+   "city": "Nashville",
+   "postal_code": "37203",
+   "country": "United States"
+  },
+  {
+   "code": "SANTG",
+   "number": "20070",
+   "business_partner": "30070",
+   "name": "Wellness Gourmet",
+   "address_line1": "583 Church Road",
+   "city": "Edinburgh",
+   "postal_code": "EH1 1YZ",
+   "country": "United Kingdom"
+  },
+  {
+   "code": "SAVEA",
+   "number": "20071",
+   "business_partner": "30071",
+   "name": "Save-a-lot Markets",
+   "address_line1": "590 Main Street",
+   "city": "Cork",
+   "postal_code": "T12 X70A",
+   "country": "Ireland"
+  },
+  {
+   "code": "SEVES",
+   "number": "20072",
+   "business_partner": "30072",
+   "name": "Seven Seas Imports",
+   "address_line1": "597 Park Avenue",
+   "city": "San Diego",
+   "postal_code": "92101",
+   "country": "United States"
+  },
+  {
+   "code": "SIMOB",
+   "number": "20073",
+   "business_partner": "30073",
+   "name": "Simon's Bistro",
+   "address_line1": "604 Bridge Street",
+   "city": "Calgary",
+   "postal_code": "T2P 1J9",
+   "country": "Canada"
+  },
+  {
+   "code": "SPECD",
+   "number": "20074",
+   "business_partner": "30074",
+   "name": "World Specialties",
+   "address_line1": "611 Queen Street",
+   "city": "Atlanta",
+   "postal_code": "30303",
+   "country": "United States"
+  },
+  {
+   "code": "SPLIR",
+   "number": "20075",
+   "business_partner": "30075",
+   "name": "Split Rail Beer & Ale",
+   "address_line1": "618 Orchard Lane",
+   "city": "Birmingham",
+   "postal_code": "B2 4QA",
+   "country": "United Kingdom"
+  },
+  {
+   "code": "SUPRD",
+   "number": "20076",
+   "business_partner": "30076",
+   "name": "Supreme Delights",
+   "address_line1": "625 Castle Road",
+   "city": "Brisbane",
+   "postal_code": "4000",
+   "country": "Australia"
+  },
+  {
+   "code": "THEBI",
+   "number": "20077",
+   "business_partner": "30077",
+   "name": "The Big Cheese",
+   "address_line1": "632 River Walk",
+   "city": "Minneapolis",
+   "postal_code": "55401",
+   "country": "United States"
+  },
+  {
+   "code": "THECR",
+   "number": "20078",
+   "business_partner": "30078",
+   "name": "The Cracker Box",
+   "address_line1": "639 Union Square",
+   "city": "Columbus",
+   "postal_code": "43215",
+   "country": "United States"
+  },
+  {
+   "code": "TOMSP",
+   "number": "20079",
+   "business_partner": "30079",
+   "name": "Tom's Specialties",
+   "address_line1": "646 Garden Terrace",
+   "city": "New York",
+   "postal_code": "10013",
+   "country": "United States"
+  },
+  {
+   "code": "TORTU",
+   "number": "20080",
+   "business_partner": "30080",
+   "name": "Tortuga Restaurant",
+   "address_line1": "653 Windsor Road",
+   "city": "London",
+   "postal_code": "EC1V 4EX",
+   "country": "United Kingdom"
+  },
+  {
+   "code": "TRADH",
+   "number": "20081",
+   "business_partner": "30081",
+   "name": "Tradition Hypermarkets",
+   "address_line1": "660 Market Street",
+   "city": "Chicago",
+   "postal_code": "60614",
+   "country": "United States"
+  },
+  {
+   "code": "TRAIH",
+   "number": "20082",
+   "business_partner": "30082",
+   "name": "Trail's Head Gourmet Provisioners",
+   "address_line1": "667 Harbor Road",
+   "city": "Toronto",
+   "postal_code": "M5V 2H1",
+   "country": "Canada"
+  },
+  {
+   "code": "VAFFE",
+   "number": "20083",
+   "business_partner": "30083",
+   "name": "The Waffle Iron",
+   "address_line1": "674 King Street",
+   "city": "Austin",
+   "postal_code": "78701",
+   "country": "United States"
+  },
+  {
+   "code": "VICTE",
+   "number": "20084",
+   "business_partner": "30084",
+   "name": "Victuals in Stock",
+   "address_line1": "681 Mill Lane",
+   "city": "Manchester",
+   "postal_code": "M1 4BT",
+   "country": "United Kingdom"
+  },
+  {
+   "code": "VINET",
+   "number": "20085",
+   "business_partner": "30085",
+   "name": "Chevalier Wines & Spirits",
+   "address_line1": "688 Station Road",
+   "city": "Dublin",
+   "postal_code": "D02 XE80",
+   "country": "Ireland"
+  },
+  {
+   "code": "WANDK",
+   "number": "20086",
+   "business_partner": "30086",
+   "name": "The Wandering Cow",
+   "address_line1": "695 Elm Avenue",
+   "city": "Portland",
+   "postal_code": "97209",
+   "country": "United States"
+  },
+  {
+   "code": "WARTH",
+   "number": "20087",
+   "business_partner": "30087",
+   "name": "Wartia Delicacies",
+   "address_line1": "702 High Street",
+   "city": "Sydney",
+   "postal_code": "2000",
+   "country": "Australia"
+  },
+  {
+   "code": "WELLI",
+   "number": "20088",
+   "business_partner": "30088",
+   "name": "Wellington Importers",
+   "address_line1": "709 Baker Street",
+   "city": "Denver",
+   "postal_code": "80202",
+   "country": "United States"
+  },
+  {
+   "code": "WHITC",
+   "number": "20089",
+   "business_partner": "30089",
+   "name": "White Clover Markets",
+   "address_line1": "716 Lake Drive",
+   "city": "Bristol",
+   "postal_code": "BS1 4DJ",
+   "country": "United Kingdom"
+  },
+  {
+   "code": "WILMK",
+   "number": "20090",
+   "business_partner": "30090",
+   "name": "Wilman Fish Market",
+   "address_line1": "723 Church Road",
+   "city": "Vancouver",
+   "postal_code": "V6B 1A1",
+   "country": "Canada"
+  },
+  {
+   "code": "WOLZA",
+   "number": "20091",
+   "business_partner": "30091",
+   "name": "Wolski's Inn",
+   "address_line1": "730 Main Street",
+   "city": "Seattle",
+   "postal_code": "98101",
+   "country": "United States"
+  }
+ ],
+ "items": [
+  {
+   "code": "NW-0001",
+   "name": "Chai Tea Blend",
+   "group": "Beverages",
+   "selling_price": "18.00",
+   "cost": "11.16",
+   "stock": 39,
+   "reorder_level": 10,
+   "reorder_qty": 20
+  },
+  {
+   "code": "NW-0002",
+   "name": "Chang Pale Lager",
+   "group": "Beverages",
+   "selling_price": "19.00",
+   "cost": "11.78",
+   "stock": 17,
+   "reorder_level": 25,
+   "reorder_qty": 50
+  },
+  {
+   "code": "NW-0003",
+   "name": "Aniseed Syrup",
+   "group": "Condiments",
+   "selling_price": "10.00",
+   "cost": "6.20",
+   "stock": 13,
+   "reorder_level": 25,
+   "reorder_qty": 50
+  },
+  {
+   "code": "NW-0004",
+   "name": "Chef Anton's Cajun Seasoning",
+   "group": "Condiments",
+   "selling_price": "22.00",
+   "cost": "13.64",
+   "stock": 53,
+   "reorder_level": 0,
+   "reorder_qty": 0
+  },
+  {
+   "code": "NW-0005",
+   "name": "Chef Anton's Gumbo Mix",
+   "group": "Condiments",
+   "selling_price": "21.35",
+   "cost": "13.24",
+   "stock": 0,
+   "reorder_level": 0,
+   "reorder_qty": 0
+  },
+  {
+   "code": "NW-0006",
+   "name": "Grandma's Boysenberry Spread",
+   "group": "Condiments",
+   "selling_price": "25.00",
+   "cost": "15.50",
+   "stock": 120,
+   "reorder_level": 25,
+   "reorder_qty": 50
+  },
+  {
+   "code": "NW-0007",
+   "name": "Uncle Bob's Organic Dried Pears",
+   "group": "Produce",
+   "selling_price": "30.00",
+   "cost": "18.60",
+   "stock": 15,
+   "reorder_level": 10,
+   "reorder_qty": 20
+  },
+  {
+   "code": "NW-0008",
+   "name": "Northwoods Cranberry Sauce",
+   "group": "Condiments",
+   "selling_price": "40.00",
+   "cost": "24.80",
+   "stock": 6,
+   "reorder_level": 0,
+   "reorder_qty": 0
+  },
+  {
+   "code": "NW-0009",
+   "name": "Kobe Beef Cuts",
+   "group": "Meat/Poultry",
+   "selling_price": "97.00",
+   "cost": "60.14",
+   "stock": 29,
+   "reorder_level": 0,
+   "reorder_qty": 0
+  },
+  {
+   "code": "NW-0010",
+   "name": "Salmon Roe Caviar",
+   "group": "Seafood",
+   "selling_price": "31.00",
+   "cost": "19.22",
+   "stock": 31,
+   "reorder_level": 0,
+   "reorder_qty": 0
+  },
+  {
+   "code": "NW-0011",
+   "name": "Cabrales Blue Cheese",
+   "group": "Dairy Products",
+   "selling_price": "21.00",
+   "cost": "13.02",
+   "stock": 22,
+   "reorder_level": 30,
+   "reorder_qty": 60
+  },
+  {
+   "code": "NW-0012",
+   "name": "La Pastora Manchego Cheese",
+   "group": "Dairy Products",
+   "selling_price": "38.00",
+   "cost": "23.56",
+   "stock": 86,
+   "reorder_level": 0,
+   "reorder_qty": 0
+  },
+  {
+   "code": "NW-0013",
+   "name": "Dried Kelp Sheets",
+   "group": "Seafood",
+   "selling_price": "6.00",
+   "cost": "3.72",
+   "stock": 24,
+   "reorder_level": 5,
+   "reorder_qty": 10
+  },
+  {
+   "code": "NW-0014",
+   "name": "Firm Tofu",
+   "group": "Produce",
+   "selling_price": "23.25",
+   "cost": "14.42",
+   "stock": 35,
+   "reorder_level": 0,
+   "reorder_qty": 0
+  },
+  {
+   "code": "NW-0015",
+   "name": "Low-Sodium Soy Sauce",
+   "group": "Condiments",
+   "selling_price": "15.50",
+   "cost": "9.61",
+   "stock": 39,
+   "reorder_level": 5,
+   "reorder_qty": 10
+  },
+  {
+   "code": "NW-0016",
+   "name": "Pavlova Meringue Dessert",
+   "group": "Confections",
+   "selling_price": "17.45",
+   "cost": "10.82",
+   "stock": 29,
+   "reorder_level": 10,
+   "reorder_qty": 20
+  },
+  {
+   "code": "NW-0017",
+   "name": "Alice Mutton",
+   "group": "Meat/Poultry",
+   "selling_price": "39.00",
+   "cost": "24.18",
+   "stock": 0,
+   "reorder_level": 0,
+   "reorder_qty": 0
+  },
+  {
+   "code": "NW-0018",
+   "name": "Carnarvon Tiger Prawns",
+   "group": "Seafood",
+   "selling_price": "62.50",
+   "cost": "38.75",
+   "stock": 42,
+   "reorder_level": 0,
+   "reorder_qty": 0
+  },
+  {
+   "code": "NW-0019",
+   "name": "Teatime Chocolate Biscuits",
+   "group": "Confections",
+   "selling_price": "9.20",
+   "cost": "5.70",
+   "stock": 25,
+   "reorder_level": 5,
+   "reorder_qty": 10
+  },
+  {
+   "code": "NW-0020",
+   "name": "Sir Rodney's Marmalade",
+   "group": "Confections",
+   "selling_price": "81.00",
+   "cost": "50.22",
+   "stock": 40,
+   "reorder_level": 0,
+   "reorder_qty": 0
+  },
+  {
+   "code": "NW-0021",
+   "name": "Sir Rodney's Scones",
+   "group": "Confections",
+   "selling_price": "10.00",
+   "cost": "6.20",
+   "stock": 3,
+   "reorder_level": 5,
+   "reorder_qty": 10
+  },
+  {
+   "code": "NW-0022",
+   "name": "Gustaf's Crispbread",
+   "group": "Grains/Cereals",
+   "selling_price": "21.00",
+   "cost": "13.02",
+   "stock": 104,
+   "reorder_level": 25,
+   "reorder_qty": 50
+  },
+  {
+   "code": "NW-0023",
+   "name": "Swedish Flatbread",
+   "group": "Grains/Cereals",
+   "selling_price": "9.00",
+   "cost": "5.58",
+   "stock": 61,
+   "reorder_level": 25,
+   "reorder_qty": 50
+  },
+  {
+   "code": "NW-0024",
+   "name": "Guarana Fizz Soda",
+   "group": "Beverages",
+   "selling_price": "4.50",
+   "cost": "2.79",
+   "stock": 20,
+   "reorder_level": 0,
+   "reorder_qty": 0
+  },
+  {
+   "code": "NW-0025",
+   "name": "NuNuCa Nut-Nougat Spread",
+   "group": "Confections",
+   "selling_price": "14.00",
+   "cost": "8.68",
+   "stock": 76,
+   "reorder_level": 30,
+   "reorder_qty": 60
+  },
+  {
+   "code": "NW-0026",
+   "name": "Gumbear Gummy Bears",
+   "group": "Confections",
+   "selling_price": "31.23",
+   "cost": "19.36",
+   "stock": 15,
+   "reorder_level": 0,
+   "reorder_qty": 0
+  },
+  {
+   "code": "NW-0027",
+   "name": "Schoggi Swiss Chocolate",
+   "group": "Confections",
+   "selling_price": "43.90",
+   "cost": "27.22",
+   "stock": 49,
+   "reorder_level": 30,
+   "reorder_qty": 60
+  },
+  {
+   "code": "NW-0028",
+   "name": "Rossle Sauerkraut",
+   "group": "Produce",
+   "selling_price": "45.60",
+   "cost": "28.27",
+   "stock": 26,
+   "reorder_level": 0,
+   "reorder_qty": 0
+  },
+  {
+   "code": "NW-0029",
+   "name": "Thuringian Grilled Sausage",
+   "group": "Meat/Poultry",
+   "selling_price": "123.79",
+   "cost": "76.75",
+   "stock": 0,
+   "reorder_level": 0,
+   "reorder_qty": 0
+  },
+  {
+   "code": "NW-0030",
+   "name": "North-East Pickled Herring",
+   "group": "Seafood",
+   "selling_price": "25.89",
+   "cost": "16.05",
+   "stock": 10,
+   "reorder_level": 15,
+   "reorder_qty": 30
+  },
+  {
+   "code": "NW-0031",
+   "name": "Telino Gorgonzola Cheese",
+   "group": "Dairy Products",
+   "selling_price": "12.50",
+   "cost": "7.75",
+   "stock": 0,
+   "reorder_level": 20,
+   "reorder_qty": 40
+  },
+  {
+   "code": "NW-0032",
+   "name": "Fabioli Mascarpone",
+   "group": "Dairy Products",
+   "selling_price": "32.00",
+   "cost": "19.84",
+   "stock": 9,
+   "reorder_level": 25,
+   "reorder_qty": 50
+  },
+  {
+   "code": "NW-0033",
+   "name": "Norwegian Goat Cheese",
+   "group": "Dairy Products",
+   "selling_price": "2.50",
+   "cost": "1.55",
+   "stock": 112,
+   "reorder_level": 20,
+   "reorder_qty": 40
+  },
+  {
+   "code": "NW-0034",
+   "name": "Sasquatch Ale",
+   "group": "Beverages",
+   "selling_price": "14.00",
+   "cost": "8.68",
+   "stock": 111,
+   "reorder_level": 15,
+   "reorder_qty": 30
+  },
+  {
+   "code": "NW-0035",
+   "name": "Steeleye Stout",
+   "group": "Beverages",
+   "selling_price": "18.00",
+   "cost": "11.16",
+   "stock": 20,
+   "reorder_level": 15,
+   "reorder_qty": 30
+  },
+  {
+   "code": "NW-0036",
+   "name": "Pickled Herring Fillets",
+   "group": "Seafood",
+   "selling_price": "19.00",
+   "cost": "11.78",
+   "stock": 112,
+   "reorder_level": 20,
+   "reorder_qty": 40
+  },
+  {
+   "code": "NW-0037",
+   "name": "Cured Salmon Gravlax",
+   "group": "Seafood",
+   "selling_price": "26.00",
+   "cost": "16.12",
+   "stock": 11,
+   "reorder_level": 25,
+   "reorder_qty": 50
+  },
+  {
+   "code": "NW-0038",
+   "name": "Cote de Blaye Red Wine",
+   "group": "Beverages",
+   "selling_price": "263.50",
+   "cost": "163.37",
+   "stock": 17,
+   "reorder_level": 15,
+   "reorder_qty": 30
+  },
+  {
+   "code": "NW-0039",
+   "name": "Green Chartreuse Liqueur",
+   "group": "Beverages",
+   "selling_price": "18.00",
+   "cost": "11.16",
+   "stock": 69,
+   "reorder_level": 5,
+   "reorder_qty": 10
+  },
+  {
+   "code": "NW-0040",
+   "name": "Boston Crab Meat",
+   "group": "Seafood",
+   "selling_price": "18.40",
+   "cost": "11.41",
+   "stock": 123,
+   "reorder_level": 30,
+   "reorder_qty": 60
+  },
+  {
+   "code": "NW-0041",
+   "name": "Jack's New England Clam Chowder",
+   "group": "Seafood",
+   "selling_price": "9.65",
+   "cost": "5.98",
+   "stock": 85,
+   "reorder_level": 10,
+   "reorder_qty": 20
+  },
+  {
+   "code": "NW-0042",
+   "name": "Singapore Fried Noodles",
+   "group": "Grains/Cereals",
+   "selling_price": "14.00",
+   "cost": "8.68",
+   "stock": 26,
+   "reorder_level": 0,
+   "reorder_qty": 0
+  },
+  {
+   "code": "NW-0043",
+   "name": "Ipoh Coffee",
+   "group": "Beverages",
+   "selling_price": "46.00",
+   "cost": "28.52",
+   "stock": 17,
+   "reorder_level": 25,
+   "reorder_qty": 50
+  },
+  {
+   "code": "NW-0044",
+   "name": "Malacca Palm Sugar",
+   "group": "Condiments",
+   "selling_price": "19.45",
+   "cost": "12.06",
+   "stock": 27,
+   "reorder_level": 15,
+   "reorder_qty": 30
+  },
+  {
+   "code": "NW-0045",
+   "name": "Smoked Herring",
+   "group": "Seafood",
+   "selling_price": "9.50",
+   "cost": "5.89",
+   "stock": 5,
+   "reorder_level": 15,
+   "reorder_qty": 30
+  },
+  {
+   "code": "NW-0046",
+   "name": "Salt-Cured Herring",
+   "group": "Seafood",
+   "selling_price": "12.00",
+   "cost": "7.44",
+   "stock": 95,
+   "reorder_level": 0,
+   "reorder_qty": 0
+  },
+  {
+   "code": "NW-0047",
+   "name": "Zaanse Butter Cookies",
+   "group": "Confections",
+   "selling_price": "9.50",
+   "cost": "5.89",
+   "stock": 36,
+   "reorder_level": 0,
+   "reorder_qty": 0
+  },
+  {
+   "code": "NW-0048",
+   "name": "Dutch Chocolate Bars",
+   "group": "Confections",
+   "selling_price": "12.75",
+   "cost": "7.91",
+   "stock": 15,
+   "reorder_level": 25,
+   "reorder_qty": 50
+  },
+  {
+   "code": "NW-0049",
+   "name": "Maxi Licorice Candy",
+   "group": "Confections",
+   "selling_price": "20.00",
+   "cost": "12.40",
+   "stock": 10,
+   "reorder_level": 15,
+   "reorder_qty": 30
+  },
+  {
+   "code": "NW-0050",
+   "name": "White Chocolate Bars",
+   "group": "Confections",
+   "selling_price": "16.25",
+   "cost": "10.08",
+   "stock": 65,
+   "reorder_level": 30,
+   "reorder_qty": 60
+  },
+  {
+   "code": "NW-0051",
+   "name": "Manjimup Dried Apples",
+   "group": "Produce",
+   "selling_price": "53.00",
+   "cost": "32.86",
+   "stock": 20,
+   "reorder_level": 10,
+   "reorder_qty": 20
+  },
+  {
+   "code": "NW-0052",
+   "name": "Filo Pastry Mix",
+   "group": "Grains/Cereals",
+   "selling_price": "7.00",
+   "cost": "4.34",
+   "stock": 38,
+   "reorder_level": 25,
+   "reorder_qty": 50
+  },
+  {
+   "code": "NW-0053",
+   "name": "Perth Pasties",
+   "group": "Meat/Poultry",
+   "selling_price": "32.80",
+   "cost": "20.34",
+   "stock": 0,
+   "reorder_level": 0,
+   "reorder_qty": 0
+  },
+  {
+   "code": "NW-0054",
+   "name": "Canadian Meat Pie",
+   "group": "Meat/Poultry",
+   "selling_price": "7.45",
+   "cost": "4.62",
+   "stock": 21,
+   "reorder_level": 10,
+   "reorder_qty": 20
+  },
+  {
+   "code": "NW-0055",
+   "name": "Shepherd's Pie Mix",
+   "group": "Meat/Poultry",
+   "selling_price": "24.00",
+   "cost": "14.88",
+   "stock": 115,
+   "reorder_level": 20,
+   "reorder_qty": 40
+  },
+  {
+   "code": "NW-0056",
+   "name": "Nonna Alice's Gnocchi",
+   "group": "Grains/Cereals",
+   "selling_price": "38.00",
+   "cost": "23.56",
+   "stock": 21,
+   "reorder_level": 30,
+   "reorder_qty": 60
+  },
+  {
+   "code": "NW-0057",
+   "name": "Angelo's Ravioli",
+   "group": "Grains/Cereals",
+   "selling_price": "19.50",
+   "cost": "12.09",
+   "stock": 36,
+   "reorder_level": 20,
+   "reorder_qty": 40
+  },
+  {
+   "code": "NW-0058",
+   "name": "Burgundy Snails",
+   "group": "Seafood",
+   "selling_price": "13.25",
+   "cost": "8.22",
+   "stock": 62,
+   "reorder_level": 20,
+   "reorder_qty": 40
+  },
+  {
+   "code": "NW-0059",
+   "name": "Courdavault Raclette Cheese",
+   "group": "Dairy Products",
+   "selling_price": "55.00",
+   "cost": "34.10",
+   "stock": 79,
+   "reorder_level": 0,
+   "reorder_qty": 0
+  },
+  {
+   "code": "NW-0060",
+   "name": "Pierrot Camembert Cheese",
+   "group": "Dairy Products",
+   "selling_price": "34.00",
+   "cost": "21.08",
+   "stock": 19,
+   "reorder_level": 0,
+   "reorder_qty": 0
+  },
+  {
+   "code": "NW-0061",
+   "name": "Pure Maple Syrup",
+   "group": "Condiments",
+   "selling_price": "28.50",
+   "cost": "17.67",
+   "stock": 113,
+   "reorder_level": 25,
+   "reorder_qty": 50
+  },
+  {
+   "code": "NW-0062",
+   "name": "Sugar Pie",
+   "group": "Confections",
+   "selling_price": "49.30",
+   "cost": "30.57",
+   "stock": 17,
+   "reorder_level": 0,
+   "reorder_qty": 0
+  },
+  {
+   "code": "NW-0063",
+   "name": "Vegetable Spread",
+   "group": "Condiments",
+   "selling_price": "43.90",
+   "cost": "27.22",
+   "stock": 24,
+   "reorder_level": 5,
+   "reorder_qty": 10
+  },
+  {
+   "code": "NW-0064",
+   "name": "Wimmer's Bread Dumplings",
+   "group": "Grains/Cereals",
+   "selling_price": "33.25",
+   "cost": "20.62",
+   "stock": 22,
+   "reorder_level": 30,
+   "reorder_qty": 60
+  },
+  {
+   "code": "NW-0065",
+   "name": "Louisiana Fiery Hot Pepper Sauce",
+   "group": "Condiments",
+   "selling_price": "21.05",
+   "cost": "13.05",
+   "stock": 76,
+   "reorder_level": 0,
+   "reorder_qty": 0
+  },
+  {
+   "code": "NW-0066",
+   "name": "Louisiana Hot Spiced Okra",
+   "group": "Condiments",
+   "selling_price": "17.00",
+   "cost": "10.54",
+   "stock": 4,
+   "reorder_level": 20,
+   "reorder_qty": 40
+  },
+  {
+   "code": "NW-0067",
+   "name": "Laughing Lumberjack Lager",
+   "group": "Beverages",
+   "selling_price": "14.00",
+   "cost": "8.68",
+   "stock": 52,
+   "reorder_level": 10,
+   "reorder_qty": 20
+  },
+  {
+   "code": "NW-0068",
+   "name": "Scottish Longbreads",
+   "group": "Confections",
+   "selling_price": "12.50",
+   "cost": "7.75",
+   "stock": 6,
+   "reorder_level": 15,
+   "reorder_qty": 30
+  },
+  {
+   "code": "NW-0069",
+   "name": "Gudbrand Valley Brown Cheese",
+   "group": "Dairy Products",
+   "selling_price": "36.00",
+   "cost": "22.32",
+   "stock": 26,
+   "reorder_level": 15,
+   "reorder_qty": 30
+  },
+  {
+   "code": "NW-0070",
+   "name": "Outback Lager",
+   "group": "Beverages",
+   "selling_price": "15.00",
+   "cost": "9.30",
+   "stock": 15,
+   "reorder_level": 30,
+   "reorder_qty": 60
+  },
+  {
+   "code": "NW-0071",
+   "name": "Cream Whey Cheese",
+   "group": "Dairy Products",
+   "selling_price": "21.50",
+   "cost": "13.33",
+   "stock": 26,
+   "reorder_level": 0,
+   "reorder_qty": 0
+  },
+  {
+   "code": "NW-0072",
+   "name": "Giovanni's Mozzarella",
+   "group": "Dairy Products",
+   "selling_price": "34.80",
+   "cost": "21.58",
+   "stock": 14,
+   "reorder_level": 0,
+   "reorder_qty": 0
+  },
+  {
+   "code": "NW-0073",
+   "name": "Red Caviar Spread",
+   "group": "Seafood",
+   "selling_price": "15.00",
+   "cost": "9.30",
+   "stock": 101,
+   "reorder_level": 5,
+   "reorder_qty": 10
+  },
+  {
+   "code": "NW-0074",
+   "name": "Longlife Tofu",
+   "group": "Produce",
+   "selling_price": "10.00",
+   "cost": "6.20",
+   "stock": 4,
+   "reorder_level": 5,
+   "reorder_qty": 10
+  },
+  {
+   "code": "NW-0075",
+   "name": "Rhoen Monastery Beer",
+   "group": "Beverages",
+   "selling_price": "7.75",
+   "cost": "4.81",
+   "stock": 125,
+   "reorder_level": 25,
+   "reorder_qty": 50
+  },
+  {
+   "code": "NW-0076",
+   "name": "Cloudberry Liqueur",
+   "group": "Beverages",
+   "selling_price": "18.00",
+   "cost": "11.16",
+   "stock": 57,
+   "reorder_level": 20,
+   "reorder_qty": 40
+  },
+  {
+   "code": "NW-0077",
+   "name": "Frankfurt Green Sauce",
+   "group": "Condiments",
+   "selling_price": "13.00",
+   "cost": "8.06",
+   "stock": 32,
+   "reorder_level": 15,
+   "reorder_qty": 30
+ }
+ ],
+ "purchase_invoice_matches": {
+  "purchase_order_date": "2026-07-10",
+  "receipt_date": "2026-07-24",
+  "invoice_date": "2026-07-28",
+  "chains": [
+   {
+    "ref": "A",
+    "item_code": "NW-0031",
+    "supplier": "Fortini Cheese Works",
+    "po_qty": 40,
+    "po_rate": "7.75",
+    "received_qty": 40,
+    "invoice_qty": 40,
+    "invoice_rate": "7.75",
+    "intent": "clean"
+   },
+   {
+    "ref": "B",
+    "item_code": "NW-0005",
+    "supplier": "New Orleans Cajun Delights",
+    "po_qty": 30,
+    "po_rate": "13.24",
+    "received_qty": 30,
+    "invoice_qty": 30,
+    "invoice_rate": "13.24",
+    "intent": "clean"
+   },
+   {
+    "ref": "C",
+    "item_code": "NW-0021",
+    "supplier": "Specialty Biscuits Ltd.",
+    "po_qty": 60,
+    "po_rate": "6.20",
+    "received_qty": 60,
+    "invoice_qty": 60,
+    "invoice_rate": "6.20",
+    "intent": "clean"
+   },
+   {
+    "ref": "D",
+    "item_code": "NW-0045",
+    "supplier": "Lyngby Herring Co.",
+    "po_qty": 30,
+    "po_rate": "5.89",
+    "received_qty": 30,
+    "invoice_qty": 30,
+    "invoice_rate": "6.12",
+    "intent": "price_inside_tolerance"
+   },
+   {
+    "ref": "E",
+    "item_code": "NW-0038",
+    "supplier": "The Merry Monks Winery",
+    "po_qty": 30,
+    "po_rate": "163.37",
+    "received_qty": 30,
+    "invoice_qty": 30,
+    "invoice_rate": "178.00",
+    "intent": "price_outside_tolerance"
+   },
+   {
+    "ref": "F",
+    "item_code": "NW-0068",
+    "supplier": "Specialty Biscuits Ltd.",
+    "po_qty": 30,
+    "po_rate": "7.75",
+    "received_qty": 28,
+    "invoice_qty": 28,
+    "invoice_rate": "7.75",
+    "intent": "quantity_inside_tolerance"
+   },
+   {
+    "ref": "G",
+    "item_code": "NW-0029",
+    "supplier": "Plutzer Wholesale Foods",
+    "po_qty": 20,
+    "po_rate": "76.75",
+    "received_qty": 17,
+    "invoice_qty": 17,
+    "invoice_rate": "76.75",
+    "intent": "quantity_outside_tolerance"
+   },
+   {
+    "ref": "H",
+    "item_code": "NW-0017",
+    "supplier": "Plutzer Wholesale Foods",
+    "po_qty": 25,
+    "po_rate": "24.18",
+    "received_qty": 21,
+    "invoice_qty": 21,
+    "invoice_rate": "26.50",
+    "intent": "quantity_and_price_outside_tolerance"
+   },
+   {
+    "ref": "I",
+    "item_code": "NW-0074",
+    "supplier": "Mayumi's",
+    "po_qty": 10,
+    "po_rate": "6.20",
+    "received_qty": 10,
+    "invoice_qty": 10,
+    "invoice_rate": "6.51",
+    "intent": "price_exactly_five_percent"
+   },
+   {
+    "ref": "J",
+    "item_code": "NW-0053",
+    "supplier": "Ma Maison",
+    "po_qty": 100,
+    "po_rate": "20.34",
+    "received_qty": 93,
+    "invoice_qty": 93,
+    "invoice_rate": "20.34",
+    "intent": "quantity_exactly_minus_seven_percent"
+   },
+   {
+    "ref": "K",
+    "item_code": "NW-0031",
+    "supplier": "Fortini Cheese Works",
+    "po_qty": null,
+    "po_rate": null,
+    "received_qty": null,
+    "invoice_qty": 5,
+    "invoice_rate": "7.75",
+    "intent": "missing_po"
+   },
+   {
+    "ref": "L",
+    "item_code": "NW-0005",
+    "supplier": "New Orleans Cajun Delights",
+    "po_qty": 12,
+    "po_rate": "13.24",
+    "received_qty": null,
+    "invoice_qty": 12,
+    "invoice_rate": "13.24",
+    "intent": "awaiting_receipt"
+   }
+  ]
+ },
+ "sales_orders": [
+  {
+   "po_no": "NW-10928",
+   "customer_code": "GALED",
+   "transaction_date": "2026-03-05",
+   "delivery_date": "2026-04-02",
+   "lines": [
+    {
+     "item_code": "NW-0047",
+     "qty": 5,
+     "rate": "9.50"
+    },
+    {
+     "item_code": "NW-0076",
+     "qty": 5,
+     "rate": "18.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10929",
+   "customer_code": "FRANK",
+   "transaction_date": "2026-03-05",
+   "delivery_date": "2026-04-02",
+   "lines": [
+    {
+     "item_code": "NW-0021",
+     "qty": 60,
+     "rate": "10.00"
+    },
+    {
+     "item_code": "NW-0075",
+     "qty": 49,
+     "rate": "7.75"
+    },
+    {
+     "item_code": "NW-0077",
+     "qty": 15,
+     "rate": "13.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10930",
+   "customer_code": "SUPRD",
+   "transaction_date": "2026-03-06",
+   "delivery_date": "2026-04-17",
+   "lines": [
+    {
+     "item_code": "NW-0021",
+     "qty": 36,
+     "rate": "10.00"
+    },
+    {
+     "item_code": "NW-0027",
+     "qty": 25,
+     "rate": "43.90"
+    },
+    {
+     "item_code": "NW-0055",
+     "qty": 25,
+     "rate": "19.20"
+    },
+    {
+     "item_code": "NW-0058",
+     "qty": 30,
+     "rate": "10.60"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10931",
+   "customer_code": "RICSU",
+   "transaction_date": "2026-03-06",
+   "delivery_date": "2026-03-20",
+   "lines": [
+    {
+     "item_code": "NW-0013",
+     "qty": 42,
+     "rate": "5.10"
+    },
+    {
+     "item_code": "NW-0057",
+     "qty": 30,
+     "rate": "19.50"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10932",
+   "customer_code": "BONAP",
+   "transaction_date": "2026-03-06",
+   "delivery_date": "2026-04-03",
+   "lines": [
+    {
+     "item_code": "NW-0016",
+     "qty": 30,
+     "rate": "15.71"
+    },
+    {
+     "item_code": "NW-0062",
+     "qty": 14,
+     "rate": "44.37"
+    },
+    {
+     "item_code": "NW-0072",
+     "qty": 16,
+     "rate": "34.80"
+    },
+    {
+     "item_code": "NW-0075",
+     "qty": 20,
+     "rate": "6.98"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10933",
+   "customer_code": "ISLAT",
+   "transaction_date": "2026-03-06",
+   "delivery_date": "2026-04-03",
+   "lines": [
+    {
+     "item_code": "NW-0053",
+     "qty": 2,
+     "rate": "32.80"
+    },
+    {
+     "item_code": "NW-0061",
+     "qty": 30,
+     "rate": "28.50"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10934",
+   "customer_code": "LEHMS",
+   "transaction_date": "2026-03-09",
+   "delivery_date": "2026-04-06",
+   "lines": [
+    {
+     "item_code": "NW-0006",
+     "qty": 20,
+     "rate": "25.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10935",
+   "customer_code": "WELLI",
+   "transaction_date": "2026-03-09",
+   "delivery_date": "2026-04-06",
+   "lines": [
+    {
+     "item_code": "NW-0001",
+     "qty": 21,
+     "rate": "18.00"
+    },
+    {
+     "item_code": "NW-0018",
+     "qty": 4,
+     "rate": "46.88"
+    },
+    {
+     "item_code": "NW-0023",
+     "qty": 8,
+     "rate": "6.75"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10936",
+   "customer_code": "GREAL",
+   "transaction_date": "2026-03-09",
+   "delivery_date": "2026-04-06",
+   "lines": [
+    {
+     "item_code": "NW-0036",
+     "qty": 30,
+     "rate": "15.20"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10937",
+   "customer_code": "CACTU",
+   "transaction_date": "2026-03-10",
+   "delivery_date": "2026-03-24",
+   "lines": [
+    {
+     "item_code": "NW-0028",
+     "qty": 8,
+     "rate": "45.60"
+    },
+    {
+     "item_code": "NW-0034",
+     "qty": 20,
+     "rate": "14.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10938",
+   "customer_code": "QUICK",
+   "transaction_date": "2026-03-10",
+   "delivery_date": "2026-04-07",
+   "lines": [
+    {
+     "item_code": "NW-0013",
+     "qty": 20,
+     "rate": "4.50"
+    },
+    {
+     "item_code": "NW-0043",
+     "qty": 24,
+     "rate": "34.50"
+    },
+    {
+     "item_code": "NW-0060",
+     "qty": 49,
+     "rate": "25.50"
+    },
+    {
+     "item_code": "NW-0071",
+     "qty": 35,
+     "rate": "16.13"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10939",
+   "customer_code": "MAGAA",
+   "transaction_date": "2026-03-10",
+   "delivery_date": "2026-04-07",
+   "lines": [
+    {
+     "item_code": "NW-0002",
+     "qty": 10,
+     "rate": "16.15"
+    },
+    {
+     "item_code": "NW-0067",
+     "qty": 40,
+     "rate": "11.90"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10940",
+   "customer_code": "BONAP",
+   "transaction_date": "2026-03-11",
+   "delivery_date": "2026-04-08",
+   "lines": [
+    {
+     "item_code": "NW-0007",
+     "qty": 8,
+     "rate": "30.00"
+    },
+    {
+     "item_code": "NW-0013",
+     "qty": 20,
+     "rate": "6.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10941",
+   "customer_code": "SAVEA",
+   "transaction_date": "2026-03-11",
+   "delivery_date": "2026-04-08",
+   "lines": [
+    {
+     "item_code": "NW-0031",
+     "qty": 44,
+     "rate": "9.38"
+    },
+    {
+     "item_code": "NW-0062",
+     "qty": 30,
+     "rate": "36.98"
+    },
+    {
+     "item_code": "NW-0068",
+     "qty": 80,
+     "rate": "9.38"
+    },
+    {
+     "item_code": "NW-0072",
+     "qty": 50,
+     "rate": "34.80"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10942",
+   "customer_code": "REGGC",
+   "transaction_date": "2026-03-11",
+   "delivery_date": "2026-04-08",
+   "lines": [
+    {
+     "item_code": "NW-0049",
+     "qty": 28,
+     "rate": "20.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10943",
+   "customer_code": "BSBEV",
+   "transaction_date": "2026-03-11",
+   "delivery_date": "2026-04-08",
+   "lines": [
+    {
+     "item_code": "NW-0013",
+     "qty": 15,
+     "rate": "6.00"
+    },
+    {
+     "item_code": "NW-0022",
+     "qty": 21,
+     "rate": "21.00"
+    },
+    {
+     "item_code": "NW-0046",
+     "qty": 15,
+     "rate": "12.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10944",
+   "customer_code": "BOTTM",
+   "transaction_date": "2026-03-12",
+   "delivery_date": "2026-03-26",
+   "lines": [
+    {
+     "item_code": "NW-0011",
+     "qty": 5,
+     "rate": "15.75"
+    },
+    {
+     "item_code": "NW-0044",
+     "qty": 18,
+     "rate": "14.59"
+    },
+    {
+     "item_code": "NW-0056",
+     "qty": 18,
+     "rate": "38.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10945",
+   "customer_code": "MORGK",
+   "transaction_date": "2026-03-12",
+   "delivery_date": "2026-04-09",
+   "lines": [
+    {
+     "item_code": "NW-0013",
+     "qty": 20,
+     "rate": "6.00"
+    },
+    {
+     "item_code": "NW-0031",
+     "qty": 10,
+     "rate": "12.50"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10946",
+   "customer_code": "VAFFE",
+   "transaction_date": "2026-03-12",
+   "delivery_date": "2026-04-09",
+   "lines": [
+    {
+     "item_code": "NW-0010",
+     "qty": 25,
+     "rate": "31.00"
+    },
+    {
+     "item_code": "NW-0024",
+     "qty": 25,
+     "rate": "4.50"
+    },
+    {
+     "item_code": "NW-0077",
+     "qty": 40,
+     "rate": "13.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10947",
+   "customer_code": "BSBEV",
+   "transaction_date": "2026-03-13",
+   "delivery_date": "2026-04-10",
+   "lines": [
+    {
+     "item_code": "NW-0059",
+     "qty": 4,
+     "rate": "55.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10948",
+   "customer_code": "GODOS",
+   "transaction_date": "2026-03-13",
+   "delivery_date": "2026-04-10",
+   "lines": [
+    {
+     "item_code": "NW-0050",
+     "qty": 9,
+     "rate": "16.25"
+    },
+    {
+     "item_code": "NW-0051",
+     "qty": 40,
+     "rate": "53.00"
+    },
+    {
+     "item_code": "NW-0055",
+     "qty": 4,
+     "rate": "24.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10949",
+   "customer_code": "BOTTM",
+   "transaction_date": "2026-03-13",
+   "delivery_date": "2026-04-10",
+   "lines": [
+    {
+     "item_code": "NW-0006",
+     "qty": 12,
+     "rate": "25.00"
+    },
+    {
+     "item_code": "NW-0010",
+     "qty": 30,
+     "rate": "31.00"
+    },
+    {
+     "item_code": "NW-0017",
+     "qty": 6,
+     "rate": "39.00"
+    },
+    {
+     "item_code": "NW-0062",
+     "qty": 60,
+     "rate": "49.30"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10950",
+   "customer_code": "MAGAA",
+   "transaction_date": "2026-03-16",
+   "delivery_date": "2026-04-13",
+   "lines": [
+    {
+     "item_code": "NW-0004",
+     "qty": 5,
+     "rate": "22.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10951",
+   "customer_code": "RICSU",
+   "transaction_date": "2026-03-16",
+   "delivery_date": "2026-04-27",
+   "lines": [
+    {
+     "item_code": "NW-0033",
+     "qty": 15,
+     "rate": "2.38"
+    },
+    {
+     "item_code": "NW-0041",
+     "qty": 6,
+     "rate": "9.17"
+    },
+    {
+     "item_code": "NW-0075",
+     "qty": 50,
+     "rate": "7.36"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10952",
+   "customer_code": "ALFKI",
+   "transaction_date": "2026-03-16",
+   "delivery_date": "2026-04-27",
+   "lines": [
+    {
+     "item_code": "NW-0006",
+     "qty": 16,
+     "rate": "23.75"
+    },
+    {
+     "item_code": "NW-0028",
+     "qty": 2,
+     "rate": "45.60"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10953",
+   "customer_code": "AROUT",
+   "transaction_date": "2026-03-16",
+   "delivery_date": "2026-03-30",
+   "lines": [
+    {
+     "item_code": "NW-0020",
+     "qty": 50,
+     "rate": "76.95"
+    },
+    {
+     "item_code": "NW-0031",
+     "qty": 50,
+     "rate": "11.88"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10954",
+   "customer_code": "LINOD",
+   "transaction_date": "2026-03-17",
+   "delivery_date": "2026-04-28",
+   "lines": [
+    {
+     "item_code": "NW-0016",
+     "qty": 28,
+     "rate": "14.83"
+    },
+    {
+     "item_code": "NW-0031",
+     "qty": 25,
+     "rate": "10.63"
+    },
+    {
+     "item_code": "NW-0045",
+     "qty": 30,
+     "rate": "9.50"
+    },
+    {
+     "item_code": "NW-0060",
+     "qty": 24,
+     "rate": "28.90"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10955",
+   "customer_code": "FOLKO",
+   "transaction_date": "2026-03-17",
+   "delivery_date": "2026-04-14",
+   "lines": [
+    {
+     "item_code": "NW-0075",
+     "qty": 12,
+     "rate": "6.20"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10956",
+   "customer_code": "BLAUS",
+   "transaction_date": "2026-03-17",
+   "delivery_date": "2026-04-28",
+   "lines": [
+    {
+     "item_code": "NW-0021",
+     "qty": 12,
+     "rate": "10.00"
+    },
+    {
+     "item_code": "NW-0047",
+     "qty": 14,
+     "rate": "9.50"
+    },
+    {
+     "item_code": "NW-0051",
+     "qty": 8,
+     "rate": "53.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10957",
+   "customer_code": "HILAA",
+   "transaction_date": "2026-03-18",
+   "delivery_date": "2026-04-15",
+   "lines": [
+    {
+     "item_code": "NW-0030",
+     "qty": 30,
+     "rate": "25.89"
+    },
+    {
+     "item_code": "NW-0035",
+     "qty": 40,
+     "rate": "18.00"
+    },
+    {
+     "item_code": "NW-0064",
+     "qty": 8,
+     "rate": "33.25"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10958",
+   "customer_code": "OCEAN",
+   "transaction_date": "2026-03-18",
+   "delivery_date": "2026-04-15",
+   "lines": [
+    {
+     "item_code": "NW-0005",
+     "qty": 20,
+     "rate": "21.35"
+    },
+    {
+     "item_code": "NW-0007",
+     "qty": 6,
+     "rate": "30.00"
+    },
+    {
+     "item_code": "NW-0072",
+     "qty": 5,
+     "rate": "34.80"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10959",
+   "customer_code": "GOURL",
+   "transaction_date": "2026-03-18",
+   "delivery_date": "2026-04-29",
+   "lines": [
+    {
+     "item_code": "NW-0075",
+     "qty": 20,
+     "rate": "6.59"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10960",
+   "customer_code": "HILAA",
+   "transaction_date": "2026-03-19",
+   "delivery_date": "2026-04-02",
+   "lines": [
+    {
+     "item_code": "NW-0024",
+     "qty": 10,
+     "rate": "3.38"
+    },
+    {
+     "item_code": "NW-0041",
+     "qty": 24,
+     "rate": "9.65"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10961",
+   "customer_code": "QUEEN",
+   "transaction_date": "2026-03-19",
+   "delivery_date": "2026-04-16",
+   "lines": [
+    {
+     "item_code": "NW-0052",
+     "qty": 6,
+     "rate": "6.65"
+    },
+    {
+     "item_code": "NW-0076",
+     "qty": 60,
+     "rate": "18.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10962",
+   "customer_code": "QUICK",
+   "transaction_date": "2026-03-19",
+   "delivery_date": "2026-04-16",
+   "lines": [
+    {
+     "item_code": "NW-0007",
+     "qty": 45,
+     "rate": "30.00"
+    },
+    {
+     "item_code": "NW-0013",
+     "qty": 77,
+     "rate": "6.00"
+    },
+    {
+     "item_code": "NW-0053",
+     "qty": 20,
+     "rate": "32.80"
+    },
+    {
+     "item_code": "NW-0069",
+     "qty": 9,
+     "rate": "36.00"
+    },
+    {
+     "item_code": "NW-0076",
+     "qty": 44,
+     "rate": "18.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10963",
+   "customer_code": "FURIB",
+   "transaction_date": "2026-03-19",
+   "delivery_date": "2026-04-16",
+   "lines": [
+    {
+     "item_code": "NW-0060",
+     "qty": 2,
+     "rate": "28.90"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10964",
+   "customer_code": "SPECD",
+   "transaction_date": "2026-03-20",
+   "delivery_date": "2026-04-17",
+   "lines": [
+    {
+     "item_code": "NW-0018",
+     "qty": 6,
+     "rate": "62.50"
+    },
+    {
+     "item_code": "NW-0038",
+     "qty": 5,
+     "rate": "263.50"
+    },
+    {
+     "item_code": "NW-0069",
+     "qty": 10,
+     "rate": "36.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10965",
+   "customer_code": "OLDWO",
+   "transaction_date": "2026-03-20",
+   "delivery_date": "2026-04-17",
+   "lines": [
+    {
+     "item_code": "NW-0051",
+     "qty": 16,
+     "rate": "53.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10966",
+   "customer_code": "CHOPS",
+   "transaction_date": "2026-03-20",
+   "delivery_date": "2026-04-17",
+   "lines": [
+    {
+     "item_code": "NW-0037",
+     "qty": 8,
+     "rate": "26.00"
+    },
+    {
+     "item_code": "NW-0056",
+     "qty": 12,
+     "rate": "32.30"
+    },
+    {
+     "item_code": "NW-0062",
+     "qty": 12,
+     "rate": "41.91"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10967",
+   "customer_code": "TOMSP",
+   "transaction_date": "2026-03-23",
+   "delivery_date": "2026-04-20",
+   "lines": [
+    {
+     "item_code": "NW-0019",
+     "qty": 12,
+     "rate": "9.20"
+    },
+    {
+     "item_code": "NW-0049",
+     "qty": 40,
+     "rate": "20.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10968",
+   "customer_code": "ERNSH",
+   "transaction_date": "2026-03-23",
+   "delivery_date": "2026-04-20",
+   "lines": [
+    {
+     "item_code": "NW-0012",
+     "qty": 30,
+     "rate": "38.00"
+    },
+    {
+     "item_code": "NW-0024",
+     "qty": 30,
+     "rate": "4.50"
+    },
+    {
+     "item_code": "NW-0064",
+     "qty": 4,
+     "rate": "33.25"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10969",
+   "customer_code": "COMMI",
+   "transaction_date": "2026-03-23",
+   "delivery_date": "2026-04-20",
+   "lines": [
+    {
+     "item_code": "NW-0046",
+     "qty": 9,
+     "rate": "12.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10970",
+   "customer_code": "BOLID",
+   "transaction_date": "2026-03-24",
+   "delivery_date": "2026-04-07",
+   "lines": [
+    {
+     "item_code": "NW-0052",
+     "qty": 40,
+     "rate": "5.60"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10971",
+   "customer_code": "FRANR",
+   "transaction_date": "2026-03-24",
+   "delivery_date": "2026-04-21",
+   "lines": [
+    {
+     "item_code": "NW-0029",
+     "qty": 14,
+     "rate": "123.79"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10972",
+   "customer_code": "LACOR",
+   "transaction_date": "2026-03-24",
+   "delivery_date": "2026-04-21",
+   "lines": [
+    {
+     "item_code": "NW-0017",
+     "qty": 6,
+     "rate": "39.00"
+    },
+    {
+     "item_code": "NW-0033",
+     "qty": 7,
+     "rate": "2.50"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10973",
+   "customer_code": "LACOR",
+   "transaction_date": "2026-03-24",
+   "delivery_date": "2026-04-21",
+   "lines": [
+    {
+     "item_code": "NW-0026",
+     "qty": 5,
+     "rate": "31.23"
+    },
+    {
+     "item_code": "NW-0041",
+     "qty": 6,
+     "rate": "9.65"
+    },
+    {
+     "item_code": "NW-0075",
+     "qty": 10,
+     "rate": "7.75"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10974",
+   "customer_code": "SPLIR",
+   "transaction_date": "2026-03-25",
+   "delivery_date": "2026-04-08",
+   "lines": [
+    {
+     "item_code": "NW-0063",
+     "qty": 10,
+     "rate": "43.90"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10975",
+   "customer_code": "BOTTM",
+   "transaction_date": "2026-03-25",
+   "delivery_date": "2026-04-22",
+   "lines": [
+    {
+     "item_code": "NW-0008",
+     "qty": 16,
+     "rate": "40.00"
+    },
+    {
+     "item_code": "NW-0075",
+     "qty": 10,
+     "rate": "7.75"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10976",
+   "customer_code": "HILAA",
+   "transaction_date": "2026-03-25",
+   "delivery_date": "2026-05-06",
+   "lines": [
+    {
+     "item_code": "NW-0028",
+     "qty": 20,
+     "rate": "45.60"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10977",
+   "customer_code": "FOLKO",
+   "transaction_date": "2026-03-26",
+   "delivery_date": "2026-04-23",
+   "lines": [
+    {
+     "item_code": "NW-0039",
+     "qty": 30,
+     "rate": "18.00"
+    },
+    {
+     "item_code": "NW-0047",
+     "qty": 30,
+     "rate": "9.50"
+    },
+    {
+     "item_code": "NW-0051",
+     "qty": 10,
+     "rate": "53.00"
+    },
+    {
+     "item_code": "NW-0063",
+     "qty": 20,
+     "rate": "43.90"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10978",
+   "customer_code": "MAISD",
+   "transaction_date": "2026-03-26",
+   "delivery_date": "2026-04-23",
+   "lines": [
+    {
+     "item_code": "NW-0008",
+     "qty": 20,
+     "rate": "34.00"
+    },
+    {
+     "item_code": "NW-0021",
+     "qty": 40,
+     "rate": "8.50"
+    },
+    {
+     "item_code": "NW-0040",
+     "qty": 10,
+     "rate": "18.40"
+    },
+    {
+     "item_code": "NW-0044",
+     "qty": 6,
+     "rate": "16.53"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10979",
+   "customer_code": "ERNSH",
+   "transaction_date": "2026-03-26",
+   "delivery_date": "2026-04-23",
+   "lines": [
+    {
+     "item_code": "NW-0007",
+     "qty": 18,
+     "rate": "30.00"
+    },
+    {
+     "item_code": "NW-0012",
+     "qty": 20,
+     "rate": "38.00"
+    },
+    {
+     "item_code": "NW-0024",
+     "qty": 80,
+     "rate": "4.50"
+    },
+    {
+     "item_code": "NW-0027",
+     "qty": 30,
+     "rate": "43.90"
+    },
+    {
+     "item_code": "NW-0031",
+     "qty": 24,
+     "rate": "12.50"
+    },
+    {
+     "item_code": "NW-0063",
+     "qty": 35,
+     "rate": "43.90"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10980",
+   "customer_code": "FOLKO",
+   "transaction_date": "2026-03-27",
+   "delivery_date": "2026-05-08",
+   "lines": [
+    {
+     "item_code": "NW-0075",
+     "qty": 40,
+     "rate": "6.20"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10981",
+   "customer_code": "HANAR",
+   "transaction_date": "2026-03-27",
+   "delivery_date": "2026-04-24",
+   "lines": [
+    {
+     "item_code": "NW-0038",
+     "qty": 60,
+     "rate": "263.50"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10982",
+   "customer_code": "BOTTM",
+   "transaction_date": "2026-03-27",
+   "delivery_date": "2026-04-24",
+   "lines": [
+    {
+     "item_code": "NW-0007",
+     "qty": 20,
+     "rate": "30.00"
+    },
+    {
+     "item_code": "NW-0043",
+     "qty": 9,
+     "rate": "46.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10983",
+   "customer_code": "SAVEA",
+   "transaction_date": "2026-03-27",
+   "delivery_date": "2026-04-24",
+   "lines": [
+    {
+     "item_code": "NW-0013",
+     "qty": 84,
+     "rate": "5.10"
+    },
+    {
+     "item_code": "NW-0057",
+     "qty": 15,
+     "rate": "19.50"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10984",
+   "customer_code": "SAVEA",
+   "transaction_date": "2026-03-30",
+   "delivery_date": "2026-04-27",
+   "lines": [
+    {
+     "item_code": "NW-0016",
+     "qty": 55,
+     "rate": "17.45"
+    },
+    {
+     "item_code": "NW-0024",
+     "qty": 20,
+     "rate": "4.50"
+    },
+    {
+     "item_code": "NW-0036",
+     "qty": 40,
+     "rate": "19.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10985",
+   "customer_code": "HUNGO",
+   "transaction_date": "2026-03-30",
+   "delivery_date": "2026-04-27",
+   "lines": [
+    {
+     "item_code": "NW-0016",
+     "qty": 36,
+     "rate": "15.71"
+    },
+    {
+     "item_code": "NW-0018",
+     "qty": 8,
+     "rate": "56.25"
+    },
+    {
+     "item_code": "NW-0032",
+     "qty": 35,
+     "rate": "28.80"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10986",
+   "customer_code": "OCEAN",
+   "transaction_date": "2026-03-30",
+   "delivery_date": "2026-04-27",
+   "lines": [
+    {
+     "item_code": "NW-0011",
+     "qty": 30,
+     "rate": "21.00"
+    },
+    {
+     "item_code": "NW-0020",
+     "qty": 15,
+     "rate": "81.00"
+    },
+    {
+     "item_code": "NW-0076",
+     "qty": 10,
+     "rate": "18.00"
+    },
+    {
+     "item_code": "NW-0077",
+     "qty": 15,
+     "rate": "13.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10987",
+   "customer_code": "EASTC",
+   "transaction_date": "2026-03-31",
+   "delivery_date": "2026-04-28",
+   "lines": [
+    {
+     "item_code": "NW-0007",
+     "qty": 60,
+     "rate": "30.00"
+    },
+    {
+     "item_code": "NW-0043",
+     "qty": 6,
+     "rate": "46.00"
+    },
+    {
+     "item_code": "NW-0072",
+     "qty": 20,
+     "rate": "34.80"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10988",
+   "customer_code": "RATTC",
+   "transaction_date": "2026-03-31",
+   "delivery_date": "2026-04-28",
+   "lines": [
+    {
+     "item_code": "NW-0007",
+     "qty": 60,
+     "rate": "30.00"
+    },
+    {
+     "item_code": "NW-0062",
+     "qty": 40,
+     "rate": "44.37"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10989",
+   "customer_code": "QUEDE",
+   "transaction_date": "2026-03-31",
+   "delivery_date": "2026-04-28",
+   "lines": [
+    {
+     "item_code": "NW-0006",
+     "qty": 40,
+     "rate": "25.00"
+    },
+    {
+     "item_code": "NW-0011",
+     "qty": 15,
+     "rate": "21.00"
+    },
+    {
+     "item_code": "NW-0041",
+     "qty": 4,
+     "rate": "9.65"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10990",
+   "customer_code": "ERNSH",
+   "transaction_date": "2026-04-01",
+   "delivery_date": "2026-05-13",
+   "lines": [
+    {
+     "item_code": "NW-0021",
+     "qty": 65,
+     "rate": "10.00"
+    },
+    {
+     "item_code": "NW-0034",
+     "qty": 60,
+     "rate": "11.90"
+    },
+    {
+     "item_code": "NW-0055",
+     "qty": 65,
+     "rate": "20.40"
+    },
+    {
+     "item_code": "NW-0061",
+     "qty": 66,
+     "rate": "24.23"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10991",
+   "customer_code": "QUICK",
+   "transaction_date": "2026-04-01",
+   "delivery_date": "2026-04-29",
+   "lines": [
+    {
+     "item_code": "NW-0002",
+     "qty": 50,
+     "rate": "15.20"
+    },
+    {
+     "item_code": "NW-0070",
+     "qty": 20,
+     "rate": "12.00"
+    },
+    {
+     "item_code": "NW-0076",
+     "qty": 90,
+     "rate": "14.40"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10992",
+   "customer_code": "THEBI",
+   "transaction_date": "2026-04-01",
+   "delivery_date": "2026-04-29",
+   "lines": [
+    {
+     "item_code": "NW-0072",
+     "qty": 2,
+     "rate": "34.80"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10993",
+   "customer_code": "FOLKO",
+   "transaction_date": "2026-04-01",
+   "delivery_date": "2026-04-29",
+   "lines": [
+    {
+     "item_code": "NW-0029",
+     "qty": 50,
+     "rate": "92.84"
+    },
+    {
+     "item_code": "NW-0041",
+     "qty": 35,
+     "rate": "7.24"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10994",
+   "customer_code": "VAFFE",
+   "transaction_date": "2026-04-02",
+   "delivery_date": "2026-04-16",
+   "lines": [
+    {
+     "item_code": "NW-0059",
+     "qty": 18,
+     "rate": "52.25"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10995",
+   "customer_code": "PERIC",
+   "transaction_date": "2026-04-02",
+   "delivery_date": "2026-04-30",
+   "lines": [
+    {
+     "item_code": "NW-0051",
+     "qty": 20,
+     "rate": "53.00"
+    },
+    {
+     "item_code": "NW-0060",
+     "qty": 4,
+     "rate": "34.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10996",
+   "customer_code": "QUICK",
+   "transaction_date": "2026-04-02",
+   "delivery_date": "2026-04-30",
+   "lines": [
+    {
+     "item_code": "NW-0042",
+     "qty": 40,
+     "rate": "14.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10997",
+   "customer_code": "LILAS",
+   "transaction_date": "2026-04-03",
+   "delivery_date": "2026-05-15",
+   "lines": [
+    {
+     "item_code": "NW-0032",
+     "qty": 50,
+     "rate": "32.00"
+    },
+    {
+     "item_code": "NW-0046",
+     "qty": 20,
+     "rate": "9.00"
+    },
+    {
+     "item_code": "NW-0052",
+     "qty": 20,
+     "rate": "5.25"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10998",
+   "customer_code": "WOLZA",
+   "transaction_date": "2026-04-03",
+   "delivery_date": "2026-04-17",
+   "lines": [
+    {
+     "item_code": "NW-0024",
+     "qty": 12,
+     "rate": "4.50"
+    },
+    {
+     "item_code": "NW-0061",
+     "qty": 7,
+     "rate": "28.50"
+    },
+    {
+     "item_code": "NW-0074",
+     "qty": 20,
+     "rate": "10.00"
+    },
+    {
+     "item_code": "NW-0075",
+     "qty": 30,
+     "rate": "7.75"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-10999",
+   "customer_code": "OTTIK",
+   "transaction_date": "2026-04-03",
+   "delivery_date": "2026-05-01",
+   "lines": [
+    {
+     "item_code": "NW-0041",
+     "qty": 20,
+     "rate": "9.17"
+    },
+    {
+     "item_code": "NW-0051",
+     "qty": 15,
+     "rate": "50.35"
+    },
+    {
+     "item_code": "NW-0077",
+     "qty": 21,
+     "rate": "12.35"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11000",
+   "customer_code": "RATTC",
+   "transaction_date": "2026-04-06",
+   "delivery_date": "2026-05-04",
+   "lines": [
+    {
+     "item_code": "NW-0004",
+     "qty": 25,
+     "rate": "16.50"
+    },
+    {
+     "item_code": "NW-0024",
+     "qty": 30,
+     "rate": "3.38"
+    },
+    {
+     "item_code": "NW-0077",
+     "qty": 30,
+     "rate": "13.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11001",
+   "customer_code": "FOLKO",
+   "transaction_date": "2026-04-06",
+   "delivery_date": "2026-05-04",
+   "lines": [
+    {
+     "item_code": "NW-0007",
+     "qty": 60,
+     "rate": "30.00"
+    },
+    {
+     "item_code": "NW-0022",
+     "qty": 25,
+     "rate": "21.00"
+    },
+    {
+     "item_code": "NW-0046",
+     "qty": 25,
+     "rate": "12.00"
+    },
+    {
+     "item_code": "NW-0055",
+     "qty": 6,
+     "rate": "24.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11002",
+   "customer_code": "SAVEA",
+   "transaction_date": "2026-04-06",
+   "delivery_date": "2026-05-04",
+   "lines": [
+    {
+     "item_code": "NW-0013",
+     "qty": 56,
+     "rate": "6.00"
+    },
+    {
+     "item_code": "NW-0035",
+     "qty": 15,
+     "rate": "15.30"
+    },
+    {
+     "item_code": "NW-0042",
+     "qty": 24,
+     "rate": "11.90"
+    },
+    {
+     "item_code": "NW-0055",
+     "qty": 40,
+     "rate": "24.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11003",
+   "customer_code": "THECR",
+   "transaction_date": "2026-04-06",
+   "delivery_date": "2026-05-04",
+   "lines": [
+    {
+     "item_code": "NW-0001",
+     "qty": 4,
+     "rate": "18.00"
+    },
+    {
+     "item_code": "NW-0040",
+     "qty": 10,
+     "rate": "18.40"
+    },
+    {
+     "item_code": "NW-0052",
+     "qty": 10,
+     "rate": "7.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11004",
+   "customer_code": "MAISD",
+   "transaction_date": "2026-04-07",
+   "delivery_date": "2026-05-05",
+   "lines": [
+    {
+     "item_code": "NW-0026",
+     "qty": 6,
+     "rate": "31.23"
+    },
+    {
+     "item_code": "NW-0076",
+     "qty": 6,
+     "rate": "18.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11005",
+   "customer_code": "WILMK",
+   "transaction_date": "2026-04-07",
+   "delivery_date": "2026-05-05",
+   "lines": [
+    {
+     "item_code": "NW-0001",
+     "qty": 2,
+     "rate": "18.00"
+    },
+    {
+     "item_code": "NW-0059",
+     "qty": 10,
+     "rate": "55.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11006",
+   "customer_code": "GREAL",
+   "transaction_date": "2026-04-07",
+   "delivery_date": "2026-05-05",
+   "lines": [
+    {
+     "item_code": "NW-0001",
+     "qty": 8,
+     "rate": "18.00"
+    },
+    {
+     "item_code": "NW-0029",
+     "qty": 2,
+     "rate": "92.84"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11007",
+   "customer_code": "PRINI",
+   "transaction_date": "2026-04-08",
+   "delivery_date": "2026-05-06",
+   "lines": [
+    {
+     "item_code": "NW-0008",
+     "qty": 30,
+     "rate": "40.00"
+    },
+    {
+     "item_code": "NW-0029",
+     "qty": 10,
+     "rate": "123.79"
+    },
+    {
+     "item_code": "NW-0042",
+     "qty": 14,
+     "rate": "14.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11008",
+   "customer_code": "ERNSH",
+   "transaction_date": "2026-04-08",
+   "delivery_date": "2026-05-06",
+   "lines": [
+    {
+     "item_code": "NW-0028",
+     "qty": 70,
+     "rate": "43.32"
+    },
+    {
+     "item_code": "NW-0034",
+     "qty": 90,
+     "rate": "13.30"
+    },
+    {
+     "item_code": "NW-0071",
+     "qty": 21,
+     "rate": "21.50"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11009",
+   "customer_code": "GODOS",
+   "transaction_date": "2026-04-08",
+   "delivery_date": "2026-05-06",
+   "lines": [
+    {
+     "item_code": "NW-0024",
+     "qty": 12,
+     "rate": "4.50"
+    },
+    {
+     "item_code": "NW-0036",
+     "qty": 18,
+     "rate": "14.25"
+    },
+    {
+     "item_code": "NW-0060",
+     "qty": 9,
+     "rate": "34.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11010",
+   "customer_code": "REGGC",
+   "transaction_date": "2026-04-09",
+   "delivery_date": "2026-05-07",
+   "lines": [
+    {
+     "item_code": "NW-0007",
+     "qty": 20,
+     "rate": "30.00"
+    },
+    {
+     "item_code": "NW-0024",
+     "qty": 10,
+     "rate": "4.50"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11011",
+   "customer_code": "ALFKI",
+   "transaction_date": "2026-04-09",
+   "delivery_date": "2026-05-07",
+   "lines": [
+    {
+     "item_code": "NW-0058",
+     "qty": 40,
+     "rate": "12.59"
+    },
+    {
+     "item_code": "NW-0071",
+     "qty": 20,
+     "rate": "21.50"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11012",
+   "customer_code": "FRANK",
+   "transaction_date": "2026-04-09",
+   "delivery_date": "2026-04-23",
+   "lines": [
+    {
+     "item_code": "NW-0019",
+     "qty": 50,
+     "rate": "8.74"
+    },
+    {
+     "item_code": "NW-0060",
+     "qty": 36,
+     "rate": "32.30"
+    },
+    {
+     "item_code": "NW-0071",
+     "qty": 60,
+     "rate": "20.43"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11013",
+   "customer_code": "ROMEY",
+   "transaction_date": "2026-04-09",
+   "delivery_date": "2026-05-07",
+   "lines": [
+    {
+     "item_code": "NW-0023",
+     "qty": 10,
+     "rate": "9.00"
+    },
+    {
+     "item_code": "NW-0042",
+     "qty": 4,
+     "rate": "14.00"
+    },
+    {
+     "item_code": "NW-0045",
+     "qty": 20,
+     "rate": "9.50"
+    },
+    {
+     "item_code": "NW-0068",
+     "qty": 2,
+     "rate": "12.50"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11014",
+   "customer_code": "LINOD",
+   "transaction_date": "2026-04-10",
+   "delivery_date": "2026-05-08",
+   "lines": [
+    {
+     "item_code": "NW-0041",
+     "qty": 28,
+     "rate": "8.69"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11015",
+   "customer_code": "SANTG",
+   "transaction_date": "2026-04-10",
+   "delivery_date": "2026-04-24",
+   "lines": [
+    {
+     "item_code": "NW-0030",
+     "qty": 15,
+     "rate": "25.89"
+    },
+    {
+     "item_code": "NW-0077",
+     "qty": 18,
+     "rate": "13.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11016",
+   "customer_code": "AROUT",
+   "transaction_date": "2026-04-10",
+   "delivery_date": "2026-05-08",
+   "lines": [
+    {
+     "item_code": "NW-0031",
+     "qty": 15,
+     "rate": "12.50"
+    },
+    {
+     "item_code": "NW-0036",
+     "qty": 16,
+     "rate": "19.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11017",
+   "customer_code": "ERNSH",
+   "transaction_date": "2026-04-13",
+   "delivery_date": "2026-05-11",
+   "lines": [
+    {
+     "item_code": "NW-0003",
+     "qty": 25,
+     "rate": "10.00"
+    },
+    {
+     "item_code": "NW-0059",
+     "qty": 110,
+     "rate": "55.00"
+    },
+    {
+     "item_code": "NW-0070",
+     "qty": 30,
+     "rate": "15.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11018",
+   "customer_code": "LONEP",
+   "transaction_date": "2026-04-13",
+   "delivery_date": "2026-05-11",
+   "lines": [
+    {
+     "item_code": "NW-0012",
+     "qty": 20,
+     "rate": "38.00"
+    },
+    {
+     "item_code": "NW-0018",
+     "qty": 10,
+     "rate": "62.50"
+    },
+    {
+     "item_code": "NW-0056",
+     "qty": 5,
+     "rate": "38.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11019",
+   "customer_code": "RANCH",
+   "transaction_date": "2026-04-13",
+   "delivery_date": "2026-05-11",
+   "lines": [
+    {
+     "item_code": "NW-0046",
+     "qty": 3,
+     "rate": "12.00"
+    },
+    {
+     "item_code": "NW-0049",
+     "qty": 2,
+     "rate": "20.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11020",
+   "customer_code": "OTTIK",
+   "transaction_date": "2026-04-14",
+   "delivery_date": "2026-05-12",
+   "lines": [
+    {
+     "item_code": "NW-0010",
+     "qty": 24,
+     "rate": "26.35"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11021",
+   "customer_code": "QUICK",
+   "transaction_date": "2026-04-14",
+   "delivery_date": "2026-05-12",
+   "lines": [
+    {
+     "item_code": "NW-0002",
+     "qty": 11,
+     "rate": "14.25"
+    },
+    {
+     "item_code": "NW-0020",
+     "qty": 15,
+     "rate": "81.00"
+    },
+    {
+     "item_code": "NW-0026",
+     "qty": 63,
+     "rate": "31.23"
+    },
+    {
+     "item_code": "NW-0051",
+     "qty": 44,
+     "rate": "39.75"
+    },
+    {
+     "item_code": "NW-0072",
+     "qty": 35,
+     "rate": "34.80"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11022",
+   "customer_code": "HANAR",
+   "transaction_date": "2026-04-14",
+   "delivery_date": "2026-05-12",
+   "lines": [
+    {
+     "item_code": "NW-0019",
+     "qty": 35,
+     "rate": "9.20"
+    },
+    {
+     "item_code": "NW-0069",
+     "qty": 30,
+     "rate": "36.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11023",
+   "customer_code": "BSBEV",
+   "transaction_date": "2026-04-14",
+   "delivery_date": "2026-04-28",
+   "lines": [
+    {
+     "item_code": "NW-0007",
+     "qty": 4,
+     "rate": "30.00"
+    },
+    {
+     "item_code": "NW-0043",
+     "qty": 30,
+     "rate": "46.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11024",
+   "customer_code": "EASTC",
+   "transaction_date": "2026-04-15",
+   "delivery_date": "2026-05-13",
+   "lines": [
+    {
+     "item_code": "NW-0026",
+     "qty": 12,
+     "rate": "31.23"
+    },
+    {
+     "item_code": "NW-0033",
+     "qty": 30,
+     "rate": "2.50"
+    },
+    {
+     "item_code": "NW-0065",
+     "qty": 21,
+     "rate": "21.05"
+    },
+    {
+     "item_code": "NW-0071",
+     "qty": 50,
+     "rate": "21.50"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11025",
+   "customer_code": "WARTH",
+   "transaction_date": "2026-04-15",
+   "delivery_date": "2026-05-13",
+   "lines": [
+    {
+     "item_code": "NW-0001",
+     "qty": 10,
+     "rate": "16.20"
+    },
+    {
+     "item_code": "NW-0013",
+     "qty": 20,
+     "rate": "5.40"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11026",
+   "customer_code": "FRANS",
+   "transaction_date": "2026-04-15",
+   "delivery_date": "2026-05-13",
+   "lines": [
+    {
+     "item_code": "NW-0018",
+     "qty": 8,
+     "rate": "62.50"
+    },
+    {
+     "item_code": "NW-0051",
+     "qty": 10,
+     "rate": "53.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11027",
+   "customer_code": "BOTTM",
+   "transaction_date": "2026-04-16",
+   "delivery_date": "2026-05-14",
+   "lines": [
+    {
+     "item_code": "NW-0024",
+     "qty": 30,
+     "rate": "3.38"
+    },
+    {
+     "item_code": "NW-0062",
+     "qty": 21,
+     "rate": "36.98"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11028",
+   "customer_code": "KOENE",
+   "transaction_date": "2026-04-16",
+   "delivery_date": "2026-05-14",
+   "lines": [
+    {
+     "item_code": "NW-0055",
+     "qty": 35,
+     "rate": "24.00"
+    },
+    {
+     "item_code": "NW-0059",
+     "qty": 24,
+     "rate": "55.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11029",
+   "customer_code": "CHOPS",
+   "transaction_date": "2026-04-16",
+   "delivery_date": "2026-05-14",
+   "lines": [
+    {
+     "item_code": "NW-0056",
+     "qty": 20,
+     "rate": "38.00"
+    },
+    {
+     "item_code": "NW-0063",
+     "qty": 12,
+     "rate": "43.90"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11030",
+   "customer_code": "SAVEA",
+   "transaction_date": "2026-04-17",
+   "delivery_date": "2026-05-15",
+   "lines": [
+    {
+     "item_code": "NW-0002",
+     "qty": 100,
+     "rate": "14.25"
+    },
+    {
+     "item_code": "NW-0005",
+     "qty": 70,
+     "rate": "21.35"
+    },
+    {
+     "item_code": "NW-0029",
+     "qty": 60,
+     "rate": "92.84"
+    },
+    {
+     "item_code": "NW-0059",
+     "qty": 100,
+     "rate": "41.25"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11031",
+   "customer_code": "SAVEA",
+   "transaction_date": "2026-04-17",
+   "delivery_date": "2026-05-15",
+   "lines": [
+    {
+     "item_code": "NW-0001",
+     "qty": 45,
+     "rate": "18.00"
+    },
+    {
+     "item_code": "NW-0013",
+     "qty": 80,
+     "rate": "6.00"
+    },
+    {
+     "item_code": "NW-0024",
+     "qty": 21,
+     "rate": "4.50"
+    },
+    {
+     "item_code": "NW-0064",
+     "qty": 20,
+     "rate": "33.25"
+    },
+    {
+     "item_code": "NW-0071",
+     "qty": 16,
+     "rate": "21.50"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11032",
+   "customer_code": "WHITC",
+   "transaction_date": "2026-04-17",
+   "delivery_date": "2026-05-15",
+   "lines": [
+    {
+     "item_code": "NW-0036",
+     "qty": 35,
+     "rate": "19.00"
+    },
+    {
+     "item_code": "NW-0038",
+     "qty": 25,
+     "rate": "263.50"
+    },
+    {
+     "item_code": "NW-0059",
+     "qty": 30,
+     "rate": "55.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11033",
+   "customer_code": "RICSU",
+   "transaction_date": "2026-04-17",
+   "delivery_date": "2026-05-15",
+   "lines": [
+    {
+     "item_code": "NW-0053",
+     "qty": 70,
+     "rate": "29.52"
+    },
+    {
+     "item_code": "NW-0069",
+     "qty": 36,
+     "rate": "32.40"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11034",
+   "customer_code": "OLDWO",
+   "transaction_date": "2026-04-20",
+   "delivery_date": "2026-06-01",
+   "lines": [
+    {
+     "item_code": "NW-0021",
+     "qty": 15,
+     "rate": "9.00"
+    },
+    {
+     "item_code": "NW-0044",
+     "qty": 12,
+     "rate": "19.45"
+    },
+    {
+     "item_code": "NW-0061",
+     "qty": 6,
+     "rate": "28.50"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11035",
+   "customer_code": "SUPRD",
+   "transaction_date": "2026-04-20",
+   "delivery_date": "2026-05-18",
+   "lines": [
+    {
+     "item_code": "NW-0001",
+     "qty": 10,
+     "rate": "18.00"
+    },
+    {
+     "item_code": "NW-0035",
+     "qty": 60,
+     "rate": "18.00"
+    },
+    {
+     "item_code": "NW-0042",
+     "qty": 30,
+     "rate": "14.00"
+    },
+    {
+     "item_code": "NW-0054",
+     "qty": 10,
+     "rate": "7.45"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11036",
+   "customer_code": "DRACD",
+   "transaction_date": "2026-04-20",
+   "delivery_date": "2026-05-18",
+   "lines": [
+    {
+     "item_code": "NW-0013",
+     "qty": 7,
+     "rate": "6.00"
+    },
+    {
+     "item_code": "NW-0059",
+     "qty": 30,
+     "rate": "55.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11037",
+   "customer_code": "GODOS",
+   "transaction_date": "2026-04-21",
+   "delivery_date": "2026-05-19",
+   "lines": [
+    {
+     "item_code": "NW-0070",
+     "qty": 4,
+     "rate": "15.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11038",
+   "customer_code": "SUPRD",
+   "transaction_date": "2026-04-21",
+   "delivery_date": "2026-05-19",
+   "lines": [
+    {
+     "item_code": "NW-0040",
+     "qty": 5,
+     "rate": "14.72"
+    },
+    {
+     "item_code": "NW-0052",
+     "qty": 2,
+     "rate": "7.00"
+    },
+    {
+     "item_code": "NW-0071",
+     "qty": 30,
+     "rate": "21.50"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11039",
+   "customer_code": "LINOD",
+   "transaction_date": "2026-04-21",
+   "delivery_date": "2026-05-19",
+   "lines": [
+    {
+     "item_code": "NW-0028",
+     "qty": 20,
+     "rate": "45.60"
+    },
+    {
+     "item_code": "NW-0035",
+     "qty": 24,
+     "rate": "18.00"
+    },
+    {
+     "item_code": "NW-0049",
+     "qty": 60,
+     "rate": "20.00"
+    },
+    {
+     "item_code": "NW-0057",
+     "qty": 28,
+     "rate": "19.50"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11040",
+   "customer_code": "GREAL",
+   "transaction_date": "2026-04-22",
+   "delivery_date": "2026-05-20",
+   "lines": [
+    {
+     "item_code": "NW-0021",
+     "qty": 20,
+     "rate": "10.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11041",
+   "customer_code": "CHOPS",
+   "transaction_date": "2026-04-22",
+   "delivery_date": "2026-05-20",
+   "lines": [
+    {
+     "item_code": "NW-0002",
+     "qty": 30,
+     "rate": "15.20"
+    },
+    {
+     "item_code": "NW-0063",
+     "qty": 30,
+     "rate": "43.90"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11042",
+   "customer_code": "COMMI",
+   "transaction_date": "2026-04-22",
+   "delivery_date": "2026-05-06",
+   "lines": [
+    {
+     "item_code": "NW-0044",
+     "qty": 15,
+     "rate": "19.45"
+    },
+    {
+     "item_code": "NW-0061",
+     "qty": 4,
+     "rate": "28.50"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11043",
+   "customer_code": "SPECD",
+   "transaction_date": "2026-04-22",
+   "delivery_date": "2026-05-20",
+   "lines": [
+    {
+     "item_code": "NW-0011",
+     "qty": 10,
+     "rate": "21.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11044",
+   "customer_code": "WOLZA",
+   "transaction_date": "2026-04-23",
+   "delivery_date": "2026-05-21",
+   "lines": [
+    {
+     "item_code": "NW-0062",
+     "qty": 12,
+     "rate": "49.30"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11045",
+   "customer_code": "BOTTM",
+   "transaction_date": "2026-04-23",
+   "delivery_date": "2026-05-21",
+   "lines": [
+    {
+     "item_code": "NW-0033",
+     "qty": 15,
+     "rate": "2.50"
+    },
+    {
+     "item_code": "NW-0051",
+     "qty": 24,
+     "rate": "53.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11046",
+   "customer_code": "WANDK",
+   "transaction_date": "2026-04-23",
+   "delivery_date": "2026-05-21",
+   "lines": [
+    {
+     "item_code": "NW-0012",
+     "qty": 20,
+     "rate": "36.10"
+    },
+    {
+     "item_code": "NW-0032",
+     "qty": 15,
+     "rate": "30.40"
+    },
+    {
+     "item_code": "NW-0035",
+     "qty": 18,
+     "rate": "17.10"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11047",
+   "customer_code": "EASTC",
+   "transaction_date": "2026-04-24",
+   "delivery_date": "2026-05-22",
+   "lines": [
+    {
+     "item_code": "NW-0001",
+     "qty": 25,
+     "rate": "13.50"
+    },
+    {
+     "item_code": "NW-0005",
+     "qty": 30,
+     "rate": "16.01"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11048",
+   "customer_code": "BOTTM",
+   "transaction_date": "2026-04-24",
+   "delivery_date": "2026-05-22",
+   "lines": [
+    {
+     "item_code": "NW-0068",
+     "qty": 42,
+     "rate": "12.50"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11049",
+   "customer_code": "GOURL",
+   "transaction_date": "2026-04-24",
+   "delivery_date": "2026-05-22",
+   "lines": [
+    {
+     "item_code": "NW-0002",
+     "qty": 10,
+     "rate": "15.20"
+    },
+    {
+     "item_code": "NW-0012",
+     "qty": 4,
+     "rate": "30.40"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11050",
+   "customer_code": "FOLKO",
+   "transaction_date": "2026-04-27",
+   "delivery_date": "2026-05-25",
+   "lines": [
+    {
+     "item_code": "NW-0076",
+     "qty": 50,
+     "rate": "16.20"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11051",
+   "customer_code": "LAMAI",
+   "transaction_date": "2026-04-27",
+   "delivery_date": "2026-05-25",
+   "lines": [
+    {
+     "item_code": "NW-0024",
+     "qty": 10,
+     "rate": "3.60"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11052",
+   "customer_code": "HANAR",
+   "transaction_date": "2026-04-27",
+   "delivery_date": "2026-05-25",
+   "lines": [
+    {
+     "item_code": "NW-0043",
+     "qty": 30,
+     "rate": "36.80"
+    },
+    {
+     "item_code": "NW-0061",
+     "qty": 10,
+     "rate": "22.80"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11053",
+   "customer_code": "PICCO",
+   "transaction_date": "2026-04-27",
+   "delivery_date": "2026-05-25",
+   "lines": [
+    {
+     "item_code": "NW-0018",
+     "qty": 35,
+     "rate": "50.00"
+    },
+    {
+     "item_code": "NW-0032",
+     "qty": 20,
+     "rate": "32.00"
+    },
+    {
+     "item_code": "NW-0064",
+     "qty": 25,
+     "rate": "26.60"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11054",
+   "customer_code": "CACTU",
+   "transaction_date": "2026-04-28",
+   "delivery_date": "2026-05-26",
+   "lines": [
+    {
+     "item_code": "NW-0033",
+     "qty": 10,
+     "rate": "2.50"
+    },
+    {
+     "item_code": "NW-0067",
+     "qty": 20,
+     "rate": "14.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11055",
+   "customer_code": "HILAA",
+   "transaction_date": "2026-04-28",
+   "delivery_date": "2026-05-26",
+   "lines": [
+    {
+     "item_code": "NW-0024",
+     "qty": 15,
+     "rate": "4.50"
+    },
+    {
+     "item_code": "NW-0025",
+     "qty": 15,
+     "rate": "14.00"
+    },
+    {
+     "item_code": "NW-0051",
+     "qty": 20,
+     "rate": "53.00"
+    },
+    {
+     "item_code": "NW-0057",
+     "qty": 20,
+     "rate": "19.50"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11056",
+   "customer_code": "EASTC",
+   "transaction_date": "2026-04-28",
+   "delivery_date": "2026-05-12",
+   "lines": [
+    {
+     "item_code": "NW-0007",
+     "qty": 40,
+     "rate": "30.00"
+    },
+    {
+     "item_code": "NW-0055",
+     "qty": 35,
+     "rate": "24.00"
+    },
+    {
+     "item_code": "NW-0060",
+     "qty": 50,
+     "rate": "34.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11057",
+   "customer_code": "NORTS",
+   "transaction_date": "2026-04-29",
+   "delivery_date": "2026-05-27",
+   "lines": [
+    {
+     "item_code": "NW-0070",
+     "qty": 3,
+     "rate": "15.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11058",
+   "customer_code": "BLAUS",
+   "transaction_date": "2026-04-29",
+   "delivery_date": "2026-05-27",
+   "lines": [
+    {
+     "item_code": "NW-0021",
+     "qty": 3,
+     "rate": "10.00"
+    },
+    {
+     "item_code": "NW-0060",
+     "qty": 21,
+     "rate": "34.00"
+    },
+    {
+     "item_code": "NW-0061",
+     "qty": 4,
+     "rate": "28.50"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11059",
+   "customer_code": "RICAR",
+   "transaction_date": "2026-04-29",
+   "delivery_date": "2026-06-10",
+   "lines": [
+    {
+     "item_code": "NW-0013",
+     "qty": 30,
+     "rate": "6.00"
+    },
+    {
+     "item_code": "NW-0017",
+     "qty": 12,
+     "rate": "39.00"
+    },
+    {
+     "item_code": "NW-0060",
+     "qty": 35,
+     "rate": "34.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11060",
+   "customer_code": "FRANS",
+   "transaction_date": "2026-04-30",
+   "delivery_date": "2026-05-28",
+   "lines": [
+    {
+     "item_code": "NW-0060",
+     "qty": 4,
+     "rate": "34.00"
+    },
+    {
+     "item_code": "NW-0077",
+     "qty": 10,
+     "rate": "13.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11061",
+   "customer_code": "GREAL",
+   "transaction_date": "2026-04-30",
+   "delivery_date": "2026-06-11",
+   "lines": [
+    {
+     "item_code": "NW-0060",
+     "qty": 15,
+     "rate": "34.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11062",
+   "customer_code": "REGGC",
+   "transaction_date": "2026-04-30",
+   "delivery_date": "2026-05-28",
+   "lines": [
+    {
+     "item_code": "NW-0053",
+     "qty": 10,
+     "rate": "26.24"
+    },
+    {
+     "item_code": "NW-0070",
+     "qty": 12,
+     "rate": "12.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11063",
+   "customer_code": "HUNGO",
+   "transaction_date": "2026-04-30",
+   "delivery_date": "2026-05-28",
+   "lines": [
+    {
+     "item_code": "NW-0034",
+     "qty": 30,
+     "rate": "14.00"
+    },
+    {
+     "item_code": "NW-0040",
+     "qty": 40,
+     "rate": "16.56"
+    },
+    {
+     "item_code": "NW-0041",
+     "qty": 30,
+     "rate": "8.69"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11064",
+   "customer_code": "SAVEA",
+   "transaction_date": "2026-05-01",
+   "delivery_date": "2026-05-29",
+   "lines": [
+    {
+     "item_code": "NW-0017",
+     "qty": 77,
+     "rate": "35.10"
+    },
+    {
+     "item_code": "NW-0041",
+     "qty": 12,
+     "rate": "9.65"
+    },
+    {
+     "item_code": "NW-0053",
+     "qty": 25,
+     "rate": "29.52"
+    },
+    {
+     "item_code": "NW-0055",
+     "qty": 4,
+     "rate": "21.60"
+    },
+    {
+     "item_code": "NW-0068",
+     "qty": 55,
+     "rate": "12.50"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11065",
+   "customer_code": "LILAS",
+   "transaction_date": "2026-05-01",
+   "delivery_date": "2026-05-29",
+   "lines": [
+    {
+     "item_code": "NW-0030",
+     "qty": 4,
+     "rate": "19.42"
+    },
+    {
+     "item_code": "NW-0054",
+     "qty": 20,
+     "rate": "5.59"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11066",
+   "customer_code": "WHITC",
+   "transaction_date": "2026-05-01",
+   "delivery_date": "2026-05-29",
+   "lines": [
+    {
+     "item_code": "NW-0016",
+     "qty": 3,
+     "rate": "17.45"
+    },
+    {
+     "item_code": "NW-0019",
+     "qty": 42,
+     "rate": "9.20"
+    },
+    {
+     "item_code": "NW-0034",
+     "qty": 35,
+     "rate": "14.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11067",
+   "customer_code": "DRACD",
+   "transaction_date": "2026-05-04",
+   "delivery_date": "2026-05-18",
+   "lines": [
+    {
+     "item_code": "NW-0041",
+     "qty": 9,
+     "rate": "9.65"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11068",
+   "customer_code": "QUEEN",
+   "transaction_date": "2026-05-04",
+   "delivery_date": "2026-06-01",
+   "lines": [
+    {
+     "item_code": "NW-0028",
+     "qty": 8,
+     "rate": "38.76"
+    },
+    {
+     "item_code": "NW-0043",
+     "qty": 36,
+     "rate": "39.10"
+    },
+    {
+     "item_code": "NW-0077",
+     "qty": 28,
+     "rate": "11.05"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11069",
+   "customer_code": "TORTU",
+   "transaction_date": "2026-05-04",
+   "delivery_date": "2026-06-01",
+   "lines": [
+    {
+     "item_code": "NW-0039",
+     "qty": 20,
+     "rate": "18.00"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11070",
+   "customer_code": "LEHMS",
+   "transaction_date": "2026-05-05",
+   "delivery_date": "2026-06-02",
+   "lines": [
+    {
+     "item_code": "NW-0001",
+     "qty": 40,
+     "rate": "15.30"
+    },
+    {
+     "item_code": "NW-0002",
+     "qty": 20,
+     "rate": "16.15"
+    },
+    {
+     "item_code": "NW-0016",
+     "qty": 30,
+     "rate": "14.83"
+    },
+    {
+     "item_code": "NW-0031",
+     "qty": 20,
+     "rate": "12.50"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11071",
+   "customer_code": "LILAS",
+   "transaction_date": "2026-05-05",
+   "delivery_date": "2026-06-02",
+   "lines": [
+    {
+     "item_code": "NW-0007",
+     "qty": 15,
+     "rate": "28.50"
+    },
+    {
+     "item_code": "NW-0013",
+     "qty": 10,
+     "rate": "5.70"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11072",
+   "customer_code": "ERNSH",
+   "transaction_date": "2026-05-05",
+   "delivery_date": "2026-06-02",
+   "lines": [
+    {
+     "item_code": "NW-0002",
+     "qty": 8,
+     "rate": "19.00"
+    },
+    {
+     "item_code": "NW-0041",
+     "qty": 40,
+     "rate": "9.65"
+    },
+    {
+     "item_code": "NW-0050",
+     "qty": 22,
+     "rate": "16.25"
+    },
+    {
+     "item_code": "NW-0064",
+     "qty": 130,
+     "rate": "33.25"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11073",
+   "customer_code": "PERIC",
+   "transaction_date": "2026-05-05",
+   "delivery_date": "2026-06-02",
+   "lines": [
+    {
+     "item_code": "NW-0011",
+     "qty": 10,
+     "rate": "21.00"
+    },
+    {
+     "item_code": "NW-0024",
+     "qty": 20,
+     "rate": "4.50"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11074",
+   "customer_code": "SIMOB",
+   "transaction_date": "2026-05-06",
+   "delivery_date": "2026-06-03",
+   "lines": [
+    {
+     "item_code": "NW-0016",
+     "qty": 14,
+     "rate": "16.58"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11075",
+   "customer_code": "RICSU",
+   "transaction_date": "2026-05-06",
+   "delivery_date": "2026-06-03",
+   "lines": [
+    {
+     "item_code": "NW-0002",
+     "qty": 10,
+     "rate": "16.15"
+    },
+    {
+     "item_code": "NW-0046",
+     "qty": 30,
+     "rate": "10.20"
+    },
+    {
+     "item_code": "NW-0076",
+     "qty": 2,
+     "rate": "15.30"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11076",
+   "customer_code": "BONAP",
+   "transaction_date": "2026-05-06",
+   "delivery_date": "2026-06-03",
+   "lines": [
+    {
+     "item_code": "NW-0006",
+     "qty": 20,
+     "rate": "18.75"
+    },
+    {
+     "item_code": "NW-0014",
+     "qty": 20,
+     "rate": "17.44"
+    },
+    {
+     "item_code": "NW-0019",
+     "qty": 10,
+     "rate": "6.90"
+    }
+   ]
+  },
+  {
+   "po_no": "NW-11077",
+   "customer_code": "RATTC",
+   "transaction_date": "2026-05-06",
+   "delivery_date": "2026-06-03",
+   "lines": [
+    {
+     "item_code": "NW-0002",
+     "qty": 24,
+     "rate": "15.20"
+    },
+    {
+     "item_code": "NW-0003",
+     "qty": 4,
+     "rate": "10.00"
+    },
+    {
+     "item_code": "NW-0004",
+     "qty": 1,
+     "rate": "22.00"
+    },
+    {
+     "item_code": "NW-0006",
+     "qty": 1,
+     "rate": "24.50"
+    },
+    {
+     "item_code": "NW-0007",
+     "qty": 1,
+     "rate": "28.50"
+    },
+    {
+     "item_code": "NW-0008",
+     "qty": 2,
+     "rate": "36.00"
+    },
+    {
+     "item_code": "NW-0010",
+     "qty": 1,
+     "rate": "31.00"
+    },
+    {
+     "item_code": "NW-0012",
+     "qty": 2,
+     "rate": "36.10"
+    },
+    {
+     "item_code": "NW-0013",
+     "qty": 4,
+     "rate": "6.00"
+    },
+    {
+     "item_code": "NW-0014",
+     "qty": 1,
+     "rate": "22.55"
+    },
+    {
+     "item_code": "NW-0016",
+     "qty": 2,
+     "rate": "16.93"
+    },
+    {
+     "item_code": "NW-0020",
+     "qty": 1,
+     "rate": "77.76"
+    },
+    {
+     "item_code": "NW-0023",
+     "qty": 2,
+     "rate": "9.00"
+    },
+    {
+     "item_code": "NW-0032",
+     "qty": 1,
+     "rate": "32.00"
+    },
+    {
+     "item_code": "NW-0039",
+     "qty": 2,
+     "rate": "17.10"
+    },
+    {
+     "item_code": "NW-0041",
+     "qty": 3,
+     "rate": "9.65"
+    },
+    {
+     "item_code": "NW-0046",
+     "qty": 3,
+     "rate": "11.76"
+    },
+    {
+     "item_code": "NW-0052",
+     "qty": 2,
+     "rate": "7.00"
+    },
+    {
+     "item_code": "NW-0055",
+     "qty": 2,
+     "rate": "24.00"
+    },
+    {
+     "item_code": "NW-0060",
+     "qty": 2,
+     "rate": "31.96"
+    },
+    {
+     "item_code": "NW-0064",
+     "qty": 2,
+     "rate": "32.25"
+    },
+    {
+     "item_code": "NW-0066",
+     "qty": 1,
+     "rate": "17.00"
+    },
+    {
+     "item_code": "NW-0073",
+     "qty": 2,
+     "rate": "14.85"
+    },
+    {
+     "item_code": "NW-0075",
+     "qty": 4,
+     "rate": "7.75"
+    },
+    {
+     "item_code": "NW-0077",
+     "qty": 2,
+     "rate": "13.00"
+    }
+   ]
+  }
+ ],
+ "enterprise_workflows": {
+   "metadata": {
+     "dataset_id": "enterprise-operations",
+     "version": 1,
+     "as_of_date": "2026-08-05",
+     "description": "Reusable synthetic operational data for renewal, preventive-maintenance, expense-audit, and payroll-cutoff workflows."
+   },
+   "crm": {
+     "companies": [
+       {
+         "account_code": "ACCT-4101",
+         "name": "Northstar Analytics",
+         "domain": "northstar-analytics.example",
+         "employees": 420
+       },
+       {
+         "account_code": "ACCT-4102",
+         "name": "Northstar Analytics Group",
+         "domain": "northstar-group.example",
+         "employees": 38
+       },
+       {
+         "account_code": "ACCT-4103",
+         "name": "Harbor Health Systems",
+         "domain": "harbor-health.example",
+         "employees": 1250
+       },
+       {
+         "account_code": "ACCT-4104",
+         "name": "Meridian Robotics",
+         "domain": "meridian-robotics.example",
+         "employees": 310
+       },
+       {
+         "account_code": "ACCT-4105",
+         "name": "Pinecrest Foods",
+         "domain": "pinecrest-foods.example",
+         "employees": 780
+       },
+       {
+         "account_code": "ACCT-4106",
+         "name": "Solace Energy",
+         "domain": "solace-energy.example",
+         "employees": 560
+       }
+     ],
+     "opportunities": [
+       {
+         "opportunity_code": "REN-26001",
+         "name": "Northstar Analytics 2026 Renewal",
+         "account_code": "ACCT-4101",
+         "amount_usd": 84000,
+         "stage": "MEETING",
+         "close_date": "2026-09-15",
+         "scenario_role": "case"
+       },
+       {
+         "opportunity_code": "REN-26002",
+         "name": "Northstar Analytics Group 2026 Renewal",
+         "account_code": "ACCT-4102",
+         "amount_usd": 12000,
+         "stage": "SCREENING",
+         "close_date": "2026-10-01",
+         "scenario_role": "wrong-name-twin"
+       },
+       {
+         "opportunity_code": "REN-26003",
+         "name": "Harbor Health 2026 Renewal",
+         "account_code": "ACCT-4103",
+         "amount_usd": 156000,
+         "stage": "PROPOSAL",
+         "close_date": "2026-08-31",
+         "scenario_role": "boundary"
+       },
+       {
+         "opportunity_code": "REN-26004",
+         "name": "Meridian Robotics 2026 Renewal",
+         "account_code": "ACCT-4104",
+         "amount_usd": 68000,
+         "stage": "MEETING",
+         "close_date": "2026-09-30",
+         "scenario_role": "case"
+       },
+       {
+         "opportunity_code": "REN-26005",
+         "name": "Pinecrest Foods 2026 Renewal",
+         "account_code": "ACCT-4105",
+         "amount_usd": 99000,
+         "stage": "NEW",
+         "close_date": "2026-10-15",
+         "scenario_role": "case"
+       },
+       {
+         "opportunity_code": "REN-26006",
+         "name": "Solace Energy 2026 Renewal",
+         "account_code": "ACCT-4106",
+         "amount_usd": 112000,
+         "stage": "CUSTOMER",
+         "close_date": "2026-07-31",
+         "scenario_role": "already-processed"
+       },
+       {
+         "opportunity_code": "EXP-26001",
+         "name": "Northstar Analytics Data Platform Expansion",
+         "account_code": "ACCT-4101",
+         "amount_usd": 36000,
+         "stage": "NEW",
+         "close_date": "2026-11-30",
+         "scenario_role": "expansion"
+       }
+     ]
+   },
+   "accounts_receivable": {
+     "service_item": {
+       "item_code": "SV-PLATFORM-ANNUAL",
+       "name": "Annual Platform Subscription"
+     },
+     "invoices": [
+       {
+         "invoice_reference": "AR-26001",
+         "account_code": "ACCT-4101",
+         "posting_date": "2026-06-05",
+         "due_date": "2026-07-05",
+         "amount_usd": 18000,
+         "paid_usd": 0,
+         "scenario_role": "31-days-overdue"
+       },
+       {
+         "invoice_reference": "AR-26002",
+         "account_code": "ACCT-4102",
+         "posting_date": "2026-07-10",
+         "due_date": "2026-08-09",
+         "amount_usd": 3000,
+         "paid_usd": 0,
+         "scenario_role": "wrong-name-twin"
+       },
+       {
+         "invoice_reference": "AR-26003",
+         "account_code": "ACCT-4103",
+         "posting_date": "2026-06-06",
+         "due_date": "2026-07-06",
+         "amount_usd": 32000,
+         "paid_usd": 0,
+         "scenario_role": "30-days-boundary"
+       },
+       {
+         "invoice_reference": "AR-26004",
+         "account_code": "ACCT-4104",
+         "posting_date": "2026-07-02",
+         "due_date": "2026-08-01",
+         "amount_usd": 14000,
+         "paid_usd": 6000,
+         "scenario_role": "partial-payment"
+       },
+       {
+         "invoice_reference": "AR-26005",
+         "account_code": "ACCT-4105",
+         "posting_date": "2026-07-15",
+         "due_date": "2026-08-14",
+         "amount_usd": 21000,
+         "paid_usd": 21000,
+         "scenario_role": "paid"
+       },
+       {
+         "invoice_reference": "AR-26006",
+         "account_code": "ACCT-4106",
+         "posting_date": "2026-05-01",
+         "due_date": "2026-05-31",
+         "amount_usd": 26000,
+         "paid_usd": 0,
+         "scenario_role": "already-processed"
+       }
+     ]
+   },
+   "maintenance_inventory": {
+     "item_group": "Fleet Maintenance Kits",
+     "kits": [
+       {
+         "item_code": "MNT-KIT-VAN-A",
+         "name": "Cargo Van Preventive Maintenance Kit",
+         "vehicle_class": "cargo-van",
+         "on_hand": 4,
+         "reserved": 1,
+         "valuation_rate": "86.00"
+       },
+       {
+         "item_code": "MNT-KIT-TRK-B",
+         "name": "Medium Truck Preventive Maintenance Kit",
+         "vehicle_class": "medium-truck",
+         "on_hand": 2,
+         "reserved": 2,
+         "valuation_rate": "145.00"
+       },
+       {
+         "item_code": "MNT-KIT-EV-C",
+         "name": "Electric Van Inspection Kit",
+         "vehicle_class": "electric-van",
+         "on_hand": 8,
+         "reserved": 0,
+         "valuation_rate": "62.00"
+       }
+     ]
+   }
+ }
+}

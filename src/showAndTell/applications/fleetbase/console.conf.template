@@ -1,0 +1,40 @@
+server {
+    listen 4200;
+    server_name localhost;
+
+    root /usr/share/nginx/html;
+
+    # Fleetbase Console 0.7.52 compiles its browser API and SocketCluster
+    # origins as empty defaults and disables its runtime-config loader. Patch
+    # those two exact build constants at the web-server boundary so the pinned
+    # upstream image uses the browser-visible ports supplied by the harness.
+    location /assets/ {
+        try_files $uri =404;
+        sub_filter_types application/javascript;
+        sub_filter_once off;
+        sub_filter 'API:{host:"",namespace:"int/v1"}' 'API:{host:"${SHOWANDTELL_FLEETBASE_API_PUBLIC_URL}",namespace:"int/v1"}';
+        sub_filter 'socket:{path:"/socketcluster/",hostname:"",secure:!0,port:"38000"}' 'socket:{path:"/socketcluster/",hostname:"${SHOWANDTELL_FLEETBASE_SOCKET_HOST}",secure:${SHOWANDTELL_FLEETBASE_SOCKET_SECURE},port:"${SHOWANDTELL_FLEETBASE_SOCKET_PORT}"}';
+        add_header Cache-Control "no-store";
+    }
+
+    location / {
+        try_files $uri $uri/ /index.html =404;
+        sub_filter_once off;
+        # The pinned multi-architecture image ships a different console bundle
+        # on amd64 and arm64. The asset response above intentionally rewrites
+        # either bundle, so its upstream SRI digest no longer matches. Remove
+        # SRI only from those two pinned console bundles and add a cache key;
+        # leave every unmodified asset protected.
+        sub_filter 'assets/@fleetbase/console-23a317771662ce487f76c8d7d9ff9eb1.js' 'assets/@fleetbase/console-23a317771662ce487f76c8d7d9ff9eb1.js?showAndTell-config=v1';
+        sub_filter ' integrity="sha256-NE40+PTHJ74u9mDrTgNFfDpGOTNWbYLCDHHRbr6j2t4= sha512-GBY8brSKGa6R2b1aWHioESDwThaaSLBDgzG112pzijxQ7jGU8kKCesvp5M7fFuyxL+3QmeWSSDi9Fpa3XwnNWg=="' '';
+        sub_filter 'assets/@fleetbase/console-cf659853406bff7848f68d5b18dadbb7.js' 'assets/@fleetbase/console-cf659853406bff7848f68d5b18dadbb7.js?showAndTell-config=v1';
+        sub_filter ' integrity="sha256-gCuHgc3OCw03A5wNCWqtNfVdZRFhU9VRzTFbuloZKrA= sha512-SlvSKIftcATXV4scvThYloezHDj4QNMhYQimLRYMEosQKfMBwt8h89UdHN+wfTG870igov4ASRpmPG7/RKiYDw=="' '';
+        add_header Cache-Control "no-store";
+    }
+
+    location = /fleetbase.config.json {
+        default_type application/json;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+        return 200 '{"API_HOST":"${SHOWANDTELL_FLEETBASE_API_PUBLIC_URL}","API_NAMESPACE":"int/v1","SOCKETCLUSTER_HOST":"${SHOWANDTELL_FLEETBASE_SOCKET_HOST}","SOCKETCLUSTER_PORT":"${SHOWANDTELL_FLEETBASE_SOCKET_PORT}","SOCKETCLUSTER_SECURE":"${SHOWANDTELL_FLEETBASE_SOCKET_SECURE}"}';
+    }
+}
