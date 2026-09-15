@@ -7,7 +7,7 @@
 [![Python 3.12+](https://img.shields.io/badge/Python-3.12%2B-3776AB?logo=python&logoColor=white)](pyproject.toml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-2ea44f.svg)](LICENSE)
 
-[Quick start](#quick-start) · [Why ShowAndTell](#why-showAndTell) · [Run a benchmark](#run-a-benchmark) · [Add a task](#add-a-task) · [Contribute](CONTRIBUTING.md)
+[Research site & results](https://bracketthq.github.io/showAndTell-arena/) · [Quick start](#quick-start) · [Why ShowAndTell](#why-showAndTell) · [Run a benchmark](#run-a-benchmark) · [Add a task](#add-a-task) · [Contribute](CONTRIBUTING.md)
 
 
 <sub>Pick a task, choose a product, and follow the run from setup through evaluation.</sub>

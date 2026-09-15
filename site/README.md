@@ -4,11 +4,11 @@ This portable static publication makes AEI the main subject, with Show & Tell as
 
 ## Preview and deploy
 
-Serve `site/` with any static web server. All local URLs are relative, so the site works at both a generated private Pages root and the eventual public `/showAndTell-arena/` path.
+The public research site is [https://bracketthq.github.io/showAndTell-arena/](https://bracketthq.github.io/showAndTell-arena/). GitHub Pages and the repository are public, verified 15 September 2026. Use this address in emails, links, and sharing metadata. The generated private preview host is retired.
 
-The `AEI research site` workflow uploads **only `site/`**. It runs on publication changes to `main`. The GitHub Pages site is configured private. Repository visibility alone does not protect a Pages site; keep the Pages `public` setting false until launch is explicitly approved. Preview also uses a noindex meta tag and robots exclusion, which are not access controls.
+Serve `site/` with any static web server for local review. Asset links are relative; the canonical URL, Open Graph URL, and sitemap identify the public address. The site permits crawling and indexing. Search engines and email previews may take time to refresh cached information.
 
-For a public launch, explicitly change Pages visibility, remove the noindex meta tag and robots exclusion, and update the corresponding preview-only check.
+The `AEI research site` workflow uploads **only `site/`** and deploys publication changes from `main`. Run `python3 scripts/check_public_repo.py` and `python3 scripts/check_site.py` before pushing. The latter checks public URL metadata and indexing settings as well as content integrity. Preserve the release's exclusions; internal reference files do not belong in the deployment.
 
 ## Sources
 

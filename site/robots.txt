@@ -1,2 +1,4 @@
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://bracketthq.github.io/showAndTell-arena/sitemap.xml

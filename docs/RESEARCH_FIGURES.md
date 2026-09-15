@@ -122,7 +122,7 @@ git diff --check
 
 The publication defaults to light backgrounds. Preserve SVG text and its browser font fallback; PNGs are available for slides and documents. Keep untested heatmap cells visually distinct from zero.
 
-A push to `main` touching `site/**` deploys the private Pages preview. Follow the user's publishing instructions, keep the same branch unless directed otherwise, and verify the workflow finishes. Keep public launch and repository visibility changes separate from refreshing figures.
+A push to `main` touching `site/**` deploys the public research site at [https://bracketthq.github.io/showAndTell-arena/](https://bracketthq.github.io/showAndTell-arena/). Verify that the workflow finishes and the live site serves the expected revision. Keep the canonical URL, share metadata, robots file, and sitemap aligned with this public address.
 
 The site check rejects spreadsheet workbooks in the deployment directory and private paper-source paths or repository links in text assets, including the deployed README. Keep the original workbook outside this repository; the ignore rule also prevents ordinary accidental staging under its designated filename.
 

@@ -68,7 +68,17 @@ def main(site=None):
     assert len(page.ids) == len(set(page.ids)), "Duplicate HTML IDs"
     assert page.headings.count("h1") == 1, "Use one page heading"
     assert 'name="color-scheme" content="light"' in html
-    assert 'name="robots" content="noindex, nofollow"' in html, "Private preview must remain noindex"
+    public_url = "https://bracketthq.github.io/showAndTell-arena/"
+    assert 'noindex' not in html.lower(), "Public research site must allow indexing"
+    assert f'<link rel="canonical" href="{public_url}">' in html
+    assert f'<meta property="og:url" content="{public_url}">' in html
+    robots = (SITE / "robots.txt").read_text()
+    assert not re.search(r'^Disallow:\s*/\s*$', robots, re.MULTILINE), "Public site must allow crawling"
+    assert f'Sitemap: {public_url}sitemap.xml' in robots
+    from xml.etree import ElementTree
+    sitemap = ElementTree.parse(SITE / "sitemap.xml")
+    assert [e.text for e in sitemap.findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}loc')] == [public_url]
+    assert not re.search(r'https?://[^/\s"<>]+\.pages\.github\.io', html), "Do not link the retired private Pages host"
     for link in page.links:
         parsed = urlsplit(link)
         if parsed.scheme or parsed.netloc: continue
